@@ -35,7 +35,7 @@ const saoConfig: GeneratorConfig = {
                     { message: "Npm", value: "npm" },
                 ],
                 type: "select",
-                default: "yarn",
+                default: "npm",
             },
             ...sourcePrompts.prompts,
         ];
