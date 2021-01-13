@@ -23,6 +23,7 @@ const cli = async (): Promise<void> => {
             "plugin source",
             "next-cli-prototype-core",
         )
+        .option("-d, --debug", "output extra logs and skip install scripts")
         .on("--help", () => {
             console.log("\n");
             console.log(
@@ -75,11 +76,14 @@ const cli = async (): Promise<void> => {
     const sao = new SAO({
         generator,
         outDir: projectDir,
-        logLevel: 0,
+        logLevel: program.debug ? 4 : 0,
         appName: projectDir,
-        paths: {
-            templateDir,
-            sourcePath,
+        extras: {
+            debug: !!program.debug,
+            paths: {
+                templateDir,
+                sourcePath,
+            },
         },
     } as any);
 
