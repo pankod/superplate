@@ -9,7 +9,10 @@ import {
 
 const saoConfig: GeneratorConfig = {
     prompts(sao) {
-        const { appName, paths } = sao.opts;
+        const {
+            appName,
+            extras: { paths },
+        } = sao.opts;
 
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         const sourcePrompts = require(path.resolve(
@@ -33,7 +36,7 @@ const saoConfig: GeneratorConfig = {
             throw error;
         }
 
-        const { templateDir, sourcePath } = sao.opts.paths;
+        const { templateDir, sourcePath } = sao.opts.extras.paths;
 
         const actionsArray = [
             {
@@ -111,8 +114,11 @@ const saoConfig: GeneratorConfig = {
         return actionsArray;
     },
     async completed(saoInstance) {
-        saoInstance.gitInit();
-        await saoInstance.npmInstall();
+        const { debug } = saoInstance.opts.extras;
+        if (!debug) {
+            saoInstance.gitInit();
+            await saoInstance.npmInstall();
+        }
 
         saoInstance.showProjectTips();
 

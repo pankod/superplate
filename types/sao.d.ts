@@ -305,9 +305,13 @@ interface IPaths {
     sourcePath: string;
     templateDir: string;
 }
+interface IExtras {
+    debug: boolean;
+    paths: IPaths;
+}
 interface Options$1 {
     appName?: string;
-    paths: IPaths;
+    extras: IExtras;
     outDir?: string;
     logLevel?: number;
     debug?: boolean;

@@ -2,30 +2,36 @@
 
 ### **dev**
 
+# watch and install
 ```bash
 
-# concurrent olarak cli ve template degisikliklerini izleyip derler ve basarili derlemelerde global yukleme yapar
-# artik bu komutu kullanalim terminal kirliligi olusmasin
-npm run dev:all
+# src icindeki degisiklikleri izleyip buildi gunceller, her basarili build sonrasinda paketi global olarak yukler.
+npm run dev:global
+
+# src icindeki degisiklikleri izleyip buildi gunceller.
+npm run dev:cli
 
 ```
 
+# test cli
 ```bash
-npm run dev:cli # src deki degisiklikleri izleyip lib'e derler
-npm run dev:global # her basarili derlemeden sonra paketi npm i -g ile global olarak yukler
-npm run dev:template # template icindeki saofile.ts'i sao icin derler
+
+# cli'i build icerisinden calistirmak icin
+node lib/index.js <project-dir> [options] 
+
+# cli'i global yukledikten sonra calistirmak icin
+next-cli <project-dir> [options]
+
 ```
 
-```bash
-npm run dev:template # template dosyasini izleyip derler
-```
+# debug option
+
+test ederken daha fazla log almak, npm install ve git init scriptlerini atlamak icin `-d` veya `--debug` optionlarini gondererek calistirabiliriz.
 
 ### **build**
 
 ```bash
 npm run build:cli # ./lib'i temizleyip tsc ile build alir
-npm run build:template # template dosyasini derler
-npm run build:all # cli ve template icin build alir
 ```
 
 ### **cli'i calistirma**
@@ -39,8 +45,3 @@ next-cli <project-dir> [options]
 # help
 next-cli --help
 ```
-
-
-## not
-
-development ortamini kurmak icin bir terminal penceresinde `npm run dev:all` calistirip bir diger pencerede `next-cli` diyelim
