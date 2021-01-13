@@ -1,4 +1,6 @@
 import path from "path";
+import validate from "validate-npm-package-name";
+
 import { GeneratorConfig, Action } from "../types/sao";
 import {
     mergePackages,
@@ -44,6 +46,19 @@ const saoConfig: GeneratorConfig = {
         if (sao.answers.name.length === 0) {
             const error = sao.createError("you have to provide app name");
             throw error;
+        }
+
+        const appNameValidation = validate(sao.answers.name);
+
+        if (appNameValidation.warnings) {
+            appNameValidation.warnings.forEach((warn) =>
+                this.logger.warn(warn),
+            );
+        }
+
+        if (appNameValidation.errors) {
+            appNameValidation.errors.forEach((warn) => this.logger.error(warn));
+            process.exit(1);
         }
 
         const { templateDir, sourcePath } = sao.opts.extras.paths;
