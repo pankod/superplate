@@ -27,6 +27,16 @@ const saoConfig: GeneratorConfig = {
                 message: "What will be the name of your app",
                 default: appName,
             },
+            {
+                name: "pm",
+                message: "Package manager:",
+                choices: [
+                    { message: "Yarn", value: "yarn" },
+                    { message: "Npm", value: "npm" },
+                ],
+                type: "select",
+                default: "npm",
+            },
             ...sourcePrompts.prompts,
         ];
     },
@@ -124,7 +134,7 @@ const saoConfig: GeneratorConfig = {
         const { debug } = saoInstance.opts.extras;
         if (!debug) {
             saoInstance.gitInit();
-            await saoInstance.npmInstall();
+            await saoInstance.npmInstall({ npmClient: this.answers.pm });
         }
 
         saoInstance.showProjectTips();
