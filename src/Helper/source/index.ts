@@ -22,7 +22,7 @@ export const get_source: GetSourceFn = async (source) => {
     sourceSpinner.start();
     const sourcePath =
         source === "next-cli-prototype-core"
-            ? "https://github.com/pankod/next-cli-prototype-core-plugins.git"
+            ? "https://github.com/pankod/next-cli-core-plugins.git"
             : source;
 
     const isPathExists = await FSHelper.IsPathExists(sourcePath);
