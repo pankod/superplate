@@ -42,6 +42,14 @@ const saoConfig: GeneratorConfig = {
             ...sourcePrompts.prompts,
         ];
     },
+    data(sao) {
+        const pmRun = sao.answers.pm === "yarn" ? "yarn" : "npm run";
+
+        return {
+            ...sao.answers,
+            pmRun,
+        };
+    },
     async actions(sao) {
         if (sao.answers.name.length === 0) {
             const error = sao.createError("you have to provide app name");
@@ -89,8 +97,6 @@ const saoConfig: GeneratorConfig = {
 
         const selectedPlugins = getPluginsArray(pluginAnswers);
 
-        console.log(selectedPlugins);
-
         actionsArray.push(
             ...selectedPlugins.map((plugin: string) => {
                 return {
@@ -102,6 +108,9 @@ const saoConfig: GeneratorConfig = {
                         "package.json": false,
                         "package.js": false,
                     },
+                    data() {
+                        return sao.data;
+                    }
                 };
             }),
         );
@@ -133,8 +142,6 @@ const saoConfig: GeneratorConfig = {
                 };
             },
         });
-
-        console.log(actionsArray);
 
         return actionsArray;
     },
