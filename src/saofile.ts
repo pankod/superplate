@@ -7,6 +7,7 @@ import {
     concatExtend,
     extendBase,
     getPluginsArray,
+    mergeJSONFiles,
 } from "@Helper";
 
 const saoConfig: GeneratorConfig = {
@@ -107,10 +108,11 @@ const saoConfig: GeneratorConfig = {
                         "extend.js": false,
                         "package.json": false,
                         "package.js": false,
+                        "tsconfig.json": false,
                     },
                     data() {
                         return sao.data;
-                    }
+                    },
                 };
             }),
         );
@@ -120,6 +122,19 @@ const saoConfig: GeneratorConfig = {
             files: "package.json",
             handler(data: Record<string, unknown>) {
                 return mergePackages(data, sourcePath, selectedPlugins);
+            },
+        });
+
+        actionsArray.push({
+            type: "modify" as const,
+            files: "tsconfig.json",
+            handler(data: Record<string, unknown>) {
+                return mergeJSONFiles(
+                    data,
+                    sourcePath,
+                    selectedPlugins,
+                    "tsconfig.json",
+                );
             },
         });
 

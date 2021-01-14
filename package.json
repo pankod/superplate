@@ -12,7 +12,7 @@
     "scripts": {
         "dev:cli": "nodemon --watch src -e ts --ignore lib --exec npm run build:cli",
         "dev:global": "nodemon --watch src -e ts --ignore lib --exec \"npm run build:cli & npm run global\"",
-        "build:cli": "npm run clean:cli && tsc && babel src --out-dir lib --extensions \".ts,.js\" --source-maps inline",
+        "build:cli": "npm run clean:cli && tsc && babel src --out-dir lib --extensions \".ts,.js,.json\" --source-maps inline",
         "clean:cli": "rm -rf ./lib",
         "global": "npm i -g --quiet",
         "test": "jest"
