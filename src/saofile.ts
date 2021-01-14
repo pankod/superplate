@@ -3,7 +3,7 @@ import validate from "validate-npm-package-name";
 import { exec } from "child_process";
 import { promisify } from "util";
 
-import { GeneratorConfig, Action } from "../types/sao";
+import { GeneratorConfig, Action } from "../@types/sao";
 import {
     mergePackages,
     concatExtend,
