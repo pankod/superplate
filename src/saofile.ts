@@ -3,7 +3,7 @@ import validate from "validate-npm-package-name";
 import { exec } from "child_process";
 import { promisify } from "util";
 
-import { GeneratorConfig, Action } from "../types/sao";
+import { GeneratorConfig, Action } from "../@types/sao";
 import {
     mergePackages,
     concatExtend,
@@ -36,8 +36,8 @@ const saoConfig: GeneratorConfig = {
                 name: "pm",
                 message: "Package manager:",
                 choices: [
-                    { message: "Yarn", value: "yarn" },
                     { message: "Npm", value: "npm" },
+                    { message: "Yarn", value: "yarn" },
                 ],
                 type: "select",
                 default: "npm",
