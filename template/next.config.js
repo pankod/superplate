@@ -8,5 +8,4 @@ module.exports = withPlugins([
     <%_ if (css_features === 'less') { _%>
         [withLess, { cssModules: true }],
     <%_ } _%>
-  
 ]);
