@@ -1,7 +1,7 @@
 import path from "path";
 import validate from "validate-npm-package-name";
 
-import { GeneratorConfig, Action } from "../types/sao";
+import { GeneratorConfig, Action } from "../@types/sao";
 import {
     mergePackages,
     concatExtend,
