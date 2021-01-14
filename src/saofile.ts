@@ -20,7 +20,7 @@ const saoConfig: GeneratorConfig = {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         const sourcePrompts = require(path.resolve(
             paths.sourcePath,
-            "prompt.json",
+            "prompt.js",
         ));
 
         return [
@@ -40,7 +40,7 @@ const saoConfig: GeneratorConfig = {
                 type: "select",
                 default: "npm",
             },
-            ...sourcePrompts.prompts,
+            ...(sourcePrompts?.prompts ?? []),
         ];
     },
     data(sao) {
