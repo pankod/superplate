@@ -1,3 +1,4 @@
+import React from 'react';
 <%- _app.import.join("\n") %>
 
 <%
