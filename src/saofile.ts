@@ -1,5 +1,7 @@
 import path from "path";
 import validate from "validate-npm-package-name";
+import { exec } from "child_process";
+import { promisify } from "util";
 
 import { GeneratorConfig, Action } from "../types/sao";
 import {
@@ -166,6 +168,10 @@ const saoConfig: GeneratorConfig = {
             saoInstance.gitInit();
             await saoInstance.npmInstall({ npmClient: this.answers.pm });
         }
+
+        await promisify(exec)(
+            `./node_modules/prettier/bin-prettier.js ${saoInstance.outDir} --write`,
+        );
 
         saoInstance.showProjectTips();
 
