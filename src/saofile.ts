@@ -34,8 +34,8 @@ const saoConfig: GeneratorConfig = {
                 name: "pm",
                 message: "Package manager:",
                 choices: [
-                    { message: "Yarn", value: "yarn" },
                     { message: "Npm", value: "npm" },
+                    { message: "Yarn", value: "yarn" },
                 ],
                 type: "select",
                 default: "npm",
