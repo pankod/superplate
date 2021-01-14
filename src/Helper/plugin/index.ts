@@ -29,15 +29,19 @@ export const extendBase: Required<ExtendType> = {
     },
 };
 
-export const getPluginsArray: (answers: Record<string, any>) => string[] = (
+type Answer = string | string[] | boolean | undefined;
+
+export const getPluginsArray: (answers: Record<string, Answer>) => string[] = (
     answers,
 ) => {
-    const selectedPlugins = (Object.values(answers).reduce((acc, curr) => {
-        if (typeof curr === "string") return [...acc, curr];
-        if (Array.isArray(curr)) return [...acc, ...curr];
-    }, []) as string[]).filter((value: string) => value !== "none");
-
-    return selectedPlugins;
+    return Object.entries(answers)
+        .reduce((acc: string[], [key, value]) => {
+            if (typeof value === "boolean" && value) return [...acc, key];
+            if (typeof value === "string") return [...(acc as string[]), value];
+            if (Array.isArray(value)) return [...(acc as string[]), ...value];
+            return acc;
+        }, [])
+        .filter((value: string) => value !== "none");
 };
 
 export const getExtend: (
