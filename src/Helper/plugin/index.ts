@@ -8,8 +8,7 @@ type ExtendType = {
     };
     _document: {
         import: string[];
-        inner: string[];
-        wrapper: string[];
+        initialProps: string[];
     };
     [key: string]: {
         [key: string]: string[];
@@ -24,8 +23,7 @@ export const extendBase: Required<ExtendType> = {
     },
     _document: {
         import: [],
-        inner: [],
-        wrapper: [],
+        initialProps: [],
     },
 };
 
@@ -79,11 +77,13 @@ export const concatExtend: (
         if (pluginExtendFile) {
             const pluginExtends = pluginExtendFile.extend(plugins);
             ["_app", "_document"].forEach((fileKey) => {
-                ["import", "inner", "wrapper"].forEach((key) => {
+                (fileKey === "_app"
+                    ? ["import", "inner", "wrapper"]
+                    : ["import", "initialProps"]
+                ).forEach((key) => {
                     if (
-                        pluginExtends?.[fileKey as "_app" | "_document"]?.[
-                            key as "import" | "inner" | "wrapper"
-                        ]
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        (pluginExtends as Record<string, any>)?.[fileKey]?.[key]
                     ) {
                         if (key !== "wrapper") {
                             baseExtend[fileKey][key] = [
