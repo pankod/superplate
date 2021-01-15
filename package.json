@@ -16,7 +16,7 @@
         "clean:cli": "rm -rf ./lib",
         "global": "npm i -g --quiet",
         "test": "jest",
-        "lint": "eslint"
+        "lint": "eslint ."
     },
     "author": "",
     "license": "MIT",
@@ -66,9 +66,7 @@
     },
     "lint-staged": {
         "*.{js,ts,tsx}": [
-            "eslint --quiet --fix",
-            "prettier '**/*ts' --write",
-            "git add"
+            "eslint --quiet --fix"
         ]
     }
 }
