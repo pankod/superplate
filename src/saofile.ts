@@ -10,6 +10,7 @@ import {
     extendBase,
     getPluginsArray,
     mergeJSONFiles,
+    mergeBabel,
 } from "@Helper";
 
 const saoConfig: GeneratorConfig = {
@@ -46,11 +47,31 @@ const saoConfig: GeneratorConfig = {
         ];
     },
     data(sao) {
+        /**
+         * Package Manager
+         */
         const pmRun = sao.answers.pm === "yarn" ? "yarn" : "npm run";
 
+        /**
+         * Extend.js data
+         */
+        const { sourcePath } = sao.opts.extras.paths;
+        const pluginAnswers = { ...sao.answers };
+        delete pluginAnswers.name;
+        const selectedPlugins = getPluginsArray(pluginAnswers);
+        const extendData = (concatExtend(
+            extendBase,
+            selectedPlugins,
+            sourcePath,
+        ) as unknown) as Record<string, unknown>;
+
+        /**
+         * Return
+         */
         return {
             ...sao.answers,
             pmRun,
+            ...extendData,
         };
     },
     async actions(sao) {
@@ -78,10 +99,10 @@ const saoConfig: GeneratorConfig = {
             {
                 type: "add",
                 files: "**",
-                filters: {
-                    "pages/_app.tsx": false,
-                },
                 templateDir,
+                data() {
+                    return sao.data;
+                },
             },
             {
                 type: "move",
@@ -91,6 +112,10 @@ const saoConfig: GeneratorConfig = {
                     "_package.json": "package.json",
                     "_next-env.d.ts": "next-env.d.ts",
                     "_tsconfig.json": "tsconfig.json",
+                    babelrc: ".babelrc",
+                },
+                data() {
+                    return sao.data;
                 },
             },
         ] as Action[];
@@ -111,6 +136,7 @@ const saoConfig: GeneratorConfig = {
                         "package.json": false,
                         "package.js": false,
                         "tsconfig.json": false,
+                        ".babelrc": false,
                         "**/*.scss": sao.answers.css_features === "sass",
                         "**/*.less": sao.answers.css_features === "less",
                     },
@@ -121,6 +147,9 @@ const saoConfig: GeneratorConfig = {
             }),
         );
 
+        /**
+         * package.json handler
+         */
         actionsArray.push({
             type: "modify" as const,
             files: "package.json",
@@ -129,6 +158,9 @@ const saoConfig: GeneratorConfig = {
             },
         });
 
+        /**
+         * tsconfig.json handler
+         */
         actionsArray.push({
             type: "modify" as const,
             files: "tsconfig.json",
@@ -142,23 +174,19 @@ const saoConfig: GeneratorConfig = {
             },
         });
 
+        /**
+         * .babelrc handler
+         */
         actionsArray.push({
-            type: "add" as const,
-            templateDir,
-            files: "pages/_app.tsx",
-            data() {
-                const pluginAnswers = { ...sao.answers };
-                delete pluginAnswers.name;
-
-                const selectedPlugins = getPluginsArray(pluginAnswers);
-
-                return {
-                    ...((concatExtend(
-                        extendBase,
-                        selectedPlugins,
-                        sourcePath,
-                    ) as unknown) as Record<string, unknown>),
-                };
+            type: "modify" as const,
+            files: ".babelrc",
+            async handler(data: string) {
+                const merged = await mergeBabel(
+                    JSON.parse(data),
+                    sourcePath,
+                    selectedPlugins,
+                );
+                return JSON.stringify(merged);
             },
         });
 
