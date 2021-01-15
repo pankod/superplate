@@ -7,5 +7,5 @@ export const UrlHelper = {
     GetGitUrl: (path: string): string => {
         if (path.slice(-4) === ".git") return path;
         return path + ".git";
-    }
+    },
 };

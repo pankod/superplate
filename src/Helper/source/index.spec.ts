@@ -7,7 +7,6 @@ jest.mock("util", () => ({
 }));
 describe("Source Helper", () => {
     it("incorrect source url/path", async () => {
-
         const source = await get_source("alibaba");
         expect(source.error).toBe("Source path not valid");
     });
