@@ -136,6 +136,7 @@ const saoConfig: GeneratorConfig = {
                         "package.json": false,
                         "package.js": false,
                         "tsconfig.json": false,
+                        ".babelrc": false,
                         "**/*.scss": sao.answers.css_features === "sass",
                         "**/*.less": sao.answers.css_features === "less",
                     },
@@ -185,7 +186,6 @@ const saoConfig: GeneratorConfig = {
                     sourcePath,
                     selectedPlugins,
                 );
-                console.log("merged action", merged);
                 return JSON.stringify(merged);
             },
         });
