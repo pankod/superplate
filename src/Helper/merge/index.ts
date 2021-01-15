@@ -58,7 +58,6 @@ const getStringFile = async (
             path.join(pluginPath, "plugins", pluginName, fileName),
             "utf8",
         );
-        console.log(str);
         if (typeof str === "string") {
             return str;
         } else {
@@ -89,7 +88,6 @@ export const mergeBabel: AsyncMergerFn = async (base, pluginsPath, plugins) => {
     const pluginRcs = await plugins.map(async (plugin) => {
         const str = await getStringFile(pluginsPath, plugin, ".babelrc");
         const parsed = JSON.parse(str);
-        console.log(str);
 
         return parsed ?? {};
     });
@@ -103,8 +101,6 @@ export const mergeBabel: AsyncMergerFn = async (base, pluginsPath, plugins) => {
     const presetsSet = new Set((merged.presets as string[]) ?? []);
     presetsSet.forEach((el) => uniquePresets.push(el));
     merged.presets = uniquePresets;
-
-    console.log(merged);
 
     return merged;
 };
