@@ -10,6 +10,7 @@ import {
     extendBase,
     getPluginsArray,
     mergeJSONFiles,
+    mergeBabel,
 } from "@Helper";
 
 const saoConfig: GeneratorConfig = {
@@ -145,6 +146,9 @@ const saoConfig: GeneratorConfig = {
             }),
         );
 
+        /**
+         * package.json handler
+         */
         actionsArray.push({
             type: "modify" as const,
             files: "package.json",
@@ -153,6 +157,9 @@ const saoConfig: GeneratorConfig = {
             },
         });
 
+        /**
+         * tsconfig.json handler
+         */
         actionsArray.push({
             type: "modify" as const,
             files: "tsconfig.json",
@@ -163,6 +170,23 @@ const saoConfig: GeneratorConfig = {
                     selectedPlugins,
                     "tsconfig.json",
                 );
+            },
+        });
+
+        /**
+         * .babelrc handler
+         */
+        actionsArray.push({
+            type: "modify" as const,
+            files: ".babelrc",
+            async handler(data: string) {
+                const merged = await mergeBabel(
+                    JSON.parse(data),
+                    sourcePath,
+                    selectedPlugins,
+                );
+                console.log("merged action", merged);
+                return JSON.stringify(merged);
             },
         });
 
