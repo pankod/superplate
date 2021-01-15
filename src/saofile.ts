@@ -113,6 +113,7 @@ const saoConfig: GeneratorConfig = {
                     "_next-env.d.ts": "next-env.d.ts",
                     "_tsconfig.json": "tsconfig.json",
                     babelrc: ".babelrc",
+                    "_.eslintrc": ".eslintrc",
                 },
                 data() {
                     return sao.data;
