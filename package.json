@@ -15,8 +15,7 @@
         "build:cli": "npm run clean:cli && tsc && babel src --out-dir lib --extensions \".ts,.js,.json\" --source-maps inline",
         "clean:cli": "rm -rf ./lib",
         "global": "npm i -g --quiet",
-        "test": "jest",
-        "prettier": "prettier --write"
+        "test": "jest"
     },
     "author": "",
     "license": "MIT",
