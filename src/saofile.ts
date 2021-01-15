@@ -171,9 +171,7 @@ const saoConfig: GeneratorConfig = {
             await saoInstance.npmInstall({ npmClient: this.answers.pm });
         }
 
-        await promisify(exec)(
-            `./node_modules/prettier/bin-prettier.js ${saoInstance.outDir} --write`,
-        );
+        await promisify(exec)(`npm run prettier -- ${saoInstance.outDir}`);
 
         saoInstance.showProjectTips();
 
