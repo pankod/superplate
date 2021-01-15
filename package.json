@@ -15,7 +15,8 @@
         "build:cli": "npm run clean:cli && tsc && babel src --out-dir lib --extensions \".ts,.js,.json\" --source-maps inline",
         "clean:cli": "rm -rf ./lib",
         "global": "npm i -g --quiet",
-        "test": "jest"
+        "test": "jest",
+        "lint": "eslint"
     },
     "author": "",
     "license": "MIT",
