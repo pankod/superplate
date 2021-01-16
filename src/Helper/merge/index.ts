@@ -1,4 +1,7 @@
 import path from "path";
+import { readFile } from "fs";
+import merge from "deepmerge";
+import { promisify } from "util";
 
 type PkgType = Record<string, unknown>;
 
@@ -18,6 +21,12 @@ type PackageMergerFn = (
     pluginsPath: string,
     plugins: string[],
 ) => Record<string, unknown>;
+
+type AsyncMergerFn = (
+    base: Record<string, unknown>,
+    pluginsPath: string,
+    plugins: string[],
+) => Promise<Record<string, unknown>>;
 
 const getPluginFile: <ReturnType extends any>(
     pluginPath: string,
@@ -39,37 +48,24 @@ const getPluginFile: <ReturnType extends any>(
     }
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const isObject = (value: any) => {
-    return (
-        !!value &&
-        typeof value === "object" &&
-        typeof value.getMonth !== "function" &&
-        !Array.isArray(value)
-    );
-};
-
-const merge: (
-    ...sources: Record<string, unknown>[]
-) => Record<string, unknown> = (...sources) => {
-    const [target, ...rest] = sources;
-
-    for (const object of rest) {
-        for (const key in object) {
-            const targetValue = target[key];
-            const sourceValue = object[key];
-            const isMergable = isObject(targetValue) && isObject(sourceValue);
-            target[key] = isMergable
-                ? merge(
-                      {},
-                      targetValue as Record<string, unknown>,
-                      sourceValue as Record<string, unknown>,
-                  )
-                : sourceValue;
+const getStringFile = async (
+    pluginPath: string,
+    pluginName: string,
+    fileName: string,
+) => {
+    try {
+        const str = await promisify(readFile)(
+            path.join(pluginPath, "plugins", pluginName, fileName),
+            "utf8",
+        );
+        if (typeof str === "string") {
+            return str;
+        } else {
+            return "{}";
         }
+    } catch (e) {
+        return "{}";
     }
-
-    return target;
 };
 
 export const mergeJSONFiles: MergerFn = (
@@ -83,7 +79,30 @@ export const mergeJSONFiles: MergerFn = (
         const file = getPluginFile<PkgType>(pluginsPath, plugin, fileName);
         return file ?? {};
     });
-    return merge(baseFile, ...pluginFiles);
+    return merge.all([baseFile, ...pluginFiles]) as Record<string, unknown>;
+};
+
+export const mergeBabel: AsyncMergerFn = async (base, pluginsPath, plugins) => {
+    const baseBabel = { ...base };
+
+    const pluginRcs = await plugins.map(async (plugin) => {
+        const str = await getStringFile(pluginsPath, plugin, ".babelrc");
+        const parsed = JSON.parse(str);
+
+        return parsed ?? {};
+    });
+
+    const merged = merge.all([baseBabel, ...pluginRcs]) as Record<
+        string,
+        unknown
+    >;
+
+    const uniquePresets: string[] = [];
+    const presetsSet = new Set((merged.presets as string[]) ?? []);
+    presetsSet.forEach((el) => uniquePresets.push(el));
+    merged.presets = uniquePresets;
+
+    return merged;
 };
 
 export const mergePackages: PackageMergerFn = (
@@ -113,5 +132,5 @@ export const mergePackages: PackageMergerFn = (
         return {};
     });
 
-    return merge(basePkg, ...pluginPkgs);
+    return merge.all([basePkg, ...pluginPkgs]) as Record<string, unknown>;
 };

@@ -16,7 +16,7 @@
         "clean:cli": "rm -rf ./lib",
         "global": "npm i -g --quiet",
         "test": "jest",
-        "lint": "eslint"
+        "lint": "eslint ."
     },
     "author": "",
     "license": "MIT",
@@ -24,6 +24,7 @@
         "chalk": "^4.1.0",
         "clear": "^0.1.0",
         "commander": "^6.2.0",
+        "deepmerge": "^4.2.2",
         "fs-extra": "^9.0.1",
         "ora": "^5.1.0",
         "path": "^0.12.7",
@@ -66,9 +67,7 @@
     },
     "lint-staged": {
         "*.{js,ts,tsx}": [
-            "eslint --quiet --fix",
-            "prettier '**/*ts' --write",
-            "git add"
+            "eslint --quiet --fix"
         ]
     }
 }
