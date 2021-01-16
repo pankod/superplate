@@ -111,8 +111,11 @@ const saoConfig: GeneratorConfig = {
                         "package.json": false,
                         "package.js": false,
                         "tsconfig.json": false,
+                        "**/*.css": sao.answers.css_features === "css",
                         "**/*.scss": sao.answers.css_features === "sass",
                         "**/*.less": sao.answers.css_features === "less",
+                        "**/*.stories.tsx":
+                            sao.answers.features === "storybook",
                     },
                     data() {
                         return sao.data;
