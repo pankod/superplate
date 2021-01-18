@@ -14,6 +14,15 @@ const withPlugins = require('next-compose-plugins');
     })
 <%_ } _%>
 
+<%_ if (features.find(f => f === 'reverse-proxy')) { _%>
+    const config = {
+        devServer: {
+            proxy: {
+            '/api': 'http://localhost:3000'
+            }
+        }
+    };
+<%_ } _%>
 
 module.exports = withPlugins(
     [
@@ -38,5 +47,8 @@ module.exports = withPlugins(
         <%_ if (features.find(f => f === "bundle-analyzer")) { _%>
             [withBundleAnalyzer],
         <%_ } _%>
-    ]
+    ],
+    <%_ if (features.find(f => f === "reverse-proxy")) { _%>
+        config,
+    <%_ } _%>
 );
