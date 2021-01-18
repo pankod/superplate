@@ -3,8 +3,25 @@ const withPlugins = require('next-compose-plugins');
 <%_ if (css_features === 'less' || (ui === "antd" && css_features === 'less')) { _%>
     const withLess = require('@zeit/next-less')
 <%_ } _%>
+
 <%_ if (ui === "bootstrap" && css_features === 'less') { _%>
     const withCss = require('@zeit/next-css')
+<%_ } _%>
+
+<%_ if (features.find(f => f === 'bundle-analyzer')) { _%>
+    const withBundleAnalyzer = require('@next/bundle-analyzer')({
+        enabled: process.env.ANALYZE === 'true',
+    })
+<%_ } _%>
+
+<%_ if (features.find(f => f === 'reverse-proxy')) { _%>
+    const config = {
+        devServer: {
+            proxy: {
+            '/api': 'http://localhost:3000'
+            }
+        }
+    };
 <%_ } _%>
 
 module.exports = withPlugins(
@@ -26,5 +43,12 @@ module.exports = withPlugins(
         <%_ if (ui === "bootstrap" && css_features === 'less') { _%>
             [withCss],
         <%_ } _%>
-    ]
+
+        <%_ if (features.find(f => f === "bundle-analyzer")) { _%>
+            [withBundleAnalyzer],
+        <%_ } _%>
+    ],
+    <%_ if (features.find(f => f === "reverse-proxy")) { _%>
+        config,
+    <%_ } _%>
 );
