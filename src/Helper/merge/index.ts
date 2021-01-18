@@ -85,12 +85,14 @@ export const mergeJSONFiles: MergerFn = (
 export const mergeBabel: AsyncMergerFn = async (base, pluginsPath, plugins) => {
     const baseBabel = { ...base };
 
-    const pluginRcs = await plugins.map(async (plugin) => {
-        const str = await getStringFile(pluginsPath, plugin, ".babelrc");
-        const parsed = JSON.parse(str);
+    const pluginRcs = await Promise.all(
+        plugins.map(async (plugin) => {
+            const str = await getStringFile(pluginsPath, plugin, ".babelrc");
+            const parsed = JSON.parse(str);
 
-        return parsed ?? {};
-    });
+            return parsed ?? {};
+        }),
+    );
 
     const merged = merge.all([baseBabel, ...pluginRcs]) as Record<
         string,
