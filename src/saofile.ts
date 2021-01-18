@@ -138,8 +138,12 @@ const saoConfig: GeneratorConfig = {
                         "package.js": false,
                         "tsconfig.json": false,
                         ".babelrc": false,
+                        "**/*.css": sao.answers.css_features === "css",
                         "**/*.scss": sao.answers.css_features === "sass",
                         "**/*.less": sao.answers.css_features === "less",
+                        "**/*.stories.tsx": sao.answers.features.includes(
+                            "storybook",
+                        ),
                     },
                     data() {
                         return sao.data;
