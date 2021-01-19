@@ -1,6 +1,6 @@
 groups:
   - name: devs
-    reviewers: 2
+    reviewers: 4
     usernames:
       - omeraplak
       - burcukaragozzz
