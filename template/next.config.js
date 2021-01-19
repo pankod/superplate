@@ -19,7 +19,7 @@ const withPlugins = require('next-compose-plugins');
 <%_ } _%>
 
 <%_ if (i18n === 'next-i18next') { _%>
-    const { nextI18NextRewrites } = require('next-i18next/rewrites')
+    const { nextI18NextRewrites } = require('next-i18next/rewrites');
 
     const localeSubpaths = {
         tr: 'tr',
