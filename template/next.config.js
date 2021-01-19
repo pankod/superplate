@@ -18,15 +18,30 @@ const withPlugins = require('next-compose-plugins');
     const nextTranslate = require('next-translate')
 <%_ } _%>
 
-<%_ if (features.find(f => f === 'reverse-proxy')) { _%>
-    const config = {
-        devServer: {
-            proxy: {
-            '/api': 'http://localhost:3000'
-            }
-        }
-    };
+<%_ if (i18n === 'next-i18next') { _%>
+    const { nextI18NextRewrites } = require('next-i18next/rewrites')
+
+    const localeSubpaths = {
+        tr: 'tr',
+        en: 'en'
+    }
 <%_ } _%>
+
+const config = {
+<%_ if (features.find(f => f === 'reverse-proxy')) { _%>
+    devServer: {
+        proxy: {
+        '/api': 'http://localhost:3000'
+        }
+    }, 
+<%_ } _%>
+<%_ if (i18n === 'next-i18next') { _%>
+    rewrites: async () => nextI18NextRewrites(localeSubpaths),
+    publicRuntimeConfig: {
+      localeSubpaths,
+    },
+<%_ } _%>
+};
 
 module.exports = withPlugins(
     [

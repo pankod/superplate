@@ -16,4 +16,8 @@ function MyApp({ Component, pageProps }) {
     );
 }
 
+<%_ if(i18n === 'next-i18next') { _%>
+export default appWithTranslation(MyApp);
+<%_ } else { _%>
 export default MyApp;
+<%_ } _%>
