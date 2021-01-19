@@ -195,6 +195,24 @@ const saoConfig: GeneratorConfig = {
             },
         });
 
+        /**
+         * Remove *.spec.ts and *.spec.tsx when testing === 'none'
+         * Remove only *.spec.tsx when testing === 'jest'
+         */
+        if (pluginAnswers.testing === "none") {
+            actionsArray.push({
+                type: "remove",
+                files: "**/*.@(spec|test).@(ts|tsx)",
+                when: "testing",
+            });
+        } else if (pluginAnswers.testing === "jest") {
+            actionsArray.push({
+                type: "remove",
+                files: "**/*.@(spec|test).@(tsx)",
+                when: "testing",
+            });
+        }
+
         return actionsArray;
     },
     async completed(saoInstance) {
