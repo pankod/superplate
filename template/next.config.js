@@ -14,6 +14,10 @@ const withPlugins = require('next-compose-plugins');
     })
 <%_ } _%>
 
+<%_ if (i18n === 'next-translate') { _%>
+    const nextTranslate = require('next-translate')
+<%_ } _%>
+
 <%_ if (features.find(f => f === 'reverse-proxy')) { _%>
     const config = {
         devServer: {
@@ -46,6 +50,10 @@ module.exports = withPlugins(
 
         <%_ if (features.find(f => f === "bundle-analyzer")) { _%>
             [withBundleAnalyzer],
+        <%_ } _%>
+
+        <%_ if (i18n === 'next-translate') { _%>
+            [nextTranslate],
         <%_ } _%>
     ],
     <%_ if (features.find(f => f === "reverse-proxy")) { _%>
