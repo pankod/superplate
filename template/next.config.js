@@ -71,7 +71,5 @@ module.exports = withPlugins(
             [nextTranslate],
         <%_ } _%>
     ],
-    <%_ if (features.find(f => f === "reverse-proxy")) { _%>
-        config,
-    <%_ } _%>
+    config,
 );
