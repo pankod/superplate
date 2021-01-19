@@ -15,7 +15,7 @@ const withPlugins = require('next-compose-plugins');
 <%_ } _%>
 
 <%_ if (i18n === 'next-translate') { _%>
-    const nextTranslate = require('next-translate')
+    const nextTranslate = require('next-translate');
 <%_ } _%>
 
 <%_ if (i18n === 'next-i18next') { _%>
