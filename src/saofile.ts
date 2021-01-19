@@ -224,6 +224,18 @@ const saoConfig: GeneratorConfig = {
 
         await promisify(exec)(`npx prettier ${saoInstance.outDir} --write`);
 
+        if (!debug) {
+            // add
+            await promisify(exec)(
+                `git --git-dir=${saoInstance.outDir}/.git/ --work-tree=${saoInstance.outDir}/ add -A`,
+            );
+            // commit
+            await promisify(exec)(
+                `git --git-dir=${saoInstance.outDir}/.git/ --work-tree=${saoInstance.outDir}/ commit -m 'initial commit with next-cli'`,
+            );
+            saoInstance.logger.info("created an initial commit.");
+        }
+
         saoInstance.showProjectTips();
 
         saoInstance.logger.tip(`to start dev server, run commands below`);
