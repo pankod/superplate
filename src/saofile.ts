@@ -233,13 +233,13 @@ const saoConfig: GeneratorConfig = {
         if (pluginAnswers.testing === "none") {
             actionsArray.push({
                 type: "remove",
-                files: "**/*.@(spec|test).@(ts|tsx)",
+                files: "**/!(node_modules)/*.@(spec|test).@(ts|tsx)",
                 when: "testing",
             });
         } else if (pluginAnswers.testing === "jest") {
             actionsArray.push({
                 type: "remove",
-                files: "**/*.@(spec|test).@(tsx)",
+                files: "**/!(node_modules)/*.@(spec|test).@(tsx)",
                 when: "testing",
             });
         }
