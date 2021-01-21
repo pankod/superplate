@@ -139,7 +139,7 @@ const saoConfig: GeneratorConfig = {
                         "package.js": false,
                         "tsconfig.json": false,
                         ".babelrc": false,
-                        "data.json": false,
+                        "meta.json": false,
                         "**/*.css": sao.answers.css_features === "css",
                         "**/*.scss": sao.answers.css_features === "scss",
                         "**/*.less": sao.answers.css_features === "less",
@@ -168,17 +168,17 @@ const saoConfig: GeneratorConfig = {
         } as Action);
 
         /**
-         * data.json handler
+         * meta.json handler
          */
         actionsArray.push({
             type: "modify" as const,
-            files: "public/data.json",
+            files: "public/meta.json",
             handler(data: Record<string, unknown>) {
                 return mergePluginData(
                     data,
                     sourcePath,
                     selectedPlugins,
-                    "data.json",
+                    "meta.json",
                 );
             },
         });
