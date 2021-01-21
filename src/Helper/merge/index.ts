@@ -82,6 +82,24 @@ export const mergeJSONFiles: MergerFn = (
     return merge.all([baseFile, ...pluginFiles]) as Record<string, unknown>;
 };
 
+export const mergePluginData: MergerFn = (
+    base = {},
+    pluginsPath,
+    plugins,
+    fileName,
+) => {
+    const baseFile = { ...base };
+    const pluginFiles = plugins.map((plugin) => {
+        const file = getPluginFile<PkgType>(pluginsPath, plugin, fileName);
+        return file ?? {};
+    });
+    baseFile.plugins = pluginFiles.map((plugin) => ({
+        name: plugin.name ?? plugin,
+        description: plugin.description ?? "",
+    }));
+    return baseFile;
+};
+
 export const mergeBabel: AsyncMergerFn = async (base, pluginsPath, plugins) => {
     const baseBabel = { ...base };
 
