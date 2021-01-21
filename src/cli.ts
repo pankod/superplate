@@ -3,7 +3,7 @@ import clear from "clear";
 import path from "path";
 import commander from "commander";
 import { cleanupSync } from "temp";
-import { SAO } from "sao";
+import { Options, SAO } from "sao";
 
 import { get_source } from "@Helper";
 
@@ -76,7 +76,7 @@ const cli = async (): Promise<void> => {
     const sao = new SAO({
         generator,
         outDir: projectDir,
-        logLevel: program.debug ? 4 : 0,
+        logLevel: program.debug ? 4 : 1,
         appName: projectDir,
         extras: {
             debug: !!program.debug,
@@ -85,15 +85,12 @@ const cli = async (): Promise<void> => {
                 sourcePath,
             },
         },
-    } as any);
+    } as Options);
 
-    await sao
-        .run()
-        .then((e) => console.log(e))
-        .catch((err) => {
-            console.log(err);
-            process.exit(1);
-        });
+    await sao.run().catch((err) => {
+        console.log(err);
+        process.exit(1);
+    });
 
     cleanupSync();
 };

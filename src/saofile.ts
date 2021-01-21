@@ -11,6 +11,7 @@ import {
     getPluginsArray,
     mergeJSONFiles,
     mergeBabel,
+    tips,
 } from "@Helper";
 
 const saoConfig: GeneratorConfig = {
@@ -227,15 +228,30 @@ const saoConfig: GeneratorConfig = {
 
         return actionsArray;
     },
+    async prepare() {
+        tips.preInstall();
+    },
     async completed(saoInstance) {
         const { debug } = saoInstance.opts.extras;
+        /**
+         * Git init and install packages
+         */
         if (!debug) {
             saoInstance.gitInit();
-            await saoInstance.npmInstall({ npmClient: this.answers.pm });
+            await saoInstance.npmInstall({
+                npmClient: this.answers.pm,
+                installArgs: ["--silent"],
+            });
         }
 
+        /**
+         * Format generated project
+         */
         await promisify(exec)(`npx prettier ${saoInstance.outDir} --write`);
 
+        /**
+         * Create an initial commit
+         */
         if (!debug) {
             // add
             await promisify(exec)(
@@ -248,12 +264,14 @@ const saoConfig: GeneratorConfig = {
             saoInstance.logger.info("created an initial commit.");
         }
 
-        saoInstance.showProjectTips();
-
-        saoInstance.logger.tip(`to start dev server, run commands below`);
-
-        saoInstance.logger.tip(saoInstance.colors.red.bold`npm run dev`);
-        saoInstance.logger.tip(saoInstance.colors.green.bold`npm run build`);
+        /**
+         * Show messages after completion
+         */
+        tips.postInstall({
+            name: saoInstance.opts.appName ?? "",
+            dir: saoInstance.outDir,
+            pm: saoInstance.answers.pm,
+        });
     },
 };
 
