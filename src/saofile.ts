@@ -113,7 +113,6 @@ const saoConfig: GeneratorConfig = {
                     "_next-env.d.ts": "next-env.d.ts",
                     "_tsconfig.json": "tsconfig.json",
                     babelrc: ".babelrc",
-                    "_.eslintrc": ".eslintrc",
                 },
                 data() {
                     return sao.data;
@@ -151,6 +150,19 @@ const saoConfig: GeneratorConfig = {
                 };
             }),
         );
+
+        /**
+         * eslintrc handler
+         */
+        actionsArray.push({
+            type: "move" as const,
+            patterns: {
+                "_.eslintrc": ".eslintrc",
+            },
+            data() {
+                return sao.data;
+            },
+        } as Action);
 
         /**
          * package.json handler
