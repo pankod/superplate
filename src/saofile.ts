@@ -139,6 +139,7 @@ const saoConfig: GeneratorConfig = {
                         "package.js": false,
                         "tsconfig.json": false,
                         ".babelrc": false,
+                        "data.json": false,
                         "**/*.css": sao.answers.css_features === "css",
                         "**/*.scss": sao.answers.css_features === "scss",
                         "**/*.less": sao.answers.css_features === "less",
