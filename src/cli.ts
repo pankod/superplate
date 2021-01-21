@@ -76,7 +76,7 @@ const cli = async (): Promise<void> => {
     const sao = new SAO({
         generator,
         outDir: projectDir,
-        logLevel: program.debug ? 4 : 0,
+        logLevel: program.debug ? 4 : 1,
         appName: projectDir,
         extras: {
             debug: !!program.debug,
@@ -87,13 +87,10 @@ const cli = async (): Promise<void> => {
         },
     } as Options);
 
-    await sao
-        .run()
-        .then((e) => console.log(e))
-        .catch((err) => {
-            console.log(err);
-            process.exit(1);
-        });
+    await sao.run().catch((err) => {
+        console.log(err);
+        process.exit(1);
+    });
 
     cleanupSync();
 };
