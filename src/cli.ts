@@ -3,7 +3,7 @@ import clear from "clear";
 import path from "path";
 import commander from "commander";
 import { cleanupSync } from "temp";
-import { SAO } from "sao";
+import { Options, SAO } from "sao";
 
 import { get_source } from "@Helper";
 
@@ -85,7 +85,7 @@ const cli = async (): Promise<void> => {
                 sourcePath,
             },
         },
-    } as any);
+    } as Options);
 
     await sao
         .run()
