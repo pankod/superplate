@@ -12,6 +12,7 @@ import {
     mergeJSONFiles,
     mergeBabel,
     tips,
+    mergePluginData,
 } from "@Helper";
 
 const saoConfig: GeneratorConfig = {
@@ -164,6 +165,22 @@ const saoConfig: GeneratorConfig = {
                 return sao.data;
             },
         } as Action);
+
+        /**
+         * data.json handler
+         */
+        actionsArray.push({
+            type: "modify" as const,
+            files: "public/data.json",
+            handler(data: Record<string, unknown>) {
+                return mergePluginData(
+                    data,
+                    sourcePath,
+                    selectedPlugins,
+                    "data.json",
+                );
+            },
+        });
 
         /**
          * package.json handler
