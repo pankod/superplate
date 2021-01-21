@@ -12,6 +12,7 @@ import {
     mergeJSONFiles,
     mergeBabel,
     tips,
+    mergePluginData,
 } from "@Helper";
 
 const saoConfig: GeneratorConfig = {
@@ -138,6 +139,7 @@ const saoConfig: GeneratorConfig = {
                         "package.js": false,
                         "tsconfig.json": false,
                         ".babelrc": false,
+                        "meta.json": false,
                         "**/*.css": sao.answers.css_features === "css",
                         "**/*.scss": sao.answers.css_features === "scss",
                         "**/*.less": sao.answers.css_features === "less",
@@ -164,6 +166,22 @@ const saoConfig: GeneratorConfig = {
                 return sao.data;
             },
         } as Action);
+
+        /**
+         * meta.json handler
+         */
+        actionsArray.push({
+            type: "modify" as const,
+            files: "public/meta.json",
+            handler(data: Record<string, unknown>) {
+                return mergePluginData(
+                    data,
+                    sourcePath,
+                    selectedPlugins,
+                    "meta.json",
+                );
+            },
+        });
 
         /**
          * package.json handler
@@ -215,14 +233,25 @@ const saoConfig: GeneratorConfig = {
         if (pluginAnswers.testing === "none") {
             actionsArray.push({
                 type: "remove",
-                files: "**/*.@(spec|test).@(ts|tsx)",
+                files: "**/!(node_modules)/*.@(spec|test).@(ts|tsx)",
                 when: "testing",
             });
         } else if (pluginAnswers.testing === "jest") {
             actionsArray.push({
                 type: "remove",
-                files: "**/*.@(spec|test).@(tsx)",
+                files: "**/!(node_modules)/*.@(spec|test).@(tsx)",
                 when: "testing",
+            });
+        }
+
+        /**
+         * Remove css and scss or styled in components when ui !== 'none'
+         */
+        if (pluginAnswers.ui !== "none") {
+            actionsArray.push({
+                type: "remove",
+                files: "**/src/components/**/@(*.@(c|sc|sa)ss|styled.ts?(x))",
+                when: "ui",
             });
         }
 
