@@ -82,6 +82,8 @@ export const mergeJSONFiles: MergerFn = (
     return merge.all([baseFile, ...pluginFiles]) as Record<string, unknown>;
 };
 
+type PluginData = Record<"name" | "description" | "url", string>;
+
 export const mergePluginData: MergerFn = (
     base = {},
     pluginsPath,
@@ -89,14 +91,18 @@ export const mergePluginData: MergerFn = (
     fileName,
 ) => {
     const baseFile = { ...base };
-    const pluginFiles = plugins.map((plugin) => {
-        const file = getPluginFile<PkgType>(pluginsPath, plugin, fileName);
-        return file ?? {};
+    baseFile.plugins = [];
+    plugins.map((plugin) => {
+        if (["npm", "yarn"].includes(plugin)) return;
+        const file =
+            getPluginFile<PkgType>(pluginsPath, plugin, fileName) ?? {};
+
+        (baseFile.plugins as PluginData[]).push({
+            name: (file.name as string) ?? plugin,
+            description: (file.description as string) ?? "",
+            url: (file.url as string) ?? "",
+        });
     });
-    baseFile.plugins = pluginFiles.map((plugin) => ({
-        name: plugin.name ?? plugin,
-        description: plugin.description ?? "",
-    }));
     return baseFile;
 };
 
