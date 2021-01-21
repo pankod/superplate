@@ -1,4 +1,5 @@
 import React from 'react';
+import { AppProps } from "next/app";
 <%- _app.import.join("\n") %>
 
 <%
@@ -7,7 +8,7 @@ import React from 'react';
     var closings = _app.wrapper.slice(half);
 %>
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     <%- _app.inner.join("\n") %>
     return (
         <%- openings.join("\n") %>
