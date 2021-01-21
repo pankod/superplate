@@ -244,6 +244,17 @@ const saoConfig: GeneratorConfig = {
             });
         }
 
+        /**
+         * Remove css and scss or styled in components when ui !== 'none'
+         */
+        if (pluginAnswers.ui !== "none") {
+            actionsArray.push({
+                type: "remove",
+                files: "**/src/components/**/@(*.@(c|sc|sa)ss|styled.ts?(x))",
+                when: "ui",
+            });
+        }
+
         return actionsArray;
     },
     async prepare() {
