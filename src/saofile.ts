@@ -233,13 +233,25 @@ const saoConfig: GeneratorConfig = {
     },
     async completed(saoInstance) {
         const { debug } = saoInstance.opts.extras;
+        /**
+         * Git init and install packages
+         */
         if (!debug) {
             saoInstance.gitInit();
-            await saoInstance.npmInstall({ npmClient: this.answers.pm });
+            await saoInstance.npmInstall({
+                npmClient: this.answers.pm,
+                installArgs: ["--silent"],
+            });
         }
 
+        /**
+         * Format generated project
+         */
         await promisify(exec)(`npx prettier ${saoInstance.outDir} --write`);
 
+        /**
+         * Create an initial commit
+         */
         if (!debug) {
             // add
             await promisify(exec)(
