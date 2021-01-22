@@ -140,12 +140,6 @@ const saoConfig: GeneratorConfig = {
                         "tsconfig.json": false,
                         ".babelrc": false,
                         "meta.json": false,
-                        "**/*.css": sao.answers.css_features === "css",
-                        "**/*.scss": sao.answers.css_features === "scss",
-                        "**/*.less": sao.answers.css_features === "less",
-                        "**/*.stories.tsx": sao.answers.features.includes(
-                            "storybook",
-                        ),
                     },
                     data() {
                         return sao.data;
@@ -243,6 +237,30 @@ const saoConfig: GeneratorConfig = {
                 when: "testing",
             });
         }
+
+        /**
+         * Remove style files when not selected
+         */
+        actionsArray.push({
+            type: "remove",
+            when: true,
+            files: {
+                "**/*.css": sao.answers.css_features !== "css",
+                "**/*.scss": sao.answers.css_features !== "scss",
+                "**/*.less": sao.answers.css_features !== "less",
+            },
+        });
+
+        /**
+         * Remove stories when not selected
+         */
+        actionsArray.push({
+            type: "remove",
+            when: true,
+            files: {
+                "**/*.stories.tsx": !sao.answers.features.includes("storybook"),
+            },
+        });
 
         /**
          * Remove css and scss or styled in components when ui !== 'none'
