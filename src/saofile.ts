@@ -68,11 +68,22 @@ const saoConfig: GeneratorConfig = {
         ) as unknown) as Record<string, unknown>;
 
         /**
+         * Pluginss meta data
+         */
+        const pluginsData = mergePluginData(
+            {},
+            sourcePath,
+            selectedPlugins,
+            "meta.json",
+        ).plugins;
+
+        /**
          * Return
          */
         return {
             ...sao.answers,
             pmRun,
+            pluginsData,
             ...extendData,
         };
     },
