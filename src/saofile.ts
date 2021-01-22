@@ -256,9 +256,7 @@ const saoConfig: GeneratorConfig = {
             type: "remove",
             when: true,
             files: {
-                "**/*.css": sao.answers.css_features !== "css",
                 "**/*.scss": sao.answers.css_features !== "scss",
-                "**/*.less": sao.answers.css_features !== "less",
             },
         });
 
@@ -272,17 +270,6 @@ const saoConfig: GeneratorConfig = {
                 "**/*.stories.tsx": !sao.answers.features.includes("storybook"),
             },
         });
-
-        /**
-         * Remove css and scss or styled in components when ui !== 'none'
-         */
-        if (pluginAnswers.ui !== "none") {
-            actionsArray.push({
-                type: "remove",
-                files: "**/src/components/**/@(*.@(c|sc|sa)ss|styled.ts?(x))",
-                when: "ui",
-            });
-        }
 
         return actionsArray;
     },
