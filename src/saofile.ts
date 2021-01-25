@@ -140,6 +140,15 @@ const saoConfig: GeneratorConfig = {
 
         actionsArray.push(
             ...selectedPlugins.map((plugin: string) => {
+                const hasUi = sao.answers.ui !== "none";
+                const isCss = sao.answers.css_features === plugin;
+                const conflictFilter =
+                    isCss && hasUi
+                        ? {
+                              "src/components/**": false,
+                              "pages/index.tsx": false,
+                          }
+                        : {};
                 return {
                     type: "add" as const,
                     files: "**",
@@ -151,6 +160,7 @@ const saoConfig: GeneratorConfig = {
                         "tsconfig.json": false,
                         ".babelrc": false,
                         "meta.json": false,
+                        ...conflictFilter,
                     },
                     data() {
                         return sao.data;
@@ -272,17 +282,6 @@ const saoConfig: GeneratorConfig = {
                 "**/*.stories.tsx": !sao.answers.features.includes("storybook"),
             },
         });
-
-        /**
-         * Remove css and scss or styled in components when ui !== 'none'
-         */
-        if (pluginAnswers.ui !== "none") {
-            actionsArray.push({
-                type: "remove",
-                files: "**/src/components/**/@(*.@(c|sc|sa)ss|styled.ts?(x))",
-                when: "ui",
-            });
-        }
 
         return actionsArray;
     },
