@@ -79,6 +79,6 @@ The class names which will be processed into a globally unique class name during
 
 :::caution
 
-next-boilerplate only supports CSS Modules as Component-Level CSS implementation.
+next.js only supports CSS Modules as Component-Level CSS implementation.
 
 :::
