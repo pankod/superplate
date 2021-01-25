@@ -71,6 +71,11 @@ export const Header: React.FC = () => {
 
 <br/>
 
+:::note
+
+The class names which will be processed into a globally unique class name during build.
+
+:::
 
 :::caution
 
