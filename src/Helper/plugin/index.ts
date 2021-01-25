@@ -1,6 +1,6 @@
 import path from "path";
 
-type ExtendType = {
+interface ExtendType {
     _app: {
         import: string[];
         inner: string[];
@@ -10,10 +10,15 @@ type ExtendType = {
         import: string[];
         initialProps: string[];
     };
-    [key: string]: {
-        [key: string]: string[];
-    };
-};
+    testSetup:
+        | {
+              import: string[];
+              inner: string[];
+              wrapper: string[];
+          }
+        | undefined
+        | boolean;
+}
 
 export const extendBase: Required<ExtendType> = {
     _app: {
@@ -24,6 +29,11 @@ export const extendBase: Required<ExtendType> = {
     _document: {
         import: [],
         initialProps: [],
+    },
+    testSetup: {
+        import: [],
+        inner: [],
+        wrapper: [],
     },
 };
 
@@ -76,46 +86,87 @@ export const concatExtend: (
 
         if (pluginExtendFile) {
             const pluginExtends = pluginExtendFile.extend(plugins);
-            ["_app", "_document"].forEach((fileKey) => {
-                (fileKey === "_app"
-                    ? ["import", "inner", "wrapper"]
-                    : ["import", "initialProps"]
-                ).forEach((key) => {
-                    if (
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        (pluginExtends as Record<string, any>)?.[fileKey]?.[key]
-                    ) {
-                        if (key !== "wrapper") {
-                            baseExtend[fileKey][key] = [
-                                ...baseExtend[fileKey][key],
-                                ...pluginExtends[fileKey][key],
-                            ];
-                        } else {
-                            const length = (baseExtend[fileKey][
-                                key
-                            ] as string[]).length;
-                            const half = Math.floor(length / 2);
-                            const firstHalf = (baseExtend[fileKey][
-                                key
-                            ] as string[]).slice(0, half);
-                            const secondHalf = (baseExtend[fileKey][
-                                key
-                            ] as string[]).slice(half, length);
-                            baseExtend[fileKey][key] = [
-                                ...firstHalf,
-                                ...pluginExtends[fileKey][key],
-                                ...secondHalf,
-                            ];
-                        }
+
+            const { _app, _document, testSetup } = pluginExtends;
+
+            if (_app) {
+                baseExtend._app.import = [
+                    ...baseExtend._app.import,
+                    ...(_app.import ?? []),
+                ];
+
+                baseExtend._app.inner = [
+                    ...baseExtend._app.inner,
+                    ...(_app.inner ?? []),
+                ];
+
+                const insertIndex = Math.ceil(
+                    baseExtend._app.wrapper.length / 2,
+                );
+
+                baseExtend._app.wrapper.splice(
+                    insertIndex,
+                    0,
+                    ...(_app.wrapper ?? []),
+                );
+
+                if (typeof testSetup === "undefined" || testSetup === true) {
+                    // use _app extend for tests
+                    if (typeof baseExtend.testSetup === "object") {
+                        baseExtend.testSetup.import = [
+                            ...baseExtend.testSetup.import,
+                            ...(_app.import ?? []),
+                        ];
+                        baseExtend.testSetup.inner = [
+                            ...baseExtend.testSetup.inner,
+                            ...(_app.inner ?? []),
+                        ];
+                        const testInsertIndex = Math.ceil(
+                            baseExtend.testSetup.wrapper.length / 2,
+                        );
+                        baseExtend.testSetup.wrapper.splice(
+                            testInsertIndex,
+                            0,
+                            ...(_app.wrapper ?? []),
+                        );
                     }
-                });
-            });
-            // for (const fileKey in Object.keys(pluginExtends)) {
-            //     for (const key in Object.keys(
-            //         pluginExtends[fileKey as string],
-            //     )) {
-            //     }
-            // }
+                }
+            }
+            if (_document) {
+                baseExtend._document.import = [
+                    ...baseExtend._document.import,
+                    ...(_document.import ?? []),
+                ];
+
+                baseExtend._document.initialProps = [
+                    ...baseExtend._document.initialProps,
+                    ...(_document.initialProps ?? []),
+                ];
+            }
+            if (typeof testSetup === "object") {
+                // use custom testSetup extend
+                if (typeof baseExtend.testSetup === "object") {
+                    baseExtend.testSetup.import = [
+                        ...baseExtend.testSetup.import,
+                        ...(testSetup.import ?? []),
+                    ];
+
+                    baseExtend.testSetup.inner = [
+                        ...baseExtend.testSetup.inner,
+                        ...(testSetup.inner ?? []),
+                    ];
+
+                    const insertIndex = Math.ceil(
+                        baseExtend.testSetup.wrapper.length / 2,
+                    );
+
+                    baseExtend.testSetup.wrapper.splice(
+                        insertIndex,
+                        0,
+                        ...(testSetup.wrapper ?? []),
+                    );
+                }
+            }
         }
     });
 
