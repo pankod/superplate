@@ -20,7 +20,7 @@ If it's not selected, Sass can be added later to customize Bootstrap,
 - add a custom scss file `app.scss` under `src/styles`
 
 ```js title="src/styles/app.scss"
-@import "./variables";
+@import "./_variables";
 @import "./_bootstrap";
 ``` 
 
