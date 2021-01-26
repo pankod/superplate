@@ -11,8 +11,7 @@ Next.js allows you to import Sass using both the .scss and .sass extensions. You
 To style your components using CSS Modules, name your stylesheet files with the `[name].module.scss`.
 
 
-`components/header/index.module.scss`
-```css 
+```css title="components/header/index.module.scss"
 .header {
   background-color: #20232A;
 
@@ -27,8 +26,8 @@ To style your components using CSS Modules, name your stylesheet files with the 
 ```
 
 
-`components/header`
-```jsx
+
+```jsx title="components/header/index.tsx"
 import React from "react";
 import styles from "./index.module.scss";
 
