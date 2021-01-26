@@ -18,6 +18,7 @@ jobs:
           node-version: '12.x'
       - name: Test Build
         run: |
+          cd documentation
           npm ci
           npm run build
   gh-release:
@@ -46,6 +47,7 @@ jobs:
           USE_SSH: true
           GIT_USER: git
         run: |
+          cd documentation
           git config --global user.email "bot@pankod.com"
           git config --global user.name "pankod-bot"
           npm ci
