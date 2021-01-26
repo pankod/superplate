@@ -37,7 +37,7 @@ $secondary: #fd7e14;
 ```js title="src/styles/_bootstrap.scss"
 // Option A: Include all of Bootstrap
 
-// @import "../node_modules/bootstrap/scss/bootstrap";
+// @import "~bootstrap/scss/bootstrap";
 
 // Add custom code after this
 
