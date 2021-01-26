@@ -21,7 +21,7 @@ If it's not selected, Sass can be added later to customize Bootstrap,
 
 ```js title="src/styles/app.scss"
 @import "./variables";
-@import "./bootstrap";
+@import "./_bootstrap";
 ``` 
 
 - add scss files for overriding variables and Bootstrap source Sass file imports
