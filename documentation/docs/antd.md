@@ -30,14 +30,19 @@ To use `less` in your project
 } 
 ```
 
-- and configure in `next.config.js`
+- Configure in `next.config.js`
 
 ```js title="next.config.js"
 const withPlugins = require('next-compose-plugins');
 
-const withLess = require('@zeit/next-less')
+const withLess = require('@zeit/next-less');
 
 module.exports = withPlugins([
-    [withLess, { cssModules: true }],
+    [withLess, {
+        cssModules: true,
+        lessLoaderOptions: {
+            javascriptEnabled: true,
+        }
+    }]
 ]);
 ```
