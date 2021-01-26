@@ -1,13 +1,13 @@
 module.exports = {
-  title: 'My Site',
+  title: 'Next-cli',
   tagline: 'The tagline of my site',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  url: 'https://pankod.github.io',
+  baseUrl: '/next-cli/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'pankod',
+  projectName: 'next-cli',
   themeConfig: {
     navbar: {
       title: 'My Site',
