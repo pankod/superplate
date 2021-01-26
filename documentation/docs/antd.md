@@ -18,7 +18,7 @@ Due to its incompatibility with `storybook`, `less` is not included in the cli.
 
 :::
 
-To use `less` in your project  
+To use `less` with `antd` in your project  
 - Add its dependency,
 
 ```js title="package.json"
@@ -39,10 +39,15 @@ const withLess = require('@zeit/next-less');
 
 module.exports = withPlugins([
     [withLess, {
-        cssModules: true,
         lessLoaderOptions: {
             javascriptEnabled: true,
         }
     }]
 ]);
 ```
+
+:::caution
+
+When you add any of the css related plugins, including less/sass, it disables built-in support for CSS loading in Next.js
+
+:::
