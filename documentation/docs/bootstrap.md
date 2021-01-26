@@ -58,9 +58,14 @@ $secondary: #fd7e14;
 @import "~bootstrap/scss/grid";
 ```
 
-- import from `_app.tsx`
+- import in `_app.tsx`
 
-```tsx title="pages/_app.tsx"
-import "src/styles/app.scss";
+```diff title="pages/_app.tsx"
+- import "bootstrap/dist/css/bootstrap.min.css";
++ import "src/styles/app.scss";
 ```
 
+- install sass
+```js
+npm install sass
+```
