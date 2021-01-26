@@ -51,7 +51,7 @@ Sass node package adds by CLI if chosen as CSS Preprocessor during project creat
 
 :::note
 
-Next.js has built-in Sass support, no configuration required. Just install the Sass package if not have choosen from our CLI as a preprocessor then Next.js will see this dependency and enable built-in Sass loader.
+Next.js has built-in Sass support, no configuration required. Just install the Sass package if not have chosen from our CLI as a preprocessor then Next.js will see this dependency and enable built-in Sass loader.
 
 :::
 
