@@ -13,7 +13,8 @@ If you also add `sass/scss` under Css Preprocessors during creation phase, You c
 :::
 
 ### Using Sass with Bootstrap
-If `sass/scss` is selected you can start [customizing](https://getbootstrap.com/docs/4.6/getting-started/theming/#sass) in `src/styles/app.scss`
+If `sass/scss` is selected you can start [customizing](https://getbootstrap.com/docs/4.6/getting-started/theming/#sass) in `src/styles/app.scss`  
+[See Sass/SCSS doc &#8594](scss.md)
 
 If it's not selected, Sass can be added later to customize Bootstrap,
 
@@ -69,3 +70,6 @@ $secondary: #fd7e14;
 ```js
 npm install sass
 ```
+
+### Adding Bootstrap to your project later
+If you didn't add bootstrap during project creation phase, you can add it later following [official docs](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
