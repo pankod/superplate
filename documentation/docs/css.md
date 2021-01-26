@@ -1,7 +1,7 @@
 ---
 id: css
 title: Built-in CSS Support
-sidebar_label: Built-in CSS Support
+sidebar_label: Built-in CSS 
 ---
 
 Next.js allows you to import CSS files from a JavaScript file.
@@ -11,6 +11,7 @@ For example, to add Global Stylesheet to boilerplate, we import following CSS fi
 `src/styles/global.css`
 <!-- **_src/styles/global.css_** -->
 ```css
+hmtl,
 body {
     margin: 0;
     padding: 0;
