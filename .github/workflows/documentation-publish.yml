@@ -46,7 +46,7 @@ jobs:
       - name: Release to GitHub Pages
         env:
           USE_SSH: true
-          GIT_USER: git
+          GIT_USER: pankod-bot
         run: |
           cd documentation
           git config --global user.email "bot@pankod.com"
