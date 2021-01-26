@@ -8,7 +8,7 @@ Quickly design and customize responsive mobile-first sites with Bootstrap, the w
 
 :::tip
 
-If you also add `sass/scss` under Css Preprocessors during creation phase, You can easily [customize Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/theming/#sass). Bootstrap’s source ***sass*** files added under `src/styles` directory.
+If you also add `sass/scss` under Css Preprocessors during creation phase, You can easily [customize Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/theming/#sass). Bootstrap’s source ***sass*** files are added under `src/styles` directory.
 
 :::
 
