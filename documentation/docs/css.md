@@ -8,9 +8,7 @@ Next.js allows you to import CSS files from a JavaScript file.
 
 For example, to add Global Stylesheet to boilerplate, we import following CSS file within `pages/_app.tsx`.
 
-`src/styles/global.css`
-<!-- **_src/styles/global.css_** -->
-```css
+```css title="src/styles/global.css"
 hmtl,
 body {
     margin: 0;
@@ -22,9 +20,7 @@ body {
 
 Then, import the styles.css file.
 
-`pages/_app.js`
-<!-- **_pages/_app.js_** -->
-```jsx
+```jsx title="pages/_app.js"
 import React from "react";
 import { AppProps } from "next/app";
 import "@styles/global.css";
@@ -46,8 +42,7 @@ To style your components using CSS Modules, name your stylesheet files with the 
 
 For example, lets check out a reusable Header component implementation.
 
-`components/header/index.module.css`
-```css 
+```css title="components/header/index.module.css"
 .header {
   background-color: #20232A;
   text-align: center;
@@ -55,8 +50,7 @@ For example, lets check out a reusable Header component implementation.
 ```
 
 
-`components/header`
-```jsx
+```jsx title="components/header"
 import React from "react";
 import styles from "./index.module.css";
 import { Logo } from "@components";

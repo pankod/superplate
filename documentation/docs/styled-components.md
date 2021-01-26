@@ -10,8 +10,7 @@ Helps keep the concerns of styling and element architecture separated and make c
 
  Example implementation shown at the below.
 
-`components/header/styled.ts`
-```ts 
+```ts title="components/header/styled.ts"
 import styled from 'styled-components'
 
 const Container = styled.div<{isLarge: boolean}>`
@@ -30,8 +29,8 @@ const Subtitle = styled(Title)`
 ```
 
 
-`components/header`
-```jsx
+
+```jsx title="components/header"
 import React from "react";
 import { Container, Title, Information } from "./styled";
 
@@ -49,7 +48,7 @@ export const Header: React.FC = () => {
 ### Adapting based on props
 Props can be passed to styled components to customize a component dynamically.
 When setting the isLarge prop to true, we are swapping out its font-size.
-```jsx
+```jsx 
 const Container = styled.div<{isLarge: boolean}>`
   padding: "50px";
   font-size: ${({ isLarge }) => (isLarge ? "36px" : "18px")};
@@ -58,7 +57,7 @@ const Container = styled.div<{isLarge: boolean}>`
 ### Extending Styles
 You can extend components with style if you want to create a similar one, styled slightly differently.
 To easily make a new component that inherits the styling of another, just wrap it in the styled() constructor.
-```jsx
+```jsx 
 const Subtitle = styled(Title)`
   margin-right: 30px;
 `;
@@ -71,7 +70,7 @@ This component provides a theme to all components underneath itself via the cont
 
 A theme can also be passed down to a component using the `theme` prop.
 
-```jsx
+```jsx 
 const Title = styled.div`
   margin-right: 50px;
   color: ${({ theme }) => theme.colors.darkGrey};
@@ -92,8 +91,7 @@ The first is `common.ts`, which will contain our base styling, and the others ar
 
 
 
-`definitions/styled-components/dark.ts`
-```jsx
+```jsx title="definitions/styled-components/dark.ts"
 const dark: DefaultTheme = {
   colors: {
     ...common.colors,
@@ -106,8 +104,7 @@ const dark: DefaultTheme = {
 };
 ```
 
-`definitions/styled-components/light.ts`
-```jsx
+```jsx title="definitions/styled-components/light.ts"
 const light: DefaultTheme = {
   colors: {
     ...common.colors,
@@ -123,7 +120,7 @@ const light: DefaultTheme = {
 
 Set the colors with same key value at both file and then use with theme props in styled components. Defined colors changes when invoke toggle function from `definitions/styled-components/index.ts`. 
 
-```jsx
+```jsx title="components/Header/styled.ts"
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -154,8 +151,7 @@ We are serving [styled-system](https://styled-system.com/) as a optional plugin 
 
 Example usage:
 
-`styledSystemExample/styled.ts`
-```jsx
+```jsx title="styledSystemExample/styled.ts"
 import styled from "styled-components";
 import { border, color, layout, space, typography } from "styled-system";
 
@@ -167,8 +163,7 @@ export const Card = styled.div`
 `;
 ```
 
-`styledSystemExample/index.ts`
-```jsx
+```jsx title="styledSystemExample/index.ts"
 import React from "react";
 import { Card } from "./styled";
 
