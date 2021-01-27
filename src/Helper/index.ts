@@ -4,7 +4,13 @@ export {
     mergeBabel,
     mergePluginData,
 } from "./merge";
-export { extendBase, getPluginsArray, getExtend, concatExtend } from "./plugin";
+export {
+    extendBase,
+    getPluginsArray,
+    getExtend,
+    concatExtend,
+    handleIgnore,
+} from "./plugin";
 export { get_source } from "./source";
 export { UrlHelper } from "./url";
 export { GitHelper } from "./git";
