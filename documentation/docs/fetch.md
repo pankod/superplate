@@ -21,7 +21,7 @@ export const FetchExample = () => {
         fetch(API_URL)
             .then((res) => res.json())
             .then(
-                (result) => {
+                res => {
                     setData(res);
                     setIsLoaded(true);
                 },
