@@ -4,11 +4,10 @@ title: graphql-request Support
 sidebar_label: graphql-request
 ---
 
-`graphql-request` is a simple & lightweight GraphQL client.
+[graphql-request](https://github.com/prisma-labs/graphql-request) is a simple & lightweight GraphQL client.
 
-`superplate` comes with optional graphql-request feature plugin. We'll show basic using graphql-request with [SpaceX-API](https://github.com/r-spacex/SpaceX-API).
+superplate comes with optional graphql-request feature plugin. We'll show basic using graphql-request with [SpaceX-API](https://github.com/r-spacex/SpaceX-API).
 
-Refer to [official documentation](https://github.com/prisma-labs/graphql-request) for detailed usage.
 
 We'll define the shape of the query we'll use to fetch `launchesPast` from SpaceX-API.
 
