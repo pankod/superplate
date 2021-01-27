@@ -162,7 +162,7 @@ module.exports = {
 
 ### `tsconfig.json`
 
-When you define a `tsconfig.json` file in your plugin. This will be ignored when moving the plugin content to target directory. Instead your TypeScript config will be merged with the others to avoid breaking other plugins. 
+When you define a `tsconfig.json` file in your plugin, it will be ignored while moving the plugin content to target directory. Instead, your TypeScript config will be merged with the others to avoid breaking other plugins. 
 
 **Example**
 
