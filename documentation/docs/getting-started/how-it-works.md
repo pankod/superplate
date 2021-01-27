@@ -4,7 +4,7 @@ title: How it Works?
 sidebar_label: How it Works?
 ---
 
-**Superplate** is designed to save you hours of development time when starting a new project. Superplate is offering various plugins/tools you can choose from but It's super-easy for you to modify those plugins or create your own ones. Once you are done, you can share your plugins and set **superplate** up to use your custom plugins.
+**superplate** is designed to save you hours of development time when starting a new project. Superplate is offering various plugins/tools you can choose from but It's super-easy for you to modify those plugins or create your own ones. Once you are done, you can share your plugins and set **superplate** up to use your custom plugins.
 
 ## Creating a Source Repository
 
