@@ -27,7 +27,7 @@ to produce components for newly added svg's.
 
 ### Using SVGR in your project without plugin
 If svgr plugin isn't added, it can be used later independently
-- install cli
+- install svgr cli
 ```js
 npm install @svgr/cli --save-dev
 ```
