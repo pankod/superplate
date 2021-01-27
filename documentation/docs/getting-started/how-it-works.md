@@ -4,14 +4,14 @@ title: How it Works?
 sidebar_label: How it Works?
 ---
 
-**Superplate** is designed to save you hours of development time when starting a new project. Superplate is offering various plugins/tools you can choose from but It's super-easy for you to modify those plugins or create your own ones. Once you are done, you can share your plugins and set **superplate** up to use your custom plugins.
+**superplate** is designed to save you hours of development time when starting a new project. Superplate is offering various plugins/tools you can choose from but It's super-easy for you to modify those plugins or create your own ones. Once you are done, you can share your plugins and set **superplate** up to use your custom plugins.
 
 ## Creating a Source Repository
 
 We store our plugins apart from the cli to make them easy to modify and easy to create new plugins. You can see the core plugins in [this repo](https://github.com/pankod/next-cli-core-plugins).
 
-- You can choose to fork the `core-plugins` repo to give you a head start.
-- Or you can create your own source from scratch.
+- You can prefer to fork the `core-plugins` repo to give you a head start.
+- Alternatively, you can create your own source from scratch.
 
 If you choose to start from scratch. All you need to do is create a directory with below structure and create a simple `prompt.js` file inside it.
 
