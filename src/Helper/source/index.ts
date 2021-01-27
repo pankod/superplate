@@ -21,7 +21,7 @@ export const get_source: GetSourceFn = async (source) => {
     );
     sourceSpinner.start();
     const sourcePath =
-        source === "superplate-prototype-core"
+        source === "superplate-core-plugins"
             ? "https://github.com/pankod/next-cli-core-plugins.git"
             : source;
 
