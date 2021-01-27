@@ -19,7 +19,7 @@ export const FetchExample = () => {
 
     useEffect(() => {
         fetch(API_URL)
-            .then((res) => res.json())
+            .then(res => res.json())
             .then(
                 res => {
                     setData(res);
