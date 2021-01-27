@@ -19,10 +19,7 @@ export const FetchExample = () => {
 
     useEffect(() => {
         fetch(API_URL)
-            .then((res) => {
-                console.log("res: ", res);
-                return res.json();
-            })
+            .then((res) => res.json())
             .then(
                 (result) => {
                     console.log("result: ", result);
