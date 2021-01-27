@@ -1,23 +1,16 @@
+import merge from "deepmerge";
 import path from "path";
 
-interface ExtendType {
+interface ExtendType extends Record<string, unknown> {
     _app: {
         import: string[];
         inner: string[];
-        wrapper: string[];
+        wrapper: [string, string][];
     };
     _document: {
         import: string[];
         initialProps: string[];
     };
-    testSetup:
-        | {
-              import: string[];
-              inner: string[];
-              wrapper: string[];
-          }
-        | undefined
-        | boolean;
 }
 
 export const extendBase: Required<ExtendType> = {
@@ -30,12 +23,21 @@ export const extendBase: Required<ExtendType> = {
         import: [],
         initialProps: [],
     },
-    testSetup: {
-        import: [],
-        inner: [],
-        wrapper: [],
-    },
 };
+
+type IgnoreType = {
+    plugin?: string[];
+    when: (answers: Record<string, string | string[]>) => boolean;
+    pattern: string[];
+};
+
+type AnswersType = Record<string, string | string[]>;
+
+type IgnoreHandlerFn = (
+    ignores: IgnoreType[],
+    answers: AnswersType,
+    plugin: string,
+) => Record<string, false>;
 
 type Answer = string | string[] | boolean | undefined;
 
@@ -78,97 +80,42 @@ export const concatExtend: (
     base: ExtendType,
     plugins: string[],
     sourcePath: string,
-) => Record<string, unknown> = (base, plugins, sourcePath) => {
-    const baseExtend = { ...base };
-
-    plugins.forEach((plugin: string) => {
-        const pluginExtendFile = getExtend(sourcePath, plugin);
-
-        if (pluginExtendFile) {
-            const pluginExtends = pluginExtendFile.extend(plugins);
-
-            const { _app, _document, testSetup } = pluginExtends;
-
-            if (_app) {
-                baseExtend._app.import = [
-                    ...baseExtend._app.import,
-                    ...(_app.import ?? []),
-                ];
-
-                baseExtend._app.inner = [
-                    ...baseExtend._app.inner,
-                    ...(_app.inner ?? []),
-                ];
-
-                const insertIndex = Math.ceil(
-                    baseExtend._app.wrapper.length / 2,
-                );
-
-                baseExtend._app.wrapper.splice(
-                    insertIndex,
-                    0,
-                    ...(_app.wrapper ?? []),
-                );
-
-                if (typeof testSetup === "undefined" || testSetup === true) {
-                    // use _app extend for tests
-                    if (typeof baseExtend.testSetup === "object") {
-                        baseExtend.testSetup.import = [
-                            ...baseExtend.testSetup.import,
-                            ...(_app.import ?? []),
-                        ];
-                        baseExtend.testSetup.inner = [
-                            ...baseExtend.testSetup.inner,
-                            ...(_app.inner ?? []),
-                        ];
-                        const testInsertIndex = Math.ceil(
-                            baseExtend.testSetup.wrapper.length / 2,
-                        );
-                        baseExtend.testSetup.wrapper.splice(
-                            testInsertIndex,
-                            0,
-                            ...(_app.wrapper ?? []),
-                        );
-                    }
-                }
+) => ExtendType = (base, plugins, sourcePath) => {
+    const merged = merge.all<ExtendType>([
+        base,
+        ...plugins.map((plugin: string) => {
+            const pluginExtendFile = getExtend(sourcePath, plugin);
+            if (pluginExtendFile) {
+                const pluginExtends = pluginExtendFile.extend(plugins);
+                return pluginExtends;
             }
-            if (_document) {
-                baseExtend._document.import = [
-                    ...baseExtend._document.import,
-                    ...(_document.import ?? []),
-                ];
+            return {};
+        }),
+    ]);
 
-                baseExtend._document.initialProps = [
-                    ...baseExtend._document.initialProps,
-                    ...(_document.initialProps ?? []),
-                ];
-            }
-            if (typeof testSetup === "object") {
-                // use custom testSetup extend
-                if (typeof baseExtend.testSetup === "object") {
-                    baseExtend.testSetup.import = [
-                        ...baseExtend.testSetup.import,
-                        ...(testSetup.import ?? []),
-                    ];
+    return merged;
+};
 
-                    baseExtend.testSetup.inner = [
-                        ...baseExtend.testSetup.inner,
-                        ...(testSetup.inner ?? []),
-                    ];
+export const handleIgnore: IgnoreHandlerFn = (
+    ignores: IgnoreType[],
+    answers,
+    plugin,
+) => {
+    const filters: ReturnType<IgnoreHandlerFn> = {};
 
-                    const insertIndex = Math.ceil(
-                        baseExtend.testSetup.wrapper.length / 2,
-                    );
-
-                    baseExtend.testSetup.wrapper.splice(
-                        insertIndex,
-                        0,
-                        ...(testSetup.wrapper ?? []),
-                    );
-                }
+    ignores.forEach((ignore) => {
+        if (
+            !!ignore.plugin === false ||
+            (!!ignore.plugin && ignore.plugin.includes(plugin))
+        ) {
+            const condition = ignore.when?.(answers);
+            if (condition) {
+                ignore.pattern.forEach((pattern) => {
+                    filters[pattern] = false;
+                });
             }
         }
     });
 
-    return baseExtend;
+    return filters;
 };
