@@ -8,7 +8,7 @@ You may need to add and modify some files to properly set up libraries with your
 
 This article will show you how to create a superplate plugin from scratch and the ways superplate offers you to interact with other plugins in your source. 
 
-Let's create a plugin to add [styled-components](asd) to our project easily. 
+Let's create a plugin to add [styled-components](https://styled-components.com) to our project easily. 
 
 ### Creating a Plugin Directory
 
