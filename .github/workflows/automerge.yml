@@ -10,7 +10,8 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           enable-prmerge-automation: true
-          prmerge-deletebranch: true
+          enable-prcomment-automation: true
+          enable-prlabel-automation: true
           prmerge-requireallchecks: true
           prmerge-requirereviewcount: 2
           prmerge-method: 'squash'
