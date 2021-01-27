@@ -7,6 +7,7 @@ import { GeneratorConfig, Action } from "../@types/sao";
 import {
     mergePackages,
     concatExtend,
+    handleIgnore,
     extendBase,
     getPluginsArray,
     mergeJSONFiles,
@@ -61,14 +62,14 @@ const saoConfig: GeneratorConfig = {
         const pluginAnswers = { ...sao.answers };
         delete pluginAnswers.name;
         const selectedPlugins = getPluginsArray(pluginAnswers);
-        const extendData = (concatExtend(
+        const extendData = concatExtend(
             extendBase,
             selectedPlugins,
             sourcePath,
-        ) as unknown) as Record<string, unknown>;
+        );
 
         /**
-         * Pluginss meta data
+         * Plugins meta data
          */
         const pluginsData = mergePluginData(
             {},
@@ -138,17 +139,17 @@ const saoConfig: GeneratorConfig = {
 
         const selectedPlugins = getPluginsArray(pluginAnswers);
 
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        const sourcePrompts = require(path.resolve(sourcePath, "prompt.js"));
+
         actionsArray.push(
             ...selectedPlugins.map((plugin: string) => {
-                const hasUi = sao.answers.ui !== "none";
-                const isCss = sao.answers.css_features === plugin;
-                const conflictFilter =
-                    isCss && hasUi
-                        ? {
-                              "src/components/**": false,
-                              "pages/index.tsx": false,
-                          }
-                        : {};
+                const customFilters = handleIgnore(
+                    sourcePrompts?.ignores ?? [],
+                    sao.answers,
+                    plugin,
+                );
+
                 return {
                     type: "add" as const,
                     files: "**",
@@ -160,7 +161,7 @@ const saoConfig: GeneratorConfig = {
                         "tsconfig.json": false,
                         ".babelrc": false,
                         "meta.json": false,
-                        ...conflictFilter,
+                        ...customFilters,
                     },
                     data() {
                         return sao.data;
@@ -221,6 +222,12 @@ const saoConfig: GeneratorConfig = {
                     sourcePath,
                     selectedPlugins,
                     "tsconfig.json",
+                    {
+                        arrayMerge: (dest: unknown[], source: unknown[]) => {
+                            const arr = [...dest, ...source];
+                            return arr.filter((el, i) => arr.indexOf(el) === i);
+                        },
+                    },
                 );
             },
         });
@@ -238,48 +245,6 @@ const saoConfig: GeneratorConfig = {
                     selectedPlugins,
                 );
                 return JSON.stringify(merged);
-            },
-        });
-
-        /**
-         * Remove *.spec.ts and *.spec.tsx when testing === 'none'
-         * Remove only *.spec.tsx when testing === 'jest'
-         */
-        if (pluginAnswers.testing === "none") {
-            actionsArray.push({
-                type: "remove",
-                files: "**/src/**/*.@(spec|test).@(ts|tsx)",
-                when: "testing",
-            });
-        } else if (pluginAnswers.testing === "jest") {
-            actionsArray.push({
-                type: "remove",
-                files: "**/src/**/*.@(spec|test).@(tsx)",
-                when: "testing",
-            });
-        }
-
-        /**
-         * Remove style files when not selected
-         */
-        actionsArray.push({
-            type: "remove",
-            when: true,
-            files: {
-                "**/*.css": sao.answers.css_features !== "css",
-                "**/*.scss": sao.answers.css_features !== "scss",
-                "**/*.less": sao.answers.css_features !== "less",
-            },
-        });
-
-        /**
-         * Remove stories when not selected
-         */
-        actionsArray.push({
-            type: "remove",
-            when: true,
-            files: {
-                "**/*.stories.tsx": !sao.answers.features.includes("storybook"),
             },
         });
 
