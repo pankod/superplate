@@ -87,6 +87,7 @@ import { GetLaunches, GetLaunchesVariables } from "__generated__/GetLaunches.ts"
 
 To generate the types automatically we set API service endpoint to apollo config file.
 
+Refer to [documentation](https://www.apollographql.com/docs/devtools/apollo-config/#client-projects) for detailed configuration.
 
 ```js title="apollo.config.js"
 module.exports = {
