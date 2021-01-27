@@ -1,19 +1,18 @@
 import React from 'react';
 import { AppProps } from "next/app";
-<%- _app.import.join("\n") %>
+<%- _app.import.join("\n") _%>
 
 <%
-    var half = Math.floor(_app.wrapper.length / 2)
-    var openings = _app.wrapper.slice(0, half);
-    var closings = _app.wrapper.slice(half);
+    var top = _app.wrapper.map(wrapper => wrapper[0] || "");
+    var bottom = _app.wrapper.map(wrapper => wrapper[1] || "");
 %>
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     <%- _app.inner.join("\n") %>
     return (
-        <%- openings.join("\n") %>
+        <%- top.join("\n") %>
         <Component {...pageProps} />
-        <%- closings.join("\n") %>
+        <%- bottom.join("\n") %>
     );
 }
 
