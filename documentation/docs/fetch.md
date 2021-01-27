@@ -56,3 +56,7 @@ function Blog({ posts }) {
 
 export default Blog
 ```
+
+:::tip
+Consider using `react-query` or `swr` plugins to handle client-side equests
+:::
