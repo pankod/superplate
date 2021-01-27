@@ -22,7 +22,7 @@ export const FetchExample = () => {
             .then((res) => res.json())
             .then(
                 (result) => {
-                    setData(result);
+                    setData(res);
                     setIsLoaded(true);
                 },
                 // Note: it's important to handle errors here
