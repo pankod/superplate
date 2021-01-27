@@ -9,7 +9,7 @@ The Fetch API provides an interface for fetching resources (including across the
 
 Next.js has [built-in fetch support](https://nextjs.org/blog/next-9-4#improved-built-in-fetch-support) both in browser and node environment.
 
-I can be used both in your components and next.js server-side methods.
+It can be used both in your components and Next.js server-side methods.
 
 ```js title="In your component"
 export const FetchExample = () => {
