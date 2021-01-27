@@ -108,7 +108,7 @@ export const handleIgnore: IgnoreHandlerFn = (
             !!ignore.plugin === false ||
             (!!ignore.plugin && ignore.plugin.includes(plugin))
         ) {
-            const condition = ignore.when(answers);
+            const condition = ignore.when?.(answers);
             if (condition) {
                 ignore.pattern.forEach((pattern) => {
                     filters[pattern] = false;
