@@ -14,6 +14,7 @@ type MergerFn = (
     pluginsPath: string,
     plugins: string[],
     fileName: string,
+    mergeOptions?: Record<string, unknown>,
 ) => Record<string, unknown>;
 
 type PackageMergerFn = (
@@ -73,13 +74,17 @@ export const mergeJSONFiles: MergerFn = (
     pluginsPath,
     plugins,
     fileName,
+    mergeOptions,
 ) => {
     const baseFile = { ...base };
     const pluginFiles = plugins.map((plugin) => {
         const file = getPluginFile<PkgType>(pluginsPath, plugin, fileName);
         return file ?? {};
     });
-    return merge.all([baseFile, ...pluginFiles]) as Record<string, unknown>;
+    return merge.all([baseFile, ...pluginFiles], mergeOptions) as Record<
+        string,
+        unknown
+    >;
 };
 
 type PluginData = Record<"name" | "description" | "url", string>;
