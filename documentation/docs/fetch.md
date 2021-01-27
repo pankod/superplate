@@ -22,7 +22,6 @@ export const FetchExample = () => {
             .then((res) => res.json())
             .then(
                 (result) => {
-                    console.log("result: ", result);
                     setData(result);
                     setIsLoaded(true);
                 },
