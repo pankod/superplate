@@ -30,7 +30,7 @@ export const FetchExample = () => {
                 // exceptions from actual bugs in components.
                 (error) => {
                     setIsLoaded(true);
-                    setError(error);
+                    setError(err);
                 },
             );
     }, []);
