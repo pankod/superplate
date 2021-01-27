@@ -20,7 +20,7 @@ Promise based HTTP client for the browser and node.js
 Performing a `GET` (or `POST`) request is as simple as calling the method on `axios`
 
 ```js
-const axios = require('axios');
+import axios from "axios";
 
 axios.get('/user?ID=12345')
   .then(function (response) {
