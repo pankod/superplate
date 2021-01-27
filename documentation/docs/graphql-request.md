@@ -103,7 +103,7 @@ generates:
 ```
 <br/>
 
-Then run the following command which defined in package.json.  
+Then run the following command which is defined in package.json.  
 
 ```js title="package.json"
   "scripts": {
@@ -179,5 +179,4 @@ export type GetLaunchesQuery = {
 All this work will be handled automatically by CLI, so you don’t need to do anything extra as long as you choose **graphql-request** feature plugin during the project creation phase.
 
 :::
-
 
