@@ -2,7 +2,7 @@ module.exports = {
   someSidebar: {
     Docusaurus: ['doc1', 'doc2', 'doc3'],
     Features: ['mdx'],
-    "UI Frameworks":['antd', 'bootstrap', 'tailwind'],
+    "UI Frameworks":['antd', 'bootstrap', 'tailwind', 'chakra-ui'],
     "CSS Preprocessors":['css', 'scss', 'styled-components']
   },
 };

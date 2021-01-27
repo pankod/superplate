@@ -11,7 +11,7 @@ A utility-first CSS framework packed with classes like flex, pt-4, text-center a
 Tailwind plugin produces the two [necessary config files:](https://tailwindcss.com/docs/guides/nextjs#create-your-configuration-files) `tailwind.config.js` and `postcss.config.js`  
 [See Tailwind configuration docs &#8594](https://tailwindcss.com/docs/configuration)
 
-### Purging unused syles
+### Purging unused styles
 `tailwind.config.js` is configured to purge unused styles in pages and components.
 
 ```js title="tailwind.config.js"
