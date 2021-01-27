@@ -25,6 +25,20 @@ export const extendBase: Required<ExtendType> = {
     },
 };
 
+type IgnoreType = {
+    plugin?: string[];
+    when: (answers: Record<string, string | string[]>) => boolean;
+    pattern: string[];
+};
+
+type AnswersType = Record<string, string | string[]>;
+
+type IgnoreHandlerFn = (
+    ignores: IgnoreType[],
+    answers: AnswersType,
+    plugin: string,
+) => Record<string, false>;
+
 type Answer = string | string[] | boolean | undefined;
 
 export const getPluginsArray: (answers: Record<string, Answer>) => string[] = (
@@ -80,4 +94,28 @@ export const concatExtend: (
     ]);
 
     return merged;
+};
+
+export const handleIgnore: IgnoreHandlerFn = (
+    ignores: IgnoreType[],
+    answers,
+    plugin,
+) => {
+    const filters: ReturnType<IgnoreHandlerFn> = {};
+
+    ignores.forEach((ignore) => {
+        if (
+            !!ignore.plugin === false ||
+            (!!ignore.plugin && ignore.plugin.includes(plugin))
+        ) {
+            const condition = ignore.when(answers);
+            if (condition) {
+                ignore.pattern.forEach((pattern) => {
+                    filters[pattern] = false;
+                });
+            }
+        }
+    });
+
+    return filters;
 };
