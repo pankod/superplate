@@ -6,7 +6,7 @@ sidebar_label: References
 
 ### `prompt.js`
 
-CLI has two built-in prompts app name and the package manager questions are prompted at the beginning. You can define your prompts in the `prompt.js` at the root of your plugin source. Enquirer's built-in prompts are available to use. You can check them out in the [Enquirer docs](https://github.com/enquirer/enquirer#built-in-prompts). 
+CLI has two built-in prompts; app name and the package manager questions are prompted at the beginning. You can define your prompts in the `prompt.js` at the root of your plugin source. Enquirer's built-in prompts are available to use. You can check them out in the [Enquirer docs](https://github.com/enquirer/enquirer#built-in-prompts). 
 
 You can also apply ignore patterns for your plugins, those ignore glob patterns can be applied project-wide or only for specified plugins. Provide a function with prompt answers to whether the ignore patterns will apply or not.
 
