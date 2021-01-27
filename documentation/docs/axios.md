@@ -121,3 +121,8 @@ export const AxiosExample = () => {
 
 ```
 [More &#8594](https://github.com/axios/axios#creating-an-instance)
+
+:::tip
+Consider using `react-query` or `swr` plugins to handle client-side requests.  
+They can be used with promise-based methods (fetch, axios..)
+:::
