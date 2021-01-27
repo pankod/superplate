@@ -52,7 +52,7 @@ axios({
 [More &#8594](https://github.com/axios/axios#axios-api)
 
 ### Concurrency
-Please use `Promise.all` to handle concuurency
+Please use `Promise.all` to handle concurrency
 
 ```js
 function getUserAccount() {
