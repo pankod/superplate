@@ -56,6 +56,10 @@ Chakra provides a sensible default theme inspired by Tailwind CSS, but you can c
 [See Default Theme Docs &#8594](https://chakra-ui.com/docs/theming/theme)  
 [See Docs on how to customize theme &#8594](https://chakra-ui.com/docs/theming/customize-theme)
 
+### Component Style
+Chakra also provides a way to write component styles that is easy to maintain over the life of a growing and changing project  
+[See Component Style Docs &#8594](https://chakra-ui.com/docs/theming/component-style)
+
 ### Color Mode (Dark Mode)
 Chakra UI comes with built-in support for managing color mode in your apps.  
 [See Docs on how to setup color mode &#8594](https://chakra-ui.com/docs/features/color-mode)
