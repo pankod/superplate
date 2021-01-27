@@ -10,7 +10,7 @@ sidebar_label: How it Works?
 
 We store our plugins apart from the cli to make them easy to modify and easy to create new plugins. You can see the core plugins in [this repo](https://github.com/pankod/next-cli-core-plugins).
 
-- You can choose to fork the `core-plugins` repo to give you a head start.
+- You can prefer to fork the `core-plugins` repo to give you a head start.
 - Or you can create your own source from scratch.
 
 If you choose to start from scratch. All you need to do is create a directory with below structure and create a simple `prompt.js` file inside it.
