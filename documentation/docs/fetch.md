@@ -59,7 +59,5 @@ export default Blog
 
 :::tip
 Consider using `react-query` or `swr` plugins to handle client-side requests.  
-They can be used with promise-based methods (fetch, axios..).  
-[See SWR plugin docs &#8594](swr.md)  
-[See react-query plugin docs &#8594](react-query.md)
+They can be used with promise-based methods (fetch, axios..)
 :::
