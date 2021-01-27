@@ -85,7 +85,7 @@ import { GetLaunches, GetLaunchesVariables } from "__generated__/GetLaunches.ts"
 
 ### Generating schema types
 
-To generate the types automatically we set API service values to apollo config file.
+To generate the types automatically we set API service endpoint to apollo config file.
 
 
 ```js title="apollo.config.js"
@@ -115,7 +115,6 @@ Then run the following command which defined in package.json.
 npm run apollo:sync
 ```
 
-<br/>
 
 Running this command will download a schema from Apollo or a GraphQL endpoint in JSON and generate static types into `__generated__` folder at root automatically.
 
