@@ -4,7 +4,7 @@ title: References
 sidebar_label: References
 ---
 
-### `prompts.js`
+### `prompt.js`
 
 CLI has two built-in prompts app name and the package manager questions are prompted at the beginning. You can define your prompts in the `prompt.js` at the root of your plugin source. Enquirer's built-in prompts are available to use. You can check them out in the [Enquirer docs](https://github.com/enquirer/enquirer#built-in-prompts). 
 

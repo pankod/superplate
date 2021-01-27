@@ -17,7 +17,7 @@ If you choose to start from scratch. All you need to do is create a directory wi
 
 ```bash
 
-├── prompts.js
+├── prompt.js
 ├── plugins
 │   ├── your-first-plugin
 │   ├── another-plugin
@@ -25,7 +25,7 @@ If you choose to start from scratch. All you need to do is create a directory wi
 
 ```
 
-**sample `prompts.js`**
+**sample `prompt.js`**
 
 ```js
 {
@@ -34,7 +34,7 @@ If you choose to start from scratch. All you need to do is create a directory wi
 }
 ```
 
-There are many built-in prompt types and options you can use. In `prompts.js` you can also define conditional ignore patterns for superplate to use. To learn more about `prompts.js` please check out [References#prompts.js](references#promptsjs)
+There are many built-in prompt types and options you can use. In `prompt.js` you can also define conditional ignore patterns for superplate to use. To learn more about `prompt.js` please check out [References#prompt.js](references#promptjs)
 
 Superplate offers plugins many ways to interact with each other. To learn how to create a plugin and the ways to interact with others, please read [Creating a Plugin](creating-a-plugin)
 
