@@ -35,7 +35,7 @@ npm install @svgr/cli --save-dev
 ```js title="package.json"
 {
     scripts: {
-        "svgr": npx @svgr/cli -d src/components/icons --ignore-existing --icon --typescript public/icons
+        "svgr": "npx @svgr/cli -d src/components/icons --ignore-existing --icon --typescript public/icons"
     }
 }
 ```
