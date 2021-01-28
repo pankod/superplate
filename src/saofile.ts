@@ -83,6 +83,8 @@ const saoConfig: GeneratorConfig = {
          */
         return {
             ...sao.answers,
+            answers: sao.answers,
+            selectedPlugins,
             pmRun,
             pluginsData,
             ...extendData,
@@ -133,6 +135,18 @@ const saoConfig: GeneratorConfig = {
                 },
             },
         ] as Action[];
+
+        /**
+         * Apply overrides to the template
+         */
+        actionsArray.push({
+            type: "add",
+            files: "**",
+            templateDir: path.join(sourcePath, "template"),
+            data() {
+                return sao.data;
+            },
+        });
 
         const pluginAnswers = { ...sao.answers };
         delete pluginAnswers.name;
