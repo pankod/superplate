@@ -47,7 +47,7 @@ export default MyApp;
 ```
 :::caution
 
-If you want to add react-query after creating the project, you need to update your `main.js` file as above.
+If you didn't choose the plugin during project creation phase, you update your `main.js` file as above after install required package to add it.
 
 :::
 
