@@ -22,7 +22,7 @@ export const get_source: GetSourceFn = async (source) => {
     sourceSpinner.start();
     const sourcePath =
         source === "superplate-core-plugins"
-            ? "https://github.com/pankod/next-cli-core-plugins.git"
+            ? "https://github.com/pankod/superplate-core-plugins.git"
             : source;
 
     const isPathExists = await FSHelper.IsPathExists(sourcePath);
