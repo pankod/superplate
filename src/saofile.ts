@@ -66,6 +66,7 @@ const saoConfig: GeneratorConfig = {
             extendBase,
             selectedPlugins,
             sourcePath,
+            sao.answers,
         );
 
         /**
@@ -83,6 +84,8 @@ const saoConfig: GeneratorConfig = {
          */
         return {
             ...sao.answers,
+            answers: sao.answers,
+            selectedPlugins,
             pmRun,
             pluginsData,
             ...extendData,
@@ -90,7 +93,7 @@ const saoConfig: GeneratorConfig = {
     },
     async actions(sao) {
         if (sao.answers.name.length === 0) {
-            const error = sao.createError("you have to provide app name");
+            const error = sao.createError("App name is required!");
             throw error;
         }
 
@@ -133,6 +136,18 @@ const saoConfig: GeneratorConfig = {
                 },
             },
         ] as Action[];
+
+        /**
+         * Apply overrides to the template
+         */
+        actionsArray.push({
+            type: "add",
+            files: "**",
+            templateDir: path.join(sourcePath, "template"),
+            data() {
+                return sao.data;
+            },
+        });
 
         const pluginAnswers = { ...sao.answers };
         delete pluginAnswers.name;
@@ -206,7 +221,12 @@ const saoConfig: GeneratorConfig = {
             type: "modify" as const,
             files: "package.json",
             handler(data: Record<string, unknown>) {
-                return mergePackages(data, sourcePath, selectedPlugins);
+                return mergePackages(
+                    data,
+                    sourcePath,
+                    selectedPlugins,
+                    sao.answers,
+                );
             },
         });
 
