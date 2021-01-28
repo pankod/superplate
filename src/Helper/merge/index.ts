@@ -6,7 +6,10 @@ import { promisify } from "util";
 type PkgType = Record<string, unknown>;
 
 type PkgFnType = {
-    apply: (pkg: PkgType, answers: string[]) => Record<string, unknown>;
+    apply: (
+        pkg: PkgType,
+        answers: Record<string, string | string[] | boolean | undefined>,
+    ) => Record<string, unknown>;
 };
 
 type MergerFn = (
@@ -21,6 +24,7 @@ type PackageMergerFn = (
     base: Record<string, unknown>,
     pluginsPath: string,
     plugins: string[],
+    answers: Record<string, string | string[] | boolean | undefined>,
 ) => Record<string, unknown>;
 
 type AsyncMergerFn = (
@@ -140,6 +144,7 @@ export const mergePackages: PackageMergerFn = (
     base = {},
     pluginsPath,
     plugins,
+    answers,
 ) => {
     const basePkg = { ...base };
     const pluginPkgs = plugins.map((plugin) => {
@@ -155,7 +160,7 @@ export const mergePackages: PackageMergerFn = (
         );
 
         if (pluginPkgFn && pluginPkg) {
-            const fnPkg = pluginPkgFn.apply(pluginPkg, plugins);
+            const fnPkg = pluginPkgFn.apply(pluginPkg, answers);
             return fnPkg;
         } else if (pluginPkg) {
             return pluginPkg;
