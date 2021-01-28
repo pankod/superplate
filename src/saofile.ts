@@ -66,6 +66,7 @@ const saoConfig: GeneratorConfig = {
             extendBase,
             selectedPlugins,
             sourcePath,
+            sao.answers,
         );
 
         /**
@@ -220,7 +221,12 @@ const saoConfig: GeneratorConfig = {
             type: "modify" as const,
             files: "package.json",
             handler(data: Record<string, unknown>) {
-                return mergePackages(data, sourcePath, selectedPlugins);
+                return mergePackages(
+                    data,
+                    sourcePath,
+                    selectedPlugins,
+                    sao.answers,
+                );
             },
         });
 
