@@ -4,7 +4,7 @@ title: References
 sidebar_label: References
 ---
 
-### `prompt.js`
+## `prompt.js`
 
 CLI has two built-in prompts; app name and the package manager questions are prompted at the beginning. You can define your prompts in the `prompt.js` at the root of your plugin source. Enquirer's built-in prompts are available to use. You can check them out in the [Enquirer docs](https://github.com/enquirer/enquirer#built-in-prompts). 
 
@@ -70,7 +70,7 @@ module.exports = {
 
 ---
 
-### `package.json`
+## `package.json`
 
 Place your package.json configuration such as `dependencies` or `scripts`. Content of this file will be merged with the other selected plugins.
 
@@ -88,7 +88,7 @@ Place your package.json configuration such as `dependencies` or `scripts`. Conte
 
 ---
 
-### `package.js`
+## `package.js`
 
 You can derive your packages for given answers to the prompts. Export an object with apply function, CLI will call it with two parameters; first parsed `package.json` of the plugin and second the given answers to the prompts.
 
@@ -121,7 +121,7 @@ module.exports = {
 
 ---
 
-### `extend.js`
+## `extend.js`
 
 In some plugins, we have a need to alter the `_app` and `_document` of Next.js. You may need these values as well or custom properties to apply in other plugin templates.
 
@@ -160,7 +160,7 @@ module.exports = {
 
 ---
 
-### `tsconfig.json`
+## `tsconfig.json`
 
 When you define a `tsconfig.json` file in your plugin, it will be ignored while moving the plugin content to target directory. Instead, your TypeScript config will be merged with the others to avoid breaking other plugins. 
 
@@ -201,7 +201,7 @@ When you define a `tsconfig.json` file in your plugin, it will be ignored while 
 
 ---
 
-### `.babelrc`
+## `.babelrc`
 
 Content of your `.babelrc` file will be ignored when moving the plugin's content to the target directory. Instead this file's content will be merged with the others to prevent breaking other plugins' config.
 
@@ -214,7 +214,7 @@ Content of your `.babelrc` file will be ignored when moving the plugin's content
 
 ---
 
-### `meta.json`
+## `meta.json`
 
 A Brief information about the plugin. You can give it a name, description and a url to the docs.
 
@@ -228,3 +228,10 @@ A Brief information about the plugin. You can give it a name, description and a 
     "url": "https://url-to-docs/my-plugin",
 }
 ```
+
+---
+
+## Templates
+
+This section hasn't been written yet.
+
