@@ -1,13 +1,13 @@
 module.exports = {
-  title: 'Next-cli',
-  tagline: 'The tagline of my site',
+  title: 'superplate',
+  tagline: 'The frontend boilerplate with superpowers',
   url: 'https://pankod.github.io',
-  baseUrl: '/next-cli/',
+  baseUrl: '/superplate/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'pankod',
-  projectName: 'next-cli',
+  projectName: 'superplate',
   themeConfig: {
     navbar: {
       title: 'My Site',
@@ -22,9 +22,8 @@ module.exports = {
           label: 'Docs',
           position: 'left',
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/pankod/superplate',
           label: 'GitHub',
           position: 'right',
         },
@@ -51,15 +50,11 @@ module.exports = {
           items: [
             {
               label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: 'https://stackoverflow.com/questions/tagged/superplate',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://twitter.com/pankoddev',
             },
           ],
         },
@@ -72,12 +67,12 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/pankod/superplate',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} superplate, Inc. Built with Docusaurus.`,
     },
   },
   presets: [
