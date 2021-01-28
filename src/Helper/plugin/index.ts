@@ -25,21 +25,20 @@ export const extendBase: Required<ExtendType> = {
     },
 };
 
+type Answer = string | string[] | boolean | undefined;
+type AnswersType = Record<string, Answer>;
+
 type IgnoreType = {
     plugin?: string[];
-    when: (answers: Record<string, string | string[]>) => boolean;
+    when: (answers: Record<string, Answer>) => boolean;
     pattern: string[];
 };
-
-type AnswersType = Record<string, string | string[]>;
 
 type IgnoreHandlerFn = (
     ignores: IgnoreType[],
     answers: AnswersType,
     plugin: string,
 ) => Record<string, false>;
-
-type Answer = string | string[] | boolean | undefined;
 
 export const getPluginsArray: (answers: Record<string, Answer>) => string[] = (
     answers,
@@ -57,7 +56,7 @@ export const getPluginsArray: (answers: Record<string, Answer>) => string[] = (
 export const getExtend: (
     pluginPath: string,
     pluginName: string,
-) => { extend: (plugins: string[]) => ExtendType } | undefined = (
+) => { extend: (answers: Record<string, Answer>) => ExtendType } | undefined = (
     pluginPath,
     pluginName,
 ) => {
@@ -80,13 +79,14 @@ export const concatExtend: (
     base: ExtendType,
     plugins: string[],
     sourcePath: string,
-) => ExtendType = (base, plugins, sourcePath) => {
+    answers: Record<string, Answer>,
+) => ExtendType = (base, plugins, sourcePath, answers) => {
     const merged = merge.all<ExtendType>([
         base,
         ...plugins.map((plugin: string) => {
             const pluginExtendFile = getExtend(sourcePath, plugin);
             if (pluginExtendFile) {
-                const pluginExtends = pluginExtendFile.extend(plugins);
+                const pluginExtends = pluginExtendFile.extend(answers);
                 return pluginExtends;
             }
             return {};
