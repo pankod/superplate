@@ -1,7 +1,16 @@
 {
     "name": "superplate",
     "version": "1.0.0",
-    "description": "",
+    "description": "The frontend boilerplate with superpowers",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pankod/superplate.git"
+    },
+    "bugs": {
+        "url": "https://github.com/pankod/superplate/issues"
+    },
+    "homepage": "https://github.com/pankod/superplate#readme",
     "bin": {
         "superplate": "lib/index.js"
     },
@@ -18,8 +27,6 @@
         "test": "jest",
         "lint": "eslint ."
     },
-    "author": "",
-    "license": "MIT",
     "dependencies": {
         "chalk": "^4.1.0",
         "clear": "^0.1.0",
