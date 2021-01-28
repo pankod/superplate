@@ -78,7 +78,20 @@ We can do so by simply modifying our `prompt.js`. Append below codes to your pro
 And if this prompt is not answered *Yes* we want to remove the babel plugin from `devDependencies`. We can do that by creating a `package.js` inside our plugin.
 
 ```js
-
+module.exports = {
+    /**
+     * package: the current content of your package.json
+     * answers: array of given user answers to the prompts 
+     */
+    apply(package, answers) {
+        if (!answers.includes("styled-components")) {
+            delete package.devDependencies[
+                "babel-plugin-styled-components"
+            ];
+        }
+        return package;
+    },
+};
 ```
 
 ## Using Templates
@@ -95,8 +108,5 @@ And if this prompt is not answered *Yes* we want to remove the babel plugin from
 
 ## Providing a Plugin Description
 
-:::warning
+## Conclusion
 
-work in progress
-
-:::
