@@ -15,7 +15,7 @@ And the UI will be always fast and reactive.
 
 ### useSWR
 
-Pass an api key and start using it inside any function components:
+Pass an API key and start using it inside any function components:
 
 ```jsx
 import useSWR from 'swr'
