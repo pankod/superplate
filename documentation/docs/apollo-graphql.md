@@ -8,7 +8,7 @@ Apollo is a comprehensive state management library for JavaScript that enables y
 
 Apollo Client helps you structure code in an economical, predictable, and declarative way that's consistent with modern development practices
 
-superplate comes with optional Apollo GraphQL feature plugin. In this example, we'll demonstrate using Apollo GraphQL with [SpaceX-API](https://github.com/r-spacex/SpaceX-API).
+`superplate` comes with optional Apollo GraphQL feature plugin. In this example, we'll demonstrate using Apollo GraphQL with [SpaceX-API](https://github.com/r-spacex/SpaceX-API).
 
 
 
@@ -117,7 +117,7 @@ npm run apollo:sync
 ```
 
 
-Running this command will download a schema from Apollo or a GraphQL endpoint in JSON and generate static types into `__generated__` folder at root automatically.
+Running this command will download a schema from Apollo or a GraphQL endpoint in JSON and generate static types into `__generated__` folder in project root directory automatically.
 
 
 ```ts title="__generated__/GetLaunches.ts"

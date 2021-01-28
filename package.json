@@ -1,9 +1,9 @@
 {
-    "name": "next-cli",
+    "name": "superplate",
     "version": "1.0.0",
     "description": "",
     "bin": {
-        "next-cli": "lib/index.js"
+        "superplate": "lib/index.js"
     },
     "files": [
         "lib",

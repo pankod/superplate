@@ -1,4 +1,4 @@
-# next-cli
+# superplate
 
 ### **dev**
 
@@ -20,7 +20,7 @@ npm run dev:cli
 node lib/index.js <project-dir> [options] 
 
 # cli'i global yukledikten sonra calistirmak icin
-next-cli <project-dir> [options]
+superplate <project-dir> [options]
 
 ```
 
@@ -38,10 +38,10 @@ npm run build:cli # ./lib'i temizleyip tsc ile build alir
 
 ```bash
 # run
-next-cli <project-dir> [options]
+superplate <project-dir> [options]
 ```
 
 ```bash
 # help
-next-cli --help
+superplate --help
 ```

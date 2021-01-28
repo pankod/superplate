@@ -13,15 +13,15 @@ const templateDir = path.resolve(__dirname, "../template");
 const cli = async (): Promise<void> => {
     clear();
     const program = commander
-        .name("next-cli")
+        .name("superplate")
         .version("0.0.1")
         .arguments("<project-dir>")
         .usage(`${chalk.green("<project-dir>")} [options]`)
-        .description("an example for next cli")
+        .description("The frontend boilerplate with superpowers")
         .option(
             "--source <source-path>",
             "plugin source",
-            "next-cli-prototype-core",
+            "superplate-core-plugins",
         )
         .option("-d, --debug", "output extra logs and skip install scripts")
         .on("--help", () => {
@@ -33,7 +33,7 @@ const cli = async (): Promise<void> => {
             console.log(`\n`);
             console.log(
                 `${chalk.blue
-                    .bold`next-cli`} will create a project all bootstrapped with your plugins of choice.`,
+                    .bold`superplate`} will create a project all bootstrapped with your plugins of choice.`,
             );
             console.log(`\n`);
             console.log(`Start developing ${chalk.bgRed` fast `}`);

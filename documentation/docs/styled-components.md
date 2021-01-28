@@ -4,7 +4,7 @@ title: styled-components Support
 sidebar_label: styled-components
 ---
 
-styled-component allows you to add styles to your application that are written with a mixture of JavaScript and CSS using a technique called CSS-in-JS.
+styled-components allows you to add styles to your application that are written with a mixture of JavaScript and CSS using a technique called CSS-in-JS.
 
 Helps keep the concerns of styling and element architecture separated and make components more readable without worrying about class name collisions.
 

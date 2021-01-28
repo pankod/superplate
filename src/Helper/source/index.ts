@@ -1,7 +1,7 @@
 /**
  *
  * get_source will return path for plugins
- * source can be url - relative local path or "next-cli-prototype-core"
+ * source can be url - relative local path or "superplate"
  *
  */
 import ora from "ora";
@@ -21,8 +21,8 @@ export const get_source: GetSourceFn = async (source) => {
     );
     sourceSpinner.start();
     const sourcePath =
-        source === "next-cli-prototype-core"
-            ? "https://github.com/pankod/next-cli-core-plugins.git"
+        source === "superplate-core-plugins"
+            ? "https://github.com/pankod/superplate-core-plugins.git"
             : source;
 
     const isPathExists = await FSHelper.IsPathExists(sourcePath);
