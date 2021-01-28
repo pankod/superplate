@@ -38,7 +38,7 @@ export const parameters = {
 };
 ```
 
-For example, lets check out a reusable `button` component implementation.
+For example, lets check out a `button` component storybook file:
 
 ```tsx title="components/button/index.stories.tsx"
 import React from "react";
