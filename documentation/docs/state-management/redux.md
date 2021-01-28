@@ -165,7 +165,7 @@ Redux middleware provides a third-party extension point between dispatching an a
 
 ### Adding Redux to your project later
 
-If you didn't choose the plugin during project creation phase, you can follow instructions below to add it.
+If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
 
 - install `redux` and `react-redux` packages
 
