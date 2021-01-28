@@ -9,7 +9,7 @@ Redux is a predictable state container for JavaScript apps.
 It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. On top of that, it provides a great developer experience, such as live code editing combined with a time traveling debugger.  
 [Refer to official documentation for detailed usage. &#8594](https://redux.js.org/introduction/getting-started)
 
-`redux` plugin prepares a hooks based Redux setup
+superplate serves an optional `redux` plugin that prepares a hooks based Redux setup
 ### Configure Store & Setup Reducers
 
 Create a store with a root reducer
@@ -155,8 +155,7 @@ export const decrease = () => ({
 });
 ```
 
-[Refer to official documentation on useSelector for detailed usage. &#8594](https://redux.js.org/tutorials/fundamentals/part-5-ui-react#reading-state-from-the-store-with-useselector)  
-[Refer to official documentation on useDispatch for detailed usage. &#8594](https://redux.js.org/tutorials/fundamentals/part-5-ui-react#dispatching-actions-with-usedispatch)
+[Refer to official documentation on Hooks usage for detailed usage. &#8594](https://redux.js.org/tutorials/fundamentals/part-5-ui-react#reading-state-from-the-store-with-useselector)
 
 ### Middleware
 
