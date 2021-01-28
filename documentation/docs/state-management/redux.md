@@ -84,8 +84,10 @@ export default MyApp;
 
 Now everything's ready to read data from store and dispatch some actions to make changes to store state.
 
-:::info
-Setup above will be prepared by `redux` plugin
+:::tip
+
+All this work will be handled automatically by CLI, so you don’t need to do anything extra as long as you choose **Redux** plugin during the project creation phase.
+
 :::
 
 [Refer to official documentation on configuring store for detailed usage. &#8594](https://redux.js.org/recipes/configuring-your-store)  
@@ -141,7 +143,7 @@ export default function Counter() {
 
 `increase` and `decrease` are action creator methods that return actual action objects for dispatch
 
-```ts title="src/redux/acitons.ts"
+```ts title="src/redux/actions.ts"
 import { INCREASE, DECREASE } from "./actionTypes";
 
 export const increase = () => ({
@@ -161,3 +163,18 @@ export const decrease = () => ({
 Redux middleware provides a third-party extension point between dispatching an action, and the moment it reaches the reducer. Redux middleware can be used for logging, crash reporting, talking to an asynchronous API, routing, and more.
 
 [Refer to official documentation on Middleware for detailed usage. &#8594](https://redux.js.org/tutorials/fundamentals/part-4-store#middleware)
+
+### Adding Redux to your project later
+
+If you didn't choose the plugin during project creation phase, you can follow instructions below to add it
+
+- install `redux` and `react-redux` packages
+
+```bash
+npm install redux && npm install react-redux
+```
+
+
+[Follow insctructions in Configure Store & Setup Reducers](#configure-store--setup-reducers)
+
+[Refer to official documentation on installation for detailed usage. &#8594](https://redux.js.org/introduction/installation)
