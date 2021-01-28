@@ -65,7 +65,7 @@ Run your storybook with `npm run storybook`.
 
 :::caution
 
-Related plugins adds by CLI if chosen during project creating phase. Be sure to install, if you want to add plugin afterwards.
+Related plugins adds by CLI if chosen during project creating phase. If you want to add plugin afterwards, you can follow instructions after be sure to install.
 
 :::
 
