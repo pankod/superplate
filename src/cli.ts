@@ -6,6 +6,7 @@ import { cleanupSync } from "temp";
 import { Options, SAO } from "sao";
 
 import { get_source } from "@Helper";
+import packageData from "../package.json";
 
 const generator = path.resolve(__dirname, "./");
 const templateDir = path.resolve(__dirname, "../template");
@@ -13,47 +14,63 @@ const templateDir = path.resolve(__dirname, "../template");
 const cli = async (): Promise<void> => {
     clear();
     const program = commander
-        .name("superplate")
-        .version("0.0.1")
-        .arguments("<project-dir>")
-        .usage(`${chalk.green("<project-dir>")} [options]`)
-        .description("The frontend boilerplate with superpowers")
+        .name(packageData.name)
+        .version(packageData.version)
+        .arguments("<project-directory>")
+        .usage(`${chalk.green("<project-directory>")} [options]`)
+        .description(packageData.description)
         .option(
-            "--source <source-path>",
-            "plugin source",
-            "superplate-core-plugins",
+            "-s, --source <source-path>",
+            "specify a custom source of plugins",
         )
-        .option("-d, --debug", "output extra logs and skip install scripts")
+        .option("-d, --debug", "print additional logs and skip install script")
         .on("--help", () => {
-            console.log("\n");
+            console.log();
             console.log(
-                `Provide a ${chalk.green
-                    .bold`<project-dir>`} and you will be prompted for plugins to use.`,
+                `  Only ${chalk.green("<project-directory>")} is required.`,
             );
-            console.log(`\n`);
+            console.log();
             console.log(
-                `${chalk.blue
-                    .bold`superplate`} will create a project all bootstrapped with your plugins of choice.`,
+                `  Provide a ${chalk.green
+                    .bold`<project-directory>`} and you will be prompted to proceed.`,
             );
-            console.log(`\n`);
-            console.log(`Start developing ${chalk.bgRed` fast `}`);
+            console.log();
+            console.log(
+                `  If you want to use custom plugins. You need to provide a source.`,
+            );
+            console.log();
+            console.log(`  A custom source can be one of:`);
+            console.log(
+                `  - a remote git repo: ${chalk.green(
+                    "https://github.com/my-plugin-source.git",
+                )}`,
+            );
+            console.log(
+                `  - a local path relative to the current working directory: ${chalk.green(
+                    "../my-source",
+                )}`,
+            );
+            console.log();
         })
         .parse(process.argv);
 
     /**
-     * Check for project-dir defined
+     * Check for project-directory defined
      */
     const [projectDir] = program.args;
 
     if (projectDir === undefined) {
-        console.log(projectDir);
-        console.log("\n");
+        console.error("Please specify the project directory:");
         console.log(
-            `${chalk.bgRedBright
-                .bold` ERR `} ${chalk.bold`You didn't provided a project-directory`}`,
+            `  ${chalk.cyan(program.name())} ${chalk.green(
+                "<project-directory>",
+            )}`,
         );
-        console.log("\n");
-        process.exit();
+        console.log();
+        console.log(
+            `Run ${chalk.cyan(`${program.name()} --help`)} to see all options.`,
+        );
+        process.exit(1);
     }
 
     /**
@@ -64,13 +81,17 @@ const cli = async (): Promise<void> => {
     );
 
     if (sourceError) {
-        console.log("\n");
+        console.error(`${chalk.bold`${sourceError}`}`);
+        console.log("Source can be a remote git repository or a local path.");
+        console.log();
+        console.log("You provided:");
+        console.log(`${chalk.blueBright(program.source)}`);
+        console.log();
         console.log(
-            `${chalk.bgRedBright.bold` ERR `} ${chalk.bold`${sourceError}`}`,
+            `Run ${chalk.cyan(`${program.name()} --help`)} to see all options.`,
         );
-        console.log("\n");
         cleanupSync();
-        process.exit();
+        process.exit(1);
     }
 
     const sao = new SAO({
@@ -88,7 +109,12 @@ const cli = async (): Promise<void> => {
     } as Options);
 
     await sao.run().catch((err) => {
-        console.log(err);
+        console.log(`${program.name()} has encountered an error.`);
+        console.log();
+        console.log(`If you think this is caused by a bug. Please check out:`);
+        console.log(`${chalk.blueBright(packageData.bugs.url)}`);
+        console.log();
+        console.error("ERROR", err);
         process.exit(1);
     });
 
