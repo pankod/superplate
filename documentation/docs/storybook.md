@@ -13,6 +13,7 @@ Refer to [documentation](https://storybook.js.org/docs/react/get-started/introdu
 :::tip
 
 All required configurations will be handled automatically by CLI as long as you choose css-preprocessors and feature plugins during the project creation phase.
+
 Storybook with CSS configuration handled by CLI as a default if you don't prefer to choose any CSS feature or UI framework plugin.
 
 :::
@@ -175,7 +176,9 @@ import styles from "../src/styles/app.scss";
 ```
 
 ### Styled-Components Plugins
-To use `styled-components` with `storybook` in your project, the `addons` field in `main.js` should be changed as follows and `preview.js` should be updated as follows.
+To use `styled-components` with `storybook` in your project.
+
+We recommend to check [styled-component documentation](styled-components.md) to integrate styled-component to your existing project and then the `addons` field in `main.js` should be changed as follows and `preview.js` should be updated as follows.
 
 ```js title="storybook/main.js"
   addons: [
