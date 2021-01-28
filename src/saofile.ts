@@ -92,7 +92,7 @@ const saoConfig: GeneratorConfig = {
     },
     async actions(sao) {
         if (sao.answers.name.length === 0) {
-            const error = sao.createError("you have to provide app name");
+            const error = sao.createError("App name is required!");
             throw error;
         }
 
