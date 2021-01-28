@@ -281,7 +281,7 @@ const saoConfig: GeneratorConfig = {
             );
             // commit
             await promisify(exec)(
-                `git --git-dir=${saoInstance.outDir}/.git/ --work-tree=${saoInstance.outDir}/ commit -m 'initial commit with next-cli'`,
+                `git --git-dir=${saoInstance.outDir}/.git/ --work-tree=${saoInstance.outDir}/ commit -m 'initial commit with superplate'`,
             );
             saoInstance.logger.info("created an initial commit.");
         }
