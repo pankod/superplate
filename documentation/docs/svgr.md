@@ -17,7 +17,7 @@ npm run svgr
 This will transform SVG's at `public/icons` to `.tsx` components, puts them in `src/components/icons` ignoring existing ones.
 
 :::caution
-After adding new SVG icons, you must again run the following command again to produce components for newly added SVG's.
+After adding new SVG icons, you must run the following command again to produce components for newly added SVG's.
 ```js
 npm run svgr
 ````
