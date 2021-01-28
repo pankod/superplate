@@ -6,14 +6,14 @@ sidebar_label: Storybook
   
 Storybook is a tool for UI development. It makes development faster and easier by isolating components. 
 
-This allows you to work on one component at a time. You can develop entire UIs without needing to start up a complex dev stack, force certain data into your database, or navigate around your application.
+This allows you to work on one component at a time. You can develop entire UI without needing to start up a complex dev stack, force certain data into your database, or navigate around your application.
 
-Refer to [documentation](https://storybook.js.org/docs/react/get-started/introduction) for detailed configuration.
+Refer to [documentation](https://storybook.js.org/docs/react/get-started/introduction) for detailed usage.
 
 :::tip
 
 All required configurations will be handled automatically by CLI as long as you choose css-preprocessors and feature plugins during the project creation phase.
-Storybook with css installation configure by CLI as a default if you don't choose any css-features or ui-framework plugin.
+Storybook with CSS configuration handled by CLI as a default if you don't prefer to choose any CSS feature or UI framework plugin.
 
 :::
 
@@ -42,7 +42,7 @@ For example, lets check out a `button` component storybook file:
 
 ```tsx title="components/button/index.stories.tsx"
 import React from "react";
-import { withKnobs } from "@storybook/addon-knobs";
+import { withKnobs, boolean } from "@storybook/addon-knobs";
 
 import { Button } from "./index";
 
@@ -52,17 +52,28 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Basic = () => <Button>Button</Button>;
+export const Basic = () => <Button disabled={boolean("Disabled", false)}>Button</Button>;
 ```
+We added addon-knobs to show how to use of dynamic variables. You are free to omit knobs if you don't need to use.
 
-### How to configure storybook with antd / sass / styled-components and chakra-ui ?
+Refer to [github repo](https://github.com/storybookjs/storybook/tree/master/addons/knobs) for detailed usage of knobs.
+
+Run your storybook with `npm run storybook`.
+
+
+### How to configure Storybook with Ant Design / Sass / styled-components and Chakra UI ?
+
+:::caution
+
+Related plugins adds by CLI if chosen during project creating phase. Be sure to install, if you want to add plugin afterwards.
+
+:::
 
 ### Scss Plugins
 To use `scss` with `storybook` in your project, the `webpackFinal` field in `main.js` should be changed as follows.
 
 ```js title="storybook/main.js"
 webpackFinal: async (config) => {
-    <%_ if (css_features === "scss") { _%>
     config.module.rules.push({
         // this is for both less and scss
         test: /.*\.(?:sc|c)ss$/,
