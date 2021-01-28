@@ -12,8 +12,8 @@ It helps you write applications that behave consistently, run in different envir
 superplate serves an optional `redux` plugin that prepares a hooks based Redux setup
 ### Configure Store & Setup Reducers
 
-Create a store with a root reducer
- ```ts title="src/redux/store.ts"
+- Create a store with a root reducer
+```ts title="src/redux/store.ts"
 import { createStore } from "redux";
 
 import rootReducer from "./reducers";
@@ -21,7 +21,8 @@ import rootReducer from "./reducers";
 export default createStore(rootReducer);
  ```
 
-Root reducer combines reducers.  
+-  Add a root reducer that combines reducers.
+
 [Refer to official documentation on combineReducers for detailed usage. &#8594](https://redux.js.org/recipes/structuring-reducers/using-combinereducers)
 
 
@@ -56,14 +57,14 @@ export default function Counter(state = initialState, action) {
 }
 ```
 
-With action types `INCREASE`, `DECREASE` being simple strings
+- Add action types `INCREASE`, `DECREASE`.
 
 ```ts title="src/redux/actionTypes.ts"
 export const INCREASE = "INCREASE";
 export const DECREASE = "DECREASE";
 ```
 
-Then pass `store` to `Provider` from React-Redux in `_app.tsx`
+- Then pass `store` to `Provider` from React-Redux in `_app.tsx`
 ```tsx title="pages/_app.tsx"
 import React from "react";
 import { AppProps } from "next/app";
