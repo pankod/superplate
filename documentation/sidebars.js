@@ -4,6 +4,6 @@ module.exports = {
     Features: ['fetch', 'axios', 'svgr', 'env', 'apollo-graphql', 'graphql-request'],
     "UI Frameworks":['antd', 'bootstrap', 'tailwind', 'chakra-ui'],
     "CSS Preprocessors":['css', 'scss', 'styled-components'],
-    "Hooks": ['react-query'],
+    Hooks: ['hooks/swr', 'hooks/react-query']
   },
 };
