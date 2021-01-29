@@ -23,9 +23,8 @@ The translations of custom text messsages will be stored in each language's own 
         - home.js
 ```
 
-For each translation folder create a json file and define translations with key-value pairs.
+If you choose `next-translate` as a `i18n` plugin during project creation phase, `common.json` example file created at `public/locales` directory by CLI.
 
-We already added a common.json file for next-translate example.
 
 ```json title="locales/eng/common.json"
 {
@@ -110,7 +109,9 @@ All required configurations will be handled automatically by CLI as long as you 
 
 :::
 
-If you didn't choose the plugin during project creation phase, you create `i18n.json` file as below after installing required package to add it.
+If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
+
+You must create the file `i18n.json` in the main directory.
 
 ```json title="i18n.json"
 {
@@ -122,3 +123,8 @@ If you didn't choose the plugin during project creation phase, you create `i18n.
     }
 }
 ```
+
+:::note
+As in the `common.js` example above, create a json file in each translation language's own separate folder and define translations with key-value pairs.
+:::
+
