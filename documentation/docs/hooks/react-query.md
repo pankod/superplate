@@ -1,6 +1,6 @@
 ---
 id: react-query
-title: react-query
+title: React Query
 sidebar_label: React Query
 ---
   
