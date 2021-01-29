@@ -10,6 +10,6 @@ module.exports = {
       "getting-started/creating-a-plugin",
       "getting-started/references",
   ],
-    Hooks: ['hooks/swr', "hooks/react-use"],
+    Hooks: ['hooks/swr', 'hooks/react-query', "hooks/react-use"],
   },
 };
