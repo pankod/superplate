@@ -1,6 +1,6 @@
 ---
 id: recoil
-title: Recoil Support
+title: Recoil
 sidebar_label: Recoil
 ---
 
@@ -84,13 +84,13 @@ export const RecoilExample: React.FC = () => {
   );
 };
 ```
-Clicking on the buttons will updates state and changes count. It's that simple.
+Clicking on the buttons will update state and change count. It's that simple.
 
 <br/>
 
 :::tip
 
-We recommend to watching [Dave McCabes presentation about Recoil](https://www.youtube.com/watch?v=_ISAA_Jt9kI&feature=youtu.be&ab_channel=ReactEurope) to understand logic behind the Recoil.
+We recommend watching [Dave McCabe's presentation about Recoil](https://www.youtube.com/watch?v=_ISAA_Jt9kI&feature=youtu.be&ab_channel=ReactEurope) to understand the logic behind the Recoil.
 
 :::
 
@@ -110,4 +110,3 @@ npm install recoil
 ```
 
 Refer to official [documentation](https://recoiljs.org/docs/introduction/installation) for installation.
-
