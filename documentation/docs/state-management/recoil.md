@@ -81,7 +81,7 @@ export const RecoilExample: React.FC = () => {
   );
 };
 ```
-Clicking on the buttons will updates state and changes count. It's that simple.
+Clicking on the buttons will update state and change count. It's that simple.
 
 <br/>
 
@@ -107,4 +107,3 @@ npm install recoil
 ```
 
 Refer to official [documentation](https://recoiljs.org/docs/introduction/installation) for installation.
-
