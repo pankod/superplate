@@ -14,19 +14,22 @@ Refer to [documentation](https://github.com/streamich/react-use) for detailed us
 
 All required configurations will be handled automatically by CLI as long as you choose plugins during the project creation phase.
 
-If you didn't choose the plugin during project creation phase, be sure to install with `npm install react-use` if you want to add `react-us` afterwards.
+If you didn't choose the plugin during project creation phase, be sure to install with `npm install react-use` if you want to add `react-use` afterwards.
 :::
 
-Example:
+In this example, we'll use `useWindowSize` and  `usePrevious` hooks in order to  tracks `Window` dimensions and get the previous state with ease.
 
 ```js
 import React from "react";
+// highlight-next-line
 import { usePrevious, useWindowSize } from "react-use";
 
 export const ReactUseExample = () => {
     const [count, setCount] = React.useState(0);
+    // highlight-start
     const prevCount = usePrevious(count);
     const { width, height } = useWindowSize();
+     // highlight-end
 
     return (
         <div>
