@@ -87,7 +87,7 @@ Clicking on the buttons will update state and change count. It's that simple.
 
 :::tip
 
-We recommend to watching [Dave McCabes presentation about Recoil](https://www.youtube.com/watch?v=_ISAA_Jt9kI&feature=youtu.be&ab_channel=ReactEurope) to understand logic behind the Recoil.
+We recommend watching [Dave McCabe's presentation about Recoil](https://www.youtube.com/watch?v=_ISAA_Jt9kI&feature=youtu.be&ab_channel=ReactEurope) to understand the logic behind the Recoil.
 
 :::
 
