@@ -83,8 +83,6 @@ export const RecoilExample: React.FC = () => {
 ```
 Clicking on the buttons will updates state and changes count. It's that simple.
 
-Refer to [documentation](https://recoiljs.org/docs/introduction/installation) for detailed usage.
-
 <br/>
 
 :::tip
@@ -93,4 +91,20 @@ We recommend to watching [Dave McCabes presentation about Recoil](https://www.yo
 
 :::
 
+:::note
+
+All required configurations will be handled automatically by CLI as long as you choose Recoil plugin during the project creation phase.
+
+:::
+
+
+### Adding Recoil to your project later
+
+If you didn't choose Recoil plugin during project creation phase, you can follow the instructions below to add it.
+
+```bash
+npm install recoil
+```
+
+Refer to official [documentation](https://recoiljs.org/docs/introduction/installation) for installation.
 
