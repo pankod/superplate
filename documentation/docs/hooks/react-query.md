@@ -28,7 +28,6 @@ We recommend to check official [documentation](https://react-query.tanstack.com/
 ```js title="pages/_app.js"
 import React from 'react';
 import { AppProps } from "next/app";
-import "@styles/global.css"
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Hydrate } from "react-query/hydration";
 
@@ -53,7 +52,7 @@ If you didn't choose the plugin during project creation phase, you must update y
 
 #### `useQuery` example:
 
-```js title="In your component"
+```js title="components/reactQueryExample/index.tsx"
 import { useQuery } from "react-query";
 
 const API_URL = "https://official-joke-api.appspot.com/jokes/programming/random";
@@ -63,7 +62,7 @@ export const ReactQueryExample = () => {
   const { data, refetch } = useQuery("repoData", () => 
     fetch(
       API_URL
-    ).then((res) => res.json()),
+    ).then(res => res.json()),
     {
       refetchOnWindowFocus: false,
     }
