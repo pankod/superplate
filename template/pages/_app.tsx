@@ -4,7 +4,7 @@ import { AppProps } from "next/app";
 
 <%
     var top = _app.wrapper.map(wrapper => wrapper[0] || "");
-    var bottom = _app.wrapper.map(wrapper => wrapper[1] || "");
+    var bottom = _app.wrapper.map(wrapper => wrapper[1] || "").reverse();
 %>
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
