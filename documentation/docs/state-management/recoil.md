@@ -8,6 +8,9 @@ Recoil is a state management library, open-sourced by Facebook. It's offering a 
 
 We'll show basic usage of Recoil API with simple counter example.
 
+Refer to official [documentation](https://recoiljs.org/docs/introduction/motivation) for detailed usage.
+
+
 We need to wrap our code with RecoilRoot in root component.
 
 ``` jsx title="pages/__app.tsx"
