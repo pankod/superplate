@@ -1,6 +1,6 @@
 ---
 id: recoil
-title: Recoil Support
+title: Recoil
 sidebar_label: Recoil
 ---
 
