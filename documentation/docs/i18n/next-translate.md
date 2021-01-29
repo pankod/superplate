@@ -25,7 +25,7 @@ The translations of custom text messsages will be stored in each language's own 
 
 For each translation folder create a json file and define translations with key-value pairs.
 
-We already added a common.json file for boilerplate translation example.
+We already added a common.json file for next-translate example.
 
 ```json title="locales/eng/common.json"
 {
