@@ -11,7 +11,7 @@ npx superplate <my-project>
 Just run below command and you will be prompted with options to create your project without spending hours on configurations. 
 
 <p align='center'>
-<img src='./documentation/static/img/terminal.gif' width='500' alt='npm start'>
+<img src='./documentation/static/img/terminal.gif' width='500' alt='superplate example'>
 </p>
 
 ## Plugins
