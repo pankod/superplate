@@ -98,7 +98,7 @@ export const MyComponent: React.FC<{ onClick: () => void }> = ({
 }) => {
     return (
         <div>
-            <button onClick={onClick}>
+            <button data-testid="btn" onClick={onClick}>
                 Click Me!
             </button>
         </div>
