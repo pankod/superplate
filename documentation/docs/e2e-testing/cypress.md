@@ -38,7 +38,7 @@ export const Main: React.FC = () => {
 - Now these elements can be selected in tests with `cy.get`
 
 ```ts
-cy.get(`[data-test=main-heading]`).
+cy.get(`[data-test=main-heading]`);
 ```
 
 - Add two custom commands from [Real World App (RWA)](https://github.com/cypress-io/cypress-realworld-app/blob/develop/cypress/support/commands.ts#L28) for easier selection of elements.
