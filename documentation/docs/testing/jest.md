@@ -6,7 +6,7 @@ sidebar_label: Jest
 
 [Jest](https://jestjs.io/docs/en/getting-started) is a delightful JavaScript Testing Framework with a focus on simplicity.
 
-**superplate**'s plugin of Jest is using `ts-jest` and comes with `nock` and `isomorphic-unfetch`.
+**superplate** serving optional Jest testing plugin which uses `ts-jest` under the hood and comes with `nock` and `isomorphic-unfetch`.
 
 - `ts-jest` is a TypeScript preprocessor for Jest to test projects written in TypeScript. Check out their [documentation](https://kulshekhar.github.io/ts-jest/) to learn more.
 - `nock` is a HTTP server mocking library. We use it to mock requests in our tests. Check out their [documentation](https://github.com/nock/nock#nock) to learn more.
@@ -20,7 +20,7 @@ You can see how **superplate**'s Jest plugin is implemented below.
 
 First, we need to add dependencies to get started using Jest to run our tests.
 
-```json
+```json title="package.json"
 {
     "devDependencies": {
         "jest": "^26.6.3",

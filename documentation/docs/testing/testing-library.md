@@ -22,7 +22,7 @@ Configuration for Jest is not included. Please check out [Jest Plugin](jest) to 
 
 First, we need to add dependencies to get started using React Testing Library to run our tests.
 
-```json
+```json title="package.json"
 {
     "devDependencies": {
         "@testing-library/react": "^11.2.3",
@@ -71,7 +71,7 @@ export { render };
 
 **`MyComponent.spec.tsx`**
 
-```ts
+```tsx
 import { fireEvent, render } from "@test"; // <root>/tests/index.tsx
 import { MyComponent } from "./MyComponent";
 
@@ -110,7 +110,7 @@ export const MyComponent: React.FC<{ onClick: () => void }> = ({
 
 We will use Jest as our test runner. If Jest is already set up; you can simply run `test` script with `npm run test` or `yarn test`.
 
-## Adding Testing Library to an Existing Project
+## Adding Testing Library to an existing project
 
 If you want to add React Testing Library to your existing project please check out;
 
