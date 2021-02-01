@@ -4,11 +4,11 @@ title: Lint staged files
 sidebar_label: Lint staged files
 ---
 
-Use lint-staged to make your code uniform.
+Use lint-staged to make your code uniform. It allows you to run arbitrary scripts against currently staged files.
  
 Refer to [documentation](https://github.com/okonet/lint-staged) for detailed usage.
 
-### How to configure lint staged files?
+### How to configure lint-staged files?
 
 :::caution
 
