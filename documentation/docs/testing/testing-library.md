@@ -70,12 +70,14 @@ export { render };
 ### Example Test
 
 ```tsx title="MyComponent.spec.tsx"
+// highlight-next-line
 import { fireEvent, render } from "@test"; // <root>/test/index.tsx
 import { MyComponent } from "./MyComponent";
 
 describe("MyComponent", () => {
     it("button is clickable", () => {
         const mockFn = jest.fn();
+        // highlight-next-line
         const { getByTestId } = render(<MyComponent onClick={mockFn} />);
 
         const btn = getByTestId("btn");
