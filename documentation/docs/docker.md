@@ -30,6 +30,6 @@ CMD [ "npm", "start" ]
 
 :::note
 
-Dockerfile created by CLI if you select docker plugin during the project creation phase.
+Dockerfile is created by CLI if you select docker plugin during the project creation phase.
 
 :::
