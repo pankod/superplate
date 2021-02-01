@@ -33,9 +33,9 @@ First, we need to add dependencies to get started using React Testing Library to
 
 ### Custom Render
 
-We may need to wrap our test components to context providers, data stores etc. It's a good practice to make this wrappers globally available. We will create a custom render and re-export everything from `React Testing Library` in `tests/index.tsx` file. 
+We may need to wrap our test components to context providers, data stores etc. It's a good practice to make this wrappers globally available. We will create a custom render and re-export everything from `React Testing Library` in `test/index.tsx` file. 
 
-```ts
+```ts title="test/index.tsx"
 import React, { ReactElement } from "react";
 import {
     render as baseRender,
@@ -69,10 +69,8 @@ export { render };
 
 ### Example Test
 
-**`MyComponent.spec.tsx`**
-
-```tsx
-import { fireEvent, render } from "@test"; // <root>/tests/index.tsx
+```tsx title="MyComponent.spec.tsx"
+import { fireEvent, render } from "@test"; // <root>/test/index.tsx
 import { MyComponent } from "./MyComponent";
 
 describe("MyComponent", () => {
@@ -88,9 +86,7 @@ describe("MyComponent", () => {
 });
 ```
 
-**`MyComponent.tsx`**
-
-```tsx
+```tsx title="MyComponent.tsx"
 import React from "react";
 
 export const MyComponent: React.FC<{ onClick: () => void }> = ({

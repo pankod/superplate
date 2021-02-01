@@ -35,9 +35,9 @@ First, we need to add dependencies to get started using Jest to run our tests.
 
 ### `jest.config.js`
 
-We need to configure Jest to work with our environment. We'll be doing this in `tests/jest.config.js` with the following code;
+We need to configure Jest to work with our environment. We'll be doing this in `test/jest.config.js` with the following code;
 
-```js
+```js title="test/jest.config.js"
 const { pathsToModuleNameMapper } = require("ts-jest/utils");
 const { compilerOptions } = require("../tsconfig.json");
 
@@ -64,7 +64,7 @@ What we basically do is;
 
 We need to apply the polyfill for the `fetch`, set environment variables to use in tests and setup `nock` to prevent memory leaks. We'll place this setup in `test/jest.setup,js` with the following code;
 
-```js
+```js title="test/jest.setup.js"
 import "isomorphic-unfetch";
 import nock from "nock";
 import dotenv from "dotenv";
@@ -81,7 +81,7 @@ afterAll(() => {
 
 We need to specify our config file when running jest, we can do this with `jest -c test/jest.config.js`. We will add this command to `package.json` as a test script. 
 
-```json
+```json title="package.json"
 {
     "scripts": {
         "test": "jest -c test/jest.config.js"
