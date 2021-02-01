@@ -51,7 +51,7 @@ module.exports = new NextI18Next({
 })
 ```
 
-Changing current language
+#### Changing current language
 Use `changeLanguage()` method of `i18n` to set current language and trigger the language change manually.
 
 `t()` function can be used to fetch the translation.
