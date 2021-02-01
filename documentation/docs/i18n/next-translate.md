@@ -20,7 +20,7 @@ The translations of custom text messsages will be stored in each language's own 
         - home.js
 ```
 
-If you choose `next-translate` as a `i18n` plugin during project creation phase, `common.json` example file created at `public/locales` directory by CLI.
+If you choose `next-translate` as a `i18n` plugin during project creation phase, `common.json` example file will be created at `public/locales` directory by CLI.
 
 
 ```json title="locales/eng/common.json"
@@ -100,6 +100,14 @@ All required configurations will be handled automatically by CLI as long as you 
 :::
 
 If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
+
+:::note
+Be sure to install `next-translate` in your root directory!
+:::
+
+```bash
+npm install next-translate
+```
 
 You must create the file `i18n.json` in the main directory.
 
