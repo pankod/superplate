@@ -6,10 +6,11 @@ module.exports = {
     "CSS Preprocessors":['css', 'scss', 'styled-components'],
     "State Management": ['state-management/redux', 'state-management/recoil', 'state-management/mobx'],
     "Getting Started": [
-      "getting-started/how-it-works",
-      "getting-started/creating-a-plugin",
-      "getting-started/references",
+      'getting-started/how-it-works',
+      'getting-started/creating-a-plugin',
+      'getting-started/references',
     ],
     Hooks: ['hooks/swr', 'hooks/react-query', "hooks/react-use"],
+    Testing: ['testing/jest', 'testing/testing-library', 'testing/enzyme']
   },
 };
