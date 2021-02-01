@@ -8,7 +8,7 @@ next-i18next is a plugin that allows you to get translations up and running quic
 
 Refer to official [repo](https://github.com/isaachinman/next-i18next) for detailed usage.
 
-superplate serves an optional `i18n` plugin that set translation feature with using [next-i18next]((https://github.com/isaachinman/next-i18next)) .
+superplate serves an optional `i18n` plugin that set translation feature with using [next-i18next](https://github.com/isaachinman/next-i18next) .
 
 The translations of custom text messsages will be stored in each language's own separate folder.
 
