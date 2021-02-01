@@ -233,6 +233,6 @@ If you didn't choose the plugin during project creation phase, you can follow th
 npm install mobx && npm install mobx-react
 ```
 
-- [Follow insctructions begining from here](#making-observable-stores-with-classes)
+- [Follow instructions beginning from here](#making-observable-stores-with-classes)
 
 [Refer to official documentation on installation for detailed usage. &#8594](https://mobx.js.org/installation.html)
