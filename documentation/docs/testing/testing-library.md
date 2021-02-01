@@ -110,7 +110,7 @@ export const MyComponent: React.FC<{ onClick: () => void }> = ({
 
 We will use Jest as our test runner. If Jest is already set up; you can simply run `test` script with `npm run test` or `yarn test`.
 
-## Adding Testing Library to an Existing Project
+## Adding Testing Library to an existing project
 
 If you want to add React Testing Library to your existing project please check out;
 
