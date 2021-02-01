@@ -123,7 +123,7 @@ const StoreContext = React.createContext<RootStore | undefined>(undefined);
 
 - Use its provider to make store accessible to all components.
 
-```ts title="src/mobx/index.tsx"
+```tsx title="src/mobx/index.tsx"
 import React from "react";
 // highlight-start
 import { iroot } from "./stores/store";
