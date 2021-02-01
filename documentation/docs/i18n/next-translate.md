@@ -4,12 +4,9 @@ title: next-translate
 sidebar_label: next-translate 
 ---
 
-The main goal of this library is to keep the translations as simple as possible in a Next.js environment.
+The main goal of [next-translate](https://github.com/vinissimus/next-translate) is to keep the translations as simple as possible in a Next.js environment.
 
-Next-translate has two parts: `Next.js plugin` + `i18n API`.
-
-Refer to [documentation](https://github.com/vinissimus/next-translate) for detailed usage.
-
+superplate serves an optional `i18n` app translation plugin with [next-translate](https://github.com/vinissimus/next-translate) .
 
 The translations of custom text messsages will be stored in each language's own separate folder.
 
@@ -50,18 +47,15 @@ If you choose `next-translate` as a `i18n` plugin during project creation phase,
 }
 ```
 
-### How to use next-trasnlate?
+### How to use next-translate?
 
-```js
+```tsx
 import React from "react";
 import Link from "next/link";
 // highlight-start
 import useTranslation from "next-translate/useTranslation";
-
 import i18nConfig from "@i18n";
 // highlight-end
-
-import styles from "./index.module.css";
 
 // highlight-start
 const { locales } = i18nConfig;
@@ -73,24 +67,20 @@ export const NextTranslateExample: React.FC<{ defaultNamespace: string }> = ({
     const { t, lang } = useTranslation(defaultNamespace);
 
     return (
-        <div className={styles.app}>
+        <div>
             ...
-            <div className={styles.languageContainer}>
+            <div>
                 // highlight-start
-                {locales.map((lng) => (
+                {locales.map(lng => (
                     <Link href="/" passHref locale={lng} key={lng}>
-                        <a
-                            className={`${styles.language} ${
-                                lng === lang ? styles.selectedLanguage : ""
-                            }`}
-                        >
+                        <a>
                             {t(`common:language.${lng}`)}
                         </a>
                     </Link>
                 ))}
                 // highlight-end
             </div>
-            <main className={styles.content}>
+            <main>
                 // highlight-start
                 <p>{t("common:greet", { name: t`common:world` })}</p>
                 // highlight-end
