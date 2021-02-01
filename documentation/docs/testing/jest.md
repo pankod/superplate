@@ -20,7 +20,7 @@ You can see how **superplate**'s Jest plugin is implemented below.
 
 First, we need to add dependencies to get started using Jest to run our tests.
 
-```json
+```json title="package.json"
 {
     "devDependencies": {
         "jest": "^26.6.3",
