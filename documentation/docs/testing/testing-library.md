@@ -22,7 +22,7 @@ Configuration for Jest is not included. Please check out [Jest Plugin](jest) to 
 
 First, we need to add dependencies to get started using React Testing Library to run our tests.
 
-```json
+```json title="package.json"
 {
     "devDependencies": {
         "@testing-library/react": "^11.2.3",
