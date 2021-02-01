@@ -62,7 +62,7 @@ What we basically do is;
 
 ### `jest.setup.js`
 
-We need to apply the polyfill for the `fetch`, set environment variables to use in tests and setup `nock` to prevent memory leaks. We'll place this setup in `test/jest.setup,js` with the following code;
+We need to apply the polyfill for the `fetch`, set environment variables to use in tests and setup `nock` to prevent memory leaks. We'll place this setup in `test/jest.setup.js` with the following code;
 
 ```js title="test/jest.setup.js"
 import "isomorphic-unfetch";
