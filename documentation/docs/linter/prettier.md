@@ -17,7 +17,7 @@ All required configurations will be handled automatically by CLI as long as you 
 If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
 
 :::note
-Be sure to install `prettier` in your root directory!
+Be sure to install `prettier` in your root directory.
 :::
 
 ```bash
