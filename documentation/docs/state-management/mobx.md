@@ -41,7 +41,7 @@ export interface icounter {
 }
 ```
 :::info
-`makeAutoObservable` and its cousin `makeObservable` trap existing object properties and make them observable. `makeAutoObservable` is like `makeObservable` on steroids, as it infers all the properties by default
+`makeAutoObservable` and its cousin `makeObservable` trap existing object properties and make them observable. `makeAutoObservable` is like `makeObservable` on steroids, as it infers all the properties by default.
 :::
 
 - Make a root store that holds the counter store
