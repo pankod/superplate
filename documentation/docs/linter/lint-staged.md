@@ -8,7 +8,7 @@ Use lint-staged to make your code uniform.
  
 Refer to [documentation](https://github.com/okonet/lint-staged) for detailed usage.
 
-### How to configure next-translate?
+### How to configure lint staged files?
 
 :::caution
 
@@ -19,7 +19,7 @@ All required configurations will be handled automatically by CLI as long as you 
 If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
 
 :::note
-Be sure install lint-staged and husky in our root package!
+Be sure to install lint-staged and husky in your root directory!
 :::
 
 ```bash
