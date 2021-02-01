@@ -12,6 +12,7 @@ module.exports = {
     ],
     Hooks: ['hooks/swr', 'hooks/react-query', "hooks/react-use"],
     i18n: ['i18n/next-translate', 'i18n/next-i18next'],
-    Testing: ['testing/jest', 'testing/testing-library', 'testing/enzyme']
+    Testing: ['testing/jest', 'testing/testing-library', 'testing/enzyme'],
+    Deployment: ["docker"]
   },
 };
