@@ -5,15 +5,15 @@ module.exports = {
     "UI Frameworks":['antd', 'bootstrap', 'tailwind', 'chakra-ui'],
     "CSS Preprocessors":['css', 'scss', 'styled-components'],
     "State Management": ['state-management/redux', 'state-management/recoil', 'state-management/mobx'],
+    "Hooks": ['hooks/swr', 'hooks/react-query', "hooks/react-use"],
+    "Linting Tools": ['linter/prettier', 'linter/lint-staged'],
+    "i18n": ['i18n/next-translate', 'i18n/next-i18next'],
+    "Testing": ['testing/jest', 'testing/testing-library', 'testing/enzyme'],
+    "Deployment": ["docker"],
     "Getting Started": [
       'getting-started/how-it-works',
       'getting-started/creating-a-plugin',
       'getting-started/references',
     ],
-    "Hooks": ['hooks/swr', 'hooks/react-query', "hooks/react-use"],
-    "Linting Tools": ['linter/lint-staged'],
-    "i18n": ['i18n/next-translate', 'i18n/next-i18next'],
-    "Testing": ['testing/jest', 'testing/testing-library', 'testing/enzyme'],
-    "Deployment": ["docker"]
   },
 };
