@@ -150,7 +150,7 @@ export const RootStoreProvider = ({
 
 - Components can read from store via a custom hook.
 
-```ts title="src/mobx/index.tsx"
+```tsx title="src/mobx/index.tsx"
 import React from "react";
 import { iroot } from "./stores/store";
 
