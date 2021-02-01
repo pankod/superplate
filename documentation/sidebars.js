@@ -11,6 +11,7 @@ module.exports = {
       'getting-started/references',
     ],
     Hooks: ['hooks/swr', 'hooks/react-query', "hooks/react-use"],
-    Testing: ['testing/jest', 'testing/testing-library', 'testing/enzyme']
+    Testing: ['testing/jest', 'testing/testing-library', 'testing/enzyme'],
+    Docker: "docker"
   },
 };
