@@ -5,6 +5,7 @@ module.exports = {
     "UI Frameworks":['antd', 'bootstrap', 'tailwind', 'chakra-ui'],
     "CSS Preprocessors":['css', 'scss', 'styled-components'],
     "State Management": ['state-management/redux', 'state-management/recoil'],
+    "i18n": ["i18n/next-i18next"],
     "Getting Started": [
       "getting-started/how-it-works",
       "getting-started/creating-a-plugin",
