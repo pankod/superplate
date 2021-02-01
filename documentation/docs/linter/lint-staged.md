@@ -22,6 +22,11 @@ If you didn't choose the plugin during project creation phase, you can follow th
 Be sure install lint-staged and husky in our root package!
 :::
 
+```bash
+npm install lint-staged husky --save-dev
+```
+
+
 ```json title="package.json"
 {
     "devDependencies": {
