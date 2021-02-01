@@ -11,7 +11,7 @@ npx superplate <my-project>
 Just run the command above and you will be prompted with options to create your project without spending hours on configurations. 
 
 <p align='center'>
-<img src='https://user-images.githubusercontent.com/11361964/106276726-091d9380-6249-11eb-8f5a-cf164f0623d8.gif' width='500' alt='superplate example'>
+<img src='https://user-images.githubusercontent.com/11361964/106468355-dd9be280-64ae-11eb-82da-c313beb16d6b.gif' width='500' alt='superplate example'>
 </p>
 
 ## Plugins
