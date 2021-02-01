@@ -17,7 +17,7 @@ All required configurations will be handled automatically by CLI as long as you 
 If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
 
 :::note
-Be sure to install lint-staged and husky in your root directory!
+Be sure to install `prettier` in your root directory!
 :::
 
 ```bash
@@ -48,7 +48,7 @@ This means you can configure Prettier in the ways specified in the [original doc
 }
 ```
 
-To exclude files from formatting, create a .prettierignore file in the root of your project.
+To exclude files from formatting, create a `.prettierignore` file in the root of your project.
 
 ```bash title=".prettierignore"
 node_modules
