@@ -79,7 +79,7 @@ describe("Homepage", () => {
 
 ### Running Tests
 
-- Add `baseUrl` option to cyprees configuration.
+- Add `baseUrl` option to cypress configuration.
 
 ```json title="cypress.json"
 {
@@ -93,7 +93,7 @@ describe("Homepage", () => {
 
 [Refer to official documentation on configuration for detailed usage. &#8594](https://docs.cypress.io/guides/references/configuration.html)
 
-- Add commands to open Cypress Test Runner and run tests.
+- Add commands for opening Cypress Test Runner and running tests.
 
 ```json title="package.json"
 {
@@ -158,7 +158,7 @@ Cypress directory is placed in the root of the project.
 }
 ```
 
-- Don't forget to exclude Cypress from main `tsconfig`
+- Don't forget to exclude Cypress from main `tsconfig.json`
 
 ```json title="tsconfig.json"
 {
