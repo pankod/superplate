@@ -227,7 +227,7 @@ You might consider using mobx-react-lite instead of mobx-react if you're not usi
 
 If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
 
-- install `mobx` and `mobx-react` packages.
+- Install `mobx` and `mobx-react` packages.
 
 ```bash
 npm install mobx && npm install mobx-react
