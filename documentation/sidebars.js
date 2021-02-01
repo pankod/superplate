@@ -11,5 +11,6 @@ module.exports = {
       "getting-started/references",
     ],
     Hooks: ['hooks/swr', 'hooks/react-query', "hooks/react-use"],
+    "E2E Testing": ['e2e-testing/cypress']
   },
 };
