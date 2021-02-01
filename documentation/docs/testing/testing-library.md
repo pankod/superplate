@@ -71,7 +71,7 @@ export { render };
 
 **`MyComponent.spec.tsx`**
 
-```ts
+```tsx
 import { fireEvent, render } from "@test"; // <root>/tests/index.tsx
 import { MyComponent } from "./MyComponent";
 
