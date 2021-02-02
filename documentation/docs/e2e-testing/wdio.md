@@ -11,7 +11,7 @@ sidebar_label: WebdriverIO
 
 Testing your application will require interacting with UI elements. Best practice for selecting elements in your tests is with special attributes for testing.  
 
-- Add test attributes to elements of your ui.
+- Add test attributes to elements of your UI.
 
 ```tsx title="src/components/main/index.tsx"
 import React from "react";
