@@ -1,27 +1,50 @@
-module.exports = {
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+const siteConfig = {
   title: 'superplate',
-  tagline: 'The frontend boilerplate with superpowers',
-  url: 'https://pankod.github.io',
-  baseUrl: '/superplate/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-  organizationName: 'pankod',
+  tagline: 'Set up a modern web app by running one command.',
+  url: 'https://create-react-app.dev', //update url with superplate link
+  baseUrl: '/',
   projectName: 'superplate',
+  organizationName: 'pankod',
+  favicon: 'img/superplate-logo.svg',
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        docs: {
+          path: './docs',
+          sidebarPath: require.resolve('./sidebars.js'),
+          editUrl:
+            'https://github.com/pankod/superplate/tree/master/documentation',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
+        },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      },
+    ],
+  ],
   themeConfig: {
+    image: 'img/footer_icon.png',
+    algolia: {
+      apiKey: '3be60f4f8ffc24c75da84857d6323791',
+      indexName: 'superplate',
+    },
     navbar: {
-      title: 'My Site',
+      title: 'SuperPlate',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'SuperPlate Logo',
+        src: 'img/superplate-logo.svg',
       },
       items: [
-        {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
-          position: 'left',
-        },
+        { to: 'docs', label: 'Docs', position: 'right' },
         {
           href: 'https://github.com/pankod/superplate',
           label: 'GitHub',
@@ -36,25 +59,22 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Style Guide',
-              to: 'docs/',
+              label: 'Get Started',
+              to: 'docs/getting-started/how-it-works',
             },
             {
-              label: 'Second Doc',
-              to: 'docs/doc2/',
+              label: 'Features',
+              to: 'docs',
             },
+            /* To do Set Up label and how it work label*/
           ],
         },
         {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/superplate',
-            },
-            {
               label: 'Twitter',
-              href: 'https://twitter.com/pankoddev',
+              href: 'https://twitter.com/PankodDev',
             },
           ],
         },
@@ -62,39 +82,19 @@ module.exports = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: 'blog',
-            },
-            {
               label: 'GitHub',
-              href: 'https://github.com/pankod/superplate',
+              href: "https://github.com/pankod",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} superplate, Inc. Built with Docusaurus.`,
+      logo: {
+        alt: 'Pankod Logo',
+        src: 'img/pankod_footer_logo.png',
+      },
+      copyright: `Copyright © ${new Date().getFullYear()} Pankod, Inc.`,
     },
   },
-  presets: [
-    [
-      '@docusaurus/preset-classic',
-      {
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-      },
-    ],
-  ],
 };
+
+module.exports = siteConfig;
