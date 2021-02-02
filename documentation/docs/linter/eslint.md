@@ -20,9 +20,8 @@ Refer to [documentation](https://eslint.org/) for details.
         "@typescript-eslint/eslint-plugin": "^4.9.1",
         "@typescript-eslint/parser": "^4.9.1",
 
-        // highlight-start
+        // highlight-next-line
         If you want to use prettier with ESLint, you need to add the following packages.
-        // highlight-end
         // "eslint-config-prettier": "^7.0.0",
         // "eslint-plugin-prettier": "^3.2.0"
     }
@@ -54,9 +53,8 @@ ESLint is designed to be flexible and configurable for your use case. You can tu
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
 
-    // highlight-start
+    // highlight-next-line
     If you want to use prettier with ESLint, the following configuration can be used.
-    // highlight-end
     // "prettier/@typescript-eslint",
     // "plugin:prettier/recommended" 
   ]
