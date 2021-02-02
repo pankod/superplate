@@ -16,6 +16,6 @@ module.exports = {
       'getting-started/references',
     ],
     "E2E Testing": ['e2e-testing/cypress', 'e2e-testing/wdio'],
-    "Continuous integration": ["ci/github-actions"]
+    "Continuous integration": ["ci/github-actions", "ci/travis"]
   },
 };

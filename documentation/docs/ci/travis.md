@@ -5,11 +5,10 @@ sidebar_label: Travis CI
 ---
 
 
-As a continuous integration platform, Travis CI supports your development process by automatically building and testing code changes, providing immediate feedback on the success of the change. Travis CI can also automate other parts of your development process by managing deployments and notifications.
-
+As a continuous integration platform, Travis CI supports your development process by automatically building and testing code changes, providing immediate feedback on the success of the change. 
 Refer to [documentation](https://docs.travis-ci.com) for detailed usage.
 
-The following YAML workflow file created into the `./travis.yml` as a default by superplate, if GitHub Actions selected as a CI plugin.
+The following YAML workflow file created into the `./travis.yml` as a default by superplate, if Travis CI selected as a CI plugin.
 
 ``` title=".github/workflows/ci.yml"
 language: node_js
@@ -19,10 +18,9 @@ install:
   - npm ci
   - npm run lint
   - npm run test
-
 ```
 :::tip
-The following commands adding to `./travis.yml` by superplate if any of plugin at the below selected during project creation phase.
+The following commands are added to `travis.yml` by superplate if any of plugins listed below is selected during project creation phase.
 :::
 
 :::note
@@ -46,30 +44,13 @@ import TabItem from '@theme/TabItem';
   <TabItem value="npm">
 
 ``` 
-- name: Cache node_modules
-  uses: actions/cache@v2
-  with:
-    path: ~/.npm
-    key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-    restore-keys: |
-      ${{ runner.os }}-node-
+- npm ci
 ```
   </TabItem>
   <TabItem value="yarn">
 
 ```
-- name: Get yarn cache directory path 
-  id: yarn-cache-dir-path
-  run: echo "::set-output name=dir::$(yarn cache dir)"
-
-- name: Cache node_modules
-  uses: actions/cache@v2
-  id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-  with:
-    path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-    key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-    restore-keys: |
-      ${{ runner.os }}-yarn-
+- yarn
 ```            
   </TabItem>
 </Tabs>
@@ -89,15 +70,13 @@ import TabItem from '@theme/TabItem';
   <TabItem value="npm">
 
 ```
-- name: Install dependencies 
-  run: npm ci
+- npm ci
 ```
   </TabItem>
   <TabItem value="yarn">
 
 ```
-- name: Install dependencies 
-  run: yarn
+- yarn
 ```            
   </TabItem>
 </Tabs>
@@ -116,15 +95,13 @@ import TabItem from '@theme/TabItem';
   <TabItem value="npm">
 
 ```
-- name: Run lint
-  run: npm run lint
+- npm run lint
 ```
   </TabItem>
   <TabItem value="yarn">
 
 ```
-- name: Run lint
-  run: yarn lint
+- yarn lint
 ```            
   </TabItem>
 </Tabs>
@@ -145,15 +122,13 @@ import TabItem from '@theme/TabItem';
   <TabItem value="npm">
 
 ```
-- name: Run tests
-  run: npm run test
+- npm run test
 ```
   </TabItem>
   <TabItem value="yarn">
 
 ```
-- name: Run tests
-  run: yarn test
+- yarn test
 ```            
   </TabItem>
 </Tabs>
@@ -168,15 +143,13 @@ import TabItem from '@theme/TabItem';
   <TabItem value="npm">
 
 ```
-- name: Run e2e test
-  run: npm run cypress:test
+- npm run cypress:test
 ```
   </TabItem>
   <TabItem value="yarn">
 
 ```
-- name: Run e2e test
-  run: yarn cypress:test
+- yarn cypress:test
 ```            
   </TabItem>
 </Tabs>
@@ -192,15 +165,13 @@ import TabItem from '@theme/TabItem';
   <TabItem value="npm">
 
 ```
-- name: Run e2e test
-  run: npm run webdriver:run
+- npm run webdriver:run
 ```
   </TabItem>
   <TabItem value="yarn">
 
 ```
-- name: Run e2e test
-  run: yarn webdriver:run
+- yarn webdriver:run
 ```            
   </TabItem>
 </Tabs>
