@@ -64,7 +64,7 @@ The following commands adding to `.github/workflows/ci.yml` by superplate if any
 :::
 
 :::note
-You can use the following commands in case of adding github actions to existing project later.
+You can use the following commands in case of adding Github Actions to existing project later.
 :::
 
 
