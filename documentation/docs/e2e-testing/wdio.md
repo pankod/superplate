@@ -9,7 +9,7 @@ sidebar_label: WebdriverIO
 
 ### Writing Tests
 
-Testing your application will require interacting with ui elemenets. Best practice for selecting elements in your tests is with special attributes for testing.  
+Testing your application will require interacting with UI elements. Best practice for selecting elements in your tests is with special attributes for testing.  
 
 - Add test attributes to elements of your ui.
 
