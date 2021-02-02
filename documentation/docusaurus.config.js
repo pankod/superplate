@@ -7,8 +7,8 @@
 
 const siteConfig = {
   title: 'superplate',
-  tagline: 'Set up a modern web app by running one command.',
-  url: 'https://create-react-app.dev', //update url with superplate link
+  tagline: 'The frontend boilerplate with superpowers',
+  url: 'https://pankod.github.io',
   baseUrl: '/',
   projectName: 'superplate',
   organizationName: 'pankod',
