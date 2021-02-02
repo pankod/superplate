@@ -174,7 +174,7 @@ All this work will be handled automatically by CLI, so you don’t need to do an
 
 If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
 
-- install `cypress`
+- Install `cypress`
 
 ```bash
 npm install cypress --save-dev
