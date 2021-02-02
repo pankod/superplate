@@ -15,6 +15,7 @@ module.exports = {
       'getting-started/creating-a-plugin',
       'getting-started/references',
     ],
-    "E2E Testing": ['e2e-testing/cypress', 'e2e-testing/wdio']
+    "E2E Testing": ['e2e-testing/cypress', 'e2e-testing/wdio'],
+    "Continuous integration": ["ci/github-actions"]
   },
 };
