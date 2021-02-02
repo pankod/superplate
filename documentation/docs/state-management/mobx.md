@@ -11,13 +11,13 @@ sidebar_label: Mobx
 MobX is a battle tested library that makes state management simple and scalable by transparently applying functional reactive programming.  
 [Refer to official documentation for detailed usage. &#8594](https://mobx.js.org/README.html)
 
-### Observable state
+## Observable state
 
 Mobx uses observables for store values. Properties, entire objects, arrays, Maps and Sets can all be made observable.  
 [Refer to official documentation on observable state for detailed usage. &#8594](https://mobx.js.org/observable-state.html)
 
 
-#### Making observable stores with classes
+### Making observable stores with classes
 
 - Make a counter store that holds a `count` state
 
@@ -70,7 +70,7 @@ export interface iroot {
 
 Before starting to read data from the store, let's add some action.
 
-### Actions
+## Actions
 
 An action is any piece of code that modifies the state.
 
@@ -110,7 +110,7 @@ export interface icounter {
 }
 ```
 
-### Using store in components
+## Using store in components
 Firstly store must be made accessible to components. It can be done with `React.useContext`. Then with a custom hook, store can be read from components.
 
 - Make a context to hold store.
@@ -223,7 +223,102 @@ export const MobxExample: React.FC = observer(() => {
 You might consider using mobx-react-lite instead of mobx-react if you're not using class components.
 :::
 
-### Adding mobx to your project later
+## Using `mobx-state-tree`
+
+Mobx State Tree provides a better structured state management and tools you need in your app. If you want to use `mobx-state-tree`, you need to make some changes to the files you've created above.
+
+```json title="package.json"
+{
+  "dependencies": {
+    ...
+    // highlight-next-line
+      "mobx-state-tree": "^5.0.1",
+    ...
+  }
+}
+```
+
+### `CounterStore`
+
+`mobx-state-tree` provides a simpler API to create our stores and actions.
+
+```ts title="mobx/stores/counter/index.ts"
+import { types } from "mobx-state-tree";
+
+export const CounterStore = types
+    .model("Counter", {
+        count: 0,
+    })
+    .actions((counter) => ({
+        increase() {
+            counter.count += 1;
+        },
+        decrease() {
+            counter.count -= 1;
+        },
+    }));
+```
+
+### `RootStore`
+
+After the changes in `CounterStore` we will need to update `RootStore` with `mobx-state-tree`
+
+```ts title="mobx/stores/index.ts"
+import { types } from "mobx-state-tree";
+import { CounterStore } from "./counter";
+
+// highlight-start
+export const RootStore = types.model("RootStore", {
+    counterStore: CounterStore,
+});
+// highlight-end
+
+export const createRootStore = () =>
+    // highlight-start
+    RootStore.create({
+        counterStore: CounterStore.create(),
+    });
+    // highlight-end
+```
+
+### `RootStoreProvider`
+
+Finally, you need to update `RootStoreProvider` with the `createRootStore` function.
+
+```js title="mobx/index.tsx"
+import React from "react";
+
+// highlight-next-line
+import { createRootStore } from "./stores";
+
+const StoreContext = React.createContext<
+    ReturnType<typeof createRootStore> | undefined
+>(undefined);
+
+export const RootStoreProvider = ({
+    children,
+}: {
+    children: React.ReactNode;
+}) => {
+    // highlight-next-line
+    const root = createRootStore();
+
+    return (
+        <StoreContext.Provider value={root}>{children}</StoreContext.Provider>
+    );
+};
+
+export const useRootStore = () => {
+    const context = React.useContext(StoreContext);
+    if (context === undefined) {
+        throw new Error("useRootStore must be used within RootStoreProvider");
+    }
+
+    return context;
+};
+```
+
+## Adding mobx to your project later
 
 If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
 
