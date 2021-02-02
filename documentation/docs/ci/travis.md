@@ -10,7 +10,7 @@ Refer to [documentation](https://docs.travis-ci.com) for detailed usage.
 
 The following YAML workflow file created into the `./travis.yml` as a default by superplate, if Travis CI selected as a CI plugin.
 
-``` title=".github/workflows/ci.yml"
+``` title="travis.yml"
 language: node_js
 node_js:
   - "14"
@@ -178,3 +178,6 @@ import TabItem from '@theme/TabItem';
 
 
 
+:::tip
+We recommend using **[Meercode](https://meercode.io)**, if you are using Travis CI. **[Meercode](https://meercode.io)** is the monitoring dashboard for your CI/CD builds.
+:::
