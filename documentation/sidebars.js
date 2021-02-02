@@ -15,5 +15,6 @@ module.exports = {
       'getting-started/creating-a-plugin',
       'getting-started/references',
     ],
+    "E2E Testing": ['e2e-testing/cypress']
   },
 };
