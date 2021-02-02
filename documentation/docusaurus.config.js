@@ -9,7 +9,7 @@ const siteConfig = {
   title: 'superplate',
   tagline: 'The frontend boilerplate with superpowers',
   url: 'https://pankod.github.io',
-  baseUrl: '/',
+  baseUrl: '/superplate/',
   projectName: 'superplate',
   organizationName: 'pankod',
   favicon: 'img/superplate-logo.svg',
