@@ -60,11 +60,11 @@ jobs:
 
 ```
 :::tip
-The following commands adding to `.github/workflows/ci.yml` by superplate if any of plugin at the below selected during project creation phase.
+The following commands are added to `.github/workflows/ci.yml` by superplate if any of plugins listed below is selected during project creation phase.
 :::
 
 :::note
-You can use the following commands in case of adding github actions to existing project later.
+You can use the following commands in case of adding Github Actions to existing project later.
 :::
 
 
@@ -243,5 +243,7 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
-
+:::tip
+We recommend using **[Meercode](https://meercode.io)**, if you are using Github Actions. **[Meercode](https://meercode.io)** is the monitoring dashboard for your CI/CD builds.
+:::
 
