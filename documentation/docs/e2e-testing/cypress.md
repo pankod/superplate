@@ -16,7 +16,7 @@ Testing your application will require interacting with UI elements. Best practic
 
 - Add test attributes to elements of your UI.
 
-```tsx title="src/components/main/index.tsx"
+```tsx title="components/main/index.tsx"
 import React from "react";
 import { Button } from "@components";
 
