@@ -60,7 +60,7 @@ jobs:
 
 ```
 :::tip
-The following commands adding to `.github/workflows/ci.yml` by superplate if any of plugin at the below selected during project creation phase.
+The following commands are added to `.github/workflows/ci.yml` by superplate if any of plugins listed below is selected during project creation phase.
 :::
 
 :::note
@@ -242,6 +242,5 @@ import TabItem from '@theme/TabItem';
 ```            
   </TabItem>
 </Tabs>
-
 
 
