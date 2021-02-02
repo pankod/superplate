@@ -11,7 +11,7 @@ Cypress is a next generation front end testing tool built for the modern web. It
 
 ### Writing Tests
 
-Testing your application will require interacting with ui elemenets. Best practice for selecting elements in your tests is with special attributes for testing.  
+Testing your application will require interacting with UI elements. Best practice for selecting elements in your tests is with special attributes for testing.  
 [Refer to official documentation on writing tests for detailed usage. &#8594](https://docs.cypress.io/guides/getting-started/writing-your-first-test.html)
 
 - Add test attributes to elements of your ui.
