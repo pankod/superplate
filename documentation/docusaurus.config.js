@@ -83,7 +83,7 @@ const siteConfig = {
           items: [
             {
               label: 'GitHub',
-              href: "https://github.com/pankod",
+              href: "https://github.com/pankod/superplate",
             },
           ],
         },
