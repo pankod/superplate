@@ -186,10 +186,28 @@ If you didn't choose the plugin during project creation phase, you can follow th
 
 - install `@reduxjs/toolkit` and `react-redux` packages
 
-```bash
-npm install @reduxjs/toolkit && npm install react-redux
-```
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+```bash
+npm install @reduxjs/toolkit react-redux
+```
+  </TabItem>
+  <TabItem value="yarn">
+
+```bash
+yarn add @reduxjs/toolkit react-redux
+```          
+  </TabItem>
+</Tabs>
 
 - [Follow insctructions in Configure Store & Setup Reducers and Slices](#configure-store--setup-reducers-and-slices)
 
