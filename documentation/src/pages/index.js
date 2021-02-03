@@ -81,7 +81,7 @@ function Home() {
         </div>
       </header>
       <main>
-        {(features ?? {}) && features.length > 0 && (
+        {(features ?? []) && features.length > 0 && (
           <section>
             <div className="container">
               <div className="row">
