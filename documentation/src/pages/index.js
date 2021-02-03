@@ -40,7 +40,7 @@ function Badges() {
 function Feature({ imageUrl, title, url }) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
-    <div className={clsx('col col--2', styles.features)}>
+    <div className={clsx('col col--2', styles.feature)}>
       <a href={url} target="_blank">
         {imgUrl && (
           <div className="text--center">
@@ -82,7 +82,7 @@ function Home() {
       </header>
       <main>
         {features && features.length > 0 && (
-          <section className={styles.features}>
+          <section>
             <div className="container">
               <div className="row">
                 {features.map((props, idx) => (
