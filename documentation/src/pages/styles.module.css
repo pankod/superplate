@@ -20,6 +20,14 @@
   }
 }
 
+.topBadges {
+	margin: 20px 0;
+}
+
+.topBadges > a {
+	margin: 0 2px;
+}
+
 .buttons {
   display: flex;
   align-items: center;
@@ -27,15 +35,14 @@
 }
 
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
+  margin: 12px 0;
   width: 100%;
 }
 
 .featureImage {
   height: 50px;
   width: 50;
+  margin-bottom: 4px;
 }
 
 .featureTitle {
@@ -44,6 +51,7 @@
   letter-spacing: 2px;
   text-align: center;
   color: #303846;
+  height: 32px;
 }
 
 .logoContainer {

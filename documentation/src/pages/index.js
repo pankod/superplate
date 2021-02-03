@@ -8,10 +8,39 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import { features } from './features';
 import styles from './styles.module.css';
 
-function Feature({imageUrl, title, url}) {
+
+// [![dev-dependencies Status](https://travis-ci.org/pankod/superplate.svg?branch=master)](https://travis-ci.org/pankod/superplate) 
+
+// ![npm](https://img.shields.io/npm/dw/@pankod/superplate)
+
+function Badges() {
+  return (
+    <div className={styles.topBadges}>
+      <a href="https://meercode.io/pankod/superplate">
+        <img src="https://api.meercode.io/badge/pankod/superplate?type=ci-score&token=IITTyA0OnDnR3phwZbp61uZW9QO05lxQ&lastDay=14" alt="Meercode CI Score" />
+      </a>
+      <a href="https://meercode.io/pankod/superplate">
+        <img src="https://api.meercode.io/badge/pankod/superplate?type=ci-success-rate&token=IITTyA0OnDnR3phwZbp61uZW9QO05lxQ&lastDay=14" alt="Meercode CI Success Rate" />
+      </a>
+      <a href="https://david-dm.org/pankod/superplate">
+        <img src="https://david-dm.org/pankod/superplate/status.svg" alt="Dependencies Status" />
+      </a>
+      <a href="https://david-dm.org/pankod/superplate?type=dev">
+        <img src="https://david-dm.org/pankod/superplate/dev-status.svg" alt="devDependencies Status" />
+      </a>
+      <a href="https://travis-ci.org/pankod/superplate">
+        <img src="https://travis-ci.org/pankod/superplate.svg?branch=master" alt="devDependency Status" />
+      </a>
+      <a href="https://img.shields.io/npm/dw/@pankod/superplate">
+        <img src="https://img.shields.io/npm/dw/@pankod/superplate" alt="npm" />
+      </a>
+    </div>
+  )
+}
+function Feature({ imageUrl, title, url }) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
-    <div className={clsx('col col--2', styles.feature)}>
+    <div className={clsx('col col--2', styles.features)}>
       <a href={url} target="_blank">
         {imgUrl && (
           <div className="text--center">
@@ -26,7 +55,7 @@ function Feature({imageUrl, title, url}) {
 
 function Home() {
   const context = useDocusaurusContext();
-  const {siteConfig = {}} = context;
+  const { siteConfig = {} } = context;
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
@@ -38,6 +67,7 @@ function Home() {
           </div>
           <img className={styles.heroTitle} src="img/superplate-text.svg" alt="logo-text" />
           <p className={clsx(styles.heroSubtitle, 'hero__subtitle')}>{siteConfig.tagline}</p>
+          <Badges />
           <div className={styles.buttons}>
             <Link
               className={clsx(
