@@ -78,7 +78,25 @@ All required configurations will be handled automatically by CLI as long as you 
 If you didn't choose the plugin during project creation phase, you can follow the instructions above after installing the relevant packages to add.
 :::
 
-```bash
-npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
-yarn add eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
+### Install dependencies  
+---
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
 ```
+npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
+```
+  </TabItem>
+  <TabItem value="yarn">
+
+```
+yarn add eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
+```            
+  </TabItem>
+</Tabs>
