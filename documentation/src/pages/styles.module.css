@@ -34,8 +34,15 @@
 }
 
 .featureImage {
-  height: 200px;
-  width: 200px;
+  height: 50px;
+  width: 50;
+}
+
+.featureTitle {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
 }
 
 .logoContainer {
