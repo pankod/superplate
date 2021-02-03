@@ -4,7 +4,7 @@ title: ESLint
 sidebar_label: ESLint
 ---
 
-Use eslint to catch some bugs before commiting code. 
+Use ESLint to find and fix problems in your codebase.
 ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 
 Refer to [documentation](https://eslint.org/) for details.
@@ -21,7 +21,7 @@ Refer to [documentation](https://eslint.org/) for details.
         "@typescript-eslint/parser": "^4.9.1",
 
         // highlight-next-line
-        If you want to use prettier with ESLint, you need to add the following packages.
+        If you want to use Prettier with ESLint, you need to add the following packages.
         // "eslint-config-prettier": "^7.0.0",
         // "eslint-plugin-prettier": "^3.2.0"
     }
@@ -77,3 +77,8 @@ All required configurations will be handled automatically by CLI as long as you 
 :::tip
 If you didn't choose the plugin during project creation phase, you can follow the instructions above after installing the relevant packages to add.
 :::
+
+```bash
+npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
+yarn add eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
+```
