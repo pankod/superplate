@@ -8,16 +8,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import { features } from './features';
 import styles from './styles.module.css';
 
-function Feature({imageUrl, title}) {
+function Feature({imageUrl, title, url}) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
     <div className={clsx('col col--2', styles.feature)}>
-      {imgUrl && (
-        <div className="text--center">
-          <img className={styles.featureImage} src={imgUrl} alt={title} />
-        </div>
-      )}
-      <h3 className={styles.featureTitle}>{title}</h3>
+      <a href={url} target="_blank">
+        {imgUrl && (
+          <div className="text--center">
+            <img className={styles.featureImage} src={imgUrl} alt={title} />
+          </div>
+        )}
+        <h3 className={styles.featureTitle}>{title}</h3>
+      </a>
     </div>
   );
 }
