@@ -2,7 +2,7 @@
 <img src="banner.png" alt="Performance oriented Next.js application boilerplate with Redux, Typescript, Express.js and Sass." align="center" />
 </div>
 <br/>
-<div align="center">Performance oriented UI Frameworks application boilerplate creator most popular tech-stack.</div>
+<div align="center">Performance oriented UI Frameworks application boilerplate creator using most popular tech-stack.</div>
 <br/>
 
 
@@ -30,7 +30,7 @@
 
 ## About
 
-superplate has been developed to create rock solid web app boilerplate by using most popular UI frameworks with no build configurations in seconds.
+superplate has been developed to create rock solid UI frameworks apps boilerplate with no build configurations in seconds.
 
 You can add usefull, highly-demands front-end development tools and libraries as a plugin by using superplate CLI during the project creation phase.
 
