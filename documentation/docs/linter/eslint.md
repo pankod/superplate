@@ -96,7 +96,16 @@ npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
   <TabItem value="yarn">
 
 ```
-yarn add eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
+yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
+```
+If you want to use Prettier with ESLint, you need to add the following packages.
+
+```
+npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser prettier/@typescript-eslint plugin:prettier/recommended
+```
+
+```
+yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser prettier/@typescript-eslint plugin:prettier/recommended
 ```            
   </TabItem>
 </Tabs>
