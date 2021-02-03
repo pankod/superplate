@@ -46,7 +46,7 @@ export default MyApp;
 ```
 :::caution
 
-If you didn't choose the plugin during project creation phase, you must update your `main.js` file as above after installing required package to add it.
+If you didn't choose the plugin during project creation phase, you must update your `_app.js` file as above after installing required package to add it.
 
 :::
 
