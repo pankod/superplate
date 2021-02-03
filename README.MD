@@ -26,20 +26,6 @@
   <sub>Created by <a href="https://www.pankod.com">Pankod</a></sub>
 </div>
 
-
-<div>
-
-<div style={{display:inline-block}}>
-<img 
-src=https://cdn.worldvectorlogo.com/logos/next-js.svg 
-style="width:50px; height:50px" />    
-<img 
-src=https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/1200px-Svelte_Logo.svg.png 
-style="width:50px; height:50px" />    
-<img 
-src=https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png
-style="width:50px; height:50px" />    
-<div/>
    
 
 ## About
