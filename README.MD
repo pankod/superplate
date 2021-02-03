@@ -1,5 +1,5 @@
 <div align="center">
-<img src="banner.png" alt="Performance oriented Next.js application boilerplate with Redux, Typescript, Express.js and Sass." align="center" />
+<img src="banner.png"  align="center" />
 </div>
 <br/>
 <div align="center">Performance oriented UI Frameworks application boilerplate creator using most popular tech-stack.</div>
@@ -41,27 +41,38 @@ To learn on how superplate and its plugins work, you can check out our documenta
 
 For now, superplate only creates project starter boilerplates  for Next.js apps as a default UI Framework option. Other frameworks integration will be added soon.
 
+## Available Integrations
 
 
-## Philosophy
-superplate kod yapısı bu maddeler esas alınarak geliştirildi.
+<div style={{display:inline-block}}>
+    <img 
+    src=https://cdn.worldvectorlogo.com/logos/next-js.svg 
+    style="width:50px; height:50px; margin-right:10px;" />    
+     
+<div/>
+<br/>
 
-- Kolay extend/customize edilebilir plugin yapısı sayesinde yeni plugin eklenilebilirliğini sağladık
-- Framework/Plugin agnostic yapısıyla yeni framework ve plugin'leri kolayca geliştirebilirsiniz
-- Yeni projenizi yaratırken ihtiyacınız olan tüm best practice'leri ekledik. Örneğin, styled component, storybook ve unit test içeren bir projeniz için tüm best practice'ler kullanıma hazır.
-## Next.js Support
+## Coming Soon
 
-superplate  makes it easier to get up and running with a well-structured Next.js and TypeScript application.
-
-
-Next.js is a minimalistic React framework that runs on the browser and the server  with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. It offers developers an easy way to get started, build server-side rendering and static web applications using React.
-
-The advantage of this approach is to be able to create rich user experiences in a uniform way, without compromising SEO (Search Engine Optimisation) factors that are key to good ranking on Google and other search engines.
-
+<div style={{display:inline-block}}>
+    <img 
+    src=https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/1200px-Svelte_Logo.svg.png 
+    style="width:50px; height:50px; margin-right:15px;" />    
+    <img 
+    src=https://pics.freeicons.io/uploads/icons/png/20167174151551942641-512.png
+    style="width:50px; height:50px; margin-right:15px;" />    
+    <img 
+    src=https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png
+    style="width:50px; height:50px; margin-right:15px;" />    
+    <img 
+    src=https://nuxtjs.org/logos/nuxt-icon.png
+    style="width:50px; height:50px; margin-right:15px;" />    
+    <img 
+    src=https://styles.redditmedia.com/t5_u8ynk/styles/communityIcon_s6agobh56o541.png?width=256&s=c053025991637179047f2141be64b3cdc8500cae
+    style="width:50px; height:50px; margin-right:15px;" />    
+<div/>
 
 <br/>
-  
-
 
 ## Quick Start
 To create a new app run the command:
@@ -88,6 +99,24 @@ Once all questions are answered, it will install all plugins and the dependencie
 npm run dev
 ```
 >Use the dev command when running application in development mode.
+## Philosophy
+superplate kod yapısı bu maddeler esas alınarak geliştirildi.
+
+- Kolay extend/customize edilebilir plugin yapısı sayesinde yeni plugin eklenilebilirliğini sağladık
+- Framework/Plugin agnostic yapısıyla yeni framework ve plugin'leri kolayca geliştirebilirsiniz
+- Yeni projenizi yaratırken ihtiyacınız olan tüm best practice'leri ekledik. Örneğin, styled component, storybook ve unit test içeren bir projeniz için tüm best practice'ler kullanıma hazır.
+## Next.js Integration
+
+superplate  makes it easier to get up and running with a well-structured Next.js and TypeScript application.
+
+
+Next.js is a minimalistic React framework that runs on the browser and the server  with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. It offers developers an easy way to get started, build server-side rendering and static web applications using React.
+
+
+<br/>
+  
+
+
 ## Plugins
 superplate comes with a set of plugins to get you started.
 
