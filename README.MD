@@ -1,6 +1,6 @@
-
+<div align="center">
 <img src="banner.png" alt="Performance oriented Next.js application boilerplate with Redux, Typescript, Express.js and Sass." align="center" />
-
+</div>
 <br/>
 <div align="center">Performance oriented UI Frameworks application boilerplate creator most popular tech-stack.</div>
 <br/>
@@ -28,6 +28,8 @@
 
 
 <div>
+
+<div style={{display:inline-block}}>
 <img 
 src=https://cdn.worldvectorlogo.com/logos/next-js.svg 
 style="width:50px; height:50px" />    
@@ -37,7 +39,7 @@ style="width:50px; height:50px" />
 <img 
 src=https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png
 style="width:50px; height:50px" />    
-
+<div/>
    
 
 ## About
@@ -46,15 +48,21 @@ superplate has been developed to create rock solid web app boilerplate by using 
 
 You can add usefull, highly-demands front-end development tools and libraries as a plugin by using superplate CLI during the project creation phase.
 
-The default plugins determined by <a href="https://www.pankod.com">Pankod</a> team uses on a day-to-day basis to build apps.
-
 
 To learn on how superplate and its plugins work, you can check out our documentation.
 
 
 
-For now, project starter boilerplates only creating for Next.js apps as a default UI Framework option. Other frameworks integration will be added soon.
+For now, superplate only creates project starter boilerplates  for Next.js apps as a default UI Framework option. Other frameworks integration will be added soon.
 
+
+
+## Philosophy
+superplate kod yapısı bu maddeler esas alınarak geliştirildi.
+
+- Kolay extend/customize edilebilir plugin yapısı sayesinde yeni plugin eklenilebilirliğini sağladık
+- Framework/Plugin agnostic yapısıyla yeni framework ve plugin'leri kolayca geliştirebilirsiniz
+- Yeni projenizi yaratırken ihtiyacınız olan tüm best practice'leri ekledik. Örneğin, styled component, storybook ve unit test içeren bir projeniz için tüm best practice'ler kullanıma hazır.
 ## Next.js Support
 
 superplate  makes it easier to get up and running with a well-structured Next.js and TypeScript application.
@@ -66,6 +74,7 @@ The advantage of this approach is to be able to create rich user experiences in 
 
 
 <br/>
+  
 
 
 ## Quick Start
@@ -90,9 +99,9 @@ You will be prompted with plugin options to create your project without spending
 Once all questions are answered, it will install all plugins and the dependencies. Then  navigate to the project folder and launch it:
 
 ```bash
-npm run start
+npm run dev
 ```
-
+>Use the dev command when running application in development mode.
 ## Plugins
 superplate comes with a set of plugins to get you started.
 
@@ -100,35 +109,59 @@ Plugins are created with most powerful development tools and libraries for popul
 
 You can check them out in [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins). 
 
+The default core plugins determined by <a href="https://www.pankod.com">Pankod</a> team uses on a day-to-day basis to build apps. Feel free to send PR or open an issue for new plugins you want to add.
+
+
 ### Using a custom source of plugins
 
 You can use different sources for plugins other than [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins). 
 
 Simply add `--source <path-to-source>` option to use **superplate** with a custom source. 
 
-To Learn more about sources and how to create your own; please check out [Documentation#creating-a-source-repository](X)
+To learn more about sources and how to create your own; please check out [Documentation#creating-a-source-repository](X)
 
 ### Creating a plugin
 
 **superplate** gives you many abilities to create your own plugin and interact with the others. To learn more on creating a plugin, please check out [Documentation#creating-a-plugin](X)
 
-## Options
+## CLI options
 
-### `--source <path-to-source>`
+```
+> npx superplate --help
+Usage: superplate [options]
 
-Alias: `-s`. Use this option to target a custom source of plugins. Source path can be a remote git repository or a local path.
+Options:
+ -v, --version                   prints version number
+ -h, --help                      prints help information on all commands and options
+ -d, --debug                     prints additional logs
+ -s, --source <path-to-source>   Use this option to target a custom source of plugins 
+                                 Source path can be a remote git repository or a local path.  
+```
 
-### `--version`
 
-Alias `-v`. Prints version number.
+## Development mode commands
 
-### `--help`
 
-Alias `-h`. Prints help information on all commands and options.
+Watch for changes in the code; build the project and then globally install the superplate for testing.
+```
+npm run dev:global
+```
 
-### `--debug`
+Create a build inside `/lib` directory.
 
-Alias `-d`. Prints additional logs.
+ ```
+ npm run build:cli
+ ```
+
+
+Install the current build globally
+
+
+```
+npm run global
+```
+
+
 
 ## Contribution
 
@@ -136,16 +169,6 @@ If you have a bug to report, do not hesitate to file an issue.
 
 If you are willing to fix an issue or propose a feature; all PRs with clear explanations are welcome and encouraged.
 
-## Development
+## License
 
-### `npm run dev:global`
-
-Watch for changes in the code; build the project and then globally install the superplate for testing.
-
-### `npm run build:cli`
-
-Create a build inside `/lib` directory.
-
-### `npm run global`
-
-Install the current build globally
+Licensed under the MIT License, Copyright © 2021-present Pankod
