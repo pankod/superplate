@@ -75,6 +75,11 @@ export const features = [
         url: "https://redux.js.org/"
     },
     {
+        title: 'Recoil',
+        imageUrl: 'img/recoil.png',
+        url: "https://recoiljs.org/"
+    },
+    {
         title: 'MobX',
         imageUrl: 'img/mobx.svg',
         url: "https://mobx.js.org/README.html"
@@ -95,14 +100,14 @@ export const features = [
         url: "https://github.com/isaachinman/next-i18next"
     },
     {
-        title: 'ESLint',
-        imageUrl: 'img/eslint.svg',
-        url: "https://eslint.org/"
-    },
-    {
         title: 'Prettier',
         imageUrl: 'img/prettier.svg',
         url: "https://prettier.io/"
+    },
+    {
+        title: 'ESLint',
+        imageUrl: 'img/eslint.svg',
+        url: "https://eslint.org/"
     },
     {
         title: 'Enzyme',
@@ -110,14 +115,14 @@ export const features = [
         url: "https://enzymejs.github.io/enzyme/"
     },
     {
-        title: 'Jest',
-        imageUrl: 'img/jest.svg',
-        url: "https://jestjs.io"
-    },
-    {
         title: 'React Testing Library',
         imageUrl: 'img/testing-libraries.svg',
         url: "https://testing-library.com/"
+    },
+    {
+        title: 'Jest',
+        imageUrl: 'img/jest.svg',
+        url: "https://jestjs.io"
     },
     {
         title: 'Cypress',
@@ -142,6 +147,34 @@ export const features = [
     {
         title: 'Travis',
         imageUrl: 'img/travis.svg',
+        url: "https://travis-ci.org/"
+    },
+    {
+        title: 'Fetch',
+        url: "https://travis-ci.org/"
+    },
+    {
+        title: 'Axios',
+        url: "https://travis-ci.org/"
+    },
+    {
+        title: 'Environment Variables',
+        url: "https://travis-ci.org/"
+    },
+    {
+        title: 'Reverse Proxy',
+        url: "https://travis-ci.org/"
+    },
+    {
+        title: 'Bundle Analyzer',
+        url: "https://travis-ci.org/"
+    },
+    {
+        title: 'react-use',
+        url: "https://travis-ci.org/"
+    },
+    {
+        title: 'lint-staged',
         url: "https://travis-ci.org/"
     },
 ];
