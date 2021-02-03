@@ -80,6 +80,8 @@ If you didn't choose the plugin during project creation phase, you can follow th
 
 ### Install dependencies  
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 <Tabs
   defaultValue="npm"
@@ -92,6 +94,11 @@ If you didn't choose the plugin during project creation phase, you can follow th
 ```
 npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
 ```
+If you want to use Prettier with ESLint, you need to add the following packages.
+
+```
+npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser prettier/@typescript-eslint plugin:prettier/recommended
+```
   </TabItem>
   <TabItem value="yarn">
 
@@ -99,10 +106,6 @@ npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
 yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
 ```
 If you want to use Prettier with ESLint, you need to add the following packages.
-
-```
-npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser prettier/@typescript-eslint plugin:prettier/recommended
-```
 
 ```
 yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser prettier/@typescript-eslint plugin:prettier/recommended
