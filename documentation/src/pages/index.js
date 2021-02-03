@@ -8,11 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import { features } from '../features';
 import styles from './styles.module.css';
 
-
-// [![dev-dependencies Status](https://travis-ci.org/pankod/superplate.svg?branch=master)](https://travis-ci.org/pankod/superplate) 
-
-// ![npm](https://img.shields.io/npm/dw/@pankod/superplate)
-
 function Badges() {
   return (
     <div className={styles.topBadges}>

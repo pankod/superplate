@@ -18,6 +18,19 @@
   .heroBanner {
     padding: 2rem;
   }
+  .logoContainer {
+    max-width: 72px;
+  }
+  .heroTitle {
+    max-width: 280px !important;
+  }
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+  .feature {
+    width: 100%;
+    flex-basis: 50% !important;
+  }
 }
 
 .topBadges {
@@ -61,6 +74,7 @@
 
 .heroTitle {
   max-width: 400px;
+  margin: auto;
 }
 
 .heroSubtitle {
