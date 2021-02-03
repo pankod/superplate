@@ -63,8 +63,11 @@ function Home() {
       description="Description will go into a meta tag in <head />">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <div className={styles.logoContainer}>
+            <img className={clsx(styles.heroBannerLogo, 'margin-vert--md')} src="img/superplate-logo.svg" alt="logo-icon" />
+          </div>
+          <img className={styles.heroTitle} src="img/superplate-text.svg" alt="logo-text" />
+          <p className={clsx(styles.heroSubtitle, 'hero__subtitle')}>{siteConfig.tagline}</p>
           <div className={styles.buttons}>
             <Link
               className={clsx(

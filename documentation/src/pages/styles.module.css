@@ -6,10 +6,12 @@
  */
 
 .heroBanner {
+  display: flex;
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background-color: white;
 }
 
 @media screen and (max-width: 966px) {
@@ -34,4 +36,19 @@
 .featureImage {
   height: 200px;
   width: 200px;
+}
+
+.logoContainer {
+  max-width: 100px;
+  margin: auto;
+}
+
+.heroTitle {
+  max-width: 400px;
+}
+
+.heroSubtitle {
+  color: #0080FF;
+  text-transform: uppercase;
+  font-weight: 500;
 }
