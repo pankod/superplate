@@ -137,7 +137,7 @@ function Home() {
       </header>
       <main>
         {(features ?? []) && features.length > 0 && (
-          <section>
+          <section className={styles.featuresContainer}>
             <div className="container">
               <div className="row">
                 {features.map((props, idx) => (

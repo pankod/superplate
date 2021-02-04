@@ -47,6 +47,26 @@
   justify-content: center;
 }
 
+.logoContainer {
+  max-width: 100px;
+  margin: auto;
+}
+
+.heroTitle {
+  max-width: 400px;
+  margin: auto;
+}
+
+.heroSubtitle {
+  color: #0080FF;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.featuresContainer {
+  padding: 32px 0 12px;
+}
+
 .feature {
   margin: 12px 0;
   width: 100%;
@@ -67,22 +87,6 @@
   height: 32px;
 }
 
-.logoContainer {
-  max-width: 100px;
-  margin: auto;
-}
-
-.heroTitle {
-  max-width: 400px;
-  margin: auto;
-}
-
-.heroSubtitle {
-  color: #0080FF;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
 .sectionImage {
   margin: 0 auto;
 }
@@ -93,4 +97,13 @@
 
 html[data-theme='dark'] .gettingStartedSection {
   background-color: #33363b;
+}
+
+html[data-theme='dark'] .heroBanner {
+  background-color: #181a1b;
+  /*2f3846*/
+}
+
+html[data-theme='dark'] .featureTitle {
+  color: #f5f6f7;
 }
