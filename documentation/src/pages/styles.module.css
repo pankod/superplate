@@ -19,10 +19,10 @@
     padding: 2rem;
   }
   .logoContainer {
-    max-width: 72px;
+    max-width: 72px !important;
   }
   .heroTitle {
-    max-width: 280px !important;
+    max-width: 225px !important;
   }
   .heroSubtitle {
     font-size: 1rem;

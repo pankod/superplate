@@ -25,7 +25,7 @@
 }
 
 .footer__links {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .footer__col:first-child {
@@ -40,4 +40,10 @@
 
 .footer__col:first-child .footer__items .footer__item {
   flex-basis: 50%;
+}
+
+@media screen and (max-width: 966px) {
+  .footer__link-item {
+    font-size: 14px;
+  }
 }
