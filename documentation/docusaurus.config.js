@@ -130,6 +130,7 @@ const siteConfig = {
       logo: {
         alt: 'Pankod Logo',
         src: 'img/pankod_footer_logo.png',
+        href: 'https://github.com/pankod'
       },
       copyright: `Copyright © ${new Date().getFullYear()} Pankod, Inc.`,
     },
