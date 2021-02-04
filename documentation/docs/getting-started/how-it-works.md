@@ -1,4 +1,5 @@
 ---
+slug: /
 id: how-it-works
 title: How it Works?
 sidebar_label: How it Works?
