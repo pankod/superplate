@@ -80,7 +80,7 @@ const siteConfig = {
             },
             {
               label: 'State Management',
-              to: 'docs/state-management/redux',
+              to: 'docs/state-management/redux-toolkit',
             },
             {
               label: 'i18n',
