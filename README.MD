@@ -91,11 +91,6 @@ superplate  makes it easier to get up and running with a well-structured Next.js
 
 Next.js is a minimalistic React framework that runs on the browser and the server  with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. It offers developers an easy way to get started, build server-side rendering and static web applications using React.
 
-
-<br/>
-  
-
-
 ## Plugins
 superplate comes with a set of plugins to get you started.
 
@@ -117,6 +112,12 @@ To learn more about sources and how to create your own; please check out [Docume
 ### Creating a plugin
 
 **superplate** gives you many abilities to create your own plugin and interact with the others. To learn more on creating a plugin, please check out [Documentation#creating-a-plugin](X)
+
+
+
+### Avaliable plugins
+<img src="plugins.png"  align="center" />
+
 
 ## CLI options
 
