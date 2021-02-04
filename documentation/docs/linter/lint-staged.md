@@ -2,6 +2,7 @@
 id: lint-staged
 title: lint-staged
 sidebar_label: lint-staged
+description: Setting up linter for Next.js
 ---
 
 Use lint-staged to make your code uniform. It allows you to run arbitrary scripts against currently staged files.

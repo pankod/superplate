@@ -2,6 +2,7 @@
 id: svgr
 title: SVGR
 sidebar_label: SVGR
+description: How to use svgr in Next.js?
 ---
 
 SVGR transforms SVG into ready to use components.  

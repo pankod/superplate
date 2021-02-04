@@ -2,6 +2,7 @@
 id: jest
 title: Jest
 sidebar_label: Jest
+description: Setting up Jest and Enzyme for Typescript Next.js apps 
 ---
 
 [Jest](https://jestjs.io/docs/en/getting-started) is a delightful JavaScript Testing Framework with a focus on simplicity.

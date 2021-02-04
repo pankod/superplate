@@ -2,6 +2,7 @@
 id: eslint
 title: ESLint
 sidebar_label: ESLint
+description: Using ESLint and Prettier in a TypeScript Next.js Project
 ---
 
 Use ESLint to find and fix problems in your codebase.

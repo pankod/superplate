@@ -1,7 +1,7 @@
 ---
 id: cypress
 title: Cypress
-sidebar_label: Cypress
+sidebar_label: Using Cypress with Next.js for End to End testing 
 ---
 
 *Fast, easy and reliable testing for anything that runs in a browser.*

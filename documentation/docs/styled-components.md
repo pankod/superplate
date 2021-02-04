@@ -2,6 +2,7 @@
 id: styled-components
 title: styled-components
 sidebar_label: styled-components
+description: How to use styled-components with Next.js?
 ---
 
 styled-components allows you to add styles to your application that are written with a mixture of JavaScript and CSS using a technique called CSS-in-JS.

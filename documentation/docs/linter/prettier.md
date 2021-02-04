@@ -2,6 +2,7 @@
 id: prettier
 title: Prettier
 sidebar_label: Prettier
+description: How to Use ESLint and Prettier in Your Next.js Application?
 ---
 
 Use Prettier to make your code uniform and maintain code style integrity.

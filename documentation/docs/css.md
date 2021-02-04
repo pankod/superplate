@@ -2,6 +2,7 @@
 id: css
 title: Built-in CSS Support
 sidebar_label: Built-in CSS 
+description: How to use CSS in Next.js?
 ---
 
 Next.js allows you to import CSS files from a JavaScript file.

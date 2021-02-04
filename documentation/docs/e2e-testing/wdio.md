@@ -1,7 +1,7 @@
 ---
 id: wdio
 title: WebdriverIO
-sidebar_label: WebdriverIO
+sidebar_label: Using WebdriverIO with Next.js for End to End testing 
 ---
 
 *Next-gen browser and mobile automation test framework for Node.js.*  

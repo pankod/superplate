@@ -2,6 +2,7 @@
 id: antd
 title: Ant Design
 sidebar_label: Ant Design
+description: Setting up Ant design for Typescript Next.js apps 
 ---
 
 A design system for enterprise-level products. Create an efficient and enjoyable work experience.

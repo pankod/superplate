@@ -2,6 +2,7 @@
 id: bundle-analyzer
 title: Bundle Analyzer
 sidebar_label: Bundle Analyzer
+description: How to use Bundle Analyzer in Next.js?
 ---
 
 Bundle Analyzer visualizes size of output files with an interactive treemap. This helps you understand what’s taking the most space in the bundles.
