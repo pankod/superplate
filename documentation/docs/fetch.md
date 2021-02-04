@@ -2,6 +2,7 @@
 id: fetch
 title: Fetch
 sidebar_label: Fetch
+description: How to use fetch data in Next.js?
 ---
 
 The Fetch API provides an interface for fetching resources (including across the network)  

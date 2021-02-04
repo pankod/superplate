@@ -2,6 +2,7 @@
 id: testing-library
 title: Testing Library
 sidebar_label: Testing Library
+description: Setting up testing library for Typescript Next.js apps 
 ---
 
 The [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) is a very light-weight solution for testing React components. It provides light utility functions on top of `react-dom` and `react-dom/test-utils`, in a way that encourages better testing practices.

@@ -2,6 +2,7 @@
 id: chakra-ui
 title: Chakra UI
 sidebar_label: Chakra UI
+description: How to use Chakra UI in Next.js?
 ---
 
 Chakra UI is a simple, modular and accessible component library that gives you the building blocks you need to build your React applications.  

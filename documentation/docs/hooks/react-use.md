@@ -2,6 +2,7 @@
 id: react-use
 title: React Use
 sidebar_label: React Use
+description: How to use react hooks with Next.js?
 ---
   
 react-use has various hooks that you can use with ease.

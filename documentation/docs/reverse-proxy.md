@@ -2,6 +2,7 @@
 id: reverse-proxy
 title: Reverse Proxy
 sidebar_label: Reverse Proxy
+description: How to use Reverse Proxy in Next.js apps?
 ---
 
 A proxy server sits between or intermediary server that forwards requests for content from multiple clients to different servers across the Internet. A reverse proxy server is a type of proxy server that typically sits behind the firewall in a private network and directs client requests to the appropriate backend server.

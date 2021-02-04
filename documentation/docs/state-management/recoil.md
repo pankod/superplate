@@ -1,10 +1,11 @@
 ---
 id: recoil
-title: Recoil
-sidebar_label: Recoil
+title: Recoil.js
+sidebar_label: Recoil.js
+description: How to Use Recoil.js in Next.js?
 ---
 
-Recoil is a state management library, open-sourced by Facebook. It's offering a simple and powerful way of dealing with global, asynchronous and derived state.
+Recoil.js is a state management library, open-sourced by Facebook. It's offering a simple and powerful way of dealing with global, asynchronous and derived state.
 
 We'll show basic usage of Recoil API with simple counter example.  
 [Refer to official documentation for detailed usage. &#8594](https://recoiljs.org/docs/introduction/motivation)
