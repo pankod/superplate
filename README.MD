@@ -47,13 +47,11 @@ For now, superplate only creates project starter boilerplates  for Next.js apps 
 <img src="available.png"  align="center" />
 
 
-<br/>
 
 ## Coming Soon
 <img src="integrations.png"  align="center" />
 
 
-<br/>
 
 ## Quick Start
 To create a new app run the command:
