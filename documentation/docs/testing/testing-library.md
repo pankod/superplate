@@ -18,18 +18,6 @@ Configuration for Jest is not included. Please check out [Jest Plugin](jest) to 
 
 :::
 
-### Dependencies
-
-First, we need to add dependencies to get started using React Testing Library to run our tests.
-
-```json title="package.json"
-{
-    "devDependencies": {
-        "@testing-library/react": "^11.2.3",
-        "@testing-library/react-hooks": "^5.0.0"
-    }
-}
-```
 
 ### Custom Render
 
@@ -69,7 +57,7 @@ export { render };
 
 ### Example Test
 
-```tsx title="MyComponent.spec.tsx"
+```tsx title="components/myComponent/index.spec.tsx"
 // highlight-next-line
 import { fireEvent, render } from "@test"; // <root>/test/index.tsx
 import { MyComponent } from "./MyComponent";
@@ -88,7 +76,7 @@ describe("MyComponent", () => {
 });
 ```
 
-```tsx title="MyComponent.tsx"
+```tsx title="components/myComponent/index.tsx"
 import React from "react";
 
 export const MyComponent: React.FC<{ onClick: () => void }> = ({
@@ -106,11 +94,66 @@ export const MyComponent: React.FC<{ onClick: () => void }> = ({
 
 ### Running Tests
 
-We will use Jest as our test runner. If Jest is already set up; you can simply run `test` script with `npm run test` or `yarn test`.
+We will use Jest as our test runner. If Jest is already set up you can simply run:
 
-## Adding Testing Library to an existing project
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
 
-If you want to add React Testing Library to your existing project please check out;
+```
+npm run test
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn test
+```
+  </TabItem>
+</Tabs>
+
+
+## Adding Testing Library to your project later
+
+:::tip
+
+All this work will be handled automatically by superplate, so you don’t need to do anything extra as long as you choose testing-library as testing plugin during the project creation phase.
+
+:::
+
+If you want to add React Testing Library to your existing project first install the dependencies
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+```
+npm install -D @testing-library/react @testing-library/react-hooks
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn add -D @testing-library/react @testing-library/react-hooks
+```
+  </TabItem>
+</Tabs>
+
+Then you can follow documentations for detail usage
 
 - React Testing Library [documentation](https://testing-library.com/docs/react-testing-library/intro/)
 - Next.js with Jest and Testing Library [example repository](https://github.com/vercel/next.js/tree/canary/examples/with-typescript-eslint-jest)

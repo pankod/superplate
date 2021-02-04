@@ -52,6 +52,7 @@ If you choose `next-translate` as a `i18n` plugin during project creation phase,
 ```tsx
 import React from "react";
 import Link from "next/link";
+
 // highlight-start
 import useTranslation from "next-translate/useTranslation";
 import i18nConfig from "@i18n";
@@ -99,15 +100,34 @@ All required configurations will be handled automatically by CLI as long as you 
 
 :::
 
+
 If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
 
-:::note
-Be sure to install `next-translate` in your root directory!
-:::
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-```bash
-npm install next-translate
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
 ```
+ npm install next-translate
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+ yarn add next-translate
+```
+  </TabItem>
+</Tabs>
+
 
 You must create the file `i18n.json` in the main directory.
 
