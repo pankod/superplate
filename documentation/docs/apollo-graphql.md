@@ -87,7 +87,8 @@ import { GetLaunches, GetLaunchesVariables } from "__generated__/GetLaunches.ts"
 
 To generate the types automatically we set API service endpoint to apollo config file.
 
-Refer to [documentation](https://www.apollographql.com/docs/devtools/apollo-config/#client-projects) for detailed configuration.
+[Refer to  documentation for detailed usage  &#8594](https://www.apollographql.com/docs/devtools/apollo-config/#client-projects)
+
 
 ```js title="apollo.config.js"
 module.exports = {
@@ -156,3 +157,36 @@ All this work will be handled automatically by CLI, so you don’t need to do an
 :::
 
 
+## Adding Apollo GraphQL to your project later
+
+If you want to add Apollo GraphQL to your existing project first install the dependencies
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+```
+npm install @apollo/client graphql
+npm install -D apollo
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn add @apollo/client graphql
+yarn add apollo
+```
+  </TabItem>
+</Tabs>
+
+
+[Follow here to generate types](#generating-schema-types) 

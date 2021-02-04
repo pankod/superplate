@@ -24,9 +24,9 @@ Mobx uses observables for store values. Properties, entire objects, arrays, Maps
 ```ts title="src/mobx/stores/counter/index.ts"
 import { makeAutoObservable } from "mobx";
 
-import { icounter } from "./counter";
+import { ICounter } from "./counter";
 
-export class CounterStore implements icounter {
+export class CounterStore implements ICounter {
   count = 0;
 
   constructor() {
@@ -36,7 +36,7 @@ export class CounterStore implements icounter {
 ```
 
 ```ts title="src/mobx/stores/counter/counter.d.ts"
-export interface icounter {
+export interface ICounter {
   count: number;
 }
 ```
@@ -49,10 +49,10 @@ export interface icounter {
 ```ts title="src/mobx/stores/index.ts"
 import { iroot } from "./store";
 import { CounterStore } from "./counter";
-import { icounter } from "./counter/counter";
+import { ICounter } from "./counter/counter";
 
-export class RootStore implements iroot {
-    counterStore: icounter;
+export class RootStore implements IRoot {
+    counterStore: ICounter;
 
     constructor() {
         this.counterStore = new CounterStore();
@@ -61,10 +61,10 @@ export class RootStore implements iroot {
 ```
 
 ```ts title="src/mobx/stores/store.d.ts"
-import { icounter } from "./stores/counter/counter";
+import { ICounter } from "./stores/counter/counter";
 
 export interface iroot {
-  counterStore: icounter;
+  counterStore: ICounter;
 }
 ```
 
@@ -79,9 +79,9 @@ An action is any piece of code that modifies the state.
 ```ts title="src/mobx/stores/counter/index.ts"
 import { makeAutoObservable } from "mobx";
 
-import { icounter } from "./counter";
+import { ICounter } from "./counter";
 
-export class CounterStore implements icounter {
+export class CounterStore implements ICounter {
   count = 0;
 
   constructor() {
@@ -101,7 +101,7 @@ export class CounterStore implements icounter {
 ```
 
 ```ts title="src/mobx/stores/counter/counter.d.ts"
-export interface icounter {
+export interface ICounter {
   count: number;
 // highlight-start
   increase: () => void;
@@ -126,11 +126,11 @@ const StoreContext = React.createContext<RootStore | undefined>(undefined);
 ```tsx title="src/mobx/index.tsx"
 import React from "react";
 // highlight-start
-import { iroot } from "./stores/store";
+import { IRoot } from "./stores/store";
 // highlight-end
 
 // highlight-start
-let store: iroot;
+let store: IRoot;
 // highlight-end
 
 const StoreContext = React.createContext<RootStore | undefined>(undefined);
@@ -152,9 +152,9 @@ export const RootStoreProvider = ({
 
 ```tsx title="src/mobx/index.tsx"
 import React from "react";
-import { iroot } from "./stores/store";
+import { IRoot } from "./stores/store";
 
-let store: iroot;
+let store: IRoot;
 
 const StoreContext = React.createContext<RootStore | undefined>(undefined);
 
@@ -324,9 +324,31 @@ If you didn't choose the plugin during project creation phase, you can follow th
 
 - Install `mobx` and `mobx-react` packages.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
 ```bash
-npm install mobx && npm install mobx-react
+npm install mobx mobx-react
 ```
+
+  </TabItem>
+  <TabItem value="yarn">
+
+```bash
+yarn add mobx mobx-react
+```
+
+  </TabItem>
+</Tabs>
+
 
 - [Follow instructions beginning from here](#making-observable-stores-with-classes)
 

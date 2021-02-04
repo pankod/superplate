@@ -8,11 +8,11 @@ Storybook is a tool for UI development. It makes development faster and easier b
 
 This allows you to work on one component at a time. You can develop entire UI without needing to start up a complex dev stack, force certain data into your database, or navigate around your application.
 
-Refer to [documentation](https://storybook.js.org/docs/react/get-started/introduction) for detailed usage.
+[Refer to official documentation for detailed usage. &#8594](https://storybook.js.org/docs/react/get-started/introduction)
 
 :::tip
 
-All required configurations will be handled automatically by CLI as long as you choose css-preprocessors and feature plugins during the project creation phase.
+All required configurations will be handled automatically by CLI as long as you choose CSS Preprocessor  and feature plugins during the project creation phase.
 
 Storybook with CSS configuration handled by CLI as a default if you don't prefer to choose any CSS feature or UI framework plugin.
 
@@ -62,16 +62,44 @@ Refer to [github repo](https://github.com/storybookjs/storybook/tree/master/addo
 Run your storybook with `npm run storybook`.
 
 
-### How to configure Storybook with Ant Design / Sass / styled-components and Chakra UI ?
+## How to configure Storybook with plugins?
 
 :::caution
 
-Selected UI framework plugin adds by CLI during the project creating phase. You can follow instructions at the below, if you want to add UI framework later.
+Selected UI framework plugin adds by superplate during the project creating phase. You can follow instructions at the below, if you want to add UI framework later.
 
 :::
 
-### Scss Plugins
+### Scss 
 To use `scss` with `storybook` in your project, the `webpackFinal` field in `main.js` should be changed as follows.
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+```
+npm i -D sass-loader
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn add -D sass-loader
+```
+  </TabItem>
+</Tabs>
+
+
+[To learn how to configure Scss in your project follow instructions from here  &#8594](scss)
 
 ```js title="storybook/main.js"
 webpackFinal: async (config) => {
@@ -92,7 +120,7 @@ webpackFinal: async (config) => {
     return config;
 }
 ```
-### Chakra-UI Plugins
+### Chakra-UI 
 To use `chakra-ui` with `storybook` in your project, `main.js` and `preview.js` should be updated as follows.
 
 ```jsx title="storybook/main.js"
@@ -175,8 +203,30 @@ Bootstrap
 import styles from "../src/styles/app.scss";
 ```
 
-### Styled-Components Plugins
+### Styled-Components 
 To use `styled-components` with `storybook` in your project.
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+```
+npm i -D storybook-addon-styled-component-theme
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn add -D storybook-addon-styled-component-theme
+```
+  </TabItem>
+</Tabs>
+
 
 We recommend to check [styled-component documentation](styled-components.md) to integrate styled-component to your existing project and then the `addons` field in `main.js` should be changed as follows and `preview.js` should be updated as follows.
 
@@ -186,7 +236,7 @@ We recommend to check [styled-component documentation](styled-components.md) to 
     "@storybook/addon-essentials",
     "@storybook/addon-controls",
     "@storybook/addon-knobs",
-
+     //highlight-next-line
     "storybook-addon-styled-component-theme/dist/register",
   ],
 ```
@@ -219,9 +269,46 @@ export const getAllThemes = () => {
 addDecorator(withThemesProvider(getAllThemes()));
 ```
 
-Storybook includes two themes that look good: `light` and `dark`.
+Storybook includes two themes that looks good: `light` and `dark`.
 
 :::note
 
 With the `styled-components` you will be able to use the theme fully integrated into Storybook when you switch storybook theme then Storybook itself will change into the theme and the components you use will change as well.
 :::
+
+## Adding Storybook to your project later
+
+:::tip
+
+All this work will be handled automatically by superplate, so you don’t need to do anything extra as long as you choose Storybook  plugin during the project creation phase.
+
+:::
+
+If you want to add Storybook to your existing project first install the dependencies
+
+
+
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+```
+npm i -D @babel/core @storybook/addon-actions @storybook/addon-essentials @storybook/addon-links @storybook/preset-scss @storybook/addon-knobs @storybook/react babel-loader style-loader css-loader
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn add -D @babel/core @storybook/addon-actions @storybook/addon-essentials @storybook/addon-links @storybook/preset-scss @storybook/addon-knobs @storybook/react babel-loader style-loader css-loader
+```
+  </TabItem>
+</Tabs>
+
+[Refer to official documentation for detailed usage. &#8594](https://storybook.js.org/docs/react/get-started/introduction)
+

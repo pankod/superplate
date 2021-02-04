@@ -1,30 +1,20 @@
 ---
 id: lint-staged
-title: Lint staged files
-sidebar_label: Lint staged files
+title: lint-staged
+sidebar_label: lint-staged
 ---
 
 Use lint-staged to make your code uniform. It allows you to run arbitrary scripts against currently staged files.
  
-Refer to [documentation](https://github.com/okonet/lint-staged) for detailed usage.
+[Refer to official documentation for detailed usage. &#8594](https://github.com/okonet/lint-staged)
 
-### How to configure lint-staged files?
+### How to configure lint-staged?
 
 :::caution
 
 All required configurations will be handled automatically by CLI as long as you choose plugins during the project creation phase.
 
 :::
-
-If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
-
-:::note
-Be sure to install lint-staged and husky in your root directory.
-:::
-
-```bash
-npm install lint-staged husky --save-dev
-```
 
 
 ```json title="package.json"
@@ -46,6 +36,29 @@ npm install lint-staged husky --save-dev
 }
 ```
 
-`"npm run lint -- --quiet --fix"` 
-- --quiet: disable lint-staged’s own console output (default: false)
-- --fix: automatically fix code style and add to commit
+
+
+## Adding lint-staged to your project later
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+```
+npm i -D lint-staged husky
+```
+  </TabItem>
+  <TabItem value="yarn">
+
+```
+yarn add -D lint-staged husky
+```
+  </TabItem>
+</Tabs>

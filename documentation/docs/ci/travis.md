@@ -5,12 +5,12 @@ sidebar_label: Travis CI
 ---
 
 
-As a continuous integration platform, Travis CI supports your development process by automatically building and testing code changes, providing immediate feedback on the success of the change. 
-Refer to [documentation](https://docs.travis-ci.com) for detailed usage.
+As a continuous integration platform, Travis CI supports your development process by automatically building and testing code changes, providing immediate feedback on the success of the change.  
+[Refer to official documentation for detailed usage. &#8594](https://docs.travis-ci.com)
 
 The following YAML workflow file created into the `./travis.yml` as a default by superplate, if Travis CI selected as a CI plugin.
 
-``` title="travis.yml"
+```bash title="travis.yml"
 language: node_js
 node_js:
   - "14"
@@ -108,11 +108,11 @@ import TabItem from '@theme/TabItem';
 
 <br/>
 
-### Testing
+## Testing
 ---
 
 
-#### Run tests
+### Run tests
 <Tabs
   defaultValue="npm"
   values={[
@@ -133,7 +133,7 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
-#### Run Cypress E2E Testing
+### Run Cypress E2E Testing
 <Tabs
   defaultValue="npm"
   values={[
@@ -155,7 +155,7 @@ import TabItem from '@theme/TabItem';
 </Tabs>
 
 
-#### WebdriverIO E2E Testing
+### WebdriverIO E2E Testing
 <Tabs
   defaultValue="npm"
   values={[

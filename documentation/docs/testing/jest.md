@@ -8,30 +8,16 @@ sidebar_label: Jest
 
 **superplate** serving optional Jest testing plugin which uses `ts-jest` under the hood and comes with `nock` and `isomorphic-unfetch`.
 
-- `ts-jest` is a TypeScript preprocessor for Jest to test projects written in TypeScript. Check out their [documentation](https://kulshekhar.github.io/ts-jest/) to learn more.
-- `nock` is a HTTP server mocking library. We use it to mock requests in our tests. Check out their [documentation](https://github.com/nock/nock#nock) to learn more.
+- `ts-jest` is a TypeScript preprocessor for Jest to test projects written in TypeScript.  
+[Refer to official documentation for detailed usage. &#8594](https://kulshekhar.github.io/ts-jest/)
+- `nock` is a HTTP server mocking library. We use it to mock requests in our tests.  
+[Refer to official documentation for detailed usage. &#8594](https://github.com/nock/nock#nock)
 - While Next.js comes with a built-in polyfill for `fetch`; We still need to add one for our Jest environment.
 
 ## Implementation
 
 You can see how **superplate**'s Jest plugin is implemented below.
 
-### Dependencies
-
-First, we need to add dependencies to get started using Jest to run our tests.
-
-```json title="package.json"
-{
-    "devDependencies": {
-        "jest": "^26.6.3",
-        "ts-jest": "^26.4.4",
-        "identity-obj-proxy": "^3.0.0",
-        "nock": "^13.0.6",
-        "isomorphic-unfetch": "^3.1.0",
-        "dotenv": "^8.2.0"
-    }
-}
-```
 
 ### `jest.config.js`
 
@@ -89,9 +75,42 @@ We need to specify our config file when running jest, we can do this with `jest 
 }
 ```
 
-## Adding Jest to an Existing Project
+## Adding Jest to your project later
 
-If you want to add Jest to your existing project please check out;
+:::tip
+
+All this work will be handled automatically by superplate, so you don’t need to do anything extra as long as you choose Jest as testing plugin during the project creation phase.
+
+:::
+
+If you want to add Jest to your existing project first install dependencies: 
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+```
+npm i -D jest ts-jest identity-obj-proxy nock isomorphic-unfetch dotenv 
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn add -D jest ts-jest identity-obj-proxy nock isomorphic-unfetch dotenv
+```
+  </TabItem>
+</Tabs>
+
+Then you can follow documentations for detail usage
 
 - Jest's [documentation](https://jestjs.io/docs/en/getting-started)
 - ts-jest's [documentation](https://kulshekhar.github.io/ts-jest/docs/installation)

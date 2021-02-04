@@ -12,7 +12,7 @@ superplate has a plugin to generate those files for different environments autom
 
 ### .env.local
 
-Next.js has built-in support for loading environment variables from .env.local into process.env.
+Next.js has built-in support for loading environment variables from `.env.local` into `process.env`.
 
 
 ```CSS title=".env.local"
@@ -38,7 +38,7 @@ export async function getServerSideProps() {
 
 ### .env.development
 
-Next.js allows us to set defaults in .env (all environments), .env.development (development environment), and .env.production (production environment).
+Next.js allows us to set defaults in `.env` (all environments), `.env.development` (development environment) and .`env.production` (production environment).
 
 
 ```env title=".env.development"
@@ -79,7 +79,7 @@ export const EnvExample: React.FC = () => {
 
 ### .env.test
 
-In the same way you can set defaults for development or production environments, you can do the same with .env.test file for testing environment
+In the same way you can set defaults for development or production environments, you can do the same with `.env.test` file for testing environment
 
 
 ```env title=".env.test"
@@ -93,6 +93,5 @@ ENV_TEST_VARIABLE="test_variable"
 `.env.test` is useful when running tests with tools like jest or cypress where you need to set specific environment variables only for testing.
 :::
 
-Refer to [documentation](https://nextjs.org/docs/basic-features/environment-variables#loading-environment-variables) for detailed usage.
 
-
+[Refer to official documentation for detailed usage  &#8594](https://nextjs.org/docs/basic-features/environment-variables#loading-environment-variables)

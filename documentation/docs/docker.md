@@ -6,7 +6,7 @@ sidebar_label: Docker
 
 Docker is an open source containerization platform. Docker enables developers to package applications into containers—standardized executable components that combine application source code with all the operating system (OS) libraries and dependencies required to run the code in any environment.
 
-Refer to [official documentation](https://docs.docker.com) for detailed usage.
+[Refer to official documentation for detailed usage. &#8594](https://docs.docker.com)
 
 Example Dockerfile:
 
@@ -30,6 +30,6 @@ CMD [ "npm", "start" ]
 
 :::note
 
-Dockerfile is created by CLI if you select docker plugin during the project creation phase.
+Dockerfile is created by superplate if you select docker plugin during the project creation phase.
 
 :::

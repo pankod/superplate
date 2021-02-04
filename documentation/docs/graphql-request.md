@@ -1,6 +1,6 @@
 ---
 id: graphql-request
-title: graphql-request Support
+title: graphql-request
 sidebar_label: graphql-request
 ---
 
@@ -86,7 +86,7 @@ import { GetLaunchesQuery } from "__generated__/__types__";
 
 To generate the types automatically we use [graphql-code-generator](https://github.com/dotansimha/graphql-code-generator) and need to set configs in `codegen.yaml` file.
 
-Refer to [documentation](https://graphql-code-generator.com/docs/getting-started/codegen-config) for detailed configuration.
+[Refer to  documentation for detailed usage  &#8594](https://graphql-code-generator.com/docs/getting-started/codegen-config)
 
 ```yaml title="codegen.yaml"
 # codegen.yaml
@@ -180,3 +180,35 @@ All this work will be handled automatically by CLI, so you don’t need to do an
 
 :::
 
+
+## Adding graphql-request to your project later
+
+If you want to add graphql-request to your existing project first install the dependencies
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+```
+npm i graphql-request graphql
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn add graphql-request graphql
+```
+  </TabItem>
+</Tabs>
+
+
+[Follow here to generate types](#generating-schema-types) 
