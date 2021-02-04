@@ -46,14 +46,12 @@ For now, superplate only creates project starter boilerplates  for Next.js apps 
 
 <img src="available.png"  align="center" />
 
-<br/>
 
 <br/>
 
 ## Coming Soon
 <img src="integrations.png"  align="center" />
 
-<br/>
 
 <br/>
 
