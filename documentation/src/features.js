@@ -75,9 +75,9 @@ export const features = [
         url: "https://redux.js.org/"
     },
     {
-        title: 'Recoil',
-        imageUrl: 'img/recoil.png',
-        url: "https://recoiljs.org/"
+        title: 'React Bootstrap',
+        imageUrl: 'img/react-bootstrap.svg',
+        url: "https://react-bootstrap.github.io/"
     },
     {
         title: 'MobX',
@@ -172,6 +172,14 @@ export const features = [
     {
         title: 'react-use',
         url: "https://travis-ci.org/"
+    },
+    {
+        title: 'Redux Toolkit',
+        url: "https://redux-toolkit.js.org/"
+    },
+    {
+        title: 'Recoil',
+        url: "https://recoiljs.org/"
     },
     {
         title: 'lint-staged',
