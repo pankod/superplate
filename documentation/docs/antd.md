@@ -14,12 +14,12 @@ Ant Design provides a React UI library `antd` that contains a set of high qualit
 
 :::caution
 
-Due to its incompatibility with `storybook`, `less` is not included in the cli.
+Due to its incompatibility with `storybook`, `less` is not included in superplate.
 
 :::
 
 To use `less` with `antd` in your project  
-- Add its dependency,
+- Add its dependencies,
 
 ```js title="package.json"
 {
@@ -34,7 +34,6 @@ To use `less` with `antd` in your project
 
 ```js title="next.config.js"
 const withPlugins = require('next-compose-plugins');
-
 const withLess = require('@zeit/next-less');
 
 module.exports = withPlugins([

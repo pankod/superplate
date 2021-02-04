@@ -73,9 +73,9 @@ Since Redux Toolkit uses Immer under the hood, you can use mutating immutable up
 ```js
 increase(state) {
   // highlight-start
-      state.value++
+    state.value++
   // highlight-end
-    },
+},
 ```
 :::
 
@@ -84,6 +84,7 @@ increase(state) {
 import React from "react";
 import { AppProps } from "next/app";
 import { Provider } from "react-redux";
+
 import store from "@redux/store";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
@@ -95,7 +96,6 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 }
 
 export default MyApp;
-
 ```
 
 Now everything's ready to read data from store and dispatch some actions to make changes to store state.
@@ -184,7 +184,7 @@ Redux Toolkit includes `thunk` middleware by default.
 
 If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
 
-- install `@reduxjs/toolkit` and `react-redux` packages
+- Install `@reduxjs/toolkit` and `react-redux` packages
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -209,6 +209,6 @@ yarn add @reduxjs/toolkit react-redux
   </TabItem>
 </Tabs>
 
-- [Follow insctructions in Configure Store & Setup Reducers and Slices](#configure-store--setup-reducers-and-slices)
+- [Follow instructions in Configure Store & Setup Reducers and Slices](#configure-store--setup-reducers-and-slices)
 
 [Refer to official documentation on installation for detailed usage. &#8594](https://redux-toolkit.js.org/introduction/quick-start#installation)

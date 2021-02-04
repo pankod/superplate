@@ -7,7 +7,7 @@ sidebar_label: ESLint
 Use ESLint to find and fix problems in your codebase.
 ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 
-Refer to [documentation](https://eslint.org/) for details.
+[Refer to official documentation for detailed usage. &#8594](https://eslint.org/)
 
 
 ```json title="package.json"
@@ -74,12 +74,9 @@ All required configurations will be handled automatically by CLI as long as you 
 
 :::
 
-:::tip
-If you didn't choose the plugin during project creation phase, you can follow the instructions above after installing the relevant packages to add.
-:::
 
-### Install dependencies  
----
+## Adding ESLint to your project later
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

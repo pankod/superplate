@@ -8,7 +8,7 @@ Quickly design and customize responsive mobile-first sites with Bootstrap, the w
 
 :::tip
 
-If you also add `sass/scss` under Css Preprocessors during creation phase, You can easily [customize Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/theming/#sass). Bootstrap’s source ***sass*** files are added under `src/styles` directory.
+If you also add `sass/scss` under CSS Preprocessors during creation phase, you can easily [customize Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/theming/#sass). Bootstrap’s source ***sass*** files are added under `src/styles` directory.
 
 :::
 
@@ -18,14 +18,14 @@ If `sass/scss` is selected you can start [customizing](https://getbootstrap.com/
 
 If it's not selected, Sass can be added later to customize Bootstrap,
 
-- add a custom scss file `app.scss` under `src/styles`
+- Add a custom scss file `app.scss` under `src/styles`
 
 ```js title="src/styles/app.scss"
 @import "./_variables";
 @import "./_bootstrap";
 ``` 
 
-- add scss files for overriding variables and Bootstrap source Sass file imports
+- Add scss files for overriding variables and Bootstrap source Sass file imports
 
 ```js  title="src/styles/_variables.scss"
 // Override Default Variables

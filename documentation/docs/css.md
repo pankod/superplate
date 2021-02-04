@@ -36,6 +36,13 @@ These styles will apply to all pages and components in your application.
 
 ### CSS Modules
 
+:::caution
+
+next.js only supports CSS Modules as Component-Level CSS implementation.
+
+:::
+
+
 [CSS Modules](https://github.com/css-modules/css-modules) let you use the same CSS class name in different files without worrying about naming clashes.
 
 To style your components using CSS Modules, name your stylesheet files with the `[name].module.css`.
@@ -72,8 +79,4 @@ The class names which will be processed into a globally unique class name during
 
 :::
 
-:::caution
 
-next.js only supports CSS Modules as Component-Level CSS implementation.
-
-:::

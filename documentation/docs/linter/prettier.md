@@ -6,7 +6,7 @@ sidebar_label: Prettier
 
 Use Prettier to make your code uniform and maintain code style integrity.
 
-Refer to [documentation](https://prettier.io/) for details.
+[Refer to official documentation for detailed usage. &#8594](https://prettier.io/)
 
 :::caution
 
@@ -14,15 +14,6 @@ All required configurations will be handled automatically by CLI as long as you 
 
 :::
 
-If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
-
-:::note
-Be sure to install `prettier` in your root directory.
-:::
-
-```bash
-npm install prettier
-```
 
 ```json title="package.json"
 {
@@ -54,3 +45,29 @@ To exclude files from formatting, create a `.prettierignore` file in the root of
 node_modules
 __generated__
 ```
+
+
+## Adding Prettier to your project later
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+```
+npm i -D prettier
+```
+  </TabItem>
+  <TabItem value="yarn">
+
+```
+yarn add -D prettier
+```
+  </TabItem>
+</Tabs>

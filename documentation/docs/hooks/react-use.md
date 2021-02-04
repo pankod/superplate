@@ -8,14 +8,9 @@ react-use has various hooks that you can use with ease.
 
 Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don’t work inside classes — they let you use React without classes.
 
-Refer to [documentation](https://github.com/streamich/react-use) for detailed usage.
+[Refer to official documentation for detailed usage. &#8594](https://github.com/streamich/react-use)
 
-:::tip
-
-All required configurations will be handled automatically by CLI as long as you choose plugins during the project creation phase.
-
-If you didn't choose the plugin during project creation phase, be sure to install with `npm install react-use` if you want to add `react-use` afterwards.
-:::
+### react-use
 
 In this example, we'll use `useWindowSize` and  `usePrevious` hooks in order to  tracks `Window` dimensions and get the previous state with ease.
 
@@ -57,3 +52,35 @@ export const ReactUseExample = () => {
     );
 };
 ```
+
+
+## Adding react-use to your project later
+
+If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
+
+- Install `react-use` package.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+```bash
+npm install react-use
+```
+
+  </TabItem>
+  <TabItem value="yarn">
+
+```bash
+yarn add react-use
+```
+
+  </TabItem>
+</Tabs>
