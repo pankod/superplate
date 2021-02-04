@@ -38,7 +38,7 @@ const siteConfig = {
       indexName: 'superplate',
     },
     navbar: {
-      title: 'SuperPlate',
+      title: '',
       logo: {
         alt: 'SuperPlate Logo',
         src: 'img/superplate-logo.svg',
@@ -60,7 +60,7 @@ const siteConfig = {
           items: [
             {
               label: 'Get Started',
-              to: 'docs/getting-started/how-it-works',
+              to: 'docs',
             },
             {
               label: 'UI Frameworks',
