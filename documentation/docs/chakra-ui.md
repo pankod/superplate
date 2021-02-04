@@ -106,6 +106,10 @@ export default {
 If you're curious as to what theme styles you can override, please reference the [default theme foundation style files](https://github.com/chakra-ui/chakra-ui/tree/main/packages/theme/src/foundations).
 :::
 
+:::tip
+All this work will be handled automatically by CLI, so you don’t need to do anything extra as long as you choose **Chakra UI** plugin during the project creation phase.
+:::
+
 ### Component Style
 Chakra UI also provides a way to write component styles that is easy to maintain over the life of a growing and changing project  
 [Refer to official documentation on component style for detailed usage. &#8594](https://chakra-ui.com/docs/theming/component-style)
