@@ -25,13 +25,40 @@ npm run svgr
 :::
 [Refer to official documentation for detailed usage.  &#8594](https://react-svgr.com/docs/options/)
 
-### Using SVGR in your project without plugin
+### Adding SVGR to your project later
+:::tip
+
+All this work will be handled automatically by superplate, so you don’t need to do anything extra as long as you choose SVGR plugin during the project creation phase.
+
+:::
+
+
 If you didn't choose the SVGR plugin during project creation phase, you can follow the instructions below to add it. 
 
-Install [@svgr/cli](https://react-svgr.com/docs/cli/)
-```js
-npm install @svgr/cli --save-dev
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
 ```
+npm install -D @svgr/cli
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn add -D @svgr/cli
+```
+  </TabItem>
+</Tabs>
+
 Add command to scripts
 ```js title="package.json"
 {

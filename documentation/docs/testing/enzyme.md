@@ -18,19 +18,6 @@ Configuration for Jest is not included. Please check out [Jest Plugin](jest) to 
 
 :::
 
-### Dependencies
-
-First, we need to add dependencies to get started using Enzyme to run our tests.
-
-```json
-{
-    "devDependencies": {
-        "@types/enzyme": "^3.10.8",
-        "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
-        "enzyme": "^3.11.0",
-    }
-}
-```
 
 :::warning
 
@@ -98,7 +85,7 @@ export default mount;
 
 ### Example Test
 
-```ts title="MyComponent.spec.tsx"
+```ts title="components/myComponent/index.spec.tsx"
 // highlight-next-line
 import mount from "@test/mount"; // <root>/test/mount.tsx
 import { MyComponent } from "./MyComponent";
@@ -117,7 +104,7 @@ describe("MyComponent", () => {
 });
 ```
 
-```tsx title="MyComponent.tsx"
+```tsx title="components/myComponent/index.tsx"
 import React from "react";
 
 export const MyComponent: React.FC<{ onClick: () => void }> = ({
@@ -135,11 +122,66 @@ export const MyComponent: React.FC<{ onClick: () => void }> = ({
 
 ### Running Tests
 
-We will use Jest as our test runner. If Jest is already set up; you can simply run `test` script with `npm run test` or `yarn test`.
+We will use Jest as our test runner. If Jest is already set up you can simply run
 
-## Adding Enzyme to an existing project
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
 
-If you want to add Enzyme to your existing project please check out;
+```
+npm run test
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn test
+```
+  </TabItem>
+</Tabs>
+
+## Adding Enzyme to your project later
+
+
+:::tip
+
+All this work will be handled automatically by superplate, so you don’t need to do anything extra as long as you choose Enzyme as testing plugin during the project creation phase.
+
+:::
+
+If you want to add Enzyme to your existing project first install the dependencies
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+```
+npm install -D enzyme @types/enzyme @wojtekmaj/enzyme-adapter-react-17
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn add -D enzyme @types/enzyme @wojtekmaj/enzyme-adapter-react-17
+```
+  </TabItem>
+</Tabs>
+
+Then you can follow documentations for detail usage
 
 - Enzyme [documentation](https://enzymejs.github.io/enzyme/)
 - Jest setup from **superplate** [documentation](jest)

@@ -15,7 +15,7 @@ Promise based HTTP client for the browser and node.js
 - Automatic transforms for JSON data
 - Client side support for protecting against XSRF
 
-[Go to Docs &#8594](https://github.com/axios/axios)
+[Refer to official documentation for detailed usage. &#8594](https://github.com/axios/axios)
 
 Performing a `GET` (or `POST`) request is as simple as calling the method on `axios`
 
@@ -35,7 +35,7 @@ axios.get('/user?ID=12345')
     // always executed
   });
 ```
-[More &#8594](https://github.com/axios/axios#note-commonjs-usage)
+[More on GET example&#8594](https://github.com/axios/axios#note-commonjs-usage)
 
 Requests can be made by passing the relevant config to axios.
 
@@ -49,7 +49,7 @@ axios({
   }
 });
 ```
-[More &#8594](https://github.com/axios/axios#axios-api)
+[More on POST example&#8594](https://github.com/axios/axios#axios-api)
 
 ### Concurrency
 Please use `Promise.all` to handle concurrency
@@ -86,7 +86,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const BASE_API_URL = "https://official-joke-api.appspot.com/";
-
 const API_URL = "/jokes/programming/random";
 
 const jokesApi = axios.create({
@@ -118,11 +117,48 @@ export const AxiosExample = () => {
             );
     }, []);
 };
-
 ```
-[More &#8594](https://github.com/axios/axios#creating-an-instance)
+[More on instance methods&#8594](https://github.com/axios/axios#creating-an-instance)
+
+
+:::tip
+
+All this work will be handled automatically by superplate, so you don’t need to do anything extra as long as you choose axios as feature plugin during the project creation phase.
+
+:::
 
 :::tip
 Consider using `react-query` or `swr` plugins to handle client-side requests.  
 They can be used with promise-based methods (fetch, axios..)
 :::
+
+## Adding axios to your project later
+
+If you want to add axios to your existing project first install the dependencies
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+```
+npm install axios
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn add axios
+```
+  </TabItem>
+</Tabs>
+
+

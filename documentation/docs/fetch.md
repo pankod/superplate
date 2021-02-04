@@ -11,6 +11,8 @@ Next.js has [built-in fetch support](https://nextjs.org/blog/next-9-4#improved-b
 
 It can be used both in your components and Next.js server-side methods.
 
+### Using on Client-side
+
 ```js title="In your component"
 export const FetchExample = () => {
     const [error, setError] = useState(null);
@@ -36,6 +38,8 @@ export const FetchExample = () => {
     }, []);
 }
 ```
+
+### Using on Server-side
 
 ```js title="Next.js getStaticProps"
 export async function getStaticProps() {
