@@ -36,8 +36,6 @@ All required configurations will be handled automatically by CLI as long as you 
 }
 ```
 
-
-
 ## Adding lint-staged to your project later
 
 import Tabs from '@theme/Tabs';
@@ -62,3 +60,9 @@ yarn add -D lint-staged husky
 ```
   </TabItem>
 </Tabs>
+
+:::warning
+You must have installed the `ESLint` plugin to use `lint-staged`.
+
+:::
+[To learn how to configure ESLint in your project follow instructions from here  &#8594](eslint)
