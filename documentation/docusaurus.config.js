@@ -38,7 +38,7 @@ const siteConfig = {
       indexName: 'superplate',
     },
     navbar: {
-      title: '',
+      title: 'superplate',
       logo: {
         alt: 'SuperPlate Logo',
         src: 'img/superplate-logo.svg',
@@ -123,6 +123,13 @@ const siteConfig = {
             {
               label: 'GitHub',
               href: "https://github.com/pankod/superplate",
+            },
+            {
+              html: `
+                  <a href="https://github.com/pankod/superplate" target="_blank" rel="noreferrer noopener" aria-label="Star this project on GitHub">
+                    <img src="https://img.shields.io/github/stars/pankod/superplate?logo=reverbnation&logoColor=white" alt="github-stars" />
+                  </a>
+                `,
             },
           ],
         },
