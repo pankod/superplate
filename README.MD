@@ -27,7 +27,6 @@
 </div>
 
    
-
 ## About
 
 superplate has been developed to create rock solid UI frameworks apps boilerplate with no build configurations in seconds.
@@ -115,7 +114,7 @@ To learn more about sources and how to create your own; please check out [Docume
 
 
 
-### Avaliable plugins
+## Avaliable plugins
 <img src="plugins.png"  align="center" />
 
 
