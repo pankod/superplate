@@ -44,33 +44,16 @@ For now, superplate only creates project starter boilerplates  for Next.js apps 
 ## Available Integrations
 
 
-<div style={{display:inline-block}}>
-    <img 
-    src=https://cdn.worldvectorlogo.com/logos/next-js.svg 
-    style="width:50px; height:50px; margin-right:10px;" />    
-     
-<div/>
+<img src="available.png"  align="center" />
+
+<br/>
+
 <br/>
 
 ## Coming Soon
+<img src="integrations.png"  align="center" />
 
-<div style={{display:inline-block}}>
-    <img 
-    src=https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/1200px-Svelte_Logo.svg.png 
-    style="width:50px; height:50px; margin-right:15px;" />    
-    <img 
-    src=https://pics.freeicons.io/uploads/icons/png/20167174151551942641-512.png
-    style="width:50px; height:50px; margin-right:15px;" />    
-    <img 
-    src=https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png
-    style="width:50px; height:50px; margin-right:15px;" />    
-    <img 
-    src=https://nuxtjs.org/logos/nuxt-icon.png
-    style="width:50px; height:50px; margin-right:15px;" />    
-    <img 
-    src=https://styles.redditmedia.com/t5_u8ynk/styles/communityIcon_s6agobh56o541.png?width=256&s=c053025991637179047f2141be64b3cdc8500cae
-    style="width:50px; height:50px; margin-right:15px;" />    
-<div/>
+<br/>
 
 <br/>
 
