@@ -82,3 +82,15 @@
   text-transform: uppercase;
   font-weight: 500;
 }
+
+.sectionImage {
+  margin: 0 auto;
+}
+
+.gettingStartedSection {
+  background-color: #f7f7f7;
+}
+
+html[data-theme='dark'] .gettingStartedSection {
+  background-color: #33363b;
+}

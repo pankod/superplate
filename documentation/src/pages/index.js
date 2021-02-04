@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
+import CodeBlock from '@theme/CodeBlock';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -48,6 +49,65 @@ function Feature({ imageUrl, title, url }) {
   );
 }
 
+function Sections() {
+  return (
+    <>
+      <div className={styles.gettingStartedSection}>
+        <div className="container padding-vert--xl text--left">
+          <div className="row">
+            <div className="col col--4 col--offset-1">
+              <h2>All plugins has best practice</h2>
+              <p>
+                We have added all the <strong>best practices</strong> you need while creating your new project.
+                superplate gives you many abilities to create your own plugin and interact with the others. 
+                <br />
+                <br />
+                To create a project called <i>my-app</i>, run this command:
+              </p>
+              <CodeBlock className="language-sh">
+                npx superplate my-app
+              </CodeBlock>
+              <br />
+            </div>
+            <div className="col col--5 col--offset-1">
+              <img
+                className={styles.sectionImage}
+                alt="Easy to get started in seconds"
+                src={
+                  'https://user-images.githubusercontent.com/11361964/106468355-dd9be280-64ae-11eb-82da-c313beb16d6b.gif'
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div className="container padding-vert--xl text--left">
+          <div className="row">
+            <div className="col col--4 col--offset-1">
+              <img
+                className={styles.sectionImage}
+                alt="Easy to update"
+                src={useBaseUrl('img/code.svg')}
+              />
+            </div>
+            <div className="col col--5 col--offset-1">
+              <h2>Easy to extend/customize plugin structure</h2>
+              <p>
+                Kolay extend/customize edilebilir plugin yapısı
+                superplate gives you many abilities to create your own plugin and interact with the others. 
+              </p>
+              <CodeBlock className="language-sh">
+                npm run dev
+              </CodeBlock>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
 function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
@@ -88,6 +148,7 @@ function Home() {
           </section>
         )}
       </main>
+      <Sections />
     </Layout>
   );
 }
