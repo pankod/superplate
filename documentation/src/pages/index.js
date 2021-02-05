@@ -109,6 +109,7 @@ module.exports = {
 };
 `}
               </CodeBlock>
+              <br />
             </div>
             <div className="col col--4 col--offset-1">
               <h2>Easy to extend/customize plugin structure</h2>
