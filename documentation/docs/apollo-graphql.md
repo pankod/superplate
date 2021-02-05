@@ -157,6 +157,13 @@ All this work will be handled automatically by CLI, so you don’t need to do an
 
 :::
 
+:::warning
+
+`Apollo GraphQL` plugin currently exludes `__generated__/globalTypes.ts` at `tsconfig.json`. Typescript doesn't accept empty global files when `isolatedModules` is set to `true` which is mandatory for next.js projects. If you're going to have non empty `globalTypes.ts`, you may consider removing it from exclude.
+[There is currently an issue](https://github.com/apollographql/apollo-tooling/issues/2080) and [a related pr](https://github.com/apollographql/apollo-tooling/pull/2163) to not produce `globalTypes.ts` if it's empty.
+
+:::
+
 
 ## Adding Apollo GraphQL to your project later
 
