@@ -1,5 +1,5 @@
 <div align="center">
-<img src="banner.png"  align="center" />
+<img src="images/banner.png"  align="center" />
 </div>
 <br/>
 <div align="center">Performance oriented UI Frameworks application boilerplate creator using most popular tech-stack.</div>
@@ -44,12 +44,12 @@ For now, superplate only creates project starter boilerplates  for Next.js apps 
 ## Available Integrations
 
 
-<img src="available.png"  align="center" />
+<img src="images/available.png"  align="center" />
 
 
 
 ## Coming Soon
-<img src="integrations.png"  align="center" />
+<img src="images/integrations.png"  align="center" />
 
 
 
@@ -116,7 +116,7 @@ To learn more about sources and how to create your own; please check out [Docume
 
 
 ## Avaliable plugins
-<img src="plugins.png"  align="center" />
+<img src="images/plugins.png"  align="center" />
 
 
 ## CLI options
