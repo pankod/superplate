@@ -29,6 +29,7 @@
    
 ## About
 
+
 superplate has been developed to create rock solid UI frameworks apps boilerplate with no build configurations in seconds.
 
 You can add usefull, highly-demands front-end development tools and libraries as a plugin by using superplate CLI during the project creation phase.
@@ -78,11 +79,11 @@ npm run dev
 ```
 >Use the dev command when running application in development mode.
 ## Philosophy
-superplate kod yapısı bu maddeler esas alınarak geliştirildi.
 
-- Kolay extend/customize edilebilir plugin yapısı sayesinde yeni plugin eklenilebilirliğini sağladık
-- Framework/Plugin agnostic yapısıyla yeni framework ve plugin'leri kolayca geliştirebilirsiniz
-- Yeni projenizi yaratırken ihtiyacınız olan tüm best practice'leri ekledik. Örneğin, styled component, storybook ve unit test içeren bir projeniz için tüm best practice'ler kullanıma hazır.
+- It provides a easy starting to your project in seconds with using industry-standard best practices and performance oriented tools & libraries.
+- You can easily develop your own framework CLI and plugins according to your needs to on top of superplate codebase due to its framework/plugin agnostic nature.
+- Code examples are added to plugin documents to show how best practices are implementing.
+
 ## Next.js Integration
 
 superplate  makes it easier to get up and running with a well-structured Next.js and TypeScript application.
