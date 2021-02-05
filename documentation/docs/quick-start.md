@@ -10,7 +10,6 @@ sidebar_label: Overview
 No need to install or configure any tools for starting a new single-page application project. superplate handles everything so that you can focus on the code.
 
 superplate offers a full system build setup with no configuration for best JavaScript UI framework single-page applications. 
-
 It provides easy starting to your project in seconds with using industry-standard best practices and performance oriented tools & libraries.
 
 
@@ -38,11 +37,11 @@ Open [http://localhost:3000/](http://localhost:3000/) to see created app.
 
 
 ## superplate Plugins
-superplate uses a plugin-based architecture. Basicly, plugins are created from highly-demanded npm tools in the front-end ecosystem with configuration files. 
+superplate uses a plugin-based architecture. Basically, plugins are created from highly-demanded npm tools in the front-end ecosystem with configuration files. 
 
 The features and tools listed during the project creation process are implemented as plugins.
 
-Plugins can be included as part of your project creation phase. 37+ plugins working in harmony with superplate boilerplates.
+Plugins can be included as part of your project creation phase. 37+ plugins working in harmony with superplate UI Framework boilerplates.
 
 See the list of core plugin [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins). 
 
