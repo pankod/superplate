@@ -13,19 +13,16 @@ function Badges() {
   return (
     <div className={styles.topBadges}>
       <a href="https://meercode.io/pankod/superplate">
-        <img src="https://api.meercode.io/badge/pankod/superplate?type=ci-score&token=IITTyA0OnDnR3phwZbp61uZW9QO05lxQ&lastDay=14" alt="Meercode CI Score" />
+        <img src="https://api.meercode.io/badge/pankod/superplate?type=ci-score&branch=master&token=2ZiT8YsoJgt57JB23NYwXrFY3rJHZboT&lastDay=31" alt="Meercode CI Score" />
       </a>
       <a href="https://meercode.io/pankod/superplate">
-        <img src="https://api.meercode.io/badge/pankod/superplate?type=ci-success-rate&token=IITTyA0OnDnR3phwZbp61uZW9QO05lxQ&lastDay=14" alt="Meercode CI Success Rate" />
+        <img src="https://api.meercode.io/badge/pankod/superplate?type=ci-success-rate&branch=master&token=2ZiT8YsoJgt57JB23NYwXrFY3rJHZboT&lastDay=31" alt="Meercode CI Success Rate" />
       </a>
       <a href="https://david-dm.org/pankod/superplate">
         <img src="https://david-dm.org/pankod/superplate/status.svg" alt="Dependencies Status" />
       </a>
       <a href="https://david-dm.org/pankod/superplate?type=dev">
         <img src="https://david-dm.org/pankod/superplate/dev-status.svg" alt="devDependencies Status" />
-      </a>
-      <a href="https://travis-ci.org/pankod/superplate">
-        <img src="https://travis-ci.org/pankod/superplate.svg?branch=master" alt="devDependency Status" />
       </a>
       <a href="https://img.shields.io/npm/dw/@pankod/superplate">
         <img src="https://img.shields.io/npm/dw/@pankod/superplate" alt="npm" />
