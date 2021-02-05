@@ -1,14 +1,15 @@
 ---
 id: styled-components
-title: styled-components Support
+title: styled-components
 sidebar_label: styled-components
+description: How to use styled-components with Next.js?
 ---
 
 styled-components allows you to add styles to your application that are written with a mixture of JavaScript and CSS using a technique called CSS-in-JS.
 
 Helps keep the concerns of styling and element architecture separated and make components more readable without worrying about class name collisions.
 
- Example implementation shown at the below.
+ Example implementation shown below.
 
 ```ts title="components/header/styled.ts"
 import styled from 'styled-components'
@@ -30,8 +31,9 @@ const Subtitle = styled(Title)`
 
 
 
-```jsx title="components/header"
+```jsx title="components/header/index.tsx"
 import React from "react";
+
 import { Container, Title, Information } from "./styled";
 
 export const Header: React.FC = () => {
@@ -137,7 +139,7 @@ All needed dark mode configurations and files adds by CLI if styled-component pl
 
 
 
-## styled-system
+## Styled System
 
 
 

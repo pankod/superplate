@@ -2,6 +2,7 @@
 id: github-actions
 title: Github Actions
 sidebar_label: Github Actions
+description: Deploy Next.js Apps using Github Actions
 ---
 
 
@@ -9,11 +10,11 @@ sidebar_label: Github Actions
 
 Automate, customize, and execute your software development workflows right in your repository with GitHub Actions. You can discover, create, and share actions to perform any job you'd like, including CI/CD, and combine actions in a completely customized workflow.
 
-Refer to [documentation](https://docs.github.com/en/actions) for detailed usage.
+[Refer to official documentation for detailed usage. &#8594](https://docs.github.com/en/actions)
 
 The following YAML workflow file created into the `.github/workflows/ci.yml` as a default by superplate, if GitHub Actions selected as a CI plugin.
 
-``` title=".github/workflows/ci.yml"
+```bash title=".github/workflows/ci.yml"
 name: ci
 
 on:
@@ -169,11 +170,11 @@ import TabItem from '@theme/TabItem';
 
 <br/>
 
-### Testing
+## Testing
 ---
 
 
-#### Run tests
+### Run tests
 <Tabs
   defaultValue="npm"
   values={[
@@ -196,7 +197,7 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
-#### Run Cypress E2E Testing
+### Run Cypress E2E Testing
 <Tabs
   defaultValue="npm"
   values={[
@@ -220,7 +221,7 @@ import TabItem from '@theme/TabItem';
 </Tabs>
 
 
-#### WebdriverIO E2E Testing
+### WebdriverIO E2E Testing
 <Tabs
   defaultValue="npm"
   values={[
@@ -246,3 +247,4 @@ import TabItem from '@theme/TabItem';
 :::tip
 We recommend using **[Meercode](https://meercode.io)**, if you are using Github Actions. **[Meercode](https://meercode.io)** is the monitoring dashboard for your CI/CD builds.
 :::
+
