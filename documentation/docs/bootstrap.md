@@ -25,7 +25,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from 'react-bootstrap';
 ```
 
-- Or import invidual components
+- Or import individual components
 
 ```js
 import Button from 'react-bootstrap/Button';
