@@ -62,6 +62,14 @@ Refer to [github repo](https://github.com/storybookjs/storybook/tree/master/addo
 
 Run your storybook with `npm run storybook`.
 
+:::note
+You can build `Storybook` as a static web application with:
+```bash
+  npm run build-storybook
+```
+
+:::
+Refer to [official documentation](https://storybook.js.org/docs/react/workflows/publish-storybook) for detailed usage of publishing storybook.
 
 ## How to configure Storybook with plugins?
 
