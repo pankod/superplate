@@ -47,7 +47,7 @@ See the list of core plugin [superplate-core-plugins](https://github.com/pankod/
 
 :::info
 Plugins are customizable and extendable. You can develop your own plugin or modify existings.  
-[Refer to documentation to see how plugin works &#8594](/development/how-it-works)
+[Refer to documentation to see how plugin works &#8594](development/how-it-works)
 :::
 
 
