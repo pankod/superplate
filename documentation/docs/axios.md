@@ -2,6 +2,7 @@
 id: axios
 title: Axios
 sidebar_label: Axios
+description: How to use axios in Next.js?
 ---
 
 Promise based HTTP client for the browser and node.js  
