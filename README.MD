@@ -2,7 +2,7 @@
 <img src="images/banner.png"  align="center" />
 </div>
 <br/>
-<div align="center">Performance oriented UI Frameworks application boilerplate creator using most popular tech-stack.</div>
+<div align="center">Performance oriented UI Frameworks application boilerplate creator with TypeScript using the popular front-end ecosystem tools.</div>
 <br/>
 
 
