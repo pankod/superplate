@@ -2,6 +2,7 @@
 id: scss
 title: Sass/SCSS
 sidebar_label: Sass/SCSS
+description: How to use Sass in Next.js?
 ---
 
 Sass is a CSS preprocessor, which adds special features such as variables, nested rules and mixins (sometimes referred to as syntactic sugar) into regular CSS.

@@ -2,6 +2,7 @@
 id: swr
 title: SWR
 sidebar_label: SWR
+description: Data fetching in Next.js — How to use SWR
 ---
 
 React Hooks library for data fetching.

@@ -2,6 +2,7 @@
 id: graphql-request
 title: graphql-request
 sidebar_label: graphql-request
+description: How to Fetch GraphQL Data in Next.js with graphql-request?
 ---
 
 [graphql-request](https://github.com/prisma-labs/graphql-request) is a simple & lightweight GraphQL client.

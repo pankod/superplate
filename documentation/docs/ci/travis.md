@@ -2,6 +2,7 @@
 id: travis
 title: Travis CI
 sidebar_label: Travis CI
+description: Deploy Next.js Apps using Travis CI
 ---
 
 

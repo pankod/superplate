@@ -2,6 +2,7 @@
 id: storybook
 title: Storybook
 sidebar_label: Storybook
+description: How to use Storybook in Next.js?
 ---
   
 Storybook is a tool for UI development. It makes development faster and easier by isolating components. 

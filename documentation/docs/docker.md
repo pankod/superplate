@@ -2,6 +2,7 @@
 id: docker
 title: Docker
 sidebar_label: Docker
+description: How to use NextJS with docker?
 ---
 
 Docker is an open source containerization platform. Docker enables developers to package applications into containers—standardized executable components that combine application source code with all the operating system (OS) libraries and dependencies required to run the code in any environment.

@@ -2,6 +2,7 @@
 id: react-query
 title: React Query
 sidebar_label: React Query
+description: React Query with server side rendering using Next.js
 ---
   
 Provides performant and powerful data synchronization for React.

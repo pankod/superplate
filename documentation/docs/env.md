@@ -2,6 +2,7 @@
 id: env
 title: Environment Variables(.env)
 sidebar_label: Enviroment Variables
+description: How to use env in Next.js apps?
 ---
 
 Using Environment variables important to keep your private information secure. Next.js comes with built-in support for environment variables.

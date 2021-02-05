@@ -2,6 +2,7 @@
 id: redux-toolkit
 title: Redux Toolkit
 sidebar_label: Redux Toolkit
+description: How to Use Redux Toolkit in Next.js?
 ---
 
 Redux is a predictable state container for JavaScript apps. Redux Toolkit is the official, opinionated, batteries-included toolset for efficient Redux development.

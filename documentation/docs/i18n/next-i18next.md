@@ -2,6 +2,7 @@
 id: next-i18next
 title: next-i18next
 sidebar_label: next-i18next
+description: Using i18n with Next.js
 ---
 
 next-i18next is a plugin that allows you to get translations up and running quickly and easily, while fully supporting SSR, multiple namespaces with codesplitting.

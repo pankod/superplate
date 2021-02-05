@@ -2,6 +2,7 @@
 id: github-actions
 title: Github Actions
 sidebar_label: Github Actions
+description: Deploy Next.js Apps using Github Actions
 ---
 
 

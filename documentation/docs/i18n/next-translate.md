@@ -2,6 +2,7 @@
 id: next-translate 
 title: next-translate 
 sidebar_label: next-translate 
+description: Using i18n with Next.js
 ---
 
 The main goal of [next-translate](https://github.com/vinissimus/next-translate) is to keep the translations as simple as possible in a Next.js environment.

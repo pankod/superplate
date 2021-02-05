@@ -2,6 +2,7 @@
 id: mobx
 title: Mobx
 sidebar_label: Mobx
+description: Using Mobx in Next.js Project
 ---
 
 *Simple, scalable state management.*

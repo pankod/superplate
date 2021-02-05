@@ -1,27 +1,50 @@
-module.exports = {
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+const siteConfig = {
   title: 'superplate',
   tagline: 'The frontend boilerplate with superpowers',
   url: 'https://pankod.github.io',
   baseUrl: '/superplate/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-  organizationName: 'pankod',
   projectName: 'superplate',
+  organizationName: 'pankod',
+  favicon: 'img/superplate-logo.svg',
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        docs: {
+          path: './docs',
+          sidebarPath: require.resolve('./sidebars.js'),
+          editUrl:
+            'https://github.com/pankod/superplate/tree/master/documentation',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
+        },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      },
+    ],
+  ],
   themeConfig: {
+    image: 'img/footer_icon.png',
+    algolia: {
+      apiKey: '3be60f4f8ffc24c75da84857d6323791',
+      indexName: 'superplate',
+    },
     navbar: {
-      title: 'My Site',
+      title: 'superplate',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'SuperPlate Logo',
+        src: 'img/superplate-logo.svg',
       },
       items: [
-        {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
-          position: 'left',
-        },
+        { to: 'docs', label: 'Docs', position: 'right' },
         {
           href: 'https://github.com/pankod/superplate',
           label: 'GitHub',
@@ -36,8 +59,52 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Style Guide',
-              to: 'docs/',
+              label: 'Get Started',
+              to: 'docs',
+            },
+            {
+              label: 'UI Frameworks',
+              to: 'docs/tailwind',
+            },
+            {
+              label: 'CSS Preprocessors',
+              to: 'docs/css',
+            },
+            {
+              label: 'Features',
+              to: 'docs/fetch',
+            },
+            {
+              label: 'Hooks',
+              to: 'docs/hooks/swr',
+            },
+            {
+              label: 'State Management',
+              to: 'docs/state-management/redux-toolkit',
+            },
+            {
+              label: 'i18n',
+              to: 'docs/i18n/next-translate',
+            },
+            {
+              label: 'Linting Tools',
+              to: 'docs/linter/eslint',
+            },
+            {
+              label: 'Testing',
+              to: 'docs/testing/jest',
+            },
+            {
+              label: 'E2E Testing',
+              to: 'docs/e2e-testing/cypress',
+            },
+            {
+              label: 'Deployment',
+              to: 'docs/docker',
+            },
+            {
+              label: 'Continuous Integrations',
+              to: 'docs/ci/github-actions',
             },
           ],
         },
@@ -45,12 +112,8 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/superplate',
-            },
-            {
               label: 'Twitter',
-              href: 'https://twitter.com/pankoddev',
+              href: 'https://twitter.com/PankodDev',
             },
           ],
         },
@@ -59,28 +122,26 @@ module.exports = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/pankod/superplate',
+              href: "https://github.com/pankod/superplate",
+            },
+            {
+              html: `
+                  <a href="https://github.com/pankod/superplate" target="_blank" rel="noreferrer noopener" aria-label="Star this project on GitHub">
+                    <img src="https://img.shields.io/github/stars/pankod/superplate?logo=reverbnation&logoColor=white" alt="github-stars" />
+                  </a>
+                `,
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} superplate, Inc. Built with Docusaurus.`,
+      logo: {
+        alt: 'Pankod Logo',
+        src: 'img/pankod_footer_logo.png',
+        href: 'https://github.com/pankod'
+      },
+      copyright: `Copyright © ${new Date().getFullYear()} Pankod, Inc.`,
     },
   },
-  presets: [
-    [
-      '@docusaurus/preset-classic',
-      {
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-      },
-    ],
-  ],
 };
+
+module.exports = siteConfig;
