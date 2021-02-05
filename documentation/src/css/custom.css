@@ -23,3 +23,27 @@
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
 }
+
+.footer__links {
+  margin-bottom: 20px;
+}
+
+.footer__col:first-child {
+  flex: 2;
+}
+
+.footer__col:first-child .footer__items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.footer__col:first-child .footer__items .footer__item {
+  flex-basis: 50%;
+}
+
+@media screen and (max-width: 966px) {
+  .footer__link-item {
+    font-size: 14px;
+  }
+}

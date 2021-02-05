@@ -2,6 +2,7 @@
 id: cypress
 title: Cypress
 sidebar_label: Cypress
+description: Using Cypress with Next.js for End to End testing
 ---
 
 *Fast, easy and reliable testing for anything that runs in a browser.*
@@ -174,11 +175,30 @@ All this work will be handled automatically by CLI, so you don’t need to do an
 
 If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
 
-- Install `cypress`
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-```bash
-npm install cypress --save-dev
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
 ```
+npm install -D cypress 
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn add -D cypress
+```
+  </TabItem>
+</Tabs>
+
 
 
 - Follow instructions starting in [Writing Tests](#writing-tests)

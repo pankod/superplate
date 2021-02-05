@@ -2,6 +2,7 @@
 id: css
 title: Built-in CSS Support
 sidebar_label: Built-in CSS 
+description: How to use CSS in Next.js?
 ---
 
 Next.js allows you to import CSS files from a JavaScript file.
@@ -35,6 +36,13 @@ export default MyApp;
 These styles will apply to all pages and components in your application.
 
 ### CSS Modules
+
+:::caution
+
+next.js only supports CSS Modules as Component-Level CSS implementation.
+
+:::
+
 
 [CSS Modules](https://github.com/css-modules/css-modules) let you use the same CSS class name in different files without worrying about naming clashes.
 
@@ -72,8 +80,4 @@ The class names which will be processed into a globally unique class name during
 
 :::
 
-:::caution
 
-next.js only supports CSS Modules as Component-Level CSS implementation.
-
-:::

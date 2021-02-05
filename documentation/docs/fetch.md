@@ -2,6 +2,7 @@
 id: fetch
 title: Fetch
 sidebar_label: Fetch
+description: How to use fetch data in Next.js?
 ---
 
 The Fetch API provides an interface for fetching resources (including across the network)  
@@ -10,6 +11,8 @@ The Fetch API provides an interface for fetching resources (including across the
 Next.js has [built-in fetch support](https://nextjs.org/blog/next-9-4#improved-built-in-fetch-support) both in browser and node environment.
 
 It can be used both in your components and Next.js server-side methods.
+
+### Using on Client-side
 
 ```js title="In your component"
 export const FetchExample = () => {
@@ -36,6 +39,8 @@ export const FetchExample = () => {
     }, []);
 }
 ```
+
+### Using on Server-side
 
 ```js title="Next.js getStaticProps"
 export async function getStaticProps() {

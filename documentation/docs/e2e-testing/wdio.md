@@ -2,6 +2,7 @@
 id: wdio
 title: WebdriverIO
 sidebar_label: WebdriverIO
+description: Using WebdriverIO with Next.js for End to End testing
 ---
 
 *Next-gen browser and mobile automation test framework for Node.js.*  
@@ -143,11 +144,29 @@ All this work will be handled automatically by CLI, so you don’t need to do an
 
 If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
 
-- Install `@wdio/cli`
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-```bash
-npm i --save-dev @wdio/cli
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
 ```
+npm install -D @wdio/cli 
+```
+  </TabItem>
+  
+  <TabItem value="yarn">
+
+```
+yarn add -D @wdio/cli
+```
+  </TabItem>
+</Tabs>
 
 - Generate configuration file
 
