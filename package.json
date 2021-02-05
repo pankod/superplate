@@ -10,7 +10,7 @@
     "bugs": {
         "url": "https://github.com/pankod/superplate/issues"
     },
-    "homepage": "https://github.com/pankod/superplate#readme",
+    "homepage": "https://pankod.github.io/superplate/",
     "bin": {
         "superplate": "lib/index.js"
     },
