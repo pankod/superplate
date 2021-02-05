@@ -85,11 +85,30 @@ function Sections() {
         <div className="container padding-vert--xl text--left">
           <div className="row">
             <div className="col col--5 col--offset-1">
-              <img
-                className={styles.sectionImage}
-                alt="Easy to update"
-                src={useBaseUrl('img/code.png')}
-              />
+              <CodeBlock className="language-js">
+${` const base = {
+  _app: {
+      import: [
+          'import { ChakraProvider } from "@chakra-ui/react";',
+          'import theme from "@definitions/chakra/theme";',
+      ],
+      wrapper: [["<ChakraProvider theme={theme}>", "</ChakraProvider>"]],
+  },
+  testSetup: {
+      import: [
+          'import { ChakraProvider } from "@chakra-ui/react";',
+          'import theme from "@definitions/chakra/theme";',
+      ],
+      wrapper: [["<ChakraProvider theme={theme}>", "</ChakraProvider>"]],
+  },
+};
+module.exports = {
+    extend() {
+        return base;
+    },
+};
+`}
+              </CodeBlock>
             </div>
             <div className="col col--4 col--offset-1">
               <h2>Easy to extend/customize plugin structure</h2>
