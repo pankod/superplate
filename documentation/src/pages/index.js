@@ -74,7 +74,7 @@ function Sections() {
                 className={styles.sectionImage}
                 alt="Easy to get started in seconds"
                 src={
-                  'https://im3.ezgif.com/tmp/ezgif-3-60a920df8830.gif'
+                  'https://im6.ezgif.com/tmp/ezgif-6-d6c8c4af4d1a.gif'
                 }
               />
             </div>
