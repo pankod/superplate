@@ -71,3 +71,4 @@ Create a build inside `/lib` directory.
 ### `npm run global`
 
 Install the current build globally
+
