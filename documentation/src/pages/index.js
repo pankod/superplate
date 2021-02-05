@@ -83,7 +83,7 @@ function Sections() {
           <div className="row">
             <div className="col col--5 col--offset-1">
               <CodeBlock className="language-js">
-${` const base = {
+{` const base = {
   _app: {
       import: [
           'import { ChakraProvider } from "@chakra-ui/react";',
