@@ -55,6 +55,7 @@
 .heroTitle {
   max-width: 400px;
   margin: auto;
+  color: #323232;
 }
 
 .heroSubtitle {
@@ -106,4 +107,8 @@ html[data-theme='dark'] .heroBanner {
 
 html[data-theme='dark'] .featureTitle {
   color: #f5f6f7;
+}
+
+html[data-theme='dark'] .heroTitle {
+  color: #f5f6f7 !important;
 }
