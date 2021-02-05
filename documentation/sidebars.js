@@ -1,7 +1,7 @@
 module.exports = {
   someSidebar: {
     "Getting Started": ['quick-start'],
-    "UI Frameworks":['antd', 'bootstrap', 'tailwind', 'chakra-ui'],
+    "UI Frameworks":['tailwind', 'bootstrap', 'chakra-ui', 'antd'],
     "CSS Preprocessors":['css', 'scss', 'styled-components'],
     "Features": ['fetch', 'axios', 'storybook', 'svgr', 'env', 'reverse-proxy','bundle-analyzer', 'apollo-graphql', 'graphql-request'],
     "Hooks": ['hooks/swr', 'hooks/react-query', "hooks/react-use"],
