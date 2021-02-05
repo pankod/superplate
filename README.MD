@@ -14,7 +14,6 @@
 [![Meercode CI Success Rate](https://api.meercode.io/badge/pankod/superplate?type=ci-success-rate&token=IITTyA0OnDnR3phwZbp61uZW9QO05lxQ&lastDay=14)](https://meercode.io/pankod/superplate)
 [![dependencies Status](https://david-dm.org/pankod/superplate/status.svg)](https://david-dm.org/pankod/superplate)
 [![dev-dependencies Status](https://david-dm.org/pankod/superplate/dev-status.svg)](https://david-dm.org/pankod/superplate?type=dev) 
-[![dev-dependencies Status](https://travis-ci.org/pankod/superplate.svg?branch=master)](https://travis-ci.org/pankod/superplate) 
 
 ![npm](https://img.shields.io/npm/dw/@pankod/superplate)
 
@@ -167,4 +166,3 @@ If you are willing to fix an issue or propose a feature; all PRs with clear expl
 ## License
 
 Licensed under the MIT License, Copyright © 2021-present Pankod
-
