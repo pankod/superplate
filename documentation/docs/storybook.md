@@ -287,9 +287,6 @@ All this work will be handled automatically by superplate, so you don’t need t
 
 If you want to add Storybook to your existing project first install the dependencies
 
-
-
-
 <Tabs
   defaultValue="npm"
   values={[
