@@ -76,6 +76,25 @@ We need to specify our config file when running jest, we can do this with `jest 
 }
 ```
 
+### Example Test
+
+```ts title="add.ts"
+// This is an example function to test
+export const const add = (...nums: number[]) => {
+  return nums.reduce((acc, curr) =>  acc + curr, 0);
+}
+```
+
+```ts title="add.spec.ts"
+import { add } from "./add";
+
+describe("Add Function", () => {
+  it("1 + 2 + 3 = 6", () => {
+    expect(add(1,2,3)).toEqual(6);
+  });
+});
+```
+
 ## Adding Jest to your project later
 
 :::tip
