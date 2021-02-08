@@ -106,6 +106,10 @@ const siteConfig = {
               label: 'Continuous Integrations',
               to: 'docs/ci/github-actions',
             },
+            {
+              label: 'Development',
+              to: 'docs/development/how-it-works',
+            },
           ],
         },
         {
