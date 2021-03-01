@@ -2,7 +2,7 @@
 <img src="images/banner.png"  align="center" />
 </div>
 <br/>
-<div align="center">Performance-oriented Frontend application boilerplate creator with TypeScript using the popular front-end ecosystem tools.</div>
+<div align="center">Performance-oriented frontend application boilerplate creator with TypeScript using the popular tools.</div>
 <br/>
 
 
