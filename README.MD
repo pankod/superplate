@@ -2,7 +2,7 @@
 <img src="images/banner.png"  align="center" />
 </div>
 <br/>
-<div align="center">Performance-oriented frontend application boilerplate creator with popular tools.</div>
+<div align="center">Performance-oriented frontend application creator with popular tools.</div>
 <br/>
 
 
