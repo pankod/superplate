@@ -24,7 +24,7 @@ For now, superplate creates a boilerplate for only Next.js apps. [Other framewor
 Make sure you have npx installed (npx is shipped by default since npm 5.2.0) or npm v6.1 or yarn.
 
 ```bash
-npx superplate <my-project>
+npx superplate-cli <my-project>
 ```
 It will ask you some questions about what features and tools you want to add to your project.
 Once all questions are answered, it will install all plugins and the dependencies. Then navigate to the project folder and launch it:

@@ -62,7 +62,7 @@ function Sections() {
                 To create a project called <i>my-app</i>, run this command:
               </p>
               <CodeBlock className="language-sh">
-                npx superplate my-app
+                npx superplate-cli my-app
               </CodeBlock>
               <br />
             </div>

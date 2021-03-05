@@ -57,7 +57,7 @@ To create a new app run the command:
 
 
 ```bash
-npx superplate <my-project>
+npx superplate-cli <my-project>
 ```
 Make sure you have npx installed (npx is shipped by default since npm 5.2.0)
 
@@ -121,7 +121,7 @@ To learn more about sources and how to create your own; please check out [Docume
 ## CLI options
 
 ```
-> npx superplate --help
+> npx superplate-cli --help
 Usage: superplate [options]
 
 Options:

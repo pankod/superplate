@@ -53,7 +53,7 @@ You can either use `--source <source-path>` or `-S <source-path>` options to pas
 
 ```bash
 
-npx superplate --source https://github.com/path-to-source.git my-project
+npx superplate-cli --source https://github.com/path-to-source.git my-project
 
 ```
 
@@ -62,6 +62,6 @@ npx superplate --source https://github.com/path-to-source.git my-project
 
 ```bash
 
-npx superplate --source ~/my-local-source my-project
+npx superplate-cli --source ~/my-local-source my-project
 
 ```
