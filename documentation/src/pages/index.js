@@ -55,8 +55,8 @@ function Sections() {
             <div className="col col--4 col--offset-1">
               <h2>All plugins has best practice</h2>
               <p>
-                We have added all the <strong>best practices</strong> you need while creating your new project.
                 superplate gives you many abilities to create your own plugin and interact with the others.
+                You can add <strong>usefull, highly-demands front-end development tools and libraries</strong> as a plugin by using superplate CLI during the project creation phase.
                 <br />
                 <br />
                 To create a project called <i>my-app</i>, run this command:
@@ -109,8 +109,7 @@ module.exports = {
             <div className="col col--4 col--offset-1">
               <h2>Easy to extend/customize plugin structure</h2>
               <p>
-                Kolay extend/customize edilebilir plugin yapısı
-                superplate gives you many abilities to create your own plugin and interact with the others.
+                You can easily develop your own framework CLI and plugins according to your needs to on top of superplate codebase due to its framework/plugin agnostic nature.
               </p>
               <CodeBlock className="language-sh">
                 npm run dev
