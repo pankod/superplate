@@ -17,7 +17,7 @@ You can easily develop your own framework CLI and plugins according to your need
 
 
 :::note
-For now, superplate creates a boilerplate for only Next.js apps. [Other frameworks](https://github.com/pankod/superplate/tree/#coming-soon) integrations will be added soon.
+For now, superplate creates a boilerplate for only Next.js apps. [Other frameworks](https://github.com/pankod/superplate#coming-soon) integrations will be added soon.
 :::
 ## Quick Start
 
