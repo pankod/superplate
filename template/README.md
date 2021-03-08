@@ -1,7 +1,7 @@
 # <%= name %>
 <% const docsUrl = "https://github.com/pankod/superplate"; %>
 
-This project was generated with [Next Cli](<%- docsUrl %>).
+This project was generated with [superplate](<%- docsUrl %>).
 
 ## Getting Started
 
