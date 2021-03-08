@@ -15,7 +15,7 @@
 [![dependencies Status](https://david-dm.org/pankod/superplate/status.svg)](https://david-dm.org/pankod/superplate)
 [![dev-dependencies Status](https://david-dm.org/pankod/superplate/dev-status.svg)](https://david-dm.org/pankod/superplate?type=dev) 
 
-![npm](https://img.shields.io/npm/dw/@pankod/superplate)
+[![npm](https://img.shields.io/npm/dw/superplate-cli)](https://www.npmjs.com/package/superplate-cli)
 
 </div>
 
