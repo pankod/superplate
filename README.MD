@@ -51,7 +51,8 @@ For now, superplate only creates project starter boilerplates  for Next.js apps 
 <img src="images/integrations.png"  align="center" />
 
 
-
+## Documentation
+For more detailed information and usage, refer to the [superplate documentation](https://pankod.github.io/superplate/).
 ## Quick Start
 To create a new app run the command:
 
@@ -106,11 +107,11 @@ You can use different sources for plugins other than [superplate-core-plugins](h
 
 Simply add `--source <path-to-source>` option to use **superplate** with a custom source. 
 
-To learn more about sources and how to create your own; please check out [Documentation#creating-a-source-repository](X)
+To learn more about sources and how to create your own; please check out [documentation](https://pankod.github.io/superplate/docs/development/how-it-works/#creating-a-source-repository)
 
 ### Creating a plugin
 
-**superplate** gives you many abilities to create your own plugin and interact with the others. To learn more on creating a plugin, please check out [Documentation#creating-a-plugin](X)
+**superplate** gives you many abilities to create your own plugin and interact with the others. To learn more on creating a plugin, please check out [documentation](https://pankod.github.io/superplate/docs/development/creating-a-plugin)
 
 
 
