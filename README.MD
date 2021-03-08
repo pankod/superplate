@@ -106,11 +106,11 @@ You can use different sources for plugins other than [superplate-core-plugins](h
 
 Simply add `--source <path-to-source>` option to use **superplate** with a custom source. 
 
-To learn more about sources and how to create your own; please check out [Documentation#creating-a-source-repository](X)
+To learn more about sources and how to create your own; please check out [Documentation](https://pankod.github.io/superplate/docs/development/how-it-works/#creating-a-source-repository)
 
 ### Creating a plugin
 
-**superplate** gives you many abilities to create your own plugin and interact with the others. To learn more on creating a plugin, please check out [Documentation#creating-a-plugin](X)
+**superplate** gives you many abilities to create your own plugin and interact with the others. To learn more on creating a plugin, please check out [Documentation](https://pankod.github.io/superplate/docs/development/creating-a-plugin)
 
 
 
