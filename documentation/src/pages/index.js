@@ -12,10 +12,10 @@ import styles from './styles.module.css';
 function Badges() {
   return (
     <div className={styles.topBadges}>
-      <a href="https://meercode.io/pankod/superplate">
+      <a href="https://meercode.io">
         <img src="https://meercode.io/badge/pankod/superplate?type=ci-score&branch=master&token=2ZiT8YsoJgt57JB23NYwXrFY3rJHZboT&lastDay=31" alt="Meercode CI Score" />
       </a>
-      <a href="https://meercode.io/pankod/superplate">
+      <a href="https://meercode.io">
         <img src="https://meercode.io/badge/pankod/superplate?type=ci-success-rate&branch=master&token=2ZiT8YsoJgt57JB23NYwXrFY3rJHZboT&lastDay=31" alt="Meercode CI Success Rate" />
       </a>
       <a href="https://david-dm.org/pankod/superplate">
@@ -25,7 +25,7 @@ function Badges() {
         <img src="https://david-dm.org/pankod/superplate/dev-status.svg" alt="devDependencies Status" />
       </a>
       <a href="https://img.shields.io/npm/dw/@pankod/superplate">
-        <img src="https://img.shields.io/npm/dw/@pankod/superplate" alt="npm" />
+        <img src="https://img.shields.io/npm/dw/superplate-cli" alt="npm" />
       </a>
     </div>
   )
