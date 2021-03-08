@@ -37,8 +37,7 @@ You can add usefull, highly-demands front-end development tools and libraries as
 To learn on how superplate and its plugins work, you can check out our documentation.
 
 
-
-For now, superplate only creates project starter boilerplates  for Next.js apps as a default UI Framework option. Other frameworks will be added soon.
+For now, superplate only creates project for Next.js apps as a default Framework option. Other frameworks will be added soon.
 
 ## Available Integrations
 
