@@ -53,7 +53,7 @@ function Sections() {
         <div className="container padding-vert--xl text--left">
           <div className="row">
             <div className="col col--4 col--offset-1">
-              <h2>All plugins has best practice</h2>
+              <h2>All plugins follow the best practices</h2>
               <p>
                 superplate gives you many abilities to create your own plugin and interact with the others.
                 You can add <strong>usefull, highly-demands front-end development tools and libraries</strong> as a plugin by using superplate CLI during the project creation phase.
