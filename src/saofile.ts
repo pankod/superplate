@@ -2,6 +2,7 @@ import path from "path";
 import validate from "validate-npm-package-name";
 import { exec } from "child_process";
 import { promisify } from "util";
+import chalk from "chalk";
 
 import { GeneratorConfig, Action } from "../@types/sao";
 import {
@@ -295,15 +296,21 @@ const saoConfig: GeneratorConfig = {
          * Create an initial commit
          */
         if (!debug) {
-            // add
-            await promisify(exec)(
-                `git --git-dir=${saoInstance.outDir}/.git/ --work-tree=${saoInstance.outDir}/ add -A`,
-            );
-            // commit
-            await promisify(exec)(
-                `git --git-dir=${saoInstance.outDir}/.git/ --work-tree=${saoInstance.outDir}/ commit -m 'initial commit with superplate'`,
-            );
-            saoInstance.logger.info("created an initial commit.");
+            try {
+                // add
+                await promisify(exec)(
+                    `git --git-dir=${saoInstance.outDir}/.git/ --work-tree=${saoInstance.outDir}/ add -A`,
+                );
+                // commit
+                await promisify(exec)(
+                    `git --git-dir=${saoInstance.outDir}/.git/ --work-tree=${saoInstance.outDir}/ commit -m "initial commit with superplate"`,
+                );
+                saoInstance.logger.info("created an initial commit.");
+            } catch (_) {
+                console.log(
+                    chalk.yellow`An error occured while creating git commit.`,
+                );
+            }
         }
 
         /**
