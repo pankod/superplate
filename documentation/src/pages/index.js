@@ -24,8 +24,8 @@ function Badges() {
       <a href="https://david-dm.org/pankod/superplate?type=dev">
         <img src="https://david-dm.org/pankod/superplate/dev-status.svg" alt="devDependencies Status" />
       </a>
-      <a href="https://img.shields.io/npm/dw/@pankod/superplate">
-        <img src="https://img.shields.io/npm/dw/superplate-cli" alt="npm" />
+      <a href="https://www.npmjs.com/package/superplate-cli">
+        <img src="https://img.shields.io/npm/dm/superplate-cli" alt="npm" />
       </a>
     </div>
   )
