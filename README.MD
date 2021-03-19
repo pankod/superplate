@@ -2,7 +2,7 @@
 <img src="images/banner.png"  align="center" />
 </div>
 <br/>
-<div align="center">Performance-oriented frontend application creator with popular tools.</div>
+<div align="center">A well-structured production-ready frontend boilerplate with Typescript, Jest, testing-library, styled-component, Sass, Css, .env, Fetch, Axios, Reverse Proxy, Bundle Analyzer and 30+ plugin. For now, only creates project for Next.js.</div>
 <br/>
 
 
