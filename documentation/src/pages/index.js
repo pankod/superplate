@@ -18,6 +18,12 @@ function Badges() {
       <a href="https://meercode.io">
         <img src="https://meercode.io/badge/pankod/superplate?type=ci-success-rate&branch=master&token=2ZiT8YsoJgt57JB23NYwXrFY3rJHZboT&lastDay=31" alt="Meercode CI Success Rate" />
       </a>
+      <a href="https://codeclimate.com/github/pankod/superplate/maintainability">
+        <img src="https://api.codeclimate.com/v1/badges/eb4b5a8f88b6e511e61d/maintainability" />
+      </a>
+      <a href="https://www.npmjs.com/package/superplate-cli">
+        <img src="https://img.shields.io/npm/v/superplate-cli.svg" alt="npm version" />
+      </a>
       <a href="https://david-dm.org/pankod/superplate">
         <img src="https://david-dm.org/pankod/superplate/status.svg" alt="Dependencies Status" />
       </a>
