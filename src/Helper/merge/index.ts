@@ -83,7 +83,7 @@ export const mergeJSONFiles: MergerFn = (
     const baseFile = { ...base };
     const pluginFiles = plugins.map((plugin) => {
         const file = getPluginFile<PkgType>(pluginsPath, plugin, fileName);
-        return file ?? {};
+        return file || {};
     });
     return merge.all([baseFile, ...pluginFiles], mergeOptions) as Record<
         string,
