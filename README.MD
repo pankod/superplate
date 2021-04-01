@@ -36,7 +36,7 @@ superplate has been developed to create rock solid UI frameworks apps boilerplat
 You can add usefull, highly-demands front-end development tools and libraries as a plugin by using superplate CLI during the project creation phase.
 
 
-To learn on how superplate and its plugins work, you can check out our documentation.
+To learn on how superplate and its plugins work, you can check out our [documentation](https://pankod.github.io/superplate/).
 
 
 For now, superplate only creates project for Next.js apps as a default Framework option. Other frameworks will be added soon.
