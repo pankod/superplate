@@ -69,7 +69,7 @@ You will be prompted with plugin options to create your project without spending
 
 
 <p align='center'>
-<img src='https://user-images.githubusercontent.com/11361964/106468355-dd9be280-64ae-11eb-82da-c313beb16d6b.gif' width='500' alt='superplate example'>
+<img src='images/cli.gif' width='500' alt='superplate example'>
 </p>
 
 
