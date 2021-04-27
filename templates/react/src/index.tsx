@@ -1,28 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-<% - _app.import.join("\n") _ %>
+import React from "react";
+import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals";
+import App from "./App";
 
-import reportWebVitals from './reportWebVitals';
-import App from './App';
-
-<%
-    var top = _app.wrapper.map(wrapper => wrapper[0] || "");
-    var bottom = _app.wrapper.map(wrapper => wrapper[1] || "").reverse();
-%>
-
-  ReactDOM.render(() => {
-  <% - _app.inner.join("\n") %>
-
-  return (
-      <React.StrictMode>
-        <%- top.join("\n") %>
+ReactDOM.render(
+    <React.StrictMode>
         <App />
-        <%- bottom.join("\n") %>
-      </React.StrictMode>
-    );
-  },
-    document.getElementById('root')
-  );
+    </React.StrictMode>,
+    document.getElementById("root"),
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
