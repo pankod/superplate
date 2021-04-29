@@ -220,7 +220,6 @@ const saoConfig: GeneratorConfig = {
             },
         } as Action);
 
-        console.log("sao.data.metaJSONPath", sao.data.metaJSONPath);
         /**
          * meta.json handler
          */
