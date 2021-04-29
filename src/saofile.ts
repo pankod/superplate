@@ -90,6 +90,11 @@ const saoConfig: GeneratorConfig = {
             "meta.json",
         ).plugins;
 
+        const metaJSONPath =
+            pluginAnswers.projectType === "react"
+                ? "src/meta.json"
+                : "public/meta.json";
+
         /**
          * Return
          */
@@ -99,6 +104,7 @@ const saoConfig: GeneratorConfig = {
             selectedPlugins,
             pmRun,
             pluginsData,
+            metaJSONPath,
             ...extendData,
         };
     },
@@ -214,12 +220,13 @@ const saoConfig: GeneratorConfig = {
             },
         } as Action);
 
+        console.log("sao.data.metaJSONPath", sao.data.metaJSONPath);
         /**
          * meta.json handler
          */
         actionsArray.push({
             type: "modify" as const,
-            files: "public/meta.json",
+            files: sao.data.metaJSONPath,
             handler(data: Record<string, unknown>) {
                 return mergePluginData(
                     data,
