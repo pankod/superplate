@@ -38,6 +38,7 @@ const saoConfig: GeneratorConfig = {
                 choices: [
                     { message: "React", value: "react" },
                     { message: "Next.js", value: "nextjs" },
+                    { message: "refine", value: "refine" },
                 ],
                 default: appName,
             },
@@ -90,10 +91,11 @@ const saoConfig: GeneratorConfig = {
             "meta.json",
         ).plugins;
 
-        const metaJSONPath =
-            pluginAnswers.projectType === "react"
-                ? "src/meta.json"
-                : "public/meta.json";
+        let metaJSONPath = "src/meta.json";
+
+        if (pluginAnswers.projectType === "nextjs") {
+            metaJSONPath = "public/meta.json";
+        }
 
         /**
          * Return
