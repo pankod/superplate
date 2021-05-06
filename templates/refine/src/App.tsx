@@ -1,4 +1,4 @@
-import { Admin, DataProvider, AuthProvider, Resource } from '@pankod/refine';
+import { Admin, Resource } from '@pankod/refine';
 <%- _app.import.join("\n") _%>
 
 <%
