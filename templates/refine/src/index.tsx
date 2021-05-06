@@ -4,9 +4,9 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 
 ReactDOM.render(
-    <React.StrictMode>
+    <React.Suspense fallback="Loading...">
         <App />
-    </React.StrictMode>,
+    </React.Suspense>,
     document.getElementById("root"),
 );
 

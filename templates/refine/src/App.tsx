@@ -1,3 +1,4 @@
+import { Admin, DataProvider, AuthProvider, Resource } from '@pankod/refine';
 <%- _app.import.join("\n") _%>
 
 <%
@@ -10,9 +11,7 @@ function App() {
     <%- _app.inner.join("\n") %>
     return (
         <%- top.join("\n") %>
-        <div className="App">
-            refine
-        </div>
+        <Admin <%- _app.adminProps.join("\n") %>><%- _app.children.join("\n") _%></Admin>
          <%- bottom.join("\n") %>
       );
 };
