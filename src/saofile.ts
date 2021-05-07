@@ -118,26 +118,21 @@ const saoConfig: GeneratorConfig = {
             process.exit(1);
         }
 
-        const { sourcePath } = sao.opts.extras.paths;
+        const { sourcePath, templateDir } = sao.opts.extras.paths;
         const { projectType } = sao.opts.extras;
 
-        const templateDirWithProjectType = path.resolve(
-            __dirname,
-            "../templates",
-            projectType,
-        );
         const actionsArray = [
             {
                 type: "add",
                 files: "**",
-                templateDir: templateDirWithProjectType,
+                templateDir,
                 data() {
                     return sao.data;
                 },
             },
             {
                 type: "move",
-                templateDir: templateDirWithProjectType,
+                templateDir,
                 patterns: {
                     gitignore: ".gitignore",
                     "_package.json": "package.json",

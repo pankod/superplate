@@ -1,6 +1,6 @@
 {
     "name": "superplate-cli",
-    "version": "1.0.8",
+    "version": "1.1.2",
     "description": "The frontend boilerplate with superpowers",
     "license": "MIT",
     "repository": {
@@ -16,7 +16,7 @@
     },
     "files": [
         "lib",
-        "template"
+        "templates"
     ],
     "scripts": {
         "dev:cli": "nodemon --watch src -e ts --ignore lib --exec npm run build:cli",

@@ -10,7 +10,8 @@ import { get_source } from "@Helper";
 import packageData from "../package.json";
 
 const generator = path.resolve(__dirname, "./");
-const templateDir = path.resolve(__dirname, "../template");
+const templateDir = (projectType: string) =>
+    path.resolve(__dirname, "../templates", projectType);
 
 const cli = async (): Promise<void> => {
     clear();
@@ -113,7 +114,7 @@ const cli = async (): Promise<void> => {
         extras: {
             debug: !!program.debug,
             paths: {
-                templateDir,
+                templateDir: templateDir(projectType),
                 sourcePath,
             },
             projectType,
