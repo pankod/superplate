@@ -4,6 +4,7 @@ import path from "path";
 import commander from "commander";
 import { cleanupSync } from "temp";
 import { Options, SAO } from "sao";
+import prompts from "prompts";
 
 import { get_source } from "@Helper";
 import packageData from "../package.json";
@@ -73,11 +74,21 @@ const cli = async (): Promise<void> => {
         process.exit(1);
     }
 
+    const { projectType } = await prompts({
+        type: "select",
+        name: "projectType",
+        message: "Select your project type",
+        choices: [
+            { title: "React", value: "react" },
+            { title: "Next.js", value: "nextjs" },
+        ],
+    });
+
     /**
      * get source path
      */
     const { path: sourcePath, error: sourceError } = await get_source(
-        program.source,
+        program.source || projectType,
     );
 
     if (sourceError) {
@@ -105,6 +116,7 @@ const cli = async (): Promise<void> => {
                 templateDir,
                 sourcePath,
             },
+            projectType,
         },
     } as Options);
 

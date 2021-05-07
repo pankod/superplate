@@ -32,16 +32,6 @@ const saoConfig: GeneratorConfig = {
 
         return [
             {
-                type: "select",
-                name: "projectType",
-                message: "Select your project type",
-                choices: [
-                    { message: "React", value: "react" },
-                    { message: "Next.js", value: "nextjs" },
-                ],
-                default: appName,
-            },
-            {
                 type: "input",
                 name: "name",
                 message: "What will be the name of your app",
@@ -70,6 +60,8 @@ const saoConfig: GeneratorConfig = {
          * Extend.js data
          */
         const { sourcePath } = sao.opts.extras.paths;
+        const { projectType } = sao.opts.extras;
+
         const pluginAnswers = { ...sao.answers };
         delete pluginAnswers.name;
         const selectedPlugins = getPluginsArray(pluginAnswers);
@@ -91,15 +83,14 @@ const saoConfig: GeneratorConfig = {
         ).plugins;
 
         const metaJSONPath =
-            pluginAnswers.projectType === "react"
-                ? "src/meta.json"
-                : "public/meta.json";
+            projectType === "react" ? "src/meta.json" : "public/meta.json";
 
         /**
          * Return
          */
         return {
             ...sao.answers,
+            projectType,
             answers: sao.answers,
             selectedPlugins,
             pmRun,
@@ -128,11 +119,12 @@ const saoConfig: GeneratorConfig = {
         }
 
         const { sourcePath } = sao.opts.extras.paths;
+        const { projectType } = sao.opts.extras;
 
         const templateDirWithProjectType = path.resolve(
             __dirname,
             "../templates",
-            sao.answers.projectType,
+            projectType,
         );
         const actionsArray = [
             {
@@ -165,7 +157,7 @@ const saoConfig: GeneratorConfig = {
         actionsArray.push({
             type: "add",
             files: "**",
-            templateDir: templateDirWithProjectType,
+            templateDir: path.join(sourcePath, "template"),
             data() {
                 return sao.data;
             },
