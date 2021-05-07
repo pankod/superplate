@@ -165,7 +165,7 @@ const saoConfig: GeneratorConfig = {
         actionsArray.push({
             type: "add",
             files: "**",
-            templateDir: templateDirWithProjectType,
+            templateDir: path.join(sourcePath, "template"),
             data() {
                 return sao.data;
             },
