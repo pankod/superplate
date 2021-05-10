@@ -63,52 +63,16 @@ const siteConfig = {
               to: 'docs',
             },
             {
-              label: 'UI Frameworks',
-              to: 'docs/tailwind',
-            },
-            {
-              label: 'CSS Preprocessors',
-              to: 'docs/css',
-            },
-            {
-              label: 'Features',
-              to: 'docs/fetch',
-            },
-            {
-              label: 'Hooks',
-              to: 'docs/hooks/swr',
-            },
-            {
-              label: 'State Management',
-              to: 'docs/state-management/redux-toolkit',
-            },
-            {
-              label: 'i18n',
-              to: 'docs/i18n/next-translate',
-            },
-            {
-              label: 'Linting Tools',
-              to: 'docs/linter/eslint',
-            },
-            {
-              label: 'Testing',
-              to: 'docs/testing/jest',
-            },
-            {
-              label: 'E2E Testing',
-              to: 'docs/e2e-testing/cypress',
-            },
-            {
-              label: 'Deployment',
-              to: 'docs/docker',
-            },
-            {
-              label: 'Continuous Integrations',
-              to: 'docs/ci/github-actions',
+              label: 'React',
+              href: 'https://create-react-app.dev/',
             },
             {
               label: 'Development',
               to: 'docs/development/how-it-works',
+            },
+            {
+              label: 'Next.js',
+              href: 'https://nextjs.org/',
             },
           ],
         },
