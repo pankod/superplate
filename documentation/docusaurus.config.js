@@ -59,20 +59,12 @@ const siteConfig = {
           title: 'Docs',
           items: [
             {
-              label: 'Get Started',
+              label: 'Getting Started',
               to: 'docs',
-            },
-            {
-              label: 'React',
-              href: 'https://create-react-app.dev/',
             },
             {
               label: 'Development',
               to: 'docs/development/how-it-works',
-            },
-            {
-              label: 'Next.js',
-              href: 'https://nextjs.org/',
             },
           ],
         },
