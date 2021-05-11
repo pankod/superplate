@@ -17,7 +17,6 @@ node_js:
   - "14"
 install:
   - npm ci
-  - npm run lint
   - npm run test
 ```
 :::tip
@@ -78,31 +77,6 @@ import TabItem from '@theme/TabItem';
 
 ```
 - yarn
-```            
-  </TabItem>
-</Tabs>
-
-<br/>
-
-### Run ESlint
----
-
-<Tabs
-  defaultValue="npm"
-  values={[
-    {label: 'npm', value: 'npm'},
-    {label: 'yarn', value: 'yarn'},
-  ]}>
-  <TabItem value="npm">
-
-```
-- npm run lint
-```
-  </TabItem>
-  <TabItem value="yarn">
-
-```
-- yarn lint
 ```            
   </TabItem>
 </Tabs>
