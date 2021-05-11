@@ -143,33 +143,6 @@ import TabItem from '@theme/TabItem';
 
 <br/>
 
-### Run ESlint
----
-
-<Tabs
-  defaultValue="npm"
-  values={[
-    {label: 'npm', value: 'npm'},
-    {label: 'yarn', value: 'yarn'},
-  ]}>
-  <TabItem value="npm">
-
-```
-- name: Run lint
-  run: npm run lint
-```
-  </TabItem>
-  <TabItem value="yarn">
-
-```
-- name: Run lint
-  run: yarn lint
-```            
-  </TabItem>
-</Tabs>
-
-<br/>
-
 ## Testing
 ---
 
