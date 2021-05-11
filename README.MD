@@ -41,7 +41,6 @@ For now, superplate only creates project for Create React App and Next.js apps a
 
 ## Coming Soon
 
-eski
 <img src="images/integrations.png"  align="center" />
 
 ## Documentation
