@@ -60,6 +60,8 @@ const saoConfig: GeneratorConfig = {
          * Extend.js data
          */
         const { sourcePath } = sao.opts.extras.paths;
+        const { projectType } = sao.opts.extras;
+
         const pluginAnswers = { ...sao.answers };
         delete pluginAnswers.name;
         const selectedPlugins = getPluginsArray(pluginAnswers);
@@ -80,15 +82,20 @@ const saoConfig: GeneratorConfig = {
             "meta.json",
         ).plugins;
 
+        const metaJSONPath =
+            projectType === "react" ? "src/meta.json" : "public/meta.json";
+
         /**
          * Return
          */
         return {
             ...sao.answers,
+            projectType,
             answers: sao.answers,
             selectedPlugins,
             pmRun,
             pluginsData,
+            metaJSONPath,
             ...extendData,
         };
     },
@@ -111,7 +118,8 @@ const saoConfig: GeneratorConfig = {
             process.exit(1);
         }
 
-        const { templateDir, sourcePath } = sao.opts.extras.paths;
+        const { sourcePath, templateDir } = sao.opts.extras.paths;
+        const { projectType } = sao.opts.extras;
 
         const actionsArray = [
             {
@@ -204,7 +212,7 @@ const saoConfig: GeneratorConfig = {
          */
         actionsArray.push({
             type: "modify" as const,
-            files: "public/meta.json",
+            files: sao.data.metaJSONPath,
             handler(data: Record<string, unknown>) {
                 return mergePluginData(
                     data,

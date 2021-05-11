@@ -2,12 +2,12 @@
 id: css
 title: Built-in CSS Support
 sidebar_label: Built-in CSS 
-description: How to use CSS in Next.js?
+description: How to use CSS in React?
 ---
 
-Next.js allows you to import CSS files from a JavaScript file.
+React allows you to import CSS files from a JavaScript file.
 
-For example, to add Global Stylesheet to boilerplate, we import following CSS file within `pages/_app.tsx`.
+For example, to add Global Stylesheet to boilerplate, we import following CSS file within `src/App.tsx`.
 
 ```css title="src/styles/global.css"
 hmtl,
@@ -19,29 +19,26 @@ body {
 }
 ```
 
-Then, import the styles.css file.
+Then, import the `styles.css` file.
 
-```jsx title="pages/_app.js"
-import React from "react";
-import { AppProps } from "next/app";
-import "@styles/global.css";
+```tsx title="src/App.tsx"
+import Home from "pages";
+import "styles/global.css";
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  return <Component {...pageProps} />;
+function App(): JSX.Element {
+  return (
+    <div className="App">
+      <Home />
+    </div>
+  );
 }
 
-export default MyApp;
+export default App;
 ```
 
 These styles will apply to all pages and components in your application.
 
 ### CSS Modules
-
-:::caution
-
-next.js only supports CSS Modules as Component-Level CSS implementation.
-
-:::
 
 
 [CSS Modules](https://github.com/css-modules/css-modules) let you use the same CSS class name in different files without worrying about naming clashes.
@@ -58,10 +55,10 @@ For example, lets check out a reusable Header component implementation.
 ```
 
 
-```jsx title="components/header"
+```tsx title="components/header"
 import React from "react";
 import styles from "./index.module.css";
-import { Logo } from "@components";
+import { Logo } from "components";
 
 export const Header: React.FC = () => {
   return (

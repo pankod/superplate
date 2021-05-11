@@ -102,7 +102,8 @@ export const mergePluginData: MergerFn = (
     const baseFile = { ...base };
     baseFile.plugins = [];
     plugins.map((plugin) => {
-        if (["npm", "yarn"].includes(plugin)) return;
+        if (["npm", "yarn", "react", "nextjs", "refine"].includes(plugin))
+            return;
         const file =
             getPluginFile<PkgType>(pluginsPath, plugin, fileName) ?? {};
 
