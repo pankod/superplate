@@ -1,5 +1,7 @@
 <div align="center">
-<img src="images/banner.png"  align="center" />
+<a href="https://pankod.github.io/superplate/">
+  <img src="images/banner.png"  align="center" />
+</a>
 </div>
 <br/>
 <div align="center">A well-structured production-ready frontend boilerplate with Typescript, Jest, testing-library, styled-component, Sass, Css, .env, Fetch, Axios, Reverse Proxy, Bundle Analyzer and 30+ plugin. For now, only creates project for React and Next.js.</div>
@@ -37,11 +39,14 @@ For now, superplate only creates project for Create React App and Next.js apps a
 
 ## Available Integrations
 
-<img src="images/available.png"  align="center" />
-
+<a href="https://pankod.github.io/superplate/docs/">
+  <img src="images/available.png"  align="center" />
+</a>
 ## Coming Soon
 
-<img src="images/integrations.png"  align="center" />
+<a href="https://pankod.github.io/superplate/docs/">
+  <img src="images/integrations.png"  align="center" />
+</a>
 
 ## Documentation
 
