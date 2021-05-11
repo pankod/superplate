@@ -38,8 +38,6 @@ To learn on how superplate and its plugins work, you can check out our [document
 For now, superplate only creates project for Create React App and Next.js apps as a default Framework option. Other frameworks will be added soon.
 
 ## Available Integrations
-<br />
-
 <a href="https://pankod.github.io/superplate/docs/">
   <img src="images/available.png"  align="center" />
 </a>
@@ -48,11 +46,13 @@ For now, superplate only creates project for Create React App and Next.js apps a
 <br />
 
 ## Coming Soon
-<br />
 
 <a href="https://pankod.github.io/superplate/docs/">
   <img src="images/integrations.png"  align="center" />
 </a>
+
+<br />
+<br />
 
 ## Documentation
 
