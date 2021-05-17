@@ -15,6 +15,7 @@ import {
     mergeBabel,
     tips,
     mergePluginData,
+    BinaryHelper,
 } from "@Helper";
 
 const saoConfig: GeneratorConfig = {
@@ -37,16 +38,20 @@ const saoConfig: GeneratorConfig = {
                 message: "What will be the name of your app",
                 default: appName,
             },
-            {
-                name: "pm",
-                message: "Package manager:",
-                choices: [
-                    { message: "Npm", value: "npm" },
-                    { message: "Yarn", value: "yarn" },
-                ],
-                type: "select",
-                default: "npm",
-            },
+            ...(BinaryHelper.CanUseYarn()
+                ? [
+                      {
+                          name: "pm",
+                          message: "Package manager:",
+                          choices: [
+                              { message: "Npm", value: "npm" },
+                              { message: "Yarn", value: "yarn" },
+                          ],
+                          type: "select",
+                          default: "npm",
+                      },
+                  ]
+                : []),
             ...(sourcePrompts?.prompts ?? []),
         ];
     },
