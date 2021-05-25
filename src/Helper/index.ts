@@ -16,3 +16,4 @@ export { UrlHelper } from "./url";
 export { GitHelper } from "./git";
 export { FSHelper } from "./fs";
 export { tips } from "./tips";
+export { BinaryHelper } from "./binary";
