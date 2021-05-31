@@ -1,5 +1,5 @@
 ---
-id: azurepipelines
+id: azure-pipelines
 title: Azure Pipelines
 sidebar_label: Azure Pipelines
 description: Build Next.js Apps using Azure Pipelines
