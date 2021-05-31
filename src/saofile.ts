@@ -33,17 +33,6 @@ const saoConfig: GeneratorConfig = {
 
         return [
             {
-                type: "select",
-                name: "projectType",
-                message: "Select your project type",
-                choices: [
-                    { message: "React", value: "react" },
-                    { message: "Next.js", value: "nextjs" },
-                    { message: "refine", value: "refine" },
-                ],
-                default: appName,
-            },
-            {
                 type: "input",
                 name: "name",
                 message: "What will be the name of your app",
@@ -137,23 +126,18 @@ const saoConfig: GeneratorConfig = {
         const { sourcePath, templateDir } = sao.opts.extras.paths;
         const { projectType } = sao.opts.extras;
 
-        const templateDirWithProjectType = path.resolve(
-            __dirname,
-            "../templates",
-            sao.answers.projectType,
-        );
         const actionsArray = [
             {
                 type: "add",
                 files: "**",
-                templateDir: templateDirWithProjectType,
+                templateDir,
                 data() {
                     return sao.data;
                 },
             },
             {
                 type: "move",
-                templateDir: templateDirWithProjectType,
+                templateDir,
                 patterns: {
                     gitignore: ".gitignore",
                     "_package.json": "package.json",
@@ -173,7 +157,7 @@ const saoConfig: GeneratorConfig = {
         actionsArray.push({
             type: "add",
             files: "**",
-            templateDir: templateDirWithProjectType,
+            templateDir: path.join(sourcePath, "template"),
             data() {
                 return sao.data;
             },

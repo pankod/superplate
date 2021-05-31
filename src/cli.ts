@@ -82,6 +82,7 @@ const cli = async (): Promise<void> => {
         choices: [
             { title: "React", value: "react" },
             { title: "Next.js", value: "nextjs" },
+            { title: "refine", value: "refine" },
         ],
     });
 
