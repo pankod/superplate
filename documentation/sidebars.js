@@ -12,7 +12,7 @@ module.exports = {
       {"Testing": ['nextjs/testing/jest', 'nextjs/testing/testing-library', 'nextjs/testing/enzyme']},
       {"E2E Testing": ['nextjs/e2e-testing/cypress', 'nextjs/e2e-testing/wdio']},
       {"Deployment": ["nextjs/docker"]},
-      {"Continuous integration": ["nextjs/ci/github-actions", "nextjs/ci/travis"]}
+      {"Continuous integration": ["nextjs/ci/github-actions", "nextjs/ci/travis", "nextjs/ci/azure-pipelines"]}
     ],
     "React":[
       {"UI Frameworks":['react/tailwind', 'react/bootstrap', 'react/chakra-ui', 'react/antd']},
