@@ -24,7 +24,9 @@ export const GitHelper = {
         try {
             const tempInfo = await promisify(mkdir)("");
             await promisify(exec)(
-                `git clone ${UrlHelper.GetGitUrl(path)} ${tempInfo} --depth 1`,
+                `git clone --depth 1 ${UrlHelper.GetGitUrl(
+                    path,
+                )} "${tempInfo}"`,
             );
             return tempInfo;
         } catch (e) {
