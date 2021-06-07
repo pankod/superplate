@@ -11,7 +11,7 @@ function App() {
     <%- _app.inner.join("\n") %>
     return (
         <%- top.join("\n") %>
-        <Admin <%- _app.adminProps.join("\n") %>><%- _app.children.join("\n") _%></Admin>
+        <Admin <%- _app.adminProps.join("\n") %>><%- (_app.children || []).join("\n") _%></Admin>
          <%- bottom.join("\n") %>
       );
 };
