@@ -1,4 +1,4 @@
-import { Admin, Resource } from '@pankod/refine';
+import { Refine, Resource } from '@pankod/refine';
 <%- _app.import.join("\n") _%>
 
 <%
@@ -11,7 +11,7 @@ function App() {
     <%- _app.inner.join("\n") %>
     return (
         <%- top.join("\n") %>
-        <Admin <%- _app.adminProps.join("\n") %>><%- _app.children.join("\n") _%></Admin>
+        <Refine <%- _app.refineProps.join("\n") %>><%- _app.children.join("\n") _%></Refine>
          <%- bottom.join("\n") %>
       );
 };
