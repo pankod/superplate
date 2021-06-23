@@ -11,7 +11,7 @@ function App() {
     <%- _app.inner.join("\n") %>
     return (
         <%- top.join("\n") %>
-        <Refine <%- _app.refineProps.join("\n") %>><%- _app.children.join("\n") _%></Refine>
+        <Refine <%- _app.refineProps.join("\n") %>><%- (_app.children || []).join("\n") _%></Refine>
          <%- bottom.join("\n") %>
       );
 };

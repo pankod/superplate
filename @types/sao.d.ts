@@ -308,6 +308,7 @@ interface IPaths {
 interface IExtras {
     debug: boolean;
     paths: IPaths;
+    projectType: string;
 }
 interface Options$1 {
     appName?: string;

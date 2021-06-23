@@ -30,7 +30,7 @@ ignores: {
 
 **Example**
 
-```js
+```ts
 
 module.exports = {
     prompts: [
@@ -85,7 +85,9 @@ Place your package.json configuration such as `dependencies` or `scripts`. Conte
     }
 }
 ```
-
+:::info
+`Create React App` doesn’t need to install or configure tools like webpack or Babel. They are preconfigured and hidden so that you can focus on the code.
+:::
 ---
 
 ## `package.js`
@@ -105,7 +107,7 @@ We recommend to place all your dependencies in the plugins `package.json` file a
 
 **Example**
 
-```js
+```ts
 module.exports = {
     apply(package, answers) {
 
@@ -122,6 +124,18 @@ module.exports = {
 ---
 
 ## `extend.js`
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+<Tabs
+  defaultValue="next"
+  values={[
+    {label: 'Next.js', value: 'next'},
+    {label: 'React', value: 'react'},
+  ]}>
+  <TabItem value="next">
 
 In some plugins, we have a need to alter the `_app` and `_document` of Next.js. You may need these values as well or custom properties to apply in other plugin templates.
 
@@ -159,6 +173,48 @@ module.exports = {
 ```
 
 ---
+  </TabItem>
+  <TabItem value="react">
+
+In some plugins, we have a need to alter the `App.tsx` of React. You may need these values as well or custom properties to apply in other plugin templates.
+
+**Properties**
+
+`_app?: { import: string[]; inner: string[]; wrapper: [string, string][] }`
+
+These values will append accordingly to the `src/App.tsx` file.
+
+`[key: string]: unknown`
+
+You can define custom properties in plugin's extend file and use them in your projects. These values will be passed as a template data to EJS.
+
+In `core-plugins`, we've defined a property named `testSetup` to provide appropriate wrappers to the testing environment. 
+
+**Example**
+```
+const base = {
+    _app: {
+        import: ['import "tailwindcss/tailwind.css";'],
+        inner: [],
+        wrapper: [],
+    },
+};
+
+module.exports = {
+    extend() {
+        return base;
+    },
+};
+```
+
+---
+         
+  </TabItem>
+</Tabs>
+
+<br/>
+
+
 
 ## `tsconfig.json`
 
@@ -167,7 +223,7 @@ When you define a `tsconfig.json` file in your plugin, it will be ignored while 
 **Example**
 
 **`first-plugin/tsconfig.json`**
-```js
+```json
 {
     "compilerOptions": {
         "paths": {
@@ -177,7 +233,7 @@ When you define a `tsconfig.json` file in your plugin, it will be ignored while 
 }
 ```
 **`second-plugin/tsconfig.json`**
-```js
+```json
 {
     "compilerOptions": {
         "paths": {
@@ -188,7 +244,7 @@ When you define a `tsconfig.json` file in your plugin, it will be ignored while 
 ```
 
 **`target-dir/tsconfig.json`**
-```js
+```json
 {
     "compilerOptions": {
         "paths": {
@@ -198,6 +254,9 @@ When you define a `tsconfig.json` file in your plugin, it will be ignored while 
     }
 }
 ```
+:::info
+`Create React App` support importing modules using absolute paths. [Go to Docs →](https://create-react-app.dev/docs/importing-a-component/#absolute-imports).
+:::
 
 ---
 
@@ -211,7 +270,9 @@ Content of your `.babelrc` file will be ignored when moving the plugin's content
   "plugins": [["styled-components", { "ssr": true }]]
 }
 ```
-
+:::info
+`Create React App` doesn’t need to install or configure tools like webpack or Babel. They are preconfigured and hidden so that you can focus on the code.
+:::
 ---
 
 ## `meta.json`

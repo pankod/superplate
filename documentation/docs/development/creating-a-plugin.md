@@ -22,7 +22,7 @@ mkdir plugins/styled-components
 
 We need to add our plugin to appropriate place in `prompt.js` file. We can ask the user for a styling and place `styled-components` inside it.
 
-```js
+```ts
 module.exports = {
     prompts: [
         {
@@ -64,7 +64,7 @@ Let's say that we want to prompt the users, asking them if they want to include 
 
 We can do so by simply modifying our `prompt.js`. Append below codes to your prompts array. 
 
-```js
+```ts
 {
     name: "ssr",
     message: "Do you want styled-components to support SSR?",
@@ -77,7 +77,7 @@ We can do so by simply modifying our `prompt.js`. Append below codes to your pro
 
 And if this prompt is not answered *Yes* we want to remove the babel plugin from `devDependencies`. We can do that by creating a `package.js` inside our plugin.
 
-```js
+```ts
 module.exports = {
     /**
      * package: the current content of your package.json
@@ -141,7 +141,7 @@ We can use EJS in our files. superplate will process all ejs templates while cre
 
 ### Modifying the `App` and the `Document`
 
-[styled-components](https://styled-components.com/docs/advanced#theming) has full support for theming. In order to use themes in our entire app; we need to modify Next.js's App component. **superplate**'s base template allows you to modify `App` and `Document`; to wrap styled-component's `ThemeProvider` we need to create an `extend.js` file.
+[styled-components](https://styled-components.com/docs/advanced#theming) has full support for theming. In order to use themes in our entire app; We need to modify Next.js's App component. **superplate**'s base template allows you to modify `App` and `Document`; to wrap styled-component's `ThemeProvider` we need to create an `extend.js` file.
 
 :::info
 
@@ -149,7 +149,7 @@ We can use EJS in our files. superplate will process all ejs templates while cre
 
 :::
 
-```js
+```ts
 const base = {
     _app: {
         // _app.import will be appended to the import section in pages/_app.tsx file.
@@ -176,7 +176,7 @@ module.exports = {
 
 Since we try to add SSR support. We also need to modify the custom `Document`. Let's add the necessary lines for `_document.tsx` and only apply them if we select ssr support.
 
-```js
+```ts
 const base = {
     _app: {
         import: [
@@ -233,7 +233,7 @@ module.exports = {
 
 We're done for `_app` and `_document` but in many plugins you may need different template data for each plugin. You can define and return custom data to your templates for every plugin. We used `testSetup` property to handle wrappers in **superplate**'s core plugins `testing-library` and `enzyme`. These custom properties will be merged as well as `_app` and `_document`. Here's an example for custom template data.
 
-```js
+```tsx
 const base = {
     testSetup: {
         import: [
@@ -275,6 +275,11 @@ We will not cover `testing-library` and `enzyme` plugins in this article but if 
 }
 ```
 
+:::info
+`Create React App` support importing modules using absolute paths. [Go to Docs →](https://create-react-app.dev/docs/importing-a-component/#absolute-imports).
+:::
+
+
 ## Custom `.babelrc`
 
 We will need a babel plugin to ensure consistency between the server and the client. Let's create a `.babelrc` file in our plugin to tell babel to use this plugin. **superplate** will merge all babel config to one just like `package.json` and `tsconfig.json` files.
@@ -285,6 +290,10 @@ We will need a babel plugin to ensure consistency between the server and the cli
   "plugins": [["styled-components", { "ssr": true }]]
 }
 ```
+
+:::info
+`Create React App` doesn’t need to install or configure tools like webpack or Babel. They are preconfigured and hidden so that you can focus on the code.
+:::
 
 ## Providing a Plugin Description
 
@@ -300,5 +309,9 @@ We're using `meta.json` to collect data about plugins. You can provide an url to
 
 ## Conclusion
 
-We've created a plugin from scratch to add `styled-components` to our next project with **superplate**. If you want to check out how we created different plugins, please check out [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins). To learn more about superplate's API, you can check out [References](references).
+We've created a plugin from scratch to add `styled-components` to our next project with **superplate**. If you want to check out how we created different plugins, please check out.
+ - Next.js [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
+ - React [superplate-react-core-plugins](https://github.com/pankod/superplate-react-core-plugins).
+
+To learn more about superplate's API, you can check out [References](references).
 

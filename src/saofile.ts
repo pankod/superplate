@@ -15,6 +15,7 @@ import {
     mergeBabel,
     tips,
     mergePluginData,
+    BinaryHelper,
 } from "@Helper";
 
 const saoConfig: GeneratorConfig = {
@@ -32,32 +33,25 @@ const saoConfig: GeneratorConfig = {
 
         return [
             {
-                type: "select",
-                name: "projectType",
-                message: "Select your project type",
-                choices: [
-                    { message: "React", value: "react" },
-                    { message: "Next.js", value: "nextjs" },
-                    { message: "refine", value: "refine" },
-                ],
-                default: appName,
-            },
-            {
                 type: "input",
                 name: "name",
                 message: "What will be the name of your app",
                 default: appName,
             },
-            {
-                name: "pm",
-                message: "Package manager:",
-                choices: [
-                    { message: "Npm", value: "npm" },
-                    { message: "Yarn", value: "yarn" },
-                ],
-                type: "select",
-                default: "npm",
-            },
+            ...(BinaryHelper.CanUseYarn()
+                ? [
+                      {
+                          name: "pm",
+                          message: "Package manager:",
+                          choices: [
+                              { message: "Npm", value: "npm" },
+                              { message: "Yarn", value: "yarn" },
+                          ],
+                          type: "select",
+                          default: "npm",
+                      },
+                  ]
+                : []),
             ...(sourcePrompts?.prompts ?? []),
         ];
     },
@@ -71,6 +65,8 @@ const saoConfig: GeneratorConfig = {
          * Extend.js data
          */
         const { sourcePath } = sao.opts.extras.paths;
+        const { projectType } = sao.opts.extras;
+
         const pluginAnswers = { ...sao.answers };
         delete pluginAnswers.name;
         const selectedPlugins = getPluginsArray(pluginAnswers);
@@ -91,17 +87,15 @@ const saoConfig: GeneratorConfig = {
             "meta.json",
         ).plugins;
 
-        let metaJSONPath = "src/meta.json";
-
-        if (pluginAnswers.projectType === "nextjs") {
-            metaJSONPath = "public/meta.json";
-        }
+        const metaJSONPath =
+            projectType === "react" ? "src/meta.json" : "public/meta.json";
 
         /**
          * Return
          */
         return {
             ...sao.answers,
+            projectType,
             answers: sao.answers,
             selectedPlugins,
             pmRun,
@@ -129,25 +123,21 @@ const saoConfig: GeneratorConfig = {
             process.exit(1);
         }
 
-        const { sourcePath } = sao.opts.extras.paths;
+        const { sourcePath, templateDir } = sao.opts.extras.paths;
+        const { projectType } = sao.opts.extras;
 
-        const templateDirWithProjectType = path.resolve(
-            __dirname,
-            "../templates",
-            sao.answers.projectType,
-        );
         const actionsArray = [
             {
                 type: "add",
                 files: "**",
-                templateDir: templateDirWithProjectType,
+                templateDir,
                 data() {
                     return sao.data;
                 },
             },
             {
                 type: "move",
-                templateDir: templateDirWithProjectType,
+                templateDir,
                 patterns: {
                     gitignore: ".gitignore",
                     "_package.json": "package.json",
@@ -167,7 +157,7 @@ const saoConfig: GeneratorConfig = {
         actionsArray.push({
             type: "add",
             files: "**",
-            templateDir: templateDirWithProjectType,
+            templateDir: path.join(sourcePath, "template"),
             data() {
                 return sao.data;
             },
