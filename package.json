@@ -30,7 +30,7 @@
     "dependencies": {
         "chalk": "^4.1.0",
         "clear": "^0.1.0",
-        "commander": "^6.2.0",
+        "commander": "^8.0.0",
         "deepmerge": "^4.2.2",
         "fs-extra": "^9.0.1",
         "ora": "^5.1.0",

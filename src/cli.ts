@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import clear from "clear";
 import path from "path";
-import commander from "commander";
+import { Command, Option } from "commander";
 import { cleanupSync } from "temp";
 import { Options, SAO } from "sao";
 import prompts from "prompts";
@@ -15,7 +15,7 @@ const templateDir = (projectType: string) =>
 
 const cli = async (): Promise<void> => {
     clear();
-    const program = commander
+    const program = new Command()
         .name(packageData.name)
         .version(packageData.version)
         .arguments("<project-directory>")
@@ -53,8 +53,16 @@ const cli = async (): Promise<void> => {
                 )}`,
             );
             console.log();
-        })
-        .parse(process.argv);
+        });
+
+    program.addOption(
+        new Option("-t, --type <type>", "select a project type").choices([
+            "nextjs",
+            "react",
+        ]),
+    );
+    program.parse();
+    const options = program.opts();
 
     /**
      * Check for project-directory defined
@@ -75,21 +83,29 @@ const cli = async (): Promise<void> => {
         process.exit(1);
     }
 
-    const { projectType } = await prompts({
-        type: "select",
-        name: "projectType",
-        message: "Select your project type",
-        choices: [
-            { title: "React", value: "react" },
-            { title: "Next.js", value: "nextjs" },
-        ],
-    });
+    let selectedProjectType: string = options.type;
+    if (selectedProjectType === undefined) {
+        const { projectType } = await prompts({
+            type: "select",
+            name: "projectType",
+            message: "Select your project type",
+            choices: [
+                { title: "React", value: "react" },
+                { title: "Next.js", value: "nextjs" },
+            ],
+        });
+        selectedProjectType = projectType;
+    } else {
+        console.log(
+            `${chalk.green`✔`} Using ${selectedProjectType} project type.`,
+        );
+    }
 
     /**
      * get source path
      */
     const { path: sourcePath, error: sourceError } = await get_source(
-        program.source || projectType,
+        options.source || selectedProjectType,
     );
 
     if (sourceError) {
@@ -97,7 +113,7 @@ const cli = async (): Promise<void> => {
         console.log("Source can be a remote git repository or a local path.");
         console.log();
         console.log("You provided:");
-        console.log(`${chalk.blueBright(program.source)}`);
+        console.log(`${chalk.blueBright(options.source)}`);
         console.log();
         console.log(
             `Run ${chalk.cyan(`${program.name()} --help`)} to see all options.`,
@@ -109,15 +125,15 @@ const cli = async (): Promise<void> => {
     const sao = new SAO({
         generator,
         outDir: projectDir,
-        logLevel: program.debug ? 4 : 1,
+        logLevel: options.debug ? 4 : 1,
         appName: projectDir,
         extras: {
-            debug: !!program.debug,
+            debug: !!options.debug,
             paths: {
-                templateDir: templateDir(projectType),
+                templateDir: templateDir(selectedProjectType),
                 sourcePath,
             },
-            projectType,
+            projectType: selectedProjectType,
         },
     } as Options);
 
