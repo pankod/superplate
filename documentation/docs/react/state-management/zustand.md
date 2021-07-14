@@ -5,12 +5,16 @@ sidebar_label: Zustand
 description: How to Use zustand in Next.js?
 ---
 
+### Overview
+
 Zustand is one of the lightest state management libraries.
 
 It's a small, fast, scalable state-management solution using simplified flux principles and has an api based on hooks.
  
 We'll show basic usage of zustand with simple counter example.  
 [Refer to official documentation for detailed usage. &#8594](https://github.com/pmndrs/zustand)
+
+### Usage
 
 Zustand is known for its simplicity.
 We don't need to wrap our root code or add any complex setup.
