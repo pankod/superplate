@@ -6,7 +6,7 @@ module.exports = {
       {"CSS Preprocessors":['nextjs/css', 'nextjs/scss', 'nextjs/styled-components']},
       {"Features": ['nextjs/fetch', 'nextjs/axios', 'nextjs/storybook', 'nextjs/svgr', 'nextjs/env', 'nextjs/reverse-proxy','nextjs/bundle-analyzer', 'nextjs/apollo-graphql', 'nextjs/graphql-request']},
       {"Hooks": ['nextjs/hooks/swr', 'nextjs/hooks/react-query', "nextjs/hooks/react-use"]},
-      {"State Management": ['nextjs/state-management/redux-toolkit', 'nextjs/state-management/recoil', 'nextjs/state-management/mobx']},
+      {"State Management": ['nextjs/state-management/redux-toolkit', 'nextjs/state-management/recoil', 'nextjs/state-management/mobx', 'nextjs/state-management/zustand']},
       {"i18n": ['nextjs/i18n/next-translate', 'nextjs/i18n/next-i18next']},
       {"Linting Tools": ['nextjs/linter/eslint', 'nextjs/linter/prettier', 'nextjs/linter/lint-staged']},
       {"Testing": ['nextjs/testing/jest', 'nextjs/testing/testing-library', 'nextjs/testing/enzyme']},
