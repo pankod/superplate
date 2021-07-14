@@ -10,7 +10,7 @@ import chalk from "chalk";
 import { GitHelper, FSHelper } from "@Helper";
 
 type SourceResponse = { path?: string; error?: string };
-type GetSourceFn = (source: string) => Promise<SourceResponse>;
+type GetSourceFn = (source: string | undefined) => Promise<SourceResponse>;
 
 export const get_source: GetSourceFn = async (source) => {
     /**
@@ -21,21 +21,8 @@ export const get_source: GetSourceFn = async (source) => {
     );
     sourceSpinner.start();
 
-    let sourcePath = source;
-    switch (source) {
-        case "react":
-            sourcePath =
-                "https://github.com/pankod/superplate-react-core-plugins.git";
-            break;
-        case "nextjs":
-            sourcePath =
-                "https://github.com/pankod/superplate-core-plugins.git";
-            break;
-        case "refine":
-            sourcePath =
-                "https://github.com/pankod/superplate-refine-core-plugins.git";
-            break;
-    }
+    const sourcePath =
+        source ?? "https://github.com/pankod/superplate-core-plugins.git";
 
     const isPathExists = await FSHelper.IsPathExists(sourcePath);
     if (isPathExists) {

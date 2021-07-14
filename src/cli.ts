@@ -4,9 +4,9 @@ import path from "path";
 import commander from "commander";
 import { cleanupSync } from "temp";
 import { Options, SAO } from "sao";
-import prompts from "prompts";
+import prompts, { Choice } from "prompts";
 
-import { get_source } from "@Helper";
+import { get_source, FSHelper } from "@Helper";
 import packageData from "../package.json";
 
 const generator = path.resolve(__dirname, "./");
@@ -24,6 +24,10 @@ const cli = async (): Promise<void> => {
         .option(
             "-s, --source <source-path>",
             "specify a custom source of plugins",
+        )
+        .option(
+            "-t, --template <template>",
+            "superplate template react,nextjs etc.",
         )
         .option("-d, --debug", "print additional logs and skip install script")
         .on("--help", () => {
@@ -75,22 +79,15 @@ const cli = async (): Promise<void> => {
         process.exit(1);
     }
 
-    const { projectType } = await prompts({
-        type: "select",
-        name: "projectType",
-        message: "Select your project type",
-        choices: [
-            { title: "React", value: "react" },
-            { title: "Next.js", value: "nextjs" },
-        ],
-    });
+    let template = program.template;
 
     /**
      * get source path
      */
-    const { path: sourcePath, error: sourceError } = await get_source(
-        program.source || projectType,
-    );
+    const source = await get_source(program.source);
+
+    let { path: sourcePath } = source;
+    const { error: sourceError } = source;
 
     if (sourceError) {
         console.error(`${chalk.bold`${sourceError}`}`);
@@ -106,6 +103,46 @@ const cli = async (): Promise<void> => {
         process.exit(1);
     }
 
+    // check root prompt.js
+    const checkRootPrompt = await FSHelper.IsPathExists(
+        `${sourcePath}/prompt.js`,
+    );
+
+    if (sourcePath && !checkRootPrompt) {
+        const projectTypes: Choice[] = [];
+
+        // get project types => react,nextjs,refine ...etc
+        const files = await FSHelper.ReadDir(sourcePath);
+
+        for (const file of files) {
+            const existPromptFile = await FSHelper.IsPathExists(
+                `${sourcePath}/${file}/prompt.js`,
+            );
+
+            if (existPromptFile) {
+                projectTypes.push({
+                    title: file,
+                    value: file,
+                });
+            }
+        }
+
+        const { projectType } = await prompts({
+            type: "select",
+            name: "projectType",
+            message: "Select your project type",
+            choices: projectTypes,
+        });
+
+        sourcePath = `${sourcePath}/${projectType}`;
+        template = projectType;
+    }
+
+    if (!template) {
+        console.error("ERROR", "Add -t template option. (react, next, etc.)");
+        process.exit(1);
+    }
+
     const sao = new SAO({
         generator,
         outDir: projectDir,
@@ -114,10 +151,9 @@ const cli = async (): Promise<void> => {
         extras: {
             debug: !!program.debug,
             paths: {
-                templateDir: templateDir(projectType),
                 sourcePath,
+                templateDir: templateDir(template),
             },
-            projectType,
         },
     } as Options);
 
