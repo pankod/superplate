@@ -46,7 +46,7 @@ import TabItem from '@theme/TabItem';
   <TabItem value="next">
 
 ```bash
-node superplate/lib/index {repo-name} --source /{plugin-repo-root-directory}/superplate-core-plugins
+node superplate/lib/index {repo-name} --source {plugin-repo-root-directory}
 ```
 
   </TabItem>
@@ -367,4 +367,3 @@ We've created a plugin from scratch to add `styled-components` to our next proje
  - React [superplate-react-core-plugins](https://github.com/pankod/superplate-react-core-plugins).
 
 To learn more about superplate's API, you can check out [References](references).
-
