@@ -19,7 +19,7 @@ module.exports = {
       {"CSS Preprocessors":['react/css', 'react/scss', 'react/styled-components']},
       {"Features": ['react/fetch', 'react/axios', 'react/storybook', 'react/svgr', 'react/env', 'react/reverse-proxy','react/bundle-analyzer', 'react/apollo-graphql', 'react/graphql-request']},
       {"Hooks": ['react/hooks/swr', 'react/hooks/react-query', "react/hooks/react-use"]},
-      {"State Management": ['react/state-management/redux-toolkit', 'react/state-management/recoil', 'react/state-management/mobx']},
+      {"State Management": ['react/state-management/redux-toolkit', 'react/state-management/recoil', 'react/state-management/mobx', 'react/state-management/zustand']},
       {"i18n": ['react/i18n/react-i18next']},
       {"Linting Tools": ['react/linter/eslint', 'react/linter/lint-staged']},
       {"Testing": ['react/testing/jest', 'react/testing/testing-library']},
