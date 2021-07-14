@@ -53,7 +53,7 @@ node superplate/lib/index {repo-name} --source {plugin-repo-root-directory}
   <TabItem value="react">
 
 ```bash
-node superplate/lib/index {repo-name} --source /{plugin-repo-root-directory}/superplate-react-core-plugins
+node superplate/lib/index {repo-name} --source {plugin-repo-root-directory}
 ```
 
   </TabItem>
