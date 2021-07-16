@@ -10,8 +10,6 @@ import { get_source, FSHelper } from "@Helper";
 import packageData from "../package.json";
 
 const generator = path.resolve(__dirname, "./");
-const templateDir = (projectType: string) =>
-    path.resolve(__dirname, "../templates", projectType);
 
 const cli = async (): Promise<void> => {
     clear();
@@ -79,7 +77,7 @@ const cli = async (): Promise<void> => {
         process.exit(1);
     }
 
-    let template = program.template;
+    const template = program.template;
 
     /**
      * get source path
@@ -135,12 +133,6 @@ const cli = async (): Promise<void> => {
         });
 
         sourcePath = `${sourcePath}/${projectType}`;
-        template = projectType;
-    }
-
-    if (!template) {
-        console.error("ERROR", "Add -t template option. (react, next, etc.)");
-        process.exit(1);
     }
 
     const sao = new SAO({
@@ -152,7 +144,6 @@ const cli = async (): Promise<void> => {
             debug: !!program.debug,
             paths: {
                 sourcePath,
-                templateDir: templateDir(template),
             },
         },
     } as Options);

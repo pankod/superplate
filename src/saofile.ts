@@ -123,9 +123,8 @@ const saoConfig: GeneratorConfig = {
             process.exit(1);
         }
 
-        const { templateDir, sourcePath } = sao.opts.extras.paths;
+        const { sourcePath } = sao.opts.extras.paths;
 
-        console.log("templateDir", templateDir);
         const actionsArray = [
             {
                 type: "add",
