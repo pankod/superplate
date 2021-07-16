@@ -181,6 +181,8 @@ Redux Toolkit includes `thunk` middleware by default.
 [Refer to official documentation on Redux Middleware for detailed usage. &#8594](https://redux.js.org/tutorials/fundamentals/part-4-store#middleware)  
 [Refer to official documentation on Redux Toolkit Middleware for detailed usage. &#8594](https://redux-toolkit.js.org/api/getDefaultMiddleware)
 
+### RTK Query
+[Refer to official documentation on RTK Query for detailed usage. &#8594](https://redux-toolkit.js.org/rtk-query/overview)
 ### Adding Redux Toolkit to your project later
 
 If you didn't choose the plugin during project creation phase, you can follow the instructions below to add it.
