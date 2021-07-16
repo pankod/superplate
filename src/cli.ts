@@ -23,10 +23,6 @@ const cli = async (): Promise<void> => {
             "-s, --source <source-path>",
             "specify a custom source of plugins",
         )
-        .option(
-            "-t, --template <template>",
-            "superplate template react,nextjs etc.",
-        )
         .option("-d, --debug", "print additional logs and skip install script")
         .on("--help", () => {
             console.log();
@@ -76,8 +72,6 @@ const cli = async (): Promise<void> => {
         );
         process.exit(1);
     }
-
-    const template = program.template;
 
     /**
      * get source path
