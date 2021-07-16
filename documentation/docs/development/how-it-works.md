@@ -8,9 +8,7 @@ sidebar_label: How it Works?
 
 ## Creating a Source Repository
 
-We store our plugins apart from the cli to make them easy to modify and easy to create new plugins. You can see the core plugins:
- - Next.js [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
- - React [superplate-react-core-plugins](https://github.com/pankod/superplate-react-core-plugins).
+We store our plugins apart from the cli to make them easy to modify and easy to create new plugins. You can see the [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins). 
 
 - Alternatively, you can create your own source from scratch.
 
@@ -23,7 +21,9 @@ If you choose to start from scratch. All you need to do is create a directory wi
 │   ├── your-first-plugin
 │   ├── another-plugin
 │   ├── ...
-
+├── template
+│   ├── your-template-files
+│   ├── ...
 ```
 
 **sample `prompt.js`**
