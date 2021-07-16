@@ -10,6 +10,59 @@ This article will show you how to create a superplate plugin from scratch and th
 
 Let's create a plugin to add [styled-components](https://styled-components.com) to our project easily. 
 
+### Preparing the Development Environment
+
+Before we start plugin development,  [superplate](https://github.com/pankod/superplate) repo need to know how to consume your local plugins repository where you make development.
+
+Firstly, clone the main [superplate repo](https://github.com/pankod/superplate.git), then navigate to folder and run:
+
+```
+npm run dev:cli
+```
+
+
+Keep it running during the plugin development phase.
+
+Then, clone the plugins repository for [Next.js](https://github.com/pankod/superplate-core-plugins) or [React](https://github.com/pankod/superplate-react-core-plugins).
+
+
+Change the values one with in the following commands: 
+
+- `repo-name` is for newly boilerplate project name to be created.
+
+- `plugin-repo-directory` with absolute path where the plugins repository cloned in to.
+
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="next"
+  values={[
+    {label: 'Next.js', value: 'next'},
+    {label: 'React', value: 'react'},
+  ]}>
+  <TabItem value="next">
+
+```bash
+node superplate/lib/index {repo-name} --source {plugin-repo-root-directory}
+```
+
+  </TabItem>
+  <TabItem value="react">
+
+```bash
+node superplate/lib/index {repo-name} --source {plugin-repo-root-directory}
+```
+
+  </TabItem>
+</Tabs>
+
+Whenever this commands are running, superplate will be listening and using the local plugin repo that you are working on development.
+
+So now, you can modify or add new plugins and test it by creating new superplate boilerplates.
+
 ### Creating a Plugin Directory
 
 Let's start with creating a directory for our plugin inside our source's `plugins` directory.
@@ -314,4 +367,3 @@ We've created a plugin from scratch to add `styled-components` to our next proje
  - React [superplate-react-core-plugins](https://github.com/pankod/superplate-react-core-plugins).
 
 To learn more about superplate's API, you can check out [References](references).
-
