@@ -59,6 +59,12 @@ const saoConfig: GeneratorConfig = {
         /**
          * Package Manager
          */
+
+        sao.answers = {
+            ...sao.answers,
+            pm: BinaryHelper.CanUseYarn() ? sao.answers.pm : "npm",
+        };
+
         const pmRun = sao.answers.pm === "yarn" ? "yarn" : "npm run";
 
         /**
