@@ -1,4 +1,4 @@
-import { access } from "fs";
+import { access, readdir } from "fs";
 import { promisify } from "util";
 
 export const FSHelper = {
@@ -8,6 +8,14 @@ export const FSHelper = {
             return true;
         } catch (e) {
             return false;
+        }
+    },
+
+    ReadDir: async (path: string): Promise<string[]> => {
+        try {
+            return await promisify(readdir)(path);
+        } catch (e) {
+            return [];
         }
     },
 };

@@ -123,21 +123,20 @@ const saoConfig: GeneratorConfig = {
             process.exit(1);
         }
 
-        const { sourcePath, templateDir } = sao.opts.extras.paths;
-        const { projectType } = sao.opts.extras;
+        const { sourcePath } = sao.opts.extras.paths;
 
         const actionsArray = [
             {
                 type: "add",
                 files: "**",
-                templateDir,
+                templateDir: path.join(sourcePath, "template"),
                 data() {
                     return sao.data;
                 },
             },
             {
                 type: "move",
-                templateDir,
+                templateDir: path.join(sourcePath, "template"),
                 patterns: {
                     gitignore: ".gitignore",
                     "_package.json": "package.json",
@@ -150,18 +149,6 @@ const saoConfig: GeneratorConfig = {
                 },
             },
         ] as Action[];
-
-        /**
-         * Apply overrides to the template
-         */
-        actionsArray.push({
-            type: "add",
-            files: "**",
-            templateDir: path.join(sourcePath, "template"),
-            data() {
-                return sao.data;
-            },
-        });
 
         const pluginAnswers = { ...sao.answers };
         delete pluginAnswers.name;
