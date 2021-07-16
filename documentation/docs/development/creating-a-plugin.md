@@ -187,20 +187,31 @@ export const ExampleComponent: React.FC = () => {
 ```
 
 :::info
-
 We can use EJS in our files. superplate will process all ejs templates while creating a project. If you want to learn more about the available template data; please check out [References#templates](references#templates)
-
 :::
+
+<br/>
 
 ### Modifying the `App` and the `Document`
 
-[styled-components](https://styled-components.com/docs/advanced#theming) has full support for theming. In order to use themes in our entire app; We need to modify Next.js's App component. **superplate**'s base template allows you to modify `App` and `Document`; to wrap styled-component's `ThemeProvider` we need to create an `extend.js` file.
+:::caution
+Since `Document` file is special for Next.js apps, you can ignore intructions about `Document`, if you are developing plugins for React.
+:::
+
+<br/>
+
+[styled-components](https://styled-components.com/docs/advanced#theming) has full support for theming. In order to use themes in our entire app; We need to modify newly create boilerplates `<App>` component.  
+**superplate**'s base template allows you to modify `<App>` and `<Document>`; to wrap styled-component's `ThemeProvider` we need to create an `extend.js` file.
+
+
+<br/>
 
 :::info
 
 **superplate** will merge all `extend.js` content and pass it to your templates. You only need to cover modifications for your plugin in plugin's `extend.js` file.
-
 :::
+
+<br/>
 
 ```ts
 const base = {
@@ -227,7 +238,21 @@ module.exports = {
 };
 ```
 
-Since we try to add SSR support. We also need to modify the custom `Document`. Let's add the necessary lines for `_document.tsx` and only apply them if we select ssr support.
+<br />
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="next"
+  values={[
+    {label: 'Next.js', value: 'next'},
+    {label: 'React', value: 'react'},
+  ]}>
+  <TabItem value="next">
+
+Since we try to add SSR support. We also need to modify the custom `Document`. Let's add the required codes for `_document.tsx` and only apply them if we select SSR support.
+
 
 ```ts
 const base = {
@@ -282,6 +307,18 @@ module.exports = {
 };
 ```
 
+  </TabItem>
+  <TabItem value="react">
+
+ No need to add anything if React plugins are developing.
+
+  </TabItem>
+</Tabs>
+
+
+<br />
+
+
 ### Defining Custom Data
 
 We're done for `_app` and `_document` but in many plugins you may need different template data for each plugin. You can define and return custom data to your templates for every plugin. We used `testSetup` property to handle wrappers in **superplate**'s core plugins `testing-library` and `enzyme`. These custom properties will be merged as well as `_app` and `_document`. Here's an example for custom template data.
@@ -335,7 +372,22 @@ We will not cover `testing-library` and `enzyme` plugins in this article but if 
 
 ## Custom `.babelrc`
 
-We will need a babel plugin to ensure consistency between the server and the client. Let's create a `.babelrc` file in our plugin to tell babel to use this plugin. **superplate** will merge all babel config to one just like `package.json` and `tsconfig.json` files.
+:::caution
+`Create React App` doesn’t need to install or configure tools like webpack or Babel. They are preconfigured and hidden so that you can focus on the code.
+:::
+
+<br />
+
+<Tabs
+  defaultValue="next"
+  values={[
+    {label: 'Next.js', value: 'next'},
+    {label: 'React', value: 'react'},
+  ]}>
+  <TabItem value="next">
+
+We will need a babel plugin to ensure consistency between the server and the client. Let's create a `.babelrc` file in our plugin to tell babel to use this plugin.  
+**superplate** will merge all babel config to one just like `package.json` and `tsconfig.json` files.
 
 ```json
 {
@@ -344,9 +396,15 @@ We will need a babel plugin to ensure consistency between the server and the cli
 }
 ```
 
-:::info
-`Create React App` doesn’t need to install or configure tools like webpack or Babel. They are preconfigured and hidden so that you can focus on the code.
-:::
+  </TabItem>
+  <TabItem value="react">
+
+Ignore this section if you are developing a React plugin.
+
+  </TabItem>
+</Tabs>
+
+
 
 ## Providing a Plugin Description
 
