@@ -68,7 +68,7 @@ npx superplate-cli <my-project>
 
 Make sure you have npx installed (npx is shipped by default since npm 5.2.0)
 
-You will be prompted with plugin options to create your project without spending hours on configurations. To find out more about Next.js plugins see the [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins) and React plugins see the [superplate-react-core-plugins](https://github.com/pankod/superplate-react-core-plugins)
+You will be prompted with plugin options to create your project without spending hours on configurations. To find out more about superplate core plugins see the [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
 
 <p align='center'>
 <img src='images/cli.gif' width='500' alt='superplate example'>
@@ -104,7 +104,7 @@ superplate uses a plugin-based architecture. Basically, plugins are created from
 
 The features and tools listed during the project creation process are implemented as plugins.
 
-You can check them out in [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins) and [superplate-react-core-plugins](https://github.com/pankod/superplate-react-core-plugins).
+You can check them out in [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
 
 The default core plugins determined by <a href="https://www.pankod.com">Pankod</a> team uses on a day-to-day basis to build apps. Feel free to send PR or open an issue for new plugins you want to add.
 

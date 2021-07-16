@@ -309,9 +309,7 @@ We're using `meta.json` to collect data about plugins. You can provide an url to
 
 ## Conclusion
 
-We've created a plugin from scratch to add `styled-components` to our next project with **superplate**. If you want to check out how we created different plugins, please check out.
- - Next.js [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
- - React [superplate-react-core-plugins](https://github.com/pankod/superplate-react-core-plugins).
+We've created a plugin from scratch to add `styled-components` to our next project with **superplate**. If you want to check out how we created different plugins, please check out [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
 
 To learn more about superplate's API, you can check out [References](references).
 

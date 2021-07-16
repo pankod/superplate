@@ -43,9 +43,7 @@ The features and tools listed during the project creation process are implemente
 
 Plugins can be included as part of your project creation phase. 37+ plugins working in harmony with superplate UI Framework boilerplates.
 
-See the list of core plugins: 
- - Next.js [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
- - React [superplate-react-core-plugins](https://github.com/pankod/superplate-react-core-plugins).
+See the list of [core-plugins](https://github.com/pankod/superplate-core-plugins).
 
 :::info
 Plugins are customizable and extendable. You can develop your own plugin or modify existings.  
