@@ -60,10 +60,7 @@ const saoConfig: GeneratorConfig = {
          * Package Manager
          */
 
-        sao.answers = {
-            ...sao.answers,
-            pm: BinaryHelper.CanUseYarn() ? sao.answers.pm : "npm",
-        };
+        sao.answers.pm = BinaryHelper.CanUseYarn() ? sao.answers.pm : "npm";
 
         const pmRun = sao.answers.pm === "yarn" ? "yarn" : "npm run";
 
@@ -296,7 +293,7 @@ const saoConfig: GeneratorConfig = {
         /**
          * Format generated project
          */
-        await promisify(exec)(`npx prettier ${saoInstance.outDir} --write`);
+        await promisify(exec)(`npx prettier "${saoInstance.outDir}" --write`);
 
         /**
          * Create an initial commit
@@ -305,11 +302,11 @@ const saoConfig: GeneratorConfig = {
             try {
                 // add
                 await promisify(exec)(
-                    `git --git-dir=${saoInstance.outDir}/.git/ --work-tree=${saoInstance.outDir}/ add -A`,
+                    `git --git-dir="${saoInstance.outDir}"/.git/ --work-tree="${saoInstance.outDir}"/ add -A`,
                 );
                 // commit
                 await promisify(exec)(
-                    `git --git-dir=${saoInstance.outDir}/.git/ --work-tree=${saoInstance.outDir}/ commit -m "initial commit with superplate"`,
+                    `git --git-dir="${saoInstance.outDir}"/.git/ --work-tree="${saoInstance.outDir}"/ commit -m "initial commit with superplate"`,
                 );
                 saoInstance.logger.info("created an initial commit.");
             } catch (_) {
