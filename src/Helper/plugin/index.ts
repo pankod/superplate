@@ -1,5 +1,9 @@
 import merge from "deepmerge";
 import path from "path";
+import mergelo from "lodash/merge";
+import mergeWith from "lodash/mergeWith";
+import isArray from "lodash/isArray";
+import union from "lodash/union";
 
 interface ExtendType extends Record<string, unknown> {
     _app: {
@@ -75,13 +79,24 @@ export const getExtend: (
     }
 };
 
+const unionArrays = (objValue: any[], srcValue: any[]) => {
+    if (isArray(objValue) && isArray(srcValue)) {
+        return union(objValue, srcValue);
+    }
+};
+
+export const mergeWithConcatArray = (...args: any[]): any =>
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    mergeWith(...args, unionArrays);
+
 export const concatExtend: (
     base: ExtendType,
     plugins: string[],
     sourcePath: string,
     answers: Record<string, Answer>,
 ) => ExtendType = (base, plugins, sourcePath, answers) => {
-    const merged = merge.all<ExtendType>([
+    const merged = mergeWithConcatArray(
         base,
         ...plugins.map((plugin: string) => {
             const pluginExtendFile = getExtend(sourcePath, plugin);
@@ -91,7 +106,7 @@ export const concatExtend: (
             }
             return {};
         }),
-    ]);
+    );
 
     return merged;
 };
