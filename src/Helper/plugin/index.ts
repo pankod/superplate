@@ -93,7 +93,7 @@ export const concatExtend: (
         }),
     );
 
-    return merged;
+    return merged as ExtendType;
 };
 
 export const handleIgnore: IgnoreHandlerFn = (
