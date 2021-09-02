@@ -1,7 +1,7 @@
 import path from "path";
 import { mergeWithUnionArray } from "@Helper";
 
-export interface ExtendType extends Record<string, unknown> {
+interface ExtendType extends Record<string, unknown> {
     _app: {
         import: string[];
         inner: string[];
