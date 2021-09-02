@@ -7,7 +7,6 @@ export {
 } from "./merge";
 export {
     extendBase,
-    ExtendType,
     getPluginsArray,
     getExtend,
     concatExtend,
