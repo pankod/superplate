@@ -1,6 +1,4 @@
-import merge from "deepmerge";
 import path from "path";
-import mergelo from "lodash/merge";
 import mergeWith from "lodash/mergeWith";
 import isArray from "lodash/isArray";
 import union from "lodash/union";
@@ -85,7 +83,7 @@ const unionArrays = (objValue: any[], srcValue: any[]) => {
     }
 };
 
-export const mergeWithConcatArray = (...args: any[]): any =>
+export const mergeWithUnionArray = (...args: any[]): any =>
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     mergeWith(...args, unionArrays);
@@ -96,7 +94,7 @@ export const concatExtend: (
     sourcePath: string,
     answers: Record<string, Answer>,
 ) => ExtendType = (base, plugins, sourcePath, answers) => {
-    const merged = mergeWithConcatArray(
+    const merged = mergeWithUnionArray(
         base,
         ...plugins.map((plugin: string) => {
             const pluginExtendFile = getExtend(sourcePath, plugin);
