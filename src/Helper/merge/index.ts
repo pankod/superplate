@@ -2,6 +2,10 @@ import path from "path";
 import { readFile } from "fs";
 import merge from "deepmerge";
 import { promisify } from "util";
+import mergeWith from "lodash/mergeWith";
+import isArray from "lodash/isArray";
+import union from "lodash/union";
+import { ExtendType } from "@Helper";
 
 type PkgType = Record<string, unknown>;
 
@@ -171,3 +175,12 @@ export const mergePackages: PackageMergerFn = (
 
     return merge.all([basePkg, ...pluginPkgs]) as Record<string, unknown>;
 };
+
+const unionArrays = (objValue: string[], srcValue: string[]) => {
+    if (isArray(objValue) && isArray(srcValue)) {
+        return union(objValue, srcValue);
+    }
+};
+
+export const mergeWithUnionArray = (...args: (ExtendType | {})[]): ExtendType =>
+    mergeWith({}, ...args, unionArrays);

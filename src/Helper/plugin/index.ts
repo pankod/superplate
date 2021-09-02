@@ -1,9 +1,7 @@
 import path from "path";
-import mergeWith from "lodash/mergeWith";
-import isArray from "lodash/isArray";
-import union from "lodash/union";
+import { mergeWithUnionArray } from "@Helper";
 
-interface ExtendType extends Record<string, unknown> {
+export interface ExtendType extends Record<string, unknown> {
     _app: {
         import: string[];
         inner: string[];
@@ -76,17 +74,6 @@ export const getExtend: (
         return undefined;
     }
 };
-
-const unionArrays = (objValue: any[], srcValue: any[]) => {
-    if (isArray(objValue) && isArray(srcValue)) {
-        return union(objValue, srcValue);
-    }
-};
-
-export const mergeWithUnionArray = (...args: any[]): any =>
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    mergeWith(...args, unionArrays);
 
 export const concatExtend: (
     base: ExtendType,
