@@ -1,5 +1,5 @@
-import merge from "deepmerge";
 import path from "path";
+import { mergeWithUnionArray } from "@Helper";
 
 interface ExtendType extends Record<string, unknown> {
     _app: {
@@ -81,7 +81,7 @@ export const concatExtend: (
     sourcePath: string,
     answers: Record<string, Answer>,
 ) => ExtendType = (base, plugins, sourcePath, answers) => {
-    const merged = merge.all<ExtendType>([
+    const merged = mergeWithUnionArray(
         base,
         ...plugins.map((plugin: string) => {
             const pluginExtendFile = getExtend(sourcePath, plugin);
@@ -91,9 +91,9 @@ export const concatExtend: (
             }
             return {};
         }),
-    ]);
+    );
 
-    return merged;
+    return merged as ExtendType;
 };
 
 export const handleIgnore: IgnoreHandlerFn = (

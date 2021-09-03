@@ -1,7 +1,9 @@
 import path from "path";
 import { readFile } from "fs";
-import merge from "deepmerge";
 import { promisify } from "util";
+import mergeWith from "lodash/mergeWith";
+import isArray from "lodash/isArray";
+import union from "lodash/union";
 
 type PkgType = Record<string, unknown>;
 
@@ -78,14 +80,13 @@ export const mergeJSONFiles: MergerFn = (
     pluginsPath,
     plugins,
     fileName,
-    mergeOptions,
 ) => {
     const baseFile = { ...base };
     const pluginFiles = plugins.map((plugin) => {
         const file = getPluginFile<PkgType>(pluginsPath, plugin, fileName);
         return file ?? {};
     });
-    return merge.all([baseFile, ...pluginFiles], mergeOptions) as Record<
+    return mergeWithUnionArray(baseFile, ...pluginFiles) as Record<
         string,
         unknown
     >;
@@ -128,7 +129,7 @@ export const mergeBabel: AsyncMergerFn = async (base, pluginsPath, plugins) => {
         }),
     );
 
-    const merged = merge.all([baseBabel, ...pluginRcs]) as Record<
+    const merged = mergeWithUnionArray(baseBabel, ...pluginRcs) as Record<
         string,
         unknown
     >;
@@ -169,5 +170,18 @@ export const mergePackages: PackageMergerFn = (
         return {};
     });
 
-    return merge.all([basePkg, ...pluginPkgs]) as Record<string, unknown>;
+    return mergeWithUnionArray(basePkg, ...pluginPkgs) as Record<
+        string,
+        unknown
+    >;
 };
+
+const unionArrays = (objValue: string[], srcValue: string[]) => {
+    if (isArray(objValue) && isArray(srcValue)) {
+        return union(objValue, srcValue);
+    }
+};
+
+export const mergeWithUnionArray = (
+    ...args: Record<string, unknown>[]
+): Record<string, unknown> => mergeWith({}, ...args, unionArrays);

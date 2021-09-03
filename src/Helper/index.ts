@@ -3,6 +3,7 @@ export {
     mergeJSONFiles,
     mergeBabel,
     mergePluginData,
+    mergeWithUnionArray,
 } from "./merge";
 export {
     extendBase,

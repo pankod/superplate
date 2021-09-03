@@ -246,12 +246,6 @@ const saoConfig: GeneratorConfig = {
                     sourcePath,
                     selectedPlugins,
                     "tsconfig.json",
-                    {
-                        arrayMerge: (dest: unknown[], source: unknown[]) => {
-                            const arr = [...dest, ...source];
-                            return arr.filter((el, i) => arr.indexOf(el) === i);
-                        },
-                    },
                 );
             },
         });
