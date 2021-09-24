@@ -4,8 +4,8 @@
   <ShortName>superplate</ShortName>
   <Description>Search superplate</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://pankod.github.io/img/superplate-logo.svg</Image>
-  <Url type="text/html" method="get" template="https://pankod.github.io/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://pankod.github.io/opensearch.xml" />
-  <moz:SearchForm>https://pankod.github.io</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://pankod.github.io/superplate/img/superplate-logo.svg</Image>
+  <Url type="text/html" method="get" template="https://pankod.github.io/superplate/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://pankod.github.io/superplate/opensearch.xml" />
+  <moz:SearchForm>https://pankod.github.io/superplate/</moz:SearchForm>
 </OpenSearchDescription>
