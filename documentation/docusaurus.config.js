@@ -37,6 +37,12 @@ const siteConfig = {
       apiKey: '3b7cf26a19755c7de95bcb3632edd314',
       indexName: 'superplate',
     },
+    gtag: {
+      // You can also use your "G-" Measurement ID here.
+      trackingID: "G-DPWSR1T889",
+      // Optional fields.
+      anonymizeIP: true, // Should IPs be anonymized?
+    },
     navbar: {
       title: 'superplate',
       logo: {
