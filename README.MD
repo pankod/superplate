@@ -88,6 +88,12 @@ npm run dev
 -   You can easily develop your own framework CLI and plugins according to your needs to on top of superplate codebase due to its framework/plugin agnostic nature.
 -   Code examples are added to plugin documents to show how best practices are implementing.
 
+## refine Integration
+
+[refine](https://github.com/pankod/refine) is a React-based framework for building data-intensive applications in no time ✨ It ships with Ant Design System, an enterprise-level UI toolkit.
+
+[refine](https://github.com/pankod/refine) offers lots of out-of-the box functionality for rapid development, without compromising extreme customizability. Use-cases include, but are not limited to admin panels, B2B applications and dashboards.
+
 ## Next.js Integration
 
 superplate makes it easier to get up and running with a well-structured Next.js and TypeScript application.
