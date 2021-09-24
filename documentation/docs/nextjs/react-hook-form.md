@@ -24,7 +24,7 @@ interface Input {
 }
 
 export default function App() {
-const { register , handleSubmit, formState: { errors }} = useForm<Input>();
+    const { register , handleSubmit, formState: { errors }} = useForm<Input>();
     const onSubmit: SubmitHandler<Input> = () => {
         // What you want to do when submit is set here
     }
