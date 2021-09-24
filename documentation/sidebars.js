@@ -4,7 +4,7 @@ module.exports = {
     "Next.js":[
       {"UI Frameworks":['nextjs/tailwind', 'nextjs/bootstrap', 'nextjs/chakra-ui', 'nextjs/antd']},
       {"CSS Preprocessors":['nextjs/css', 'nextjs/scss', 'nextjs/styled-components']},
-      {"Features": ['nextjs/fetch', 'nextjs/axios', 'nextjs/storybook', 'nextjs/svgr', 'nextjs/env', 'nextjs/reverse-proxy','nextjs/bundle-analyzer', 'nextjs/apollo-graphql', 'nextjs/graphql-request']},
+      {"Features": ['nextjs/fetch', 'nextjs/axios', 'nextjs/storybook', 'nextjs/svgr', 'nextjs/env', 'nextjs/reverse-proxy','nextjs/bundle-analyzer', 'nextjs/apollo-graphql', 'nextjs/graphql-request', 'nextjs/react-hook-form']},
       {"Hooks": ['nextjs/hooks/swr', 'nextjs/hooks/react-query', "nextjs/hooks/react-use"]},
       {"State Management": ['nextjs/state-management/redux-toolkit', 'nextjs/state-management/recoil', 'nextjs/state-management/mobx', 'nextjs/state-management/zustand']},
       {"i18n": ['nextjs/i18n/next-translate', 'nextjs/i18n/next-i18next']},
@@ -17,7 +17,7 @@ module.exports = {
     "React":[
       {"UI Frameworks":['react/tailwind', 'react/bootstrap', 'react/chakra-ui', 'react/antd']},
       {"CSS Preprocessors":['react/css', 'react/scss', 'react/styled-components']},
-      {"Features": ['react/fetch', 'react/axios', 'react/storybook', 'react/svgr', 'react/env', 'react/reverse-proxy','react/bundle-analyzer', 'react/apollo-graphql', 'react/graphql-request']},
+      {"Features": ['react/fetch', 'react/axios', 'react/storybook', 'react/svgr', 'react/env', 'react/reverse-proxy','react/bundle-analyzer', 'react/apollo-graphql', 'react/graphql-request', 'react/react-hook-form']},
       {"Hooks": ['react/hooks/swr', 'react/hooks/react-query', "react/hooks/react-use"]},
       {"State Management": ['react/state-management/redux-toolkit', 'react/state-management/recoil', 'react/state-management/mobx', 'react/state-management/zustand']},
       {"i18n": ['react/i18n/react-i18next']},
