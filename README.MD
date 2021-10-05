@@ -126,7 +126,7 @@ To learn more about sources and how to create your own; please check out [docume
 
 **superplate** gives you many abilities to create your own plugin and interact with the others. To learn more on creating a plugin, please check out [documentation](https://pankod.github.io/superplate/docs/development/creating-a-plugin)
 
-## Avaliable plugins
+## Available plugins
 
 <img src="images/plugins.png"  align="center" />
 
