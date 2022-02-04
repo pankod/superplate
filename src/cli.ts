@@ -23,6 +23,7 @@ const cli = async (): Promise<void> => {
             "-s, --source <source-path>",
             "specify a custom source of plugins",
         )
+        .option("-p, --project <project-name>", "specify a project type to use")
         .option("-d, --debug", "print additional logs and skip install script")
         .on("--help", () => {
             console.log();
@@ -119,12 +120,21 @@ const cli = async (): Promise<void> => {
             }
         }
 
-        const { projectType } = await prompts({
-            type: "select",
-            name: "projectType",
-            message: "Select your project type",
-            choices: projectTypes,
-        });
+        const projectTypeFromArgs = program.project;
+
+        let projectType = "";
+        if (projectTypes.find((p) => p.title === projectTypeFromArgs)) {
+            projectType = projectTypeFromArgs;
+        } else {
+            const { projectType: projectTypeFromPrompts } = await prompts({
+                type: "select",
+                name: "projectType",
+                message: "Select your project type",
+                choices: projectTypes,
+            });
+
+            projectType = projectTypeFromPrompts;
+        }
 
         sourcePath = `${sourcePath}/${projectType}`;
     }
