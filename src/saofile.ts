@@ -39,7 +39,7 @@ const saoConfig: GeneratorConfig = {
             {
                 type: "input",
                 name: "name",
-                message: process.env.SEGMENT_KEY,
+                message: "What will be the name of your app",
                 default: appName,
             },
             ...(BinaryHelper.CanUseYarn()
