@@ -22,7 +22,7 @@ jobs:
       - run: |
           npm install
           npm test 
-          "${{ secrets.SEGMENT_KEY }}" npm run build:cli
+          SEGMENT_KEY="${{ secrets.SEGMENT_KEY }}" npm run build:cli
           npm pack
           npm publish --access public
         env:
