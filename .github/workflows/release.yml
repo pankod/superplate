@@ -21,8 +21,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: |
           npm install
-          npm test
-          npm run build:cli
+          npm test 
+          ${{ secrets.SEGMENT_KEY }} npm run build:cli
           npm pack
           npm publish --access public
         env:

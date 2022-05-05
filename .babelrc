@@ -12,6 +12,7 @@
                     "@Helper": "./src/Helper",
                 }
             }
-        ]
+        ],
+        "transform-inline-environment-variables"
     ]
 }

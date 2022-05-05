@@ -101,6 +101,8 @@ const cli = async (): Promise<void> => {
         `${sourcePath}/prompt.js`,
     );
 
+    let projectType = "";
+
     if (sourcePath && !checkRootPrompt) {
         const projectTypes: Choice[] = [];
 
@@ -122,7 +124,6 @@ const cli = async (): Promise<void> => {
 
         const projectTypeFromArgs = program.project;
 
-        let projectType = "";
         if (projectTypes.find((p) => p.title === projectTypeFromArgs)) {
             projectType = projectTypeFromArgs;
         } else {
@@ -146,6 +147,7 @@ const cli = async (): Promise<void> => {
         appName: projectDir,
         extras: {
             debug: !!program.debug,
+            projectType,
             paths: {
                 sourcePath,
             },

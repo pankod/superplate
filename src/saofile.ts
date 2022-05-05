@@ -3,6 +3,10 @@ import validate from "validate-npm-package-name";
 import { exec } from "child_process";
 import { promisify } from "util";
 import chalk from "chalk";
+import { v4 as uuidv4 } from "uuid";
+
+import Analytics from "analytics-node";
+const analytics = new Analytics(process.env.SEGMENT_KEY ?? "");
 
 import { GeneratorConfig, Action } from "../@types/sao";
 import {
@@ -35,7 +39,7 @@ const saoConfig: GeneratorConfig = {
             {
                 type: "input",
                 name: "name",
-                message: "What will be the name of your app",
+                message: process.env.SEGMENT_KEY,
                 default: appName,
             },
             ...(BinaryHelper.CanUseYarn()
@@ -53,6 +57,21 @@ const saoConfig: GeneratorConfig = {
                   ]
                 : []),
             ...(sourcePrompts?.prompts ?? []),
+            {
+                name: "telemetry",
+                message:
+                    "Would you like to share your choices with us anonymously?",
+                type: "select",
+                pageSize: 2,
+                choices: [
+                    {
+                        message: "I want to share anonymously! Thank you! ❤️",
+                        name: "yes",
+                    },
+                    { message: "No", name: "no" },
+                ],
+                default: "yes",
+            },
         ];
     },
     data(sao) {
@@ -265,6 +284,17 @@ const saoConfig: GeneratorConfig = {
                 return JSON.stringify(merged);
             },
         });
+
+        if (sao.answers.telemetry === "yes") {
+            analytics.track({
+                event: "generate",
+                properties: {
+                    ...sao.answers,
+                    type: sao.opts.extras.projectType,
+                },
+                anonymousId: uuidv4(),
+            });
+        }
 
         return actionsArray;
     },
