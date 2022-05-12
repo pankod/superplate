@@ -1,6 +1,6 @@
 {
     "name": "superplate-cli",
-    "version": "1.4.3",
+    "version": "1.5.0",
     "description": "The frontend boilerplate with superpowers",
     "license": "MIT",
     "repository": {
@@ -19,7 +19,7 @@
         "templates"
     ],
     "scripts": {
-        "dev:cli": "nodemon --watch src -e ts --ignore lib --exec npm run build:cli",
+        "dev:cli": "SEGMENT_KEY=xx nodemon --watch src -e ts --ignore lib --exec npm run build:cli",
         "dev:global": "nodemon --watch src -e ts --ignore lib --exec \"npm run build:cli & npm run global\"",
         "build:cli": "npm run clean:cli && tsc && babel src --out-dir lib --extensions \".ts,.js,.json\" --source-maps inline",
         "clean:cli": "rm -rf ./lib",

@@ -9,4 +9,12 @@ export const BinaryHelper = {
             return false;
         }
     },
+    CanUsePnpm: (): boolean => {
+        try {
+            execSync("pnpm --version", { stdio: "ignore" });
+            return true;
+        } catch (e) {
+            return false;
+        }
+    },
 };

@@ -9,7 +9,7 @@ const preInstall = (): void => undefined;
 type PostInstallFn = (opts: {
     name: string;
     dir: string;
-    pm: "yarn" | "npm";
+    pm: "yarn" | "npm" | "pnpm";
 }) => void;
 
 const postInstall: PostInstallFn = ({ name, dir, pm }) => {
@@ -26,21 +26,21 @@ const postInstall: PostInstallFn = ({ name, dir, pm }) => {
 
     console.log(
         `${indent()}${chalk.blueBright(
-            pm === "yarn" ? "yarn dev" : "npm run dev",
+            pm === "yarn" || pm === "pnpm" ? `${pm} dev` : "npm run dev",
         )}`,
     );
     console.log(`${indent(2)}Starts the development server.`);
     console.log("");
     console.log(
         `${indent()}${chalk.blueBright(
-            pm === "yarn" ? "yarn build" : "npm run build",
+            pm === "yarn" || pm === "pnpm" ? `${pm} build` : "npm run build",
         )}`,
     );
     console.log(`${indent(2)}Bundles the app for production.`);
     console.log("");
     console.log(
         `${indent()}${chalk.blueBright(
-            pm === "yarn" ? "yarn start" : "npm run start",
+            pm === "yarn" || pm === "pnpm" ? `${pm} start` : "npm run start",
         )}`,
     );
     console.log(`${indent(2)}Starts the production server.`);
@@ -49,7 +49,7 @@ const postInstall: PostInstallFn = ({ name, dir, pm }) => {
     console.log(`${indent()}${chalk.blueBright("cd")} ${name}`);
     console.log(
         `${indent()}${chalk.blueBright(
-            pm === "yarn" ? "yarn dev" : "npm run dev",
+            pm === "yarn" || pm === "pnpm" ? `${pm} dev` : "npm run dev",
         )}`,
     );
     console.log("");

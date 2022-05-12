@@ -35,6 +35,18 @@ const saoConfig: GeneratorConfig = {
             "prompt.js",
         ));
 
+        const pmQuestionChoises = [{ message: "Npm", value: "npm" }];
+        const canUseYarn = BinaryHelper.CanUseYarn();
+        const canUsePnpm = BinaryHelper.CanUsePnpm();
+
+        if (canUseYarn) {
+            pmQuestionChoises.push({ message: "Yarn", value: "yarn" });
+        }
+
+        if (canUsePnpm) {
+            pmQuestionChoises.push({ message: "PnPM", value: "pnpm" });
+        }
+
         return [
             {
                 type: "input",
@@ -42,15 +54,12 @@ const saoConfig: GeneratorConfig = {
                 message: "What will be the name of your app",
                 default: appName,
             },
-            ...(BinaryHelper.CanUseYarn()
+            ...(pmQuestionChoises.length > 1
                 ? [
                       {
                           name: "pm",
                           message: "Package manager:",
-                          choices: [
-                              { message: "Npm", value: "npm" },
-                              { message: "Yarn", value: "yarn" },
-                          ],
+                          choices: pmQuestionChoises,
                           type: "select",
                           default: "npm",
                       },
@@ -79,9 +88,17 @@ const saoConfig: GeneratorConfig = {
          * Package Manager
          */
 
-        sao.answers.pm = BinaryHelper.CanUseYarn() ? sao.answers.pm : "npm";
+        sao.answers.pm =
+            BinaryHelper.CanUseYarn() || BinaryHelper.CanUsePnpm()
+                ? sao.answers.pm
+                : "npm";
 
-        const pmRun = sao.answers.pm === "yarn" ? "yarn" : "npm run";
+        let pmRun = "npm run";
+        if (sao.answers.pm === "yarn") {
+            pmRun = "yarn";
+        } else if (sao.answers.pm === "pnpm") {
+            pmRun = "pnpm";
+        }
 
         /**
          * Extend.js data
