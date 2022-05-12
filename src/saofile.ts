@@ -44,7 +44,17 @@ const saoConfig: GeneratorConfig = {
         }
 
         if (canUsePnpm) {
-            pmQuestionChoises.push({ message: "PnPM", value: "pnpm" });
+            pmQuestionChoises.push({
+                message: "pnpm"
+                    .split("")
+                    .map((v) =>
+                        Math.round(Math.random())
+                            ? v.toUpperCase()
+                            : v.toLowerCase(),
+                    )
+                    .join(""),
+                value: "pnpm",
+            });
         }
 
         return [
