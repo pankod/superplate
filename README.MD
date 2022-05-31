@@ -80,9 +80,9 @@ npm run dev
 
 ## Philosophy
 
--   It provides an easy starting to your project industry-standard best practices and performance oriented tools & libraries.
--   You can easily develop your own framework CLI and plugins according to your needs to on top of superplate codebase due to its framework/plugin agnostic nature.
--   Code examples are added to plugin documents to show how best practices are implementing.
+-   It provides an easy starting to your project by leveraging industry-standard best practices and and performance oriented tools.
+-   Fully extensible due its plugin based architechture.
+-   Code examples are added to plugin documents to show how best practices are implemented.
 
 ## refine Integration
 
