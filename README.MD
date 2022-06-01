@@ -4,7 +4,7 @@
 </a>
 </div>
 <br/>
-<div align="center">A well-structured production-ready frontend boilerplate with Typescript, Jest, testing-library, styled-component, Sass, Css, .env, Fetch, Axios, Reverse Proxy, Bundle Analyzer and 30+ plugin. For now, only creates projects for React and Next.js.</div>
+<div align="center">A well-structured production-ready frontend boilerplate with Typescript, Jest, testing-library, styled-component, Sass, Css, .env, Fetch, Axios, Reverse Proxy, Bundle Analyzer and 30+ plugins. For now, it only creates projects for React and Next.js.</div>
 <br/>
 
 <div align="center">
@@ -29,13 +29,9 @@
 
 ## About
 
-superplate has been developed to create rock solid UI frameworks apps boilerplate with no build configurations in seconds.
+Superplate lets you start rock-solid, production-ready *React* and *Next.JS* projects just in seconds. The command-line interface guides the user through setup and no additional build configurations are required.
 
-You can add usefull, highly-demands front-end development tools and libraries as a plugin by using superplate CLI during the project creation phase.
-
-To learn on how superplate and its plugins work, you can check out our [documentation](https://pankod.github.io/superplate/).
-
-For now, superplate only creates project for Create React App and Next.js apps as a default Framework option. Other frameworks will be added soon.
+Superplate ships with more than 30 plugins including popular UIKits, testing frameworks and many useful developer tools.
 
 ## Available Integrations
 <a href="https://pankod.github.io/superplate/docs/">
@@ -56,25 +52,25 @@ For now, superplate only creates project for Create React App and Next.js apps a
 
 ## Documentation
 
-For more detailed information and usage, refer to the [superplate documentation](https://pankod.github.io/superplate/).
+For more detailed information and usage, you may refer to our [documentation pages](https://pankod.github.io/superplate/).
 
 ## Quick Start
 
-To create a new app run the command:
+To use superplate, make sure you have *npx* is installed on your system (npx is shipped by default since npm 5.2.0).
+
+To create a new app, run the following command:   
 
 ```bash
 npx superplate-cli <my-project>
 ```
 
-Make sure you have npx installed (npx is shipped by default since npm 5.2.0)
-
-You will be prompted with plugin options to create your project without spending hours on configurations. To find out more about superplate core plugins see the [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
+You will be prompted with plugin options to create your project. A full list of avaiable plugins is here: [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
 
 <p align='center'>
 <img src='images/cli.gif' width='500' alt='superplate example'>
 </p>
 
-Once all questions are answered, it will install all plugins and the dependencies. Then navigate to the project folder and launch it:
+Once all questions are answered, superplate will install all plugins and dependencies. Then navigate to the project folder and launch it:
 
 ```bash
 npm run dev
@@ -84,13 +80,13 @@ npm run dev
 
 ## Philosophy
 
--   It provides a easy starting to your project in seconds with using industry-standard best practices and performance oriented tools & libraries.
--   You can easily develop your own framework CLI and plugins according to your needs to on top of superplate codebase due to its framework/plugin agnostic nature.
--   Code examples are added to plugin documents to show how best practices are implementing.
+-   It provides an easy starting to your project by leveraging industry-standard best practices and and performance oriented tools.
+-   Fully extensible due its plugin based architechture.
+-   Code examples are added to plugin documents to show how best practices are implemented.
 
 ## refine Integration
 
-[refine](https://github.com/pankod/refine) is a React-based framework for building data-intensive applications in no time ✨ It ships with Ant Design System, an enterprise-level UI toolkit.
+[refine](https://github.com/pankod/refine) is a React framework for building internal tools rapidly.
 
 [refine](https://github.com/pankod/refine) offers lots of out-of-the box functionality for rapid development, without compromising extreme customizability. Use-cases include, but are not limited to admin panels, B2B applications and dashboards.
 
@@ -106,13 +102,9 @@ superplate makes it easier to get up and running with a well-structured Create R
 
 ## Plugins
 
-superplate uses a plugin-based architecture. Basically, plugins are created from highly-demanded npm tools in the front-end ecosystem with configuration files.
+superplate uses a plugin-based architecture. Basically, plugins are created from popular npm tools with configuration files. You can check them out in [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
 
-The features and tools listed during the project creation process are implemented as plugins.
-
-You can check them out in [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
-
-The default core plugins determined by <a href="https://www.pankod.com">Pankod</a> team uses on a day-to-day basis to build apps. Feel free to send PR or open an issue for new plugins you want to add.
+The default core plugins determined by <a href="https://www.pankod.com">Pankod</a> team. Feel free to send PR or open an issue for new plugins you want to add.
 
 ### Using a custom source of plugins
 
@@ -146,7 +138,7 @@ Options:
 
 ## Development mode commands
 
-Watch for changes in the code; build the project and then globally install the superplate for testing.
+Watches for changes in the code; builds the project and then globally installs  superplate for testing.
 
 ```
 npm run dev:global
@@ -158,7 +150,7 @@ Create a build inside `/lib` directory.
 npm run build:cli
 ```
 
-Install the current build globally
+Install the current build globally:
 
 ```
 npm run global
