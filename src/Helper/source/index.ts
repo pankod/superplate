@@ -45,16 +45,22 @@ export const get_source: GetSourceFn = async (source, branch) => {
         const repoStatus = await GitHelper.IsRepoExist(sourcePath);
         if (repoStatus.exists === true) {
             sourceSpinner.text = "Remote source found. Cloning...";
-            const cloneResponse = await GitHelper.CloneAndGetPath(
-                sourcePath,
-                branch,
-            );
-            if (cloneResponse) {
-                sourceSpinner.succeed("Cloned remote source successfully.");
-                return { path: cloneResponse };
+            try {
+                const cloneResponse = await GitHelper.CloneAndGetPath(
+                    sourcePath,
+                    branch,
+                );
+                if (cloneResponse) {
+                    sourceSpinner.succeed("Cloned remote source successfully.");
+                    return { path: cloneResponse };
+                }
+                sourceSpinner.fail("Could not retrieve source repository.");
+                return { error: "Could not retrieve source repository." };
+            } catch (e) {
+                `${e}`;
+                sourceSpinner.fail("Could not retrieve source repository.");
+                return { error: "Could not retrieve source repository." };
             }
-            sourceSpinner.fail("Could not retrieve source repository.");
-            return { error: "Could not retrieve source repository." };
         } else {
             sourceSpinner.fail("Could not found source repository.");
             return { error: repoStatus.error };

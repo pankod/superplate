@@ -20,10 +20,7 @@ export const GitHelper = {
         }
         return { exists: false, error: "Source path not valid" };
     },
-    CloneAndGetPath: async (
-        path: string,
-        branch?: string,
-    ): Promise<string | undefined> => {
+    CloneAndGetPath: async (path: string, branch?: string): Promise<string> => {
         try {
             const tempInfo = await promisify(mkdir)("");
             await promisify(exec)(
@@ -33,7 +30,7 @@ export const GitHelper = {
             );
             return tempInfo;
         } catch (e) {
-            return;
+            throw new Error(e instanceof Error ? e.message : (e as any));
         }
     },
 };
