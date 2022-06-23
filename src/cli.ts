@@ -13,6 +13,8 @@ import {
     is_multi_type,
     prompt_project_types,
     get_presets,
+    get_prompts_and_choices,
+    get_random_answers,
 } from "@Helper";
 
 const generator = path.resolve(__dirname, "./");
@@ -36,6 +38,10 @@ const cli = async (): Promise<void> => {
         .option(
             "-o, --preset <preset-name>",
             "specify a preset to use for the project",
+        )
+        .option(
+            "-l, --lucky",
+            "use this option to generate a project with random answers",
         )
         .option("-p, --project <project-name>", "specify a project type to use")
         .option("-d, --debug", "print additional logs and skip install script")
@@ -143,8 +149,9 @@ const cli = async (): Promise<void> => {
     /** handle presets, can either be partial or fully provided answers from `prompt.js > presets` */
     let presetAnswers: Record<string, string> | undefined = undefined;
     const selectedPreset = program.preset;
+    const isLucky = program.lucky;
 
-    if (selectedPreset && sourcePath) {
+    if (selectedPreset && sourcePath && !isLucky) {
         const presets = await get_presets(sourcePath);
 
         const preset = presets.find((p) => p.name === selectedPreset);
@@ -156,6 +163,10 @@ const cli = async (): Promise<void> => {
                 `${chalk.bold`${selectedPreset}`} is not a valid preset.`,
             );
         }
+    }
+    if (isLucky && sourcePath) {
+        const promptsAndChoices = await get_prompts_and_choices(sourcePath);
+        presetAnswers = get_random_answers(promptsAndChoices);
     }
 
     const sao = new SAO({
