@@ -23,6 +23,10 @@ const cli = async (): Promise<void> => {
             "-s, --source <source-path>",
             "specify a custom source of plugins",
         )
+        .option(
+            "-b, --branch <source-git-branch>",
+            "specify a custom branch in source of plugins",
+        )
         .option("-p, --project <project-name>", "specify a project type to use")
         .option("-d, --debug", "print additional logs and skip install script")
         .on("--help", () => {
@@ -44,6 +48,11 @@ const cli = async (): Promise<void> => {
             console.log(
                 `  - a remote git repo: ${chalk.green(
                     "https://github.com/my-plugin-source.git",
+                )}`,
+            );
+            console.log(
+                `  - if your source is a git repo you can also define a custom branch in it: ${chalk.green(
+                    "--branch canary",
                 )}`,
             );
             console.log(
@@ -77,14 +86,18 @@ const cli = async (): Promise<void> => {
     /**
      * get source path
      */
-    const source = await get_source(program.source);
+    const source = await get_source(program.source, program.branch);
 
     let { path: sourcePath } = source;
     const { error: sourceError } = source;
 
     if (sourceError) {
         console.error(`${chalk.bold`${sourceError}`}`);
-        console.log("Source can be a remote git repository or a local path.");
+        console.log(
+            `Source can be a remote git repository or a local path. ${
+                program.branch ? "Make sure your specified branch exists." : ""
+            }`,
+        );
         console.log();
         console.log("You provided:");
         console.log(`${chalk.blueBright(program.source)}`);
