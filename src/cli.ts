@@ -68,7 +68,17 @@ const cli = async (): Promise<void> => {
             );
             console.log(
                 `  - if your source is a git repo you can also define a custom branch in it: ${chalk.green(
-                    "--branch canary",
+                    "--branch canary or -b canary",
+                )}`,
+            );
+            console.log(
+                `  - if your source includes any presets, you can set them to prefill choices: ${chalk.green(
+                    "--preset cool-stack or -o cool-stack",
+                )}`,
+            );
+            console.log(
+                `  - if you are feeling lucky, you can always try your chance with random selected choices: ${chalk.green(
+                    "--lucky or -l",
                 )}`,
             );
             console.log(
