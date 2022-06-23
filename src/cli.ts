@@ -5,13 +5,15 @@ import commander from "commander";
 import { cleanupSync } from "temp";
 import { Options, SAO } from "sao";
 
-import { get_source } from "@Helper";
 import packageData from "../package.json";
 import {
+    BinaryHelper,
+    get_source,
     get_project_types,
     is_multi_type,
     prompt_project_types,
-} from "@Helper/source";
+    get_presets,
+} from "@Helper";
 
 const generator = path.resolve(__dirname, "./");
 
@@ -138,11 +140,33 @@ const cli = async (): Promise<void> => {
         projectType = selectedProjectType;
     }
 
+    /** handle presets, can either be partial or fully provided answers from `prompt.js > presets` */
+    let presetAnswers: Record<string, string> | undefined = undefined;
+    const selectedPreset = program.preset;
+
+    if (selectedPreset && sourcePath) {
+        const presets = await get_presets(sourcePath);
+
+        const preset = presets.find((p) => p.name === selectedPreset);
+
+        if (preset) {
+            presetAnswers = preset.answers;
+        } else {
+            console.log(
+                `${chalk.bold`${selectedPreset}`} is not a valid preset.`,
+            );
+        }
+    }
+
     const sao = new SAO({
         generator,
         outDir: projectDir,
         logLevel: program.debug ? 4 : 1,
         appName: projectDir,
+        answers: {
+            name: BinaryHelper.CanUseDirAsName(projectDir) ? projectDir : "",
+            ...(presetAnswers || {}),
+        },
         extras: {
             debug: !!program.debug,
             projectType,
