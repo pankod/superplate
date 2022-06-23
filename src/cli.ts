@@ -4,10 +4,14 @@ import path from "path";
 import commander from "commander";
 import { cleanupSync } from "temp";
 import { Options, SAO } from "sao";
-import prompts, { Choice } from "prompts";
 
-import { get_source, FSHelper } from "@Helper";
+import { get_source } from "@Helper";
 import packageData from "../package.json";
+import {
+    get_project_types,
+    is_multi_type,
+    prompt_project_types,
+} from "@Helper/source";
 
 const generator = path.resolve(__dirname, "./");
 
@@ -26,6 +30,10 @@ const cli = async (): Promise<void> => {
         .option(
             "-b, --branch <source-git-branch>",
             "specify a custom branch in source of plugins",
+        )
+        .option(
+            "-o, --preset <preset-name>",
+            "specify a preset to use for the project",
         )
         .option("-p, --project <project-name>", "specify a project type to use")
         .option("-d, --debug", "print additional logs and skip install script")
@@ -109,48 +117,25 @@ const cli = async (): Promise<void> => {
         process.exit(1);
     }
 
-    // check root prompt.js
-    const checkRootPrompt = await FSHelper.IsPathExists(
-        `${sourcePath}/prompt.js`,
-    );
+    const isMultiType = await is_multi_type(sourcePath);
 
     let projectType = "";
 
-    if (sourcePath && !checkRootPrompt) {
-        const projectTypes: Choice[] = [];
+    if (sourcePath && isMultiType) {
+        // get project types
+        const projectTypes = await get_project_types(sourcePath);
 
-        // get project types => react,nextjs,refine ...etc
-        const files = await FSHelper.ReadDir(sourcePath);
+        const [
+            finalSourcePath,
+            selectedProjectType,
+        ] = await prompt_project_types(
+            sourcePath,
+            projectTypes,
+            program.project,
+        );
 
-        for (const file of files) {
-            const existPromptFile = await FSHelper.IsPathExists(
-                `${sourcePath}/${file}/prompt.js`,
-            );
-
-            if (existPromptFile) {
-                projectTypes.push({
-                    title: file,
-                    value: file,
-                });
-            }
-        }
-
-        const projectTypeFromArgs = program.project;
-
-        if (projectTypes.find((p) => p.title === projectTypeFromArgs)) {
-            projectType = projectTypeFromArgs;
-        } else {
-            const { projectType: projectTypeFromPrompts } = await prompts({
-                type: "select",
-                name: "projectType",
-                message: "Select your project type",
-                choices: projectTypes,
-            });
-
-            projectType = projectTypeFromPrompts;
-        }
-
-        sourcePath = `${sourcePath}/${projectType}`;
+        sourcePath = finalSourcePath;
+        projectType = selectedProjectType;
     }
 
     const sao = new SAO({
