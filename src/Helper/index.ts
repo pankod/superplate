@@ -24,3 +24,8 @@ export { FSHelper } from "./fs";
 export { tips } from "./tips";
 export { BinaryHelper } from "./binary";
 export { get_presets } from "./preset";
+export {
+    get_prompts_and_choices,
+    get_random_answer,
+    get_random_answers,
+} from "./lucky";
