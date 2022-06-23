@@ -29,11 +29,12 @@
 
 ## About
 
-Superplate lets you start rock-solid, production-ready *React* and *Next.JS* projects just in seconds. The command-line interface guides the user through setup and no additional build configurations are required.
+Superplate lets you start rock-solid, production-ready _React_ and _Next.JS_ projects just in seconds. The command-line interface guides the user through setup and no additional build configurations are required.
 
 Superplate ships with more than 30 plugins including popular UIKits, testing frameworks and many useful developer tools.
 
 ## Available Integrations
+
 <a href="https://pankod.github.io/superplate/docs/">
   <img src="images/available.png"  align="center" />
 </a>
@@ -56,9 +57,9 @@ For more detailed information and usage, you may refer to our [documentation pag
 
 ## Quick Start
 
-To use superplate, make sure you have *npx* is installed on your system (npx is shipped by default since npm 5.2.0).
+To use superplate, make sure you have _npx_ is installed on your system (npx is shipped by default since npm 5.2.0).
 
-To create a new app, run the following command:   
+To create a new app, run the following command:
 
 ```bash
 npx superplate-cli <my-project>
@@ -134,11 +135,15 @@ Options:
  -d, --debug                     prints additional logs
  -s, --source <path-to-source>   Use this option to target a custom source of plugins
                                  Source path can be a remote git repository or a local path.
+ -p, --project <project-type>    In sources with multiple types, you can use this option to preset the type.
+ -b, --branch <branch-name>      If your source is a git repository, you can define a custom branch for `superplate` to use.
+ -o, --preset <preset-name>      If your source includes presets, you can select one of them to prefill the answers.
+ -l, --lucky                     You can select random choices with this option, if you are feeling lucky.
 ```
 
 ## Development mode commands
 
-Watches for changes in the code; builds the project and then globally installs  superplate for testing.
+Watches for changes in the code; builds the project and then globally installs superplate for testing.
 
 ```
 npm run dev:global
