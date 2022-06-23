@@ -10,14 +10,19 @@ import chalk from "chalk";
 import { GitHelper, FSHelper } from "@Helper";
 
 type SourceResponse = { path?: string; error?: string };
-type GetSourceFn = (source: string | undefined) => Promise<SourceResponse>;
+type GetSourceFn = (
+    source: string | undefined,
+    branch?: string,
+) => Promise<SourceResponse>;
 
-export const get_source: GetSourceFn = async (source) => {
+export const get_source: GetSourceFn = async (source, branch) => {
     /**
      * Replace path if default
      */
     const sourceSpinner = ora(
-        `Checking provided source ${chalk.bold`"${source}"`}`,
+        `Checking provided source ${chalk.bold`"${source}${
+            branch ? ` - ${branch}` : ""
+        }"`}`,
     );
     sourceSpinner.start();
 
@@ -40,7 +45,10 @@ export const get_source: GetSourceFn = async (source) => {
         const repoStatus = await GitHelper.IsRepoExist(sourcePath);
         if (repoStatus.exists === true) {
             sourceSpinner.text = "Remote source found. Cloning...";
-            const cloneResponse = await GitHelper.CloneAndGetPath(sourcePath);
+            const cloneResponse = await GitHelper.CloneAndGetPath(
+                sourcePath,
+                branch,
+            );
             if (cloneResponse) {
                 sourceSpinner.succeed("Cloned remote source successfully.");
                 return { path: cloneResponse };
