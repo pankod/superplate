@@ -3,7 +3,7 @@ import path from "path";
 export type ProjectPrompt = {
     name: string;
     type: "select";
-    choices: { name: string; message: string }[];
+    choices: { name?: string; message: string; value?: string }[];
     skip?: ({ answers }: { answers: Record<string, string> }) => boolean;
 };
 
@@ -23,7 +23,7 @@ export const get_prompts_and_choices = async (
 export const get_random_answer = (
     projectPrompt: ProjectPrompt,
     currentAnswers: Record<string, string>,
-): [key: string, value: string] | undefined => {
+): [key: string, value: string | undefined] | undefined => {
     if (projectPrompt.skip && projectPrompt.skip({ answers: currentAnswers })) {
         return undefined;
     }
@@ -32,7 +32,9 @@ export const get_random_answer = (
         Math.random() * projectPrompt.choices.length,
     );
 
-    return [projectPrompt.name, projectPrompt.choices[randomIndex].name];
+    const { name, value } = projectPrompt.choices[randomIndex];
+
+    return [projectPrompt.name, name ?? value ?? undefined];
 };
 
 export const get_random_answers = (
