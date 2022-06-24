@@ -7,7 +7,6 @@ import { Options, SAO } from "sao";
 
 import packageData from "../package.json";
 import {
-    BinaryHelper,
     get_source,
     get_project_types,
     is_multi_type,

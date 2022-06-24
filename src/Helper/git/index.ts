@@ -30,7 +30,7 @@ export const GitHelper = {
             );
             return tempInfo;
         } catch (e) {
-            throw new Error(e instanceof Error ? e.message : (e as any));
+            throw new Error(e instanceof Error ? e.message : (e as string));
         }
     },
 };
