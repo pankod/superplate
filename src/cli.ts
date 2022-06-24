@@ -179,27 +179,24 @@ const cli = async (): Promise<void> => {
         presetAnswers = get_random_answers(promptsAndChoices);
     }
 
+    const withAnswers =
+        presetAnswers && Object.keys(presetAnswers).length > 0
+            ? true
+            : undefined;
+
     const sao = new SAO({
         generator,
         outDir: projectDir,
         logLevel: program.debug ? 4 : 1,
         appName: projectDir,
-        answers:
-            presetAnswers && Object.keys(presetAnswers).length > 0
-                ? {
-                      name: BinaryHelper.CanUseDirAsName(projectDir)
-                          ? projectDir
-                          : "",
-                      telemetry: "yes",
-                      ...(presetAnswers || {}),
-                  }
-                : undefined,
+        answers: withAnswers,
         extras: {
             debug: !!program.debug,
             projectType,
             paths: {
                 sourcePath,
             },
+            presetAnswers,
         },
     } as Options);
 
