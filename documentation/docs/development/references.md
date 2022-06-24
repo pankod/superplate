@@ -10,6 +10,8 @@ CLI has two built-in prompts; app name and the package manager questions are pro
 
 You can also apply ignore patterns for your plugins, those ignore glob patterns can be applied project-wide or only for specified plugins. Provide a function with prompt answers to whether the ignore patterns will apply or not.
 
+Also you can define presets, those will be available to use with `--preset` option. Presets can include all or part of the choices.
+
 ```ts
 prompts: {
     type: string;
@@ -27,6 +29,11 @@ ignores: {
     pattern: string[]
 }[];
 ```
+```ts
+presets: Array<{
+    name: string;
+    answers: Record<string,string>;
+}>;
 
 **Example**
 
@@ -63,6 +70,14 @@ module.exports = {
             },
             pattern: ["src/components/**", "pages/index.tsx"],
         },
+    ],
+    presets: [
+        {
+            name: "with-antd",
+            answers: {
+                ui: "antd"
+            }
+        }
     ]
 };
 
