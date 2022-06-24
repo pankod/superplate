@@ -4,6 +4,7 @@ export type ProjectPrompt = {
     name: string;
     type: "select";
     choices: { name?: string; message: string; value?: string }[];
+    default?: string;
     skip?: ({ answers }: { answers: Record<string, string> }) => boolean;
 };
 
@@ -42,12 +43,12 @@ export const get_random_answers = (
 ): Record<string, string> => {
     const answers: Record<string, string> = {};
 
-    projectPrompts.forEach((projectPrompt) => {
-        const [key, value] = get_random_answer(projectPrompt, answers) ?? [];
+    for (const prompt of projectPrompts) {
+        const [key, value] = get_random_answer(prompt, answers) ?? [];
         if (key && value) {
             answers[key] = value;
         }
-    });
+    }
 
-    return answers;
+    return { ...answers };
 };
