@@ -184,10 +184,16 @@ const cli = async (): Promise<void> => {
         outDir: projectDir,
         logLevel: program.debug ? 4 : 1,
         appName: projectDir,
-        answers: {
-            name: BinaryHelper.CanUseDirAsName(projectDir) ? projectDir : "",
-            ...(presetAnswers || {}),
-        },
+        answers:
+            presetAnswers && Object.keys(presetAnswers).length > 0
+                ? {
+                      name: BinaryHelper.CanUseDirAsName(projectDir)
+                          ? projectDir
+                          : "",
+                      telemetry: "yes",
+                      ...(presetAnswers || {}),
+                  }
+                : undefined,
         extras: {
             debug: !!program.debug,
             projectType,
