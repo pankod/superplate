@@ -17,4 +17,9 @@ export const BinaryHelper = {
             return false;
         }
     },
+    CanUseDirAsName: (projectDir: string): boolean => {
+        // eslint-disable-next-line no-useless-escape
+        const invalidChars = /[\\\/,.]/;
+        return !invalidChars.test(projectDir);
+    },
 };

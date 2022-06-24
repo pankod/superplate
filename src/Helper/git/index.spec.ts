@@ -1,11 +1,5 @@
 import { GitHelper } from "./";
-import { promisify } from "util";
 
-jest.mock("util", () => ({
-    promisify: jest.fn(() => {
-        throw new Error();
-    }),
-}));
 describe("Git Helper", () => {
     it("not found git url IsRepoExist", async () => {
         const isRepoExist = await GitHelper.IsRepoExist(
@@ -22,23 +16,16 @@ describe("Git Helper", () => {
     });
 
     it("valid git url CloneAndGetPath", async () => {
-        (promisify as any).mockImplementation(() =>
-            jest
-                .fn()
-                .mockResolvedValue({ stdout: "git@github.com:mock/url.git" }),
-        );
-
-        const cloneAndPath = await GitHelper.CloneAndGetPath(
+        const cloneAndPath = GitHelper.CloneAndGetPath(
             "https://github.com/pankod/action-test",
         );
 
-        expect(cloneAndPath).not.toBeFalsy();
+        await expect(cloneAndPath).resolves.not.toBeUndefined();
     });
 
     it("invalid git url CloneAndGetPath", async () => {
-        (promisify as any).mockImplementation(() => new Error());
-        await expect(
-            GitHelper.CloneAndGetPath("https://pankod.com"),
-        ).rejects.toThrowError();
+        const cloneAndPath = GitHelper.CloneAndGetPath("https://pankod.com");
+
+        await expect(cloneAndPath).rejects.toThrowError();
     });
 });

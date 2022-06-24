@@ -4,10 +4,17 @@ import path from "path";
 import commander from "commander";
 import { cleanupSync } from "temp";
 import { Options, SAO } from "sao";
-import prompts, { Choice } from "prompts";
 
-import { get_source, FSHelper } from "@Helper";
 import packageData from "../package.json";
+import {
+    get_source,
+    get_project_types,
+    is_multi_type,
+    prompt_project_types,
+    get_presets,
+    get_prompts_and_choices,
+    get_random_answers,
+} from "@Helper";
 
 const generator = path.resolve(__dirname, "./");
 
@@ -22,6 +29,18 @@ const cli = async (): Promise<void> => {
         .option(
             "-s, --source <source-path>",
             "specify a custom source of plugins",
+        )
+        .option(
+            "-b, --branch <source-git-branch>",
+            "specify a custom branch in source of plugins",
+        )
+        .option(
+            "-o, --preset <preset-name>",
+            "specify a preset to use for the project",
+        )
+        .option(
+            "-l, --lucky",
+            "use this option to generate a project with random answers",
         )
         .option("-p, --project <project-name>", "specify a project type to use")
         .option("-d, --debug", "print additional logs and skip install script")
@@ -44,6 +63,21 @@ const cli = async (): Promise<void> => {
             console.log(
                 `  - a remote git repo: ${chalk.green(
                     "https://github.com/my-plugin-source.git",
+                )}`,
+            );
+            console.log(
+                `  - if your source is a git repo you can also define a custom branch in it: ${chalk.green(
+                    "--branch canary or -b canary",
+                )}`,
+            );
+            console.log(
+                `  - if your source includes any presets, you can set them to prefill choices: ${chalk.green(
+                    "--preset cool-stack or -o cool-stack",
+                )}`,
+            );
+            console.log(
+                `  - if you are feeling lucky, you can always try your chance with random selected choices: ${chalk.green(
+                    "--lucky or -l",
                 )}`,
             );
             console.log(
@@ -77,14 +111,18 @@ const cli = async (): Promise<void> => {
     /**
      * get source path
      */
-    const source = await get_source(program.source);
+    const source = await get_source(program.source, program.branch);
 
     let { path: sourcePath } = source;
     const { error: sourceError } = source;
 
     if (sourceError) {
         console.error(`${chalk.bold`${sourceError}`}`);
-        console.log("Source can be a remote git repository or a local path.");
+        console.log(
+            `Source can be a remote git repository or a local path. ${
+                program.branch ? "Make sure your specified branch exists." : ""
+            }`,
+        );
         console.log();
         console.log("You provided:");
         console.log(`${chalk.blueBright(program.source)}`);
@@ -96,61 +134,68 @@ const cli = async (): Promise<void> => {
         process.exit(1);
     }
 
-    // check root prompt.js
-    const checkRootPrompt = await FSHelper.IsPathExists(
-        `${sourcePath}/prompt.js`,
-    );
+    const isMultiType = await is_multi_type(sourcePath);
 
     let projectType = "";
 
-    if (sourcePath && !checkRootPrompt) {
-        const projectTypes: Choice[] = [];
+    if (sourcePath && isMultiType) {
+        // get project types
+        const projectTypes = await get_project_types(sourcePath);
 
-        // get project types => react,nextjs,refine ...etc
-        const files = await FSHelper.ReadDir(sourcePath);
+        const [
+            finalSourcePath,
+            selectedProjectType,
+        ] = await prompt_project_types(
+            sourcePath,
+            projectTypes,
+            program.project,
+        );
 
-        for (const file of files) {
-            const existPromptFile = await FSHelper.IsPathExists(
-                `${sourcePath}/${file}/prompt.js`,
-            );
-
-            if (existPromptFile) {
-                projectTypes.push({
-                    title: file,
-                    value: file,
-                });
-            }
-        }
-
-        const projectTypeFromArgs = program.project;
-
-        if (projectTypes.find((p) => p.title === projectTypeFromArgs)) {
-            projectType = projectTypeFromArgs;
-        } else {
-            const { projectType: projectTypeFromPrompts } = await prompts({
-                type: "select",
-                name: "projectType",
-                message: "Select your project type",
-                choices: projectTypes,
-            });
-
-            projectType = projectTypeFromPrompts;
-        }
-
-        sourcePath = `${sourcePath}/${projectType}`;
+        sourcePath = finalSourcePath;
+        projectType = selectedProjectType;
     }
+
+    /** handle presets, can either be partial or fully provided answers from `prompt.js > presets` */
+    let presetAnswers: Record<string, string> | undefined = undefined;
+    const selectedPreset = program.preset;
+    const isLucky = program.lucky;
+
+    if (selectedPreset && sourcePath && !isLucky) {
+        const presets = await get_presets(sourcePath);
+
+        const preset = presets.find((p) => p.name === selectedPreset);
+
+        if (preset) {
+            presetAnswers = preset.answers;
+        } else {
+            console.log(
+                `${chalk.bold`${selectedPreset}`} is not a valid preset.`,
+            );
+        }
+    }
+    if (isLucky && sourcePath) {
+        const promptsAndChoices = await get_prompts_and_choices(sourcePath);
+        presetAnswers = get_random_answers(promptsAndChoices);
+    }
+
+    const withAnswers =
+        presetAnswers && Object.keys(presetAnswers).length > 0
+            ? true
+            : undefined;
 
     const sao = new SAO({
         generator,
         outDir: projectDir,
         logLevel: program.debug ? 4 : 1,
         appName: projectDir,
+        answers: withAnswers,
         extras: {
             debug: !!program.debug,
             projectType,
             paths: {
                 sourcePath,
             },
+            presetAnswers,
         },
     } as Options);
 

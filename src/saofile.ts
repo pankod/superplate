@@ -22,11 +22,13 @@ import {
     BinaryHelper,
 } from "@Helper";
 
+import { ProjectPrompt } from "@Helper/lucky";
+
 const saoConfig: GeneratorConfig = {
     prompts(sao) {
         const {
             appName,
-            extras: { paths },
+            extras: { paths, presetAnswers },
         } = sao.opts;
 
         // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -75,7 +77,10 @@ const saoConfig: GeneratorConfig = {
                       },
                   ]
                 : []),
-            ...(sourcePrompts?.prompts ?? []),
+            ...(sourcePrompts?.prompts ?? []).map((el: ProjectPrompt) => ({
+                ...el,
+                default: presetAnswers?.[el.name] ?? el.default,
+            })),
             {
                 name: "telemetry",
                 message:
