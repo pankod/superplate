@@ -50,7 +50,7 @@ export const getPluginsArray: (answers: Record<string, Answer>) => string[] = (
             if (Array.isArray(value)) return [...(acc as string[]), ...value];
             return acc;
         }, [])
-        .filter((value: string) => value !== "none");
+        .filter((value: string) => value !== "none" && value !== "no");
 };
 
 export const getExtend: (
