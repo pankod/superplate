@@ -19,7 +19,7 @@ import {
     mergeBabel,
     tips,
     mergePluginData,
-    BinaryHelper,
+    prompt_telemetry,
 } from "@Helper";
 
 import { ProjectPrompt } from "@Helper/lucky";
@@ -37,28 +37,6 @@ const saoConfig: GeneratorConfig = {
             "prompt.js",
         ));
 
-        const pmQuestionChoises = [{ message: "Npm", value: "npm" }];
-        const canUseYarn = BinaryHelper.CanUseYarn();
-        const canUsePnpm = BinaryHelper.CanUsePnpm();
-
-        if (canUseYarn) {
-            pmQuestionChoises.push({ message: "Yarn", value: "yarn" });
-        }
-
-        if (canUsePnpm) {
-            pmQuestionChoises.push({
-                message: "pnpm"
-                    .split("")
-                    .map((v) =>
-                        Math.round(Math.random())
-                            ? v.toUpperCase()
-                            : v.toLowerCase(),
-                    )
-                    .join(""),
-                value: "pnpm",
-            });
-        }
-
         return [
             {
                 type: "input",
@@ -66,52 +44,24 @@ const saoConfig: GeneratorConfig = {
                 message: "What will be the name of your app",
                 default: appName,
             },
-            ...(pmQuestionChoises.length > 1
-                ? [
-                      {
-                          name: "pm",
-                          message: "Package manager:",
-                          choices: pmQuestionChoises,
-                          type: "select",
-                          default: "npm",
-                      },
-                  ]
-                : []),
             ...(sourcePrompts?.prompts ?? []).map((el: ProjectPrompt) => ({
                 ...el,
                 default: presetAnswers?.[el.name] ?? el.default,
             })),
-            {
-                name: "telemetry",
-                message:
-                    "Would you like to share your choices with us anonymously?",
-                type: "select",
-                pageSize: 2,
-                choices: [
-                    {
-                        message: "I want to share anonymously! Thank you! ❤️",
-                        name: "yes",
-                    },
-                    { message: "No", name: "no" },
-                ],
-                default: "yes",
-            },
         ];
     },
     data(sao) {
         /**
          * Package Manager
          */
-
-        sao.answers.pm =
-            BinaryHelper.CanUseYarn() || BinaryHelper.CanUsePnpm()
-                ? sao.answers.pm
-                : "npm";
+        const {
+            extras: { npmClient },
+        } = sao.opts;
 
         let pmRun = "npm run";
-        if (sao.answers.pm === "yarn") {
+        if (npmClient === "yarn") {
             pmRun = "yarn";
-        } else if (sao.answers.pm === "pnpm") {
+        } else if (npmClient === "pnpm") {
             pmRun = "pnpm";
         }
 
@@ -317,7 +267,9 @@ const saoConfig: GeneratorConfig = {
             },
         });
 
-        if (sao.answers.telemetry === "yes") {
+        const { telemetry } = await prompt_telemetry();
+
+        if (telemetry === "yes") {
             analytics.track({
                 event: "generate",
                 properties: {
@@ -334,14 +286,14 @@ const saoConfig: GeneratorConfig = {
         tips.preInstall();
     },
     async completed(saoInstance) {
-        const { debug } = saoInstance.opts.extras;
+        const { debug, npmClient } = saoInstance.opts.extras;
         /**
          * Git init and install packages
          */
         if (!debug) {
             saoInstance.gitInit();
             await saoInstance.npmInstall({
-                npmClient: this.answers.pm,
+                npmClient: npmClient,
                 installArgs: ["--silent"],
             });
         }
@@ -378,7 +330,7 @@ const saoConfig: GeneratorConfig = {
         tips.postInstall({
             name: saoInstance.opts.appName ?? "",
             dir: saoInstance.outDir,
-            pm: saoInstance.answers.pm,
+            pm: saoInstance.opts.extras.npmClient,
         });
     },
 };

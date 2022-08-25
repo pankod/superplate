@@ -14,6 +14,7 @@ import {
     get_presets,
     get_prompts_and_choices,
     get_random_answers,
+    prompt_npm_cli,
 } from "@Helper";
 
 const generator = path.resolve(__dirname, "./");
@@ -134,26 +135,8 @@ const cli = async (): Promise<void> => {
         process.exit(1);
     }
 
+    let projectType = program.project;
     const isMultiType = await is_multi_type(sourcePath);
-
-    let projectType = "";
-
-    if (sourcePath && isMultiType) {
-        // get project types
-        const projectTypes = await get_project_types(sourcePath);
-
-        const [
-            finalSourcePath,
-            selectedProjectType,
-        ] = await prompt_project_types(
-            sourcePath,
-            projectTypes,
-            program.project,
-        );
-
-        sourcePath = finalSourcePath;
-        projectType = selectedProjectType;
-    }
 
     /** handle presets, can either be partial or fully provided answers from `prompt.js > presets` */
     let presetAnswers: Record<string, string> | undefined = undefined;
@@ -167,12 +150,29 @@ const cli = async (): Promise<void> => {
 
         if (preset) {
             presetAnswers = preset.answers;
+            projectType = preset.type;
         } else {
             console.log(
                 `${chalk.bold`${selectedPreset}`} is not a valid preset.`,
             );
         }
     }
+
+    const npmClient = await prompt_npm_cli();
+
+    if (sourcePath && isMultiType) {
+        // get project types
+        const projectTypes = await get_project_types(sourcePath);
+
+        const [
+            finalSourcePath,
+            selectedProjectType,
+        ] = await prompt_project_types(sourcePath, projectTypes, projectType);
+
+        sourcePath = finalSourcePath;
+        projectType = selectedProjectType;
+    }
+
     if (isLucky && sourcePath) {
         const promptsAndChoices = await get_prompts_and_choices(sourcePath);
         presetAnswers = get_random_answers(promptsAndChoices);
@@ -192,6 +192,7 @@ const cli = async (): Promise<void> => {
         extras: {
             debug: !!program.debug,
             projectType,
+            npmClient,
             paths: {
                 sourcePath,
             },
