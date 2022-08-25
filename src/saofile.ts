@@ -102,6 +102,7 @@ const saoConfig: GeneratorConfig = {
             projectType,
             answers: sao.answers,
             selectedPlugins,
+            pm: npmClient,
             pmRun,
             pluginsData,
             metaJSONPath,
