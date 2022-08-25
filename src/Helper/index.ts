@@ -29,3 +29,5 @@ export {
     get_random_answer,
     get_random_answers,
 } from "./lucky";
+export { prompt_telemetry } from "./telemetry";
+export { prompt_npm_cli } from "./npm";
