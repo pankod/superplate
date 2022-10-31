@@ -3,7 +3,7 @@ import prompts from "prompts";
 export const prompt_telemetry = async (): Promise<{
     telemetry: "yes" | "no";
 }> => {
-    const { telemetry } = await prompts({
+    const result = await prompts({
         type: "select",
         name: "telemetry",
         message: "Would you like to share your choices with us anonymously?",
@@ -16,5 +16,5 @@ export const prompt_telemetry = async (): Promise<{
         ],
     });
 
-    return telemetry;
+    return result;
 };
