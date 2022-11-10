@@ -117,11 +117,15 @@ export const prompt_project_types = async (
     ) {
         projectType = typeFromArgs;
     } else {
+        const filteredWithContains = types.filter((p) =>
+            p.title.includes(typeFromArgs ?? ""),
+        );
         const { projectType: projectTypeFromPrompts } = await prompts({
             type: "select",
             name: "projectType",
             message: "Select your project type",
-            choices: types,
+            choices:
+                filteredWithContains.length > 0 ? filteredWithContains : types,
         });
 
         projectType = projectTypeFromPrompts;
