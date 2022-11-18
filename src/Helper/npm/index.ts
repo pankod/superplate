@@ -1,12 +1,12 @@
-import prompts from "prompts";
-
 import { BinaryHelper } from "@Helper/binary";
 
-export const prompt_npm_cli = async (): Promise<{ client: string }> => {
+export const get_potential_package_managers = (): Array<{
+    title: string;
+    value: string;
+}> => {
     const pmQuestionChoises = [{ title: "Npm", value: "npm" }];
     const canUseYarn = BinaryHelper.CanUseYarn();
     const canUsePnpm = BinaryHelper.CanUsePnpm();
-
     if (canUseYarn) {
         pmQuestionChoises.push({ title: "Yarn", value: "yarn" });
     }
@@ -25,12 +25,5 @@ export const prompt_npm_cli = async (): Promise<{ client: string }> => {
         });
     }
 
-    const { npmClient } = await prompts({
-        type: "select",
-        name: "npmClient",
-        message: "Package manager:",
-        choices: pmQuestionChoises,
-    });
-
-    return npmClient;
+    return pmQuestionChoises;
 };

@@ -30,4 +30,5 @@ export {
     get_random_answers,
 } from "./lucky";
 export { prompt_telemetry } from "./telemetry";
-export { prompt_npm_cli } from "./npm";
+export { get_potential_package_managers } from "./npm";
+export { HumanizeChoices } from "./humanize";

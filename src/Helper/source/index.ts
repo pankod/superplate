@@ -6,9 +6,9 @@
  */
 import ora from "ora";
 import chalk from "chalk";
+import { prompt } from "enquirer";
 
-import { GitHelper, FSHelper } from "@Helper";
-import prompts, { Choice } from "prompts";
+import { GitHelper, FSHelper, HumanizeChoices } from "@Helper";
 
 type SourceResponse = { path?: string; error?: string };
 type GetSourceFn = (
@@ -82,8 +82,8 @@ export const is_multi_type = async (
     return false;
 };
 
-export const get_project_types = async (source: string): Promise<Choice[]> => {
-    const projectTypes: Choice[] = [];
+export const get_project_types = async (source: string): Promise<any[]> => {
+    const projectTypes: any[] = [];
 
     // get project types => react,nextjs,refine ...etc
     const files = await FSHelper.ReadDir(source);
@@ -106,7 +106,7 @@ export const get_project_types = async (source: string): Promise<Choice[]> => {
 
 export const prompt_project_types = async (
     source: string,
-    types: Choice[],
+    types: any[],
     typeFromArgs?: string,
 ): Promise<[projectTypePath: string, projectType: string]> => {
     let projectType = "";
@@ -120,15 +120,25 @@ export const prompt_project_types = async (
         const filteredWithContains = types.filter((p) =>
             p.title.includes(typeFromArgs ?? ""),
         );
-        const { projectType: projectTypeFromPrompts } = await prompts({
+        const response = await prompt({
             type: "select",
             name: "projectType",
-            message: "Select your project type",
-            choices:
-                filteredWithContains.length > 0 ? filteredWithContains : types,
+            message: "Choose a project template",
+            choices: (filteredWithContains.length > 0
+                ? filteredWithContains
+                : types
+            )
+                .map((p) => HumanizeChoices.get(p.title))
+                .map((p) => ({
+                    type: "select",
+                    name: p.value,
+                    message: p.title,
+                    hint: p.description,
+                })),
         });
 
-        projectType = projectTypeFromPrompts;
+        console.log({ response });
+        projectType = (response as { projectType: string }).projectType;
     }
 
     return [`${source}/${projectType}`, projectType];

@@ -14,7 +14,6 @@ import {
     get_presets,
     get_prompts_and_choices,
     get_random_answers,
-    prompt_npm_cli,
 } from "@Helper";
 
 const generator = path.resolve(__dirname, "./");
@@ -158,8 +157,6 @@ const cli = async (): Promise<void> => {
         }
     }
 
-    const npmClient = await prompt_npm_cli();
-
     if (sourcePath && isMultiType) {
         // get project types
         const projectTypes = await get_project_types(sourcePath);
@@ -192,7 +189,6 @@ const cli = async (): Promise<void> => {
         extras: {
             debug: !!program.debug,
             projectType,
-            npmClient,
             paths: {
                 sourcePath,
             },

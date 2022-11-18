@@ -20,6 +20,7 @@ import {
     tips,
     mergePluginData,
     prompt_telemetry,
+    get_potential_package_managers,
 } from "@Helper";
 
 import { ProjectPrompt } from "@Helper/lucky";
@@ -37,26 +38,37 @@ const saoConfig: GeneratorConfig = {
             "prompt.js",
         ));
 
+        const packageManagerChoices = get_potential_package_managers();
+
         return [
             {
                 type: "input",
                 name: "name",
-                message: "What will be the name of your app",
+                message: "What would you like to name your project?:",
                 default: appName,
             },
             ...(sourcePrompts?.prompts ?? []).map((el: ProjectPrompt) => ({
                 ...el,
                 default: presetAnswers?.[el.name] ?? el.default,
             })),
+            {
+                type: "select",
+                name: "npmClient",
+                message: "Choose a package manager:",
+                choices: packageManagerChoices,
+                default:
+                    packageManagerChoices.length === 1
+                        ? packageManagerChoices[0].value
+                        : undefined,
+                skip: () => packageManagerChoices.length === 1,
+            },
         ];
     },
     data(sao) {
         /**
          * Package Manager
          */
-        const {
-            extras: { npmClient },
-        } = sao.opts;
+        const { npmClient } = sao.answers;
 
         let pmRun = "npm run";
         if (npmClient === "yarn") {
