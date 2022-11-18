@@ -6,13 +6,14 @@ export const prompt_telemetry = async (): Promise<{
     const result = await prompt({
         type: "select",
         name: "telemetry",
-        message: "Would you like to share your choices with us anonymously?",
+        message:
+            "Would you mind sending us your choices so that we can improve superplate?",
         choices: [
             {
-                message: "I want to share anonymously! Thank you! ❤️",
+                message: "Share my choices anonymously ❤️",
                 name: "yes",
             },
-            { message: "No", name: "no" },
+            { message: "Don't share any information", name: "no" },
         ],
     });
 
