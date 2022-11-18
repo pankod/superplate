@@ -137,7 +137,6 @@ export const prompt_project_types = async (
                 })),
         });
 
-        console.log({ response });
         projectType = (response as { projectType: string }).projectType;
     }
 

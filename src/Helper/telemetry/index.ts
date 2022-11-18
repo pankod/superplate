@@ -1,20 +1,20 @@
-import prompts from "prompts";
+import { prompt } from "enquirer";
 
 export const prompt_telemetry = async (): Promise<{
     telemetry: "yes" | "no";
 }> => {
-    const result = await prompts({
+    const result = await prompt({
         type: "select",
         name: "telemetry",
         message: "Would you like to share your choices with us anonymously?",
         choices: [
             {
-                title: "I want to share anonymously! Thank you! ❤️",
-                value: "yes",
+                message: "I want to share anonymously! Thank you! ❤️",
+                name: "yes",
             },
-            { title: "No", value: "no" },
+            { message: "No", name: "no" },
         ],
     });
 
-    return result;
+    return result as { telemetry: "yes" | "no" };
 };
