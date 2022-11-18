@@ -1,19 +1,19 @@
 import { BinaryHelper } from "@Helper/binary";
 
 export const get_potential_package_managers = (): Array<{
-    title: string;
-    value: string;
+    message: string;
+    name: string;
 }> => {
-    const pmQuestionChoises = [{ title: "Npm", value: "npm" }];
+    const pmQuestionChoises = [{ message: "Npm", name: "npm" }];
     const canUseYarn = BinaryHelper.CanUseYarn();
     const canUsePnpm = BinaryHelper.CanUsePnpm();
     if (canUseYarn) {
-        pmQuestionChoises.push({ title: "Yarn", value: "yarn" });
+        pmQuestionChoises.push({ message: "Yarn", name: "yarn" });
     }
 
     if (canUsePnpm) {
         pmQuestionChoises.push({
-            title: "pnpm"
+            message: "pnpm"
                 .split("")
                 .map((v) =>
                     Math.round(Math.random())
@@ -21,7 +21,7 @@ export const get_potential_package_managers = (): Array<{
                         : v.toLowerCase(),
                 )
                 .join(""),
-            value: "pnpm",
+            name: "pnpm",
         });
     }
 

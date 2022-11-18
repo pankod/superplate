@@ -58,7 +58,7 @@ const saoConfig: GeneratorConfig = {
                 choices: packageManagerChoices,
                 default:
                     packageManagerChoices.length === 1
-                        ? packageManagerChoices[0].value
+                        ? packageManagerChoices[0].name
                         : undefined,
                 skip: () => packageManagerChoices.length === 1,
             },
@@ -299,7 +299,8 @@ const saoConfig: GeneratorConfig = {
         tips.preInstall();
     },
     async completed(saoInstance) {
-        const { debug, npmClient } = saoInstance.opts.extras;
+        const { debug } = saoInstance.opts.extras;
+        const { npmClient } = saoInstance.answers;
         /**
          * Git init and install packages
          */
@@ -343,7 +344,7 @@ const saoConfig: GeneratorConfig = {
         tips.postInstall({
             name: saoInstance.opts.appName ?? "",
             dir: saoInstance.outDir,
-            pm: saoInstance.opts.extras.npmClient,
+            pm: npmClient,
         });
     },
 };

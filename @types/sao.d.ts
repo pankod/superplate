@@ -309,7 +309,6 @@ interface IExtras {
     debug: boolean;
     paths: IPaths;
     projectType: string;
-    npmClient: NPM_CLIENT;
     presetAnswers?: Record<string, string | undefined>;
 }
 interface Options$1 {
