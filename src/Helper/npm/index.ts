@@ -4,11 +4,21 @@ export const get_potential_package_managers = (): Array<{
     message: string;
     name: string;
 }> => {
-    const pmQuestionChoises = [{ message: "Npm", name: "npm" }];
+    const pmQuestionChoises = [
+        {
+            message: "Npm",
+            name: "npm",
+            hint: "Dependencies will be installed via npm ",
+        },
+    ];
     const canUseYarn = BinaryHelper.CanUseYarn();
     const canUsePnpm = BinaryHelper.CanUsePnpm();
     if (canUseYarn) {
-        pmQuestionChoises.push({ message: "Yarn", name: "yarn" });
+        pmQuestionChoises.push({
+            message: "Yarn",
+            name: "yarn",
+            hint: "Dependencies will be installed via yarn",
+        });
     }
 
     if (canUsePnpm) {
@@ -22,6 +32,7 @@ export const get_potential_package_managers = (): Array<{
                 )
                 .join(""),
             name: "pnpm",
+            hint: "Dependencies will be installed via pnpm",
         });
     }
 
