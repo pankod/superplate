@@ -4,7 +4,7 @@
 </a>
 </div>
 <br/>
-<div align="center">A well-structured production-ready frontend boilerplate with Typescript, Jest, testing-library, styled-component, Sass, Css, .env, Fetch, Axios, Reverse Proxy, Bundle Analyzer and 30+ plugins. For now, it only creates projects for React and Next.js.</div>
+<div align="center">A well-structured production-ready frontend boilerplate with Typescript, React Testing Library, styled-component, react-query, .env, Axios, Bundle Analyzer, Prettier and <b>30+ plugins</b>. <div><b>superplate</b> creates ready-to-develop projects for React and Next.js and refine.</div></div>
 <br/>
 
 <div align="center">
@@ -18,7 +18,7 @@
 [![dependencies Status](https://david-dm.org/pankod/superplate/status.svg)](https://david-dm.org/pankod/superplate)
 [![dev-dependencies Status](https://david-dm.org/pankod/superplate/dev-status.svg)](https://david-dm.org/pankod/superplate?type=dev)
 
-[![npm](https://img.shields.io/npm/dm/superplate-cli)](https://www.npmjs.com/package/superplate-cli)
+[![npm](https://img.shields.io/npm/dy/superplate-cli)](https://www.npmjs.com/package/superplate-cli)
 
 </div>
 
@@ -27,22 +27,87 @@
   <sub>Created by <a href="https://www.pankod.com">Pankod</a></sub>
 </div>
 
-## About
+<br/>
 
-Superplate lets you start rock-solid, production-ready _React_ and _Next.JS_ projects just in seconds. The command-line interface guides the user through setup and no additional build configurations are required.
+# About 
 
-Superplate ships with more than 30 plugins including popular UIKits, testing frameworks and many useful developer tools.
+**superplate** lets you start rock-solid, production-ready _React_, _Next.JS_ and _refine_ projects just in seconds. The command-line interface guides the user through setup and no additional build configurations are required.
 
-## Available Integrations
+Superplate ships with +30 plugins including popular UI Kits, testing frameworks and many useful developer tools.
 
+# Available Integrations
+
+## Next.js 
+
+
+<div align="center"> 
 <a href="https://pankod.github.io/superplate/docs/">
-  <img src="images/available.png"  align="center" />
+  <img src="images/next-logo.png"  width="75" align="center" />
+</a>
+</div>
+<br>
+
+**superplate**  makes it easier to get up and running with a well-structured Next.js and TypeScript application.
+
+Next.js is a minimalistic React framework that runs on the browser and the server with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more.
+
+To get started quickly, please run the following command. The CLI wizard will assist you for the rest of the setup process:
+
+```
+npx superplate-cli -p nextjs my-project
+```
+
+## React.js 
+
+<div align="center"> 
+<a href="https://pankod.github.io/superplate/docs/">
+  <img src="images/react-logo.png"  width="75" align="center" />
+</a>
+</div>
+
+<br>
+
+**superplate**  makes it easier to get up and running with a well-structured Create React App and TypeScript application.
+
+To get started quickly, please run the following command. The CLI wizard will assist you for the rest of the setup process:
+
+```
+npx superplate-cli -p react my-project
+```
+
+## refine ⚡
+[refine](https://github.com/pankod/refine) is an open source React framework for building **CRUD** apps rapidly.
+
+**superplate** provides built-in templates for CRA, Next.js and Remix environments so you can bootstrap a **refine** project in a couple of minutes. 
+
+[Refer to refine repository for more information ➡️ ](https://github.com/pankod/refine)
+
+<br/>
+<a href="https://github.com/pankod/refine">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/18739364/200257042-3f2aa7f7-a07f-4824-8d2a-b25f26b6fd32.png">
+  <img alt="how-works-refine" src="https://user-images.githubusercontent.com/18739364/200257209-8fc0c8b1-2568-453e-873f-00513434deed.png">
+</picture>
 </a>
 
-<br />
-<br />
+<br>
+
+
+To get started quickly, please run the following command. The CLI wizard will assist you for the rest of the setup process:
+
+```
+npx superplate-cli -p refine my-project
+```
+
+
+
+<br>
+
+
 
 ## Coming Soon
+
+We are planning to add the following frameworks integrations soon.  
 
 <a href="https://pankod.github.io/superplate/docs/">
   <img src="images/integrations.png"  align="center" />
@@ -85,21 +150,7 @@ npm run dev
 -   Fully extensible due its plugin based architechture.
 -   Code examples are added to plugin documents to show how best practices are implemented.
 
-## refine Integration
 
-[refine](https://github.com/pankod/refine) is a React framework for building internal tools rapidly.
-
-[refine](https://github.com/pankod/refine) offers lots of out-of-the box functionality for rapid development, without compromising extreme customizability. Use-cases include, but are not limited to admin panels, B2B applications and dashboards.
-
-## Next.js Integration
-
-superplate makes it easier to get up and running with a well-structured Next.js and TypeScript application.
-
-Next.js is a minimalistic React framework that runs on the browser and the server with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. It offers developers an easy way to get started, build server-side rendering and static web applications using React.
-
-## React Integration
-
-superplate makes it easier to get up and running with a well-structured Create React App and TypeScript application.
 
 ## Plugins
 
