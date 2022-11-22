@@ -4,7 +4,7 @@
 </a>
 </div>
 <br/>
-<div align="center">A well-structured production-ready frontend boilerplate with Typescript, React Testing Library, styled-component, react-query, .env, Axios, Bundle Analyzer, Prettier and <b>30+ plugins</b>. <div><b>superplate</b> creates ready-to-develop projects for React and Next.js and refine.</div></div>
+<div align="center">A well-structured production-ready frontend boilerplate with Typescript, React Testing Library, styled-component, React Query, .env, Axios, Bundle Analyzer, Prettier and <b>30+ plugins</b>. <div><b>superplate</b> creates ready-to-develop projects for React and Next.js and refine.</div></div>
 <br/>
 
 <div align="center">
@@ -15,8 +15,7 @@
 [![Meercode CI Success Rate](https://meercode.io/badge/pankod/superplate?type=ci-success-rate&branch=master&token=2ZiT8YsoJgt57JB23NYwXrFY3rJHZboT&lastDay=31)](https://meercode.io/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/eb4b5a8f88b6e511e61d/maintainability)](https://codeclimate.com/github/pankod/superplate/maintainability)
 [![npm version](https://img.shields.io/npm/v/superplate-cli.svg)](https://www.npmjs.com/package/superplate-cli)
-[![dependencies Status](https://david-dm.org/pankod/superplate/status.svg)](https://david-dm.org/pankod/superplate)
-[![dev-dependencies Status](https://david-dm.org/pankod/superplate/dev-status.svg)](https://david-dm.org/pankod/superplate?type=dev)
+
 
 [![npm](https://img.shields.io/npm/dy/superplate-cli)](https://www.npmjs.com/package/superplate-cli)
 
@@ -49,7 +48,7 @@ Superplate ships with +30 plugins including popular UI Kits, testing frameworks 
 
 **superplate**  makes it easier to get up and running with a well-structured Next.js and TypeScript application.
 
-Next.js is a minimalistic React framework that runs on the browser and the server with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more.
+
 
 To get started quickly, please run the following command. The CLI wizard will assist you for the rest of the setup process:
 
@@ -90,7 +89,8 @@ npx superplate-cli -p react my-project
 </picture>
 </a>
 
-<br>
+<br/>
+<br/>
 
 
 To get started quickly, please run the following command. The CLI wizard will assist you for the rest of the setup process:
@@ -99,10 +99,7 @@ To get started quickly, please run the following command. The CLI wizard will as
 npx superplate-cli -p refine my-project
 ```
 
-
-
 <br>
-
 
 
 ## Coming Soon
@@ -124,7 +121,7 @@ For more detailed information and usage, you may refer to our [documentation pag
 
 To use superplate, make sure you have _npx_ is installed on your system (npx is shipped by default since npm 5.2.0).
 
-To create a new app, run the following command:
+To create a new app without using presets, run the following command:
 
 ```bash
 npx superplate-cli <my-project>
