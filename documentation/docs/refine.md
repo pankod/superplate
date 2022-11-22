@@ -15,6 +15,8 @@ It eliminates the repetitive tasks demanded by **CRUD** operations and provides 
 **refine** is *headless by design* offering unlimited styling and customization options. 
 
 
+[Refer to refine repository for more information ➡️ ](https://github.com/pankod/refine)
+
 
 ## What do you mean by "headless" ?
 Instead of being a limited set of pre-styled components, **refine** is a collection of helper `hooks`, `components` and `providers`. They are all decoupled from your *UI components* and *business logic*, so they never keep you from customizing your *UI* or coding your own flow.
@@ -25,7 +27,7 @@ Instead of being a limited set of pre-styled components, **refine** is a collect
 **refine** shines on *data-intensive* applications like *admin panels*, *dashboards* and *internal tools*. Thanks to built-in **SSR support**, **refine** can also power *customer-facing* applications like *storefronts*.
 
 <br/>
-<a href="https://github.com/pankod/refine">
+<a href="https://github.com/refinedev/refine">
   <img alt="how-works-refine" src="https://user-images.githubusercontent.com/18739364/200257209-8fc0c8b1-2568-453e-873f-00513434deed.png" />
 
 </a>
@@ -58,23 +60,4 @@ Instead of being a limited set of pre-styled components, **refine** is a collect
 
 ✅ Full **test coverage**
 
-
-## Community
-
-**refine** has a very friendly community and we are always happy to help you get started:
-
--   [Join the Discord Community](https://discord.gg/refine) – it is the easiest way to get help, all questions are usually answered in about 30 minutes.
--   [GitHub Discussions](https://github.com/refinedev/refine/discussions) – ask anything about the project or give feedback.
--   [Contributing](/docs/contributing/) – learn how to contribute refine project.
--   [Guest Technical Writer Program](https://refine.dev/blog/refine-writer-program/) – join the program and become a blog writer for refine.
-
-## Roadmap
-
-You can find Refine's [Public Roadmap here!](https://github.com/refinedev/refine/projects/1)
-
-## Next Steps
-
-👉 Continue with [Quickstart guide](/docs/getting-started/quickstart/) to setup and run your first **refine** project.
-
-👉 Or jump directly to [Refine - Ant Design Tutorial](/docs/tutorials/ant-design-tutorial/) to learn refine by building a full-blown CRUD application.
 
