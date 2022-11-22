@@ -1,7 +1,7 @@
 <div align="center">
-<a href="https://pankod.github.io/superplate/">
-  <img src="images/banner.png"  align="center" />
-</a>
+<p align='center'>
+<img src='images/cli.gif' width='500' alt='superplate example'>
+</p>
 </div>
 <br/>
 <div align="center">A well-structured production-ready frontend boilerplate with Typescript, React Testing Library, styled-component, React Query, .env, Axios, Bundle Analyzer, Prettier and <b>30+ plugins</b>. <div><b>superplate</b> creates ready-to-develop projects for React and Next.js and refine.</div></div>
@@ -34,29 +34,6 @@
 
 Superplate ships with +30 plugins including popular UI Kits, testing frameworks and many useful developer tools.
 
-### Quick Start
-
-To use superplate, make sure you have _npx_ is installed on your system (npx is shipped by default since npm 5.2.0).
-
-To create a new app without using presets, run the following command:
-
-```bash
-npx superplate-cli <my-project>
-```
-
-You will be prompted with plugin options to create your project. A full list of avaiable plugins is here: [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
-
-<p align='center'>
-<img src='images/cli.gif' width='500' alt='superplate example'>
-</p>
-
-Once all questions are answered, superplate will install all plugins and dependencies. Then navigate to the project folder and launch it:
-
-```bash
-npm run dev
-```
-
-> Use the dev command when running application in development mode.
 
 
 ## Available Integrations
@@ -126,7 +103,6 @@ npx superplate-cli -p refine my-project
 
 <br>
 
-
 ## Coming Soon
 
 We are planning to add the following frameworks integrations soon.  
@@ -137,6 +113,28 @@ We are planning to add the following frameworks integrations soon.
 
 <br />
 <br />
+
+## Quick Start
+
+To use superplate, make sure you have _npx_ is installed on your system (npx is shipped by default since npm 5.2.0).
+
+To create a new app without using presets, run the following command:
+
+```bash
+npx superplate-cli <my-project>
+```
+
+You will be prompted with plugin options to create your project. A full list of avaiable plugins is here: [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
+
+
+Once all questions are answered, superplate will install all plugins and dependencies. Then navigate to the project folder and launch it:
+
+```bash
+npm run dev
+```
+
+> Use the dev command when running application in development mode.
+
 
 ## Documentation
 
