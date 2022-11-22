@@ -5,9 +5,9 @@ export const features = [
         url: "https://tailwindcss.com/"
     },
     {
-        title: 'Bootstrap',
-        imageUrl: 'img/bootstrap.svg',
-        url: "https://getbootstrap.com/"
+        title: 'Material UI',
+        imageUrl: 'img/mui.png',
+        url: "https://mui.com/material-ui/getting-started/overview/"
     },
     {
         title: 'Chakra UI',
@@ -70,29 +70,24 @@ export const features = [
         url: "https://react-query.tanstack.com/"
     },
     {
-        title: 'Redux',
+        title: 'Redux Toolkit',
         imageUrl: 'img/redux.svg',
-        url: "https://redux.js.org/"
+        url: "https://redux-toolkit.js.org/"
+    },
+    {
+        title: 'Recoil',
+        imageUrl: 'img/recoil.png',
+        url: "https://recoiljs.org/"
+    },
+    {
+        title: 'Zustand',
+        imageUrl: 'img/zustand.png',
+        url: "https://github.com/pmndrs/zustand"
     },
     {
         title: 'React Bootstrap',
         imageUrl: 'img/react-bootstrap.svg',
         url: "https://react-bootstrap.github.io/"
-    },
-    {
-        title: 'MobX',
-        imageUrl: 'img/mobx.svg',
-        url: "https://mobx.js.org/README.html"
-    },
-    {
-        title: 'Mobx State Tree',
-        imageUrl: 'img/mobx-state-tree.svg',
-        url: "https://mobx-state-tree.js.org/intro/welcome"
-    },
-    {
-        title: 'next-translate',
-        imageUrl: 'img/next-translate.svg',
-        url: "https://github.com/vinissimus/next-translate"
     },
     {
         title: 'next-i18next',
@@ -108,11 +103,6 @@ export const features = [
         title: 'ESLint',
         imageUrl: 'img/eslint.svg',
         url: "https://eslint.org/"
-    },
-    {
-        title: 'Enzyme',
-        imageUrl: 'img/enzyme.png',
-        url: "https://enzymejs.github.io/enzyme/"
     },
     {
         title: 'React Testing Library',
@@ -161,10 +151,7 @@ export const features = [
         title: 'Environment Variables',
         url: "https://travis-ci.org/"
     },
-    {
-        title: 'Reverse Proxy',
-        url: "https://travis-ci.org/"
-    },
+
     {
         title: 'Bundle Analyzer',
         url: "https://travis-ci.org/"
@@ -172,14 +159,6 @@ export const features = [
     {
         title: 'react-use',
         url: "https://travis-ci.org/"
-    },
-    {
-        title: 'Redux Toolkit',
-        url: "https://redux-toolkit.js.org/"
-    },
-    {
-        title: 'Recoil',
-        url: "https://recoiljs.org/"
     },
     {
         title: 'lint-staged',
