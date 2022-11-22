@@ -43,16 +43,6 @@ npx superplate-cli my-project
 
 You will be prompted with plugin options to create your project. A full list of avaiable plugins is here: [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
 
-
-Once all questions are answered, superplate will install all plugins and dependencies. Then navigate to the project folder and launch it:
-
-```bash
-npm run dev
-```
-
-> Use the dev command when running application in development mode.
-
-
 ## Available Integrations
 
 ### Next.js 
