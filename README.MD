@@ -34,6 +34,31 @@
 
 Superplate ships with +30 plugins including popular UI Kits, testing frameworks and many useful developer tools.
 
+### Quick Start
+
+To use superplate, make sure you have _npx_ is installed on your system (npx is shipped by default since npm 5.2.0).
+
+To create a new app without using presets, run the following command:
+
+```bash
+npx superplate-cli <my-project>
+```
+
+You will be prompted with plugin options to create your project. A full list of avaiable plugins is here: [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
+
+<p align='center'>
+<img src='images/cli.gif' width='500' alt='superplate example'>
+</p>
+
+Once all questions are answered, superplate will install all plugins and dependencies. Then navigate to the project folder and launch it:
+
+```bash
+npm run dev
+```
+
+> Use the dev command when running application in development mode.
+
+
 ## Available Integrations
 
 ### Next.js 
@@ -117,29 +142,6 @@ We are planning to add the following frameworks integrations soon.
 
 For more detailed information and usage, you may refer to our [documentation pages](https://pankod.github.io/superplate/).
 
-## Quick Start
-
-To use superplate, make sure you have _npx_ is installed on your system (npx is shipped by default since npm 5.2.0).
-
-To create a new app without using presets, run the following command:
-
-```bash
-npx superplate-cli <my-project>
-```
-
-You will be prompted with plugin options to create your project. A full list of avaiable plugins is here: [superplate-core-plugins](https://github.com/pankod/superplate-core-plugins).
-
-<p align='center'>
-<img src='images/cli.gif' width='500' alt='superplate example'>
-</p>
-
-Once all questions are answered, superplate will install all plugins and dependencies. Then navigate to the project folder and launch it:
-
-```bash
-npm run dev
-```
-
-> Use the dev command when running application in development mode.
 
 ## Philosophy
 
