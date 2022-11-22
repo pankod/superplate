@@ -15,13 +15,10 @@
 [![Meercode CI Success Rate](https://meercode.io/badge/pankod/superplate?type=ci-success-rate&branch=master&token=2ZiT8YsoJgt57JB23NYwXrFY3rJHZboT&lastDay=31)](https://meercode.io/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/eb4b5a8f88b6e511e61d/maintainability)](https://codeclimate.com/github/pankod/superplate/maintainability)
 [![npm version](https://img.shields.io/npm/v/superplate-cli.svg)](https://www.npmjs.com/package/superplate-cli)
-
-
 [![npm](https://img.shields.io/npm/dy/superplate-cli)](https://www.npmjs.com/package/superplate-cli)
 
 </div>
 
-<br/>
 <div align="center">
   <sub>Created by <a href="https://www.pankod.com">Pankod</a></sub>
 </div>
