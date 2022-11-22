@@ -12,8 +12,6 @@ import styles from './styles.module.css';
 function Badges() {
   return (
     <div className={styles.topBadges}>
-      <a href="https://www.producthunt.com/posts/superplate?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-superplate" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=293252&theme=light" alt="Superplate - The frontend boilerplate with superpowers | Product Hunt" style={{ width: 250, height: 54 }} width="250" height="54" /></a>
-      <br />
       <a href="https://meercode.io">
         <img src="https://meercode.io/badge/pankod/superplate?type=ci-score&branch=master&token=2ZiT8YsoJgt57JB23NYwXrFY3rJHZboT&lastDay=31" alt="Meercode CI Score" />
       </a>
@@ -26,14 +24,8 @@ function Badges() {
       <a href="https://www.npmjs.com/package/superplate-cli">
         <img src="https://img.shields.io/npm/v/superplate-cli.svg" alt="npm version" />
       </a>
-      <a href="https://david-dm.org/pankod/superplate">
-        <img src="https://david-dm.org/pankod/superplate/status.svg" alt="Dependencies Status" />
-      </a>
-      <a href="https://david-dm.org/pankod/superplate?type=dev">
-        <img src="https://david-dm.org/pankod/superplate/dev-status.svg" alt="devDependencies Status" />
-      </a>
       <a href="https://www.npmjs.com/package/superplate-cli">
-        <img src="https://img.shields.io/npm/dm/superplate-cli" alt="npm" />
+        <img src="https://img.shields.io/npm/dy/superplate-cli" alt="npm" />
       </a>
     </div>
   )
