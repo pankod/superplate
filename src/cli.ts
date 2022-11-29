@@ -14,6 +14,7 @@ import {
     get_presets,
     get_prompts_and_choices,
     get_random_answers,
+    getRandomName,
 } from "@Helper";
 
 const generator = path.resolve(__dirname, "./");
@@ -92,21 +93,10 @@ const cli = async (): Promise<void> => {
     /**
      * Check for project-directory defined
      */
-    const [projectDir] = program.args;
-
-    if (projectDir === undefined) {
-        console.error("Please specify the project directory:");
-        console.log(
-            `  ${chalk.cyan(program.name())} ${chalk.green(
-                "<project-directory>",
-            )}`,
-        );
-        console.log();
-        console.log(
-            `Run ${chalk.cyan(`${program.name()} --help`)} to see all options.`,
-        );
-        process.exit(1);
-    }
+    const [projectDir] =
+        program.args.length === 0
+            ? [getRandomName().replace(/\s/g, "-").toLowerCase()]
+            : program.args;
 
     /**
      * get source path
