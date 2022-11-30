@@ -93,10 +93,10 @@ const cli = async (): Promise<void> => {
     /**
      * Check for project-directory defined
      */
-    const [projectDir] =
-        program.args.length === 0
-            ? [getRandomName().replace(/\s/g, "-").toLowerCase()]
-            : program.args;
+    const [projectDir] = program.args;
+
+    const finalProjectDir =
+        projectDir ?? getRandomName().replace(/\s/g, "-").toLowerCase();
 
     /**
      * get source path
@@ -172,9 +172,9 @@ const cli = async (): Promise<void> => {
 
     const sao = new SAO({
         generator,
-        outDir: projectDir,
+        outDir: finalProjectDir,
         logLevel: program.debug ? 4 : 1,
-        appName: projectDir,
+        appName: finalProjectDir,
         answers: withAnswers,
         extras: {
             debug: !!program.debug,
