@@ -96,7 +96,7 @@ const cli = async (): Promise<void> => {
     const [projectDir] = program.args;
 
     const finalProjectDir =
-        projectDir ?? getRandomName().replace(/\s/g, "-").toLowerCase();
+        projectDir || getRandomName().replace(/\s/g, "-").toLowerCase();
 
     /**
      * get source path
