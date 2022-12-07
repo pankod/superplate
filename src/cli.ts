@@ -108,7 +108,6 @@ const cli = async (): Promise<void> => {
     const finalProjectDir =
         projectDir || getRandomName().replace(/\s/g, "-").toLowerCase();
 
-    console.log("program.download", program.download);
     /**
      * get source path
      */
