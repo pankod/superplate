@@ -43,6 +43,11 @@ const cli = async (): Promise<void> => {
             "-l, --lucky",
             "use this option to generate a project with random answers",
         )
+        .option(
+            "-d, --download <download>",
+            "specify a download type (zip | git) of source",
+            "git",
+        )
         .option("-p, --project <project-name>", "specify a project type to use")
         .option("-d, --debug", "print additional logs and skip install script")
         .on("--help", () => {
@@ -82,6 +87,11 @@ const cli = async (): Promise<void> => {
                 )}`,
             );
             console.log(
+                `  - if you want to use zip instead of git clone: ${chalk.green(
+                    "--download zip or -d zip",
+                )}`,
+            );
+            console.log(
                 `  - a local path relative to the current working directory: ${chalk.green(
                     "../my-source",
                 )}`,
@@ -101,7 +111,11 @@ const cli = async (): Promise<void> => {
     /**
      * get source path
      */
-    const source = await get_source(program.source, program.branch);
+    const source = await get_source(
+        program.source,
+        program.branch,
+        program.download,
+    );
 
     let { path: sourcePath } = source;
     const { error: sourceError } = source;
