@@ -2,11 +2,7 @@ import { promisify } from "util";
 import { exec } from "child_process";
 import { mkdir } from "temp";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import ghdownload from "github-download";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import gitHubURLParser from "parse-github-url";
 
 export const DownloadHelper = {
