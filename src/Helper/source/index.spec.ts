@@ -4,6 +4,10 @@ jest.mock("util", () => ({
     promisify: jest.fn(() => {
         throw new Error();
     }),
+    inherits: () => ({
+        custom: {},
+    }),
+    inspect: () => ({}),
 }));
 describe("Source Helper", () => {
     it("incorrect source url/path", async () => {
