@@ -8,15 +8,16 @@ import ora from "ora";
 import chalk from "chalk";
 import { prompt } from "enquirer";
 
-import { GitHelper, FSHelper, HumanizeChoices } from "@Helper";
+import { GitHelper, FSHelper, HumanizeChoices, DownloadHelper } from "@Helper";
 
 type SourceResponse = { path?: string; error?: string };
 type GetSourceFn = (
     source: string | undefined,
     branch?: string,
+    downloadType?: "zip" | "git",
 ) => Promise<SourceResponse>;
 
-export const get_source: GetSourceFn = async (source, branch) => {
+export const get_source: GetSourceFn = async (source, branch, downloadType) => {
     /**
      * Replace path if default
      */
@@ -37,6 +38,25 @@ export const get_source: GetSourceFn = async (source, branch) => {
          */
         sourceSpinner.succeed("Found local source.");
         return { path: sourcePath };
+    } else if (downloadType === "zip") {
+        sourceSpinner.text = "Checking remote source...";
+        sourceSpinner.text = "Remote source found. Downloading...";
+
+        try {
+            const cloneResponse = await DownloadHelper.DownloadAndGetPath(
+                sourcePath,
+            );
+            if (cloneResponse) {
+                sourceSpinner.succeed("Downloaded remote source successfully.");
+                return { path: cloneResponse };
+            }
+            sourceSpinner.fail("Could not retrieve source repository.");
+            return { error: "Could not retrieve source repository." };
+        } catch (e) {
+            `${e}`;
+            sourceSpinner.fail("Could not retrieve source repository.");
+            return { error: "Could not retrieve source repository." };
+        }
     } else {
         /**
          * Check repo exists

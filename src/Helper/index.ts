@@ -33,3 +33,4 @@ export { prompt_telemetry } from "./telemetry";
 export { get_potential_package_managers } from "./npm";
 export { HumanizeChoices } from "./humanize";
 export { getRandomName } from "./getRandomName";
+export { DownloadHelper } from "./download";
