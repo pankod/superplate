@@ -1,6 +1,6 @@
 import { promisify } from "util";
 import { exec } from "child_process";
-import { mkdir } from "temp";
+import { mkdirSync } from "temp";
 
 import ghdownload from "github-download";
 import gitHubURLParser from "parse-github-url";
@@ -8,7 +8,10 @@ import gitHubURLParser from "parse-github-url";
 export const DownloadHelper = {
     DownloadAndGetPath: async (path: string): Promise<string> => {
         try {
-            const tempInfo = await promisify(mkdir)("");
+            const tempInfo = mkdirSync({
+                dir: process.cwd(),
+                prefix: ".",
+            });
 
             await new Promise((resolve, reject) => {
                 const { owner, name, branch } = gitHubURLParser(path);

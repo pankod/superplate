@@ -2,7 +2,7 @@ import chalk from "chalk";
 import clear from "clear";
 import path from "path";
 import commander from "commander";
-import { cleanupSync } from "temp";
+import { cleanupSync, track } from "temp";
 import { Options, SAO } from "sao";
 
 import packageData from "../package.json";
@@ -19,6 +19,9 @@ import {
 
 const generator = path.resolve(__dirname, "./");
 
+// for cleanup temp files
+track();
+//
 const cli = async (): Promise<void> => {
     clear();
     const program = commander
