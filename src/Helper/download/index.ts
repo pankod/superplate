@@ -1,35 +1,36 @@
 import { mkdirSync } from "temp";
-
-import ghdownload from "github-download";
+import got from "got";
+import tar from "tar";
+import { createWriteStream } from "fs";
+import { Stream } from "stream";
 import gitHubURLParser from "parse-github-url";
+
+import { promisify } from "util";
+import { join } from "path";
+
+const pipeline = promisify(Stream.pipeline);
+const TEMP_PREFIX = "superplate-core-plugins.temp";
 
 export const DownloadHelper = {
     DownloadAndGetPath: async (path: string): Promise<string> => {
         try {
-            const tempInfo = mkdirSync({
+            const tempFolder = mkdirSync({
                 dir: process.cwd(),
                 prefix: ".",
             });
+            const tempFile = join(tempFolder, `${TEMP_PREFIX}-${Date.now()}`);
 
-            await new Promise((resolve, reject) => {
-                const { owner, name, branch } = gitHubURLParser(path);
-                ghdownload(
-                    {
-                        user: owner,
-                        repo: name,
-                        ref: branch,
-                    },
-                    tempInfo,
-                )
-                    .on("end", () => {
-                        resolve({ path: tempInfo });
-                    })
-                    .on("error", (err: unknown) => {
-                        reject(err);
-                    });
+            const { owner, name, branch } = gitHubURLParser(path);
+            const url = `https://codeload.github.com/${owner}/${name}/tar.gz/${branch}`;
+            await pipeline(got.stream(url), createWriteStream(tempFile));
+
+            await tar.x({
+                file: tempFile,
+                cwd: tempFolder,
+                strip: 1,
             });
 
-            return tempInfo;
+            return tempFolder;
         } catch (e) {
             throw new Error(e instanceof Error ? e.message : (e as string));
         }

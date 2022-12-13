@@ -1,4 +1,4 @@
-import { BinaryHelper } from "@Helper/binary";
+import { BinaryHelper } from "@Helper";
 
 export const get_potential_package_managers = (): Array<{
     message: string;
