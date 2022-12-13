@@ -1,2 +1,2 @@
-declare module "github-download";
+declare module "tar";
 declare module "parse-github-url";

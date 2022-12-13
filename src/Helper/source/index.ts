@@ -57,7 +57,7 @@ export const get_source: GetSourceFn = async (source, branch, downloadType) => {
             sourceSpinner.fail("Could not retrieve source repository.");
 
             sourceSpinner.text = "Try to use git instead of zip...";
-            return get_source(source, branch, "git");
+            return { error: "Could not retrieve source repository." };
         }
     } else {
         /**
