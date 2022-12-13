@@ -1,9 +1,7 @@
 import { promisify } from "util";
 import { get_source } from "./";
 jest.mock("util", () => ({
-    promisify: jest.fn(() => {
-        throw new Error();
-    }),
+    promisify: jest.fn(),
     inherits: () => ({
         custom: {},
     }),
