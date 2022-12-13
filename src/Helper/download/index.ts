@@ -1,5 +1,3 @@
-import { promisify } from "util";
-import { exec } from "child_process";
 import { mkdirSync } from "temp";
 
 import ghdownload from "github-download";
@@ -22,12 +20,15 @@ export const DownloadHelper = {
                         ref: branch,
                     },
                     tempInfo,
-                ).on("end", function () {
-                    exec("tree", function (err, stdout, sderr) {
+                )
+                    .on("end", () => {
                         resolve({ path: tempInfo });
+                    })
+                    .on("error", (err: unknown) => {
+                        reject(err);
                     });
-                });
             });
+
             return tempInfo;
         } catch (e) {
             throw new Error(e instanceof Error ? e.message : (e as string));
