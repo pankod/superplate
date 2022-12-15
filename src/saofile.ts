@@ -46,6 +46,15 @@ const saoConfig: GeneratorConfig = {
                 name: "name",
                 message: "What would you like to name your project?:",
                 default: appName,
+                validate: (name: string) => {
+                    const appNameValidation = validate(name);
+
+                    if (appNameValidation.errors) {
+                        return false;
+                    }
+
+                    return true;
+                },
             },
             ...(sourcePrompts?.prompts ?? []).map((el: ProjectPrompt) => ({
                 ...el,
@@ -139,6 +148,9 @@ const saoConfig: GeneratorConfig = {
             appNameValidation.errors.forEach((warn) => this.logger.error(warn));
             process.exit(1);
         }
+
+        sao.opts.outDir = sao.answers.name;
+        sao.opts.appName = sao.answers.name;
 
         const { sourcePath } = sao.opts.extras.paths;
 
