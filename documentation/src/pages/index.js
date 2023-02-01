@@ -56,7 +56,7 @@ function Sections() {
               <h2>All plugins follow the best practices</h2>
               <p>
                 superplate gives you many abilities to create your own plugin and interact with the others.
-                You can add <strong>usefull, highly-demands front-end development tools and libraries</strong> as a plugin by using superplate CLI during the project creation phase.
+                You can add <strong>useful, highly-demands front-end development tools and libraries</strong> as a plugin by using superplate CLI during the project creation phase.
                 <br />
                 <br />
                 To create a project called <i>my-app</i>, run this command:
