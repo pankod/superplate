@@ -511,9 +511,7 @@ declare class SAO {
     /**
      * Run `npm install` in output directory
      */
-    npmInstall(
-        opts?: Omit<InstallOptions, "cwd" | "registry">,
-    ): Promise<{
+    npmInstall(opts?: Omit<InstallOptions, "cwd" | "registry">): Promise<{
         code: number;
     }>;
     /**

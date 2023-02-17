@@ -26,7 +26,7 @@
         "global": "npm i -g --quiet",
         "test": "jest",
         "lint": "eslint .",
-        "format": "prettier src --write"
+        "lint:fix": "eslint . --fix"
     },
     "dependencies": {
         "analytics-node": "^6.0.0",
