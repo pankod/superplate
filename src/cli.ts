@@ -187,7 +187,7 @@ const cli = async (): Promise<void> => {
 
     const sao = new SAO({
         generator,
-        outDir: finalProjectDir,
+        outDir: process.cwd(),
         logLevel: program.debug ? 4 : 1,
         appName: finalProjectDir,
         answers: withAnswers,

@@ -168,13 +168,9 @@ const saoConfig: GeneratorConfig = {
             process.exit(1);
         }
 
-        if (!sao.opts.outDir) {
-            sao.opts.outDir = appName;
-        }
+        sao.opts.outDir = sao.opts.outDir + "/" + appName;
 
-        if (!sao.opts.appName) {
-            sao.opts.appName = appName;
-        }
+        sao.opts.appName = appName;
 
         const { sourcePath } = sao.opts.extras.paths;
 
