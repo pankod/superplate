@@ -24,6 +24,7 @@ import {
 } from "@Helper";
 
 import { ProjectPrompt } from "@Helper/lucky";
+import { formatFiles } from "@Helper/prettier";
 
 const saoConfig: GeneratorConfig = {
     prompts(sao) {
@@ -342,6 +343,11 @@ const saoConfig: GeneratorConfig = {
     async completed(saoInstance) {
         const { debug, apiMode } = saoInstance.opts.extras;
 
+        /**
+         * Format generated project
+         */
+        formatFiles(saoInstance.outDir);
+
         if (apiMode) return;
 
         const { npmClient } = saoInstance.answers;
@@ -355,11 +361,6 @@ const saoConfig: GeneratorConfig = {
                 installArgs: ["--silent"],
             });
         }
-
-        /**
-         * Format generated project
-         */
-        await promisify(exec)(`npx prettier "${saoInstance.outDir}" --write`);
 
         /**
          * Create an initial commit
