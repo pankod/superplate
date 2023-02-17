@@ -2,7 +2,7 @@ import path from "path";
 import fs from "fs";
 import { format } from "prettier";
 
-export const formatFiles = (dirPath: string) => {
+export const formatFiles = (dirPath: string): void => {
     const resolvedPath = path.resolve(dirPath);
 
     const dir = fs.readdirSync(resolvedPath);
@@ -30,5 +30,3 @@ export const formatFiles = (dirPath: string) => {
         return formatFiles(path.join(resolvedPath, d));
     });
 };
-
-// formatFiles(path.join(process.cwd(), "tmp", "writhing-cheap", "src"));
