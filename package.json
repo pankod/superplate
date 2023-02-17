@@ -25,7 +25,8 @@
         "clean:cli": "rm -rf ./lib",
         "global": "npm i -g --quiet",
         "test": "jest",
-        "lint": "eslint ."
+        "lint": "eslint .",
+        "format": "prettier src --write"
     },
     "dependencies": {
         "analytics-node": "^6.0.0",
