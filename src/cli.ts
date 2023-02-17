@@ -194,6 +194,7 @@ const cli = async (): Promise<void> => {
         appName: finalProjectDir,
         answers: withAnswers,
         extras: {
+            apiMode: false,
             debug: !!program.debug,
             projectType,
             paths: {
