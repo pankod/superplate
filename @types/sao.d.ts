@@ -306,6 +306,7 @@ interface IPaths {
     templateDir: string;
 }
 interface IExtras {
+    apiMode: boolean;
     debug: boolean;
     paths: IPaths;
     projectType: string;
