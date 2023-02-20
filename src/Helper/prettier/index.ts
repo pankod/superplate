@@ -7,8 +7,12 @@ export const formatFiles = (dirPath: string): void => {
 
     const dir = fs.readdirSync(resolvedPath);
 
-    const subDirs = dir.filter((d) => d.split(".").length === 1);
-    const files = dir.filter((d) => d.split(".").length > 1);
+    const subDirs = dir.filter((d) =>
+        fs.lstatSync(path.join(resolvedPath, d)).isDirectory(),
+    );
+    const files = dir.filter((d) =>
+        fs.lstatSync(path.join(resolvedPath, d)).isFile(),
+    );
 
     files.map((f) => {
         const filePath = path.join(resolvedPath, f);
