@@ -24,9 +24,14 @@ import {
 } from "@Helper";
 
 import { ProjectPrompt } from "@Helper/lucky";
+import { formatFiles } from "@Helper/prettier";
 
 const saoConfig: GeneratorConfig = {
     prompts(sao) {
+        const { apiMode } = sao.opts.extras;
+
+        if (apiMode) return [];
+
         const {
             appName,
             extras: { paths, presetAnswers },
@@ -77,9 +82,15 @@ const saoConfig: GeneratorConfig = {
         /**
          * Package Manager
          */
-        const { npmClient } = sao.answers;
+        const answers = {
+            ...sao.opts.extras.presetAnswers,
+            ...sao.answers,
+        };
+
+        const { npmClient } = answers;
 
         let pmRun = "npm run";
+
         if (npmClient === "yarn") {
             pmRun = "yarn";
         } else if (npmClient === "pnpm") {
@@ -92,14 +103,15 @@ const saoConfig: GeneratorConfig = {
         const { sourcePath } = sao.opts.extras.paths;
         const { projectType } = sao.opts.extras;
 
-        const pluginAnswers = { ...sao.answers };
+        const pluginAnswers = answers;
         delete pluginAnswers.name;
         const selectedPlugins = getPluginsArray(pluginAnswers);
+
         const extendData = concatExtend(
             extendBase,
             selectedPlugins,
             sourcePath,
-            sao.answers,
+            answers,
         );
 
         /**
@@ -119,9 +131,9 @@ const saoConfig: GeneratorConfig = {
          * Return
          */
         return {
-            ...sao.answers,
+            ...answers,
             projectType,
-            answers: sao.answers,
+            answers,
             selectedPlugins,
             pm: npmClient,
             pmRun,
@@ -131,12 +143,19 @@ const saoConfig: GeneratorConfig = {
         };
     },
     async actions(sao) {
-        if (sao.answers.name.length === 0) {
+        const answers = {
+            ...sao.opts.extras.presetAnswers,
+            ...sao.answers,
+        };
+
+        if (answers.name.length === 0) {
             const error = sao.createError("App name is required!");
             throw error;
         }
 
-        const appNameValidation = validate(sao.answers.name);
+        const appName = answers.name;
+
+        const appNameValidation = validate(appName);
 
         if (appNameValidation.warnings) {
             appNameValidation.warnings.forEach((warn) =>
@@ -149,12 +168,13 @@ const saoConfig: GeneratorConfig = {
             process.exit(1);
         }
 
-        sao.opts.outDir = sao.answers.name;
-        sao.opts.appName = sao.answers.name;
+        sao.opts.outDir = sao.opts.outDir + "/" + appName;
+
+        sao.opts.appName = appName;
 
         const { sourcePath } = sao.opts.extras.paths;
 
-        const actionsArray = [
+        const actionsArray: Action[] = [
             {
                 type: "add",
                 files: "**",
@@ -179,7 +199,11 @@ const saoConfig: GeneratorConfig = {
             },
         ] as Action[];
 
-        const pluginAnswers = { ...sao.answers };
+        const pluginAnswers = {
+            ...sao.opts.extras.presetAnswers,
+            ...sao.answers,
+        };
+
         delete pluginAnswers.name;
 
         const selectedPlugins = getPluginsArray(pluginAnswers);
@@ -250,7 +274,7 @@ const saoConfig: GeneratorConfig = {
         actionsArray.push({
             type: "modify" as const,
             files: "package.json",
-            handler(data: Record<string, unknown>) {
+            handler(data: Record<string, unknown>): Record<string, unknown> {
                 return mergePackages(
                     data,
                     sourcePath,
@@ -292,17 +316,19 @@ const saoConfig: GeneratorConfig = {
             },
         });
 
-        const { telemetry } = await prompt_telemetry();
+        if (!sao.opts.extras.apiMode) {
+            const { telemetry } = await prompt_telemetry();
 
-        if (telemetry === "yes") {
-            analytics.track({
-                event: "generate",
-                properties: {
-                    ...sao.answers,
-                    type: sao.opts.extras.projectType,
-                },
-                anonymousId: uuidv4(),
-            });
+            if (telemetry === "yes") {
+                analytics.track({
+                    event: "generate",
+                    properties: {
+                        ...sao.answers,
+                        type: sao.opts.extras.projectType,
+                    },
+                    anonymousId: uuidv4(),
+                });
+            }
         }
 
         return actionsArray;
@@ -311,7 +337,15 @@ const saoConfig: GeneratorConfig = {
         tips.preInstall();
     },
     async completed(saoInstance) {
-        const { debug } = saoInstance.opts.extras;
+        const { debug, apiMode } = saoInstance.opts.extras;
+
+        /**
+         * Format generated project
+         */
+        formatFiles(saoInstance.outDir);
+
+        if (apiMode) return;
+
         const { npmClient } = saoInstance.answers;
         /**
          * Git init and install packages
@@ -323,11 +357,6 @@ const saoConfig: GeneratorConfig = {
                 installArgs: ["--silent"],
             });
         }
-
-        /**
-         * Format generated project
-         */
-        await promisify(exec)(`npx prettier "${saoInstance.outDir}" --write`);
 
         /**
          * Create an initial commit

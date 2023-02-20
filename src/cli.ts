@@ -168,10 +168,8 @@ const cli = async (): Promise<void> => {
         // get project types
         const projectTypes = await get_project_types(sourcePath);
 
-        const [
-            finalSourcePath,
-            selectedProjectType,
-        ] = await prompt_project_types(sourcePath, projectTypes, projectType);
+        const [finalSourcePath, selectedProjectType] =
+            await prompt_project_types(sourcePath, projectTypes, projectType);
 
         sourcePath = finalSourcePath;
         projectType = selectedProjectType;
@@ -189,11 +187,12 @@ const cli = async (): Promise<void> => {
 
     const sao = new SAO({
         generator,
-        outDir: finalProjectDir,
+        outDir: process.cwd(),
         logLevel: program.debug ? 4 : 1,
         appName: finalProjectDir,
         answers: withAnswers,
         extras: {
+            apiMode: false,
             debug: !!program.debug,
             projectType,
             paths: {

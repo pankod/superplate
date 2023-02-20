@@ -306,6 +306,7 @@ interface IPaths {
     templateDir: string;
 }
 interface IExtras {
+    apiMode: boolean;
     debug: boolean;
     paths: IPaths;
     projectType: string;
@@ -510,9 +511,7 @@ declare class SAO {
     /**
      * Run `npm install` in output directory
      */
-    npmInstall(
-        opts?: Omit<InstallOptions, "cwd" | "registry">,
-    ): Promise<{
+    npmInstall(opts?: Omit<InstallOptions, "cwd" | "registry">): Promise<{
         code: number;
     }>;
     /**
