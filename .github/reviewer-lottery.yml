@@ -1,11 +1,9 @@
 groups:
-  - name: devs
-    reviewers: 4
-    usernames:
-      - omeraplak
-      - salihozdemir
-      - mhrrmk
-      - necatiozmen
-      - yildirayunlu
-      - umucorn
-      - biskuvit
+    - name: devs
+      reviewers: 4
+      usernames:
+          - omeraplak
+          - salihozdemir
+          - yildirayunlu
+          - aliemir
+          - batuhanw
