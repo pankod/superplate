@@ -103,7 +103,7 @@ const saoConfig: GeneratorConfig = {
         const { sourcePath } = sao.opts.extras.paths;
         const { projectType } = sao.opts.extras;
 
-        const pluginAnswers = answers;
+        const pluginAnswers = { ...answers };
         delete pluginAnswers.name;
         const selectedPlugins = getPluginsArray(pluginAnswers);
 
