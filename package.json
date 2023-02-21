@@ -1,6 +1,6 @@
 {
     "name": "superplate-cli",
-    "version": "1.12.1",
+    "version": "1.12.2",
     "description": "The frontend boilerplate with superpowers",
     "license": "MIT",
     "repository": {
@@ -11,6 +11,7 @@
         "url": "https://github.com/pankod/superplate/issues"
     },
     "homepage": "https://pankod.github.io/superplate/",
+    "main": "lib/api.js",
     "bin": {
         "superplate": "lib/index.js"
     },
