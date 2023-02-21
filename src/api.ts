@@ -22,7 +22,7 @@ export const api = async (
         appName: applicationName,
         answers: true,
         extras: {
-            isApi: true,
+            apiMode: true,
             debug: false,
             projectType: preset.type,
             paths: {
