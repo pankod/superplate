@@ -12,7 +12,10 @@ const pipeline = promisify(Stream.pipeline);
 const TEMP_PREFIX = "superplate-core-plugins.temp";
 
 export const DownloadHelper = {
-    DownloadAndGetPath: async (path: string): Promise<string> => {
+    DownloadAndGetPath: async (
+        path: string,
+        branch?: string,
+    ): Promise<string> => {
         try {
             const tempFolder = mkdirSync({
                 dir: process.cwd(),
@@ -20,8 +23,12 @@ export const DownloadHelper = {
             });
             const tempFile = join(tempFolder, `${TEMP_PREFIX}-${Date.now()}`);
 
-            const { owner, name, branch } = gitHubURLParser(path);
-            const url = `https://codeload.github.com/${owner}/${name}/tar.gz/${branch}`;
+            const { owner, name, branch: branchFromURL } = gitHubURLParser(
+                path,
+            );
+            const url = `https://codeload.github.com/${owner}/${name}/tar.gz/${
+                branch ?? branchFromURL
+            }`;
             await pipeline(got.stream(url), createWriteStream(tempFile));
 
             await tar.x({

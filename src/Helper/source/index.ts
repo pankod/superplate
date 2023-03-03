@@ -45,6 +45,7 @@ export const get_source: GetSourceFn = async (source, branch, downloadType) => {
         try {
             const cloneResponse = await DownloadHelper.DownloadAndGetPath(
                 sourcePath,
+                branch,
             );
             if (cloneResponse) {
                 sourceSpinner.succeed("Downloaded remote source successfully.");
