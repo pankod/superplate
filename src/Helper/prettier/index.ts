@@ -1,5 +1,5 @@
-import path from "path";
 import fs from "fs";
+import path from "path";
 import { format } from "prettier";
 
 export const formatFiles = (dirPath: string): void => {
@@ -22,6 +22,7 @@ export const formatFiles = (dirPath: string): void => {
         try {
             const formattedFile = format(fileContent, {
                 filepath: filePath,
+                plugins: [require.resolve("prettier-plugin-organize-imports")],
             });
 
             fs.writeFileSync(filePath, formattedFile);
