@@ -1,5 +1,5 @@
-import path from "path";
 import fs from "fs";
+import path from "path";
 import { format } from "prettier";
 
 export const formatFiles = (dirPath: string): void => {
