@@ -1,5 +1,5 @@
-import path from "path";
 import { mergeWithUnionArray } from "@Helper";
+import path from "path";
 
 interface ExtendType extends Record<string, unknown> {
     _app: {
