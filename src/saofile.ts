@@ -107,7 +107,7 @@ const saoConfig: GeneratorConfig = {
 
         const extendData = concatExtend(
             extendBase,
-            selectedPlugins,
+            ["_base", ...selectedPlugins],
             sourcePath,
             answers,
         );
