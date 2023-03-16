@@ -37,18 +37,19 @@
         "enquirer": "^2.3.6",
         "fs-extra": "^9.0.1",
         "got": "^11.8.6",
+        "human-id": "^4.0.0",
         "lodash": "^4.17.21",
         "ora": "^5.1.0",
         "parse-github-url": "^1.0.2",
         "path": "^0.12.7",
         "prettier": "^2.8.4",
+        "prettier-plugin-organize-imports": "^3.2.2",
         "sao": "^2.0.0-beta.1",
         "tar": "^4.4.19",
         "temp": "^0.9.4",
         "uuid": "^8.3.2",
         "valid-url": "^1.0.9",
-        "validate-npm-package-name": "^3.0.0",
-        "prettier-plugin-organize-imports": "^3.2.2"
+        "validate-npm-package-name": "^3.0.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.12.10",
