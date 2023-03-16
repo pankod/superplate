@@ -1,12 +1,11 @@
-import { mkdirSync } from "temp";
-import got from "got";
-import tar from "tar";
 import { createWriteStream } from "fs";
-import { Stream } from "stream";
+import got from "got";
 import gitHubURLParser from "parse-github-url";
-
-import { promisify } from "util";
 import { join } from "path";
+import { Stream } from "stream";
+import tar from "tar";
+import { mkdirSync } from "temp";
+import { promisify } from "util";
 
 const pipeline = promisify(Stream.pipeline);
 const TEMP_PREFIX = "superplate-core-plugins.temp";
@@ -23,9 +22,11 @@ export const DownloadHelper = {
             });
             const tempFile = join(tempFolder, `${TEMP_PREFIX}-${Date.now()}`);
 
-            const { owner, name, branch: branchFromURL } = gitHubURLParser(
-                path,
-            );
+            const {
+                owner,
+                name,
+                branch: branchFromURL,
+            } = gitHubURLParser(path);
             const url = `https://codeload.github.com/${owner}/${name}/tar.gz/${
                 branch ?? branchFromURL
             }`;

@@ -1,21 +1,20 @@
-import chalk from "chalk";
-import clear from "clear";
-import path from "path";
-import commander from "commander";
-import { cleanupSync, track } from "temp";
-import { Options, SAO } from "sao";
-
-import packageData from "../package.json";
 import {
-    get_source,
-    get_project_types,
-    is_multi_type,
-    prompt_project_types,
+    getRandomName,
     get_presets,
+    get_project_types,
     get_prompts_and_choices,
     get_random_answers,
-    getRandomName,
+    get_source,
+    is_multi_type,
+    prompt_project_types,
 } from "@Helper";
+import chalk from "chalk";
+import clear from "clear";
+import commander from "commander";
+import path from "path";
+import { Options, SAO } from "sao";
+import { cleanupSync, track } from "temp";
+import packageData from "../package.json";
 
 const generator = path.resolve(__dirname, "./");
 

@@ -1,8 +1,7 @@
-import { promisify } from "util";
+import { UrlHelper } from "@Helper";
 import { exec } from "child_process";
 import { mkdir } from "temp";
-
-import { UrlHelper } from "@Helper";
+import { promisify } from "util";
 
 export const GitHelper = {
     IsRepoExist: async (

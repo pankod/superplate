@@ -1,30 +1,28 @@
-import path from "path";
-import validate from "validate-npm-package-name";
-import { exec } from "child_process";
-import { promisify } from "util";
-import chalk from "chalk";
-import { v4 as uuidv4 } from "uuid";
-
-import Analytics from "analytics-node";
-const analytics = new Analytics(process.env.SEGMENT_KEY ?? "");
-
-import { GeneratorConfig, Action } from "../@types/sao";
 import {
-    mergePackages,
     concatExtend,
-    handleIgnore,
     extendBase,
     getPluginsArray,
-    mergeJSONFiles,
+    get_potential_package_managers,
+    handleIgnore,
     mergeBabel,
-    tips,
+    mergeJSONFiles,
+    mergePackages,
     mergePluginData,
     prompt_telemetry,
-    get_potential_package_managers,
+    tips,
 } from "@Helper";
-
 import { ProjectPrompt } from "@Helper/lucky";
 import { formatFiles } from "@Helper/prettier";
+import Analytics from "analytics-node";
+import chalk from "chalk";
+import { exec } from "child_process";
+import path from "path";
+import { promisify } from "util";
+import { v4 as uuidv4 } from "uuid";
+import validate from "validate-npm-package-name";
+import { Action, GeneratorConfig } from "../@types/sao";
+
+const analytics = new Analytics(process.env.SEGMENT_KEY ?? "");
 
 const saoConfig: GeneratorConfig = {
     prompts(sao) {

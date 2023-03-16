@@ -1,9 +1,9 @@
-import path from "path";
 import { readFile } from "fs";
-import { promisify } from "util";
-import mergeWith from "lodash/mergeWith";
 import isArray from "lodash/isArray";
+import mergeWith from "lodash/mergeWith";
 import union from "lodash/union";
+import path from "path";
+import { promisify } from "util";
 
 type PkgType = Record<string, unknown>;
 
