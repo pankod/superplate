@@ -102,7 +102,12 @@ const saoConfig: GeneratorConfig = {
         const { projectType } = sao.opts.extras;
 
         const pluginAnswers = { ...answers };
+
         delete pluginAnswers.name;
+        delete pluginAnswers.svg;
+        delete pluginAnswers.title;
+        delete pluginAnswers.icon;
+
         const selectedPlugins = getPluginsArray(pluginAnswers);
 
         const extendData = concatExtend(
