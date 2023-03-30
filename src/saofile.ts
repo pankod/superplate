@@ -221,7 +221,10 @@ const saoConfig: GeneratorConfig = {
             ...["_base", ...selectedPlugins].map((plugin: string) => {
                 const customFilters = handleIgnore(
                     sourcePrompts?.ignores ?? [],
-                    sao.answers,
+                    {
+                        ...sao.opts.extras.presetAnswers,
+                        ...sao.answers,
+                    },
                     plugin,
                 );
 
