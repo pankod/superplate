@@ -208,6 +208,9 @@ const saoConfig: GeneratorConfig = {
         };
 
         delete pluginAnswers.name;
+        delete pluginAnswers.svg;
+        delete pluginAnswers.title;
+        delete pluginAnswers.icon;
 
         const selectedPlugins = getPluginsArray(pluginAnswers);
 
