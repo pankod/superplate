@@ -18,7 +18,7 @@ export const api = async (
     const sao = new SAO({
         generator,
         outDir,
-        logLevel: 4,
+        logLevel: 1,
         appName: applicationName,
         answers: true,
         extras: {
