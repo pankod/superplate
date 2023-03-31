@@ -218,10 +218,13 @@ const saoConfig: GeneratorConfig = {
         const sourcePrompts = require(path.resolve(sourcePath, "prompt.js"));
 
         actionsArray.push(
-            ...selectedPlugins.map((plugin: string) => {
+            ...["_base", ...selectedPlugins].map((plugin: string) => {
                 const customFilters = handleIgnore(
                     sourcePrompts?.ignores ?? [],
-                    sao.answers,
+                    {
+                        ...sao.opts.extras.presetAnswers,
+                        ...sao.answers,
+                    },
                     plugin,
                 );
 
