@@ -3,6 +3,5 @@
     "trailingComma": "all",
     "singleQuote": false,
     "printWidth": 80,
-    "tabWidth": 4,
-    "organizeImportsSkipDestructiveCodeActions": true
+    "tabWidth": 4
 }

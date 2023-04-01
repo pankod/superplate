@@ -1,6 +1,6 @@
 {
     "name": "superplate-cli",
-    "version": "1.15.1",
+    "version": "1.15.2",
     "description": "The frontend boilerplate with superpowers",
     "license": "MIT",
     "repository": {
@@ -43,7 +43,6 @@
         "parse-github-url": "^1.0.2",
         "path": "^0.12.7",
         "prettier": "^2.8.4",
-        "prettier-plugin-organize-imports": "^3.2.2",
         "sao": "^2.0.0-beta.1",
         "tar": "^4.4.19",
         "temp": "^0.9.4",
