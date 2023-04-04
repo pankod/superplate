@@ -12,7 +12,7 @@ const USER_AGENT = process.env.CI_USER_AGENT;
 
 const doEverything = async () => {
     const dataProviderMap = {
-        "custom-json-rest": "keycloak",
+        "custom-json-rest": ["keycloak", "custom"],
         "strapi-v4": "strapi",
         "nestjsx-crud": "google",
         airtable: "auth0",
@@ -20,7 +20,12 @@ const doEverything = async () => {
         appwrite: "appwrite",
     };
 
-    const AUTH_PROVIDER = dataProviderMap[DATA_PROVIDER];
+    let AUTH_PROVIDER = dataProviderMap[DATA_PROVIDER];
+
+    if (Array.isArray(AUTH_PROVIDER)) {
+        const randomIndex = Math.floor(Math.random() * AUTH_PROVIDER.length);
+        AUTH_PROVIDER = AUTH_PROVIDER[randomIndex];
+    }
 
     console.log(
         "Creating boilerplate for: ",
