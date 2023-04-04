@@ -8,6 +8,7 @@ const core = require("@actions/core");
 
 const DATA_PROVIDER = process.env.DATA_PROVIDER;
 const UI_FRAMEWORK = process.env.UI_FRAMEWORK;
+const USER_AGENT = process.env.CI_USER_AGENT;
 
 const doEverything = async () => {
     const dataProviderMap = {
@@ -57,7 +58,7 @@ const doEverything = async () => {
         {
             headers: {
                 "Content-Type": "application/json",
-                "User-Agent": "ben-k6-im-beni-sal",
+                "User-Agent": USER_AGENT,
             },
         },
     );
@@ -70,7 +71,7 @@ const doEverything = async () => {
                     {
                         headers: {
                             "Content-Type": "application/json",
-                            "User-Agent": "ben-k6-im-beni-sal",
+                            "User-Agent": USER_AGENT,
                         },
                     },
                 );

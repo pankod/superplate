@@ -33,6 +33,17 @@ jobs:
           cd ${{ steps.download_step.outputs.project_path }}
           npm install
           npm run build
+      - name: Run Cypress on local
+        uses: cypress-io/github-action@v4
+        with:
+          command: npx cypress-cloud run --record --parallel --ci-build-id ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt}}
+          start: |
+            cd ${{ steps.download_step.outputs.project_path }}
+            npm run start
+          wait-on: "http://0.0.0.0:3000"
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          USER_AGENT: ${{ secrets.CI_USER_AGENT }}
   refine-nextjs:
     runs-on: ubuntu-latest
     name: Download & Build Examples
@@ -62,6 +73,17 @@ jobs:
           cd ${{ steps.download_step.outputs.project_path }}
           npm install
           npm run build
+      - name: Run Cypress on local
+        uses: cypress-io/github-action@v4
+        with:
+          command: npx cypress-cloud run --record --parallel --ci-build-id ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt}}
+          start: |
+            cd ${{ steps.download_step.outputs.project_path }}
+            npm run start
+          wait-on: "http://0.0.0.0:3000"
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          USER_AGENT: ${{ secrets.CI_USER_AGENT }}
   refine-remix:
     runs-on: ubuntu-latest
     name: Download & Build Examples
@@ -91,3 +113,14 @@ jobs:
           cd ${{ steps.download_step.outputs.project_path }}
           npm install
           npm run build
+      - name: Run Cypress on local
+        uses: cypress-io/github-action@v4
+        with:
+          command: npx cypress-cloud run --record --parallel --ci-build-id ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt}}
+          start: |
+            cd ${{ steps.download_step.outputs.project_path }}
+            npm run start
+          wait-on: "http://0.0.0.0:3000"
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          USER_AGENT: ${{ secrets.CI_USER_AGENT }}
