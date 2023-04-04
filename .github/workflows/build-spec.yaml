@@ -1,0 +1,93 @@
+name: Build Tests
+
+on:
+  - push
+
+jobs:
+  refine-react:
+    runs-on: ubuntu-latest
+    name: Download & Build Examples
+    strategy:
+      fail-fast: false
+      matrix:
+        data_provider:
+          [
+            custom-json-rest,
+            strapi-v4,
+            nestjsx-crud,
+            airtable,
+            supabase,
+            appwrite,
+          ]
+        ui_framework: [antd, chakra, mantine, mui, no]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install
+        run: npm install
+      - name: Download Examples
+        id: download_step
+        run: CI_USER_AGENT=${{secrets.CI_USER_AGENT}} DATA_PROVIDER=${{matrix.data_provider}} UI_FRAMEWORK=${{matrix.ui_framework}} node ./.github/workflows/download-refine-react.js
+      - name: Install Deps
+        run: |
+          cd ${{ steps.download_step.outputs.project_path }}
+          npm install
+          npm run build
+  refine-nextjs:
+    runs-on: ubuntu-latest
+    name: Download & Build Examples
+    strategy:
+      fail-fast: false
+      matrix:
+        data_provider:
+          [
+            custom-json-rest,
+            strapi-v4,
+            nestjsx-crud,
+            airtable,
+            supabase,
+            appwrite,
+          ]
+        ui_framework: [antd, chakra, mantine, mui, no]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install
+        run: npm install
+      - name: Download Examples
+        id: download_step
+        run: CI_USER_AGENT=${{secrets.CI_USER_AGENT}} DATA_PROVIDER=${{matrix.data_provider}} UI_FRAMEWORK=${{matrix.ui_framework}} node ./.github/workflows/download-refine-nextjs.js
+      - name: Install Deps
+        run: |
+          cd ${{ steps.download_step.outputs.project_path }}
+          npm install
+          npm run build
+  refine-remix:
+    runs-on: ubuntu-latest
+    name: Download & Build Examples
+    strategy:
+      fail-fast: false
+      matrix:
+        data_provider:
+          [
+            custom-json-rest,
+            strapi-v4,
+            nestjsx-crud,
+            airtable,
+            supabase,
+            appwrite,
+          ]
+        ui_framework: [antd, chakra, mantine, mui, no]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install
+        run: npm install
+      - name: Download Examples
+        id: download_step
+        run: CI_USER_AGENT=${{secrets.CI_USER_AGENT}} DATA_PROVIDER=${{matrix.data_provider}} UI_FRAMEWORK=${{matrix.ui_framework}} node ./.github/workflows/download-refine-remix.js
+      - name: Install Deps
+        run: |
+          cd ${{ steps.download_step.outputs.project_path }}
+          npm install
+          npm run build
