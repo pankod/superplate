@@ -5,6 +5,7 @@ on:
 
 jobs:
   refine-react:
+    needs: refine-remix
     runs-on: ubuntu-latest
     name: React Download & Build Examples
     strategy:
@@ -50,6 +51,7 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           CYPRESS_USER_AGENT: ${{ secrets.CI_USER_AGENT }}
   refine-nextjs:
+    needs: refine-react
     runs-on: ubuntu-latest
     name: NextJS Download & Build Examples
     strategy:
