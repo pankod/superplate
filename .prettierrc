@@ -7,7 +7,7 @@
     "organizeImportsSkipDestructiveCodeActions": true,
     "overrides": [
         {
-            "files": ["*.yaml", "*.json"],
+            "files": ["*.yaml", "*.yml", "*.json"],
             "options": {
                 "tabWidth": 2
             }
