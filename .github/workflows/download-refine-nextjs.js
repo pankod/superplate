@@ -130,6 +130,7 @@ const doEverything = async () => {
 
     zip.extractAllTo(`${examplePath}/${downloadString}`, true);
 
+    core.setOutput("auth_provider", AUTH_PROVIDER);
     core.setOutput("project_path", `${examplePath}/${downloadString}`);
 };
 
