@@ -28,7 +28,8 @@
     "test": "jest",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "cypress": "cypress"
+    "cypress": "cypress",
+    "start:example": "cd ${EXAMPLE_DIR} && npm run start"
   },
   "dependencies": {
     "analytics-node": "^6.0.0",
