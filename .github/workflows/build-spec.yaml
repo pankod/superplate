@@ -49,7 +49,6 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           CYPRESS_USER_AGENT: ${{ secrets.CI_USER_AGENT }}
   refine-nextjs:
-    needs: refine-react
     runs-on: ubuntu-latest
     name: NextJS Download & Build Examples
     strategy:
@@ -78,6 +77,7 @@ jobs:
         run: CI_USER_AGENT=${{secrets.CI_USER_AGENT}} DATA_PROVIDER=${{matrix.data_provider}} UI_FRAMEWORK=${{matrix.ui_framework}} node ./.github/workflows/download-refine-nextjs.js
       - name: Install Deps
         run: |
+          rm -rf .eslintrc .prettierrc
           cd ${{ steps.download_step.outputs.project_path }}
           npm install
           npm run build
