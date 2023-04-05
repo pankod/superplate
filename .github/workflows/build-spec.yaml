@@ -131,7 +131,7 @@ jobs:
           install: false
           command: npx cypress-cloud run --record --parallel --ci-build-id remix-${{matrix.ui_framework}}-${{matrix.data_provider}}-${{steps.download_step.outputs.auth_provider}}-${{steps.download_step.outputs.project_path}}-${{ github.run_attempt}}
           start: "npm ls"
-          wait-on: "http://0.0.0.0:3000"
+          wait-on: "http://localhost:3000"
         env:
           CURRENTS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           CYPRESS_USER_AGENT: ${{ secrets.CI_USER_AGENT }}
