@@ -126,8 +126,7 @@ jobs:
           cd ${{ steps.download_step.outputs.project_path }}
           npm install
           npm run build
-      - name: Run app
-        run: cd ${{ steps.download_step.outputs.project_path }} && npm run start &
+          npm run start &
       - name: Run Cypress on local
         uses: cypress-io/github-action@v4
         with:
