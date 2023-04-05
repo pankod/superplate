@@ -45,7 +45,7 @@ jobs:
           install: false
           start: "npm ls"
           wait-on: "http://0.0.0.0:3000"
-          spec: cypress/react/build-test.cy.js
+          spec: cypress/e2e/react/build-test.cy.js
         env:
           CURRENTS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           CYPRESS_USER_AGENT: ${{ secrets.CI_USER_AGENT }}
@@ -90,7 +90,7 @@ jobs:
           command: npx cypress-cloud run --record --parallel --ci-build-id ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt}}
           start: "npm ls"
           wait-on: "http://0.0.0.0:3000"
-          spec: cypress/nextjs/build-test.cy.js
+          spec: cypress/e2e/nextjs/build-test.cy.js
         env:
           CURRENTS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           CYPRESS_USER_AGENT: ${{ secrets.CI_USER_AGENT }}
@@ -134,7 +134,7 @@ jobs:
           command: npx cypress-cloud run --record --parallel --ci-build-id ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt}}
           start: "npm ls"
           wait-on: "http://0.0.0.0:3000"
-          spec: cypress/remix/build-test.cy.js
+          spec: cypress/e2e/remix/build-test.cy.js
         env:
           CURRENTS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           CYPRESS_USER_AGENT: ${{ secrets.CI_USER_AGENT }}
