@@ -37,7 +37,8 @@ jobs:
           cd ${{ steps.download_step.outputs.project_path }}
           npm install
           npm run build
-          npm run start &
+          npm install -g serve
+          serve -s build &
       - name: Run Cypress on local
         uses: cypress-io/github-action@v4
         with:
