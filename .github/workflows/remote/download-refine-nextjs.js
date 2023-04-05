@@ -67,7 +67,7 @@ const doEverything = async () => {
         return new Promise((resolve, reject) => {
             const interval = setInterval(async () => {
                 const boilerplate = await axios.get(
-                    `https://connect.refine.dev/api/boilerplates/${id}`,
+                    `https://develop.connect.refine.dev/api/boilerplates/${id}`,
                     {
                         headers: {
                             "Content-Type": "application/json",

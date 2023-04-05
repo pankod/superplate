@@ -54,7 +54,7 @@ const doEverything = async () => {
     };
 
     const createdBoilerplate = await axios.post(
-        "https://connect.refine.dev/api/boilerplates",
+        "https://develop.connect.refine.dev/api/boilerplates",
         body,
         {
             headers: {
@@ -68,7 +68,7 @@ const doEverything = async () => {
         return new Promise((resolve, reject) => {
             const interval = setInterval(async () => {
                 const boilerplate = await axios.get(
-                    `https://connect.refine.dev/api/boilerplates/${id}`,
+                    `https://develop.connect.refine.dev/api/boilerplates/${id}`,
                     {
                         headers: {
                             "Content-Type": "application/json",
@@ -95,7 +95,7 @@ const doEverything = async () => {
 
     console.log("Boilerplate download string: ", downloadString);
 
-    const downloadURL = `https://connect.refine.dev/api/d/${downloadString}`;
+    const downloadURL = `https://develop.connect.refine.dev/api/d/${downloadString}`;
 
     const examplePath = "tmp/examples";
 
