@@ -1,12 +1,12 @@
 name: Build Tests
 
 on:
-  - push
+  - workflow_dispatch
 
 jobs:
   refine-react:
     runs-on: ubuntu-latest
-    name: React Download & Build Examples
+    name: React
     strategy:
       fail-fast: false
       matrix:
@@ -50,7 +50,7 @@ jobs:
           CYPRESS_USER_AGENT: ${{ secrets.CI_USER_AGENT }}
   refine-nextjs:
     runs-on: ubuntu-latest
-    name: NextJS Download & Build Examples
+    name: NextJS
     strategy:
       fail-fast: false
       matrix:
@@ -94,7 +94,7 @@ jobs:
           CYPRESS_USER_AGENT: ${{ secrets.CI_USER_AGENT }}
   refine-remix:
     runs-on: ubuntu-latest
-    name: Remix Download & Build Examples
+    name: Remix
     strategy:
       fail-fast: false
       matrix:
