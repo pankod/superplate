@@ -28,10 +28,10 @@ jobs:
           node-version: 16
       - name: Install
         run: npm install
-      - name: Download Examples
+      - name: Download Example
         id: download_step
-        run: CI_USER_AGENT=${{secrets.CI_USER_AGENT}} DATA_PROVIDER=${{matrix.data_provider}} UI_FRAMEWORK=${{matrix.ui_framework}} node ./.github/workflows/download-refine-react.js
-      - name: Install Deps
+        run: CI_USER_AGENT=${{secrets.CI_USER_AGENT}} DATA_PROVIDER=${{matrix.data_provider}} UI_FRAMEWORK=${{matrix.ui_framework}} node ./.github/workflows/remote/download-refine-react.js
+      - name: Install & Build Deps
         run: |
           cd ${{ steps.download_step.outputs.project_path }}
           npm install
@@ -72,10 +72,10 @@ jobs:
           node-version: 16
       - name: Install
         run: npm install
-      - name: Download Examples
+      - name: Download Example
         id: download_step
-        run: CI_USER_AGENT=${{secrets.CI_USER_AGENT}} DATA_PROVIDER=${{matrix.data_provider}} UI_FRAMEWORK=${{matrix.ui_framework}} node ./.github/workflows/download-refine-nextjs.js
-      - name: Install Deps
+        run: CI_USER_AGENT=${{secrets.CI_USER_AGENT}} DATA_PROVIDER=${{matrix.data_provider}} UI_FRAMEWORK=${{matrix.ui_framework}} node ./.github/workflows/remote/download-refine-nextjs.js
+      - name: Install & Build Deps
         run: |
           rm -rf .eslintrc .prettierrc
           cd ${{ steps.download_step.outputs.project_path }}
@@ -116,10 +116,10 @@ jobs:
           node-version: 16
       - name: Install
         run: npm install
-      - name: Download Examples
+      - name: Download Example
         id: download_step
-        run: CI_USER_AGENT=${{secrets.CI_USER_AGENT}} DATA_PROVIDER=${{matrix.data_provider}} UI_FRAMEWORK=${{matrix.ui_framework}} node ./.github/workflows/download-refine-remix.js
-      - name: Install Deps
+        run: CI_USER_AGENT=${{secrets.CI_USER_AGENT}} DATA_PROVIDER=${{matrix.data_provider}} UI_FRAMEWORK=${{matrix.ui_framework}} node ./.github/workflows/remote/download-refine-remix.js
+      - name: Install & Build Deps
         run: |
           cd ${{ steps.download_step.outputs.project_path }}
           npm install
