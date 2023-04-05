@@ -47,7 +47,7 @@ jobs:
           wait-on: "http://0.0.0.0:3000"
           spec: cypress/react/build-test.cy.js
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CURRENTS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           CYPRESS_USER_AGENT: ${{ secrets.CI_USER_AGENT }}
   refine-nextjs:
     runs-on: ubuntu-latest
@@ -92,7 +92,7 @@ jobs:
           wait-on: "http://0.0.0.0:3000"
           spec: cypress/nextjs/build-test.cy.js
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CURRENTS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           CYPRESS_USER_AGENT: ${{ secrets.CI_USER_AGENT }}
   refine-remix:
     runs-on: ubuntu-latest
@@ -136,6 +136,6 @@ jobs:
           wait-on: "http://0.0.0.0:3000"
           spec: cypress/remix/build-test.cy.js
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CURRENTS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           CYPRESS_USER_AGENT: ${{ secrets.CI_USER_AGENT }}
           PATH: ${{ steps.download_step.outputs.project_path }}
