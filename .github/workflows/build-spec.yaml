@@ -42,7 +42,7 @@ jobs:
         with:
           command: npx cypress-cloud run --record --parallel --ci-build-id ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt}}
           install: false
-          start: EXAMPLE_DIR=${{ steps.download_step.outputs.project_path }} npm run start:example
+          start: "EXAMPLE_DIR=${{ steps.download_step.outputs.project_path }} npm run start:example"
           wait-on: "http://0.0.0.0:3000"
           spec: cypress/react/build-test.cy.js
         env:
@@ -86,7 +86,7 @@ jobs:
         with:
           install: false
           command: npx cypress-cloud run --record --parallel --ci-build-id ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt}}
-          start: EXAMPLE_DIR=${{ steps.download_step.outputs.project_path }} npm run start:example
+          start: "EXAMPLE_DIR=${{ steps.download_step.outputs.project_path }} npm run start:example"
           wait-on: "http://0.0.0.0:3000"
           spec: cypress/nextjs/build-test.cy.js
         env:
@@ -129,7 +129,7 @@ jobs:
         with:
           install: false
           command: npx cypress-cloud run --record --parallel --ci-build-id ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt}}
-          start: EXAMPLE_DIR=${{ steps.download_step.outputs.project_path }} npm run start:example
+          start: "EXAMPLE_DIR=${{ steps.download_step.outputs.project_path }} npm run start:example"
           wait-on: "http://0.0.0.0:3000"
           spec: cypress/remix/build-test.cy.js
         env:
