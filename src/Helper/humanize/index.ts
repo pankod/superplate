@@ -19,7 +19,7 @@ export const HumanizeChoices = {
                 return {
                     title: "refine(Vite)",
                     description:
-                        "Creates a React Vite project (Recommended for CRUD applications).",
+                        "Creates a refine React Vite project (Recommended for CRUD applications).",
                     value: choice,
                 };
             case "refine-nextjs":
