@@ -1,5 +1,6 @@
 import { promisify } from "util";
-import { get_source } from "./";
+import { get_source, sort_project_types } from "./";
+
 jest.mock("util", () => ({
     promisify: jest.fn(),
     inherits: () => ({
@@ -7,6 +8,7 @@ jest.mock("util", () => ({
     }),
     inspect: () => ({}),
 }));
+
 describe("Source Helper", () => {
     it("incorrect source url/path", async () => {
         const source = await get_source("alibaba");
@@ -23,5 +25,68 @@ describe("Source Helper", () => {
 
         const source = await get_source("superplate-core-plugins");
         expect(source.error).toBe(undefined);
+    });
+
+    it("Sort project types", async () => {
+        const cases = [
+            {
+                input: [
+                    { title: "Refine React", value: "refine-react" },
+                    { title: "Next.js", value: "nextjs" },
+                    { title: "React", value: "react" },
+                    { title: "Refine Vite", value: "refine-vite" },
+                    { title: "Refine Next.js", value: "refine-nextjs" },
+                    { title: "Refine Remix", value: "refine-remix" },
+                ],
+                expectedOutput: [
+                    { title: "React", value: "react" },
+                    { title: "Next.js", value: "nextjs" },
+                    { title: "Refine Vite", value: "refine-vite" },
+                    { title: "Refine Next.js", value: "refine-nextjs" },
+                    { title: "Refine Remix", value: "refine-remix" },
+                    { title: "Refine React", value: "refine-react" },
+                ],
+            },
+            {
+                input: [
+                    { title: "Next.js", value: "nextjs" },
+                    { title: "Refine React", value: "refine-react" },
+                    { title: "Refine Next.js", value: "refine-nextjs" },
+                    { title: "Refine Remix", value: "refine-remix" },
+                    { title: "React", value: "react" },
+                    { title: "Refine Vite", value: "refine-vite" },
+                ],
+                expectedOutput: [
+                    { title: "React", value: "react" },
+                    { title: "Next.js", value: "nextjs" },
+                    { title: "Refine Vite", value: "refine-vite" },
+                    { title: "Refine Next.js", value: "refine-nextjs" },
+                    { title: "Refine Remix", value: "refine-remix" },
+                    { title: "Refine React", value: "refine-react" },
+                ],
+            },
+            {
+                input: [
+                    { title: "Refine React", value: "refine-react" },
+                    { title: "Refine Next.js", value: "refine-nextjs" },
+                    { title: "Refine Remix", value: "refine-remix" },
+                    { title: "Refine Vite", value: "refine-vite" },
+                ],
+                expectedOutput: [
+                    { title: "Refine Vite", value: "refine-vite" },
+                    { title: "Refine Next.js", value: "refine-nextjs" },
+                    { title: "Refine Remix", value: "refine-remix" },
+                    { title: "Refine React", value: "refine-react" },
+                ],
+            },
+            {
+                input: [],
+                expectedOutput: [],
+            },
+        ];
+
+        cases.forEach((c) => {
+            expect(sort_project_types(c.input)).toEqual(c.expectedOutput);
+        });
     });
 });

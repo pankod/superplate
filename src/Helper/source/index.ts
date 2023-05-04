@@ -104,6 +104,30 @@ export const is_multi_type = async (
     return false;
 };
 
+export const sort_project_types = (
+    projectTypes: { title: string; value: string }[],
+): { title: string; value: string }[] => {
+    const order: Record<string, number> = {
+        react: 1,
+        nextjs: 2,
+        "refine-vite": 3,
+        "refine-nextjs": 4,
+        "refine-remix": 5,
+        "refine-react": 6,
+    };
+
+    const newProjectTypes = [...projectTypes];
+
+    newProjectTypes.sort((a, b) => {
+        const firstValue = order[a?.value] ?? 1;
+        const secondValue = order[b?.value] ?? 1;
+
+        return firstValue - secondValue;
+    });
+
+    return newProjectTypes;
+};
+
 export const get_project_types = async (source: string): Promise<any[]> => {
     const projectTypes: any[] = [];
 
@@ -123,7 +147,7 @@ export const get_project_types = async (source: string): Promise<any[]> => {
         }
     }
 
-    return projectTypes;
+    return sort_project_types(projectTypes);
 };
 
 export const prompt_project_types = async (

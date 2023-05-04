@@ -15,11 +15,11 @@ export const HumanizeChoices = {
                     description: "Creates a Next.js project",
                     value: choice,
                 };
-            case "refine-react":
+            case "refine-vite":
                 return {
-                    title: "refine(CRA)",
+                    title: "refine(Vite)",
                     description:
-                        "Creates a basic refine project (Recommended for CRUD applications)",
+                        "Creates a refine React Vite project (Recommended for CRUD applications).",
                     value: choice,
                 };
             case "refine-nextjs":
@@ -36,6 +36,14 @@ export const HumanizeChoices = {
                         "Creates a refine Remix project with SSR support (Recommended for CRUD applications)",
                     value: choice,
                 };
+            case "refine-react":
+                return {
+                    title: "refine(CRA) [Legacy]",
+                    description:
+                        "Creates a basic refine project (Recommended for CRUD applications)",
+                    value: choice,
+                };
+
             default:
                 return {
                     title: choice,
