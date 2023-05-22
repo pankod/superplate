@@ -329,14 +329,18 @@ const saoConfig: GeneratorConfig = {
             const { telemetry } = await prompt_telemetry();
 
             if (telemetry === "yes") {
-                analytics.track({
-                    event: "generate",
-                    properties: {
-                        ...sao.answers,
-                        type: sao.opts.extras.projectType,
-                    },
-                    anonymousId: uuidv4(),
-                });
+                try {
+                    analytics.track({
+                        event: "generate",
+                        properties: {
+                            ...sao.answers,
+                            type: sao.opts.extras.projectType,
+                        },
+                        anonymousId: uuidv4(),
+                    });
+                } catch (error) {
+                    //
+                }
             }
         }
 
