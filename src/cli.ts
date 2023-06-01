@@ -52,6 +52,7 @@ const cli = async (): Promise<void> => {
         )
         .option("-p, --project <project-name>", "specify a project type to use")
         .option("-d, --debug", "print additional logs and skip install script")
+        .option("--disable-telemetry", "disable anonymous telemetry")
         .on("--help", () => {
             console.log();
             console.log(
@@ -193,6 +194,7 @@ const cli = async (): Promise<void> => {
         extras: {
             apiMode: false,
             debug: !!program.debug,
+            disableTelemetry: !!program.disableTelemetry,
             projectType,
             paths: {
                 sourcePath,

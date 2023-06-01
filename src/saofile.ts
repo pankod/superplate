@@ -8,7 +8,6 @@ import {
     mergeJSONFiles,
     mergePackages,
     mergePluginData,
-    prompt_telemetry,
     tips,
 } from "@Helper";
 import { ProjectPrompt } from "@Helper/lucky";
@@ -325,22 +324,18 @@ const saoConfig: GeneratorConfig = {
             },
         });
 
-        if (!sao.opts.extras.apiMode) {
-            const { telemetry } = await prompt_telemetry();
-
-            if (telemetry === "yes") {
-                try {
-                    analytics.track({
-                        event: "generate",
-                        properties: {
-                            ...sao.answers,
-                            type: sao.opts.extras.projectType,
-                        },
-                        anonymousId: uuidv4(),
-                    });
-                } catch (error) {
-                    //
-                }
+        if (!sao.opts.extras.apiMode && !sao.opts.extras.disableTelemetry) {
+            try {
+                analytics.track({
+                    event: "generate",
+                    properties: {
+                        ...sao.answers,
+                        type: sao.opts.extras.projectType,
+                    },
+                    anonymousId: uuidv4(),
+                });
+            } catch (error) {
+                //
             }
         }
 
