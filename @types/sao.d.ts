@@ -311,6 +311,7 @@ interface IExtras {
     paths: IPaths;
     projectType: string;
     presetAnswers?: Record<string, string | undefined>;
+    disableTelemetry?: boolean;
 }
 interface Options$1 {
     appName?: string;

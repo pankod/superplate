@@ -31,6 +31,5 @@ export {
     is_multi_type,
     prompt_project_types,
 } from "./source";
-export { prompt_telemetry } from "./telemetry";
 export { tips } from "./tips";
 export { UrlHelper } from "./url";
