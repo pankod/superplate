@@ -12,16 +12,14 @@ import {
 } from "@Helper";
 import { ProjectPrompt } from "@Helper/lucky";
 import { formatFiles } from "@Helper/prettier";
-import Analytics from "analytics-node";
 import chalk from "chalk";
 import { exec } from "child_process";
+import fetch from "node-fetch";
 import path from "path";
 import { promisify } from "util";
 import { v4 as uuidv4 } from "uuid";
 import validate from "validate-npm-package-name";
 import { Action, GeneratorConfig } from "../@types/sao";
-
-const analytics = new Analytics(process.env.SEGMENT_KEY ?? "");
 
 const saoConfig: GeneratorConfig = {
     prompts(sao) {
@@ -326,13 +324,18 @@ const saoConfig: GeneratorConfig = {
 
         if (!sao.opts.extras.apiMode && !sao.opts.extras.disableTelemetry) {
             try {
-                analytics.track({
-                    event: "generate",
-                    properties: {
-                        ...sao.answers,
-                        type: sao.opts.extras.projectType,
-                    },
-                    anonymousId: uuidv4(),
+                await fetch("http://telemetry.refine.dev/superplate", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        event: "generate",
+                        properties: {
+                            ...sao.answers,
+                            type: sao.opts.extras.projectType,
+                        },
+                        anonymousId: uuidv4(),
+                        originalTimestamp: new Date(),
+                    }),
+                    headers: { "Content-Type": "application/json" },
                 });
             } catch (error) {
                 //

@@ -9,10 +9,9 @@
             {
                 "root": ["./"],
                 "alias": {
-                    "@Helper": "./src/Helper",
+                    "@Helper": "./src/Helper"
                 }
             }
-        ],
-        "transform-inline-environment-variables"
+        ]
     ]
 }

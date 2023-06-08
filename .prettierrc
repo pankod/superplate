@@ -4,5 +4,8 @@
     "singleQuote": false,
     "printWidth": 80,
     "tabWidth": 4,
-    "organizeImportsSkipDestructiveCodeActions": true
+    "organizeImportsSkipDestructiveCodeActions": true,
+    "overrides": [
+        { "files": ["*.yml", "*.yaml"], "options": { "tabWidth": 2 } }
+    ]
 }
