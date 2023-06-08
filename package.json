@@ -1,6 +1,6 @@
 {
     "name": "superplate-cli",
-    "version": "1.16.0",
+    "version": "1.16.1",
     "description": "The frontend boilerplate with superpowers",
     "license": "MIT",
     "repository": {
@@ -20,7 +20,7 @@
         "templates"
     ],
     "scripts": {
-        "dev:cli": "SEGMENT_KEY=xx nodemon --watch src -e ts --ignore lib --exec npm run build:cli",
+        "dev:cli": "nodemon --watch src -e ts --ignore lib --exec npm run build:cli",
         "dev:global": "nodemon --watch src -e ts --ignore lib --exec \"npm run build:cli & npm run global\"",
         "build:cli": "npm run clean:cli && tsc && babel src --out-dir lib --extensions \".ts,.js,.json\" --source-maps inline",
         "clean:cli": "rm -rf ./lib",
@@ -30,7 +30,6 @@
         "lint:fix": "eslint . --fix"
     },
     "dependencies": {
-        "analytics-node": "^6.0.0",
         "chalk": "^4.1.0",
         "clear": "^0.1.0",
         "commander": "^6.2.0",
@@ -39,6 +38,7 @@
         "got": "^11.8.6",
         "human-id": "^4.0.0",
         "lodash": "^4.17.21",
+        "node-fetch": "^2.6.11",
         "ora": "^5.1.0",
         "parse-github-url": "^1.0.2",
         "path": "^0.12.7",
@@ -56,12 +56,12 @@
         "@babel/core": "^7.12.10",
         "@babel/preset-env": "^7.12.11",
         "@babel/preset-typescript": "^7.12.7",
-        "@types/analytics-node": "^3.1.8",
         "@types/clear": "^0.1.1",
         "@types/fs-extra": "^11.0.1",
         "@types/jest": "^26.0.20",
         "@types/lodash": "^4.14.172",
         "@types/node": "^14.14.12",
+        "@types/node-fetch": "^2.6.4",
         "@types/prompts": "^2.0.11",
         "@types/tar": "^4.0.5",
         "@types/temp": "^0.8.34",
