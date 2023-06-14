@@ -310,6 +310,7 @@ interface IExtras {
     debug: boolean;
     paths: IPaths;
     projectType: string;
+    commitMessage?: string;
     presetAnswers?: Record<string, string | undefined>;
     disableTelemetry?: boolean;
 }

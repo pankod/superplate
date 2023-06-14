@@ -14,6 +14,7 @@ export const api = async (
     outDir: string,
     sourcePath: string,
     preset: IPreset,
+    commitMessage?: string,
 ): Promise<void> => {
     const sao = new SAO({
         generator,
@@ -24,6 +25,7 @@ export const api = async (
         extras: {
             apiMode: true,
             debug: false,
+            commitMessage,
             projectType: preset.type,
             paths: {
                 sourcePath,

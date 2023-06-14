@@ -194,6 +194,7 @@ const cli = async (): Promise<void> => {
         extras: {
             apiMode: false,
             debug: !!program.debug,
+            commitMessage: process.env.INITIAL_COMMIT_MESSAGE,
             disableTelemetry: !!program.disableTelemetry,
             projectType,
             paths: {

@@ -379,8 +379,12 @@ const saoConfig: GeneratorConfig = {
                     `git --git-dir="${saoInstance.outDir}"/.git/ --work-tree="${saoInstance.outDir}"/ add -A`,
                 );
                 // commit
+                const message =
+                    saoInstance.opts.extras.commitMessage ??
+                    "initial commit with superplate";
+
                 await promisify(exec)(
-                    `git --git-dir="${saoInstance.outDir}"/.git/ --work-tree="${saoInstance.outDir}"/ commit -m "initial commit with superplate"`,
+                    `git --git-dir="${saoInstance.outDir}"/.git/ --work-tree="${saoInstance.outDir}"/ commit -m "${message}"`,
                 );
                 saoInstance.logger.info("created an initial commit.");
             } catch (_) {
