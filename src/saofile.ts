@@ -74,7 +74,8 @@ const saoConfig: GeneratorConfig = {
             {
                 type: "input",
                 name: "userEmail",
-                message: "What is your email?",
+                message:
+                    "Mind sharing your email? (We reach out to developers for free priority support, events, and SWAG kits. We never spam.)",
                 default: "",
             },
         ];
