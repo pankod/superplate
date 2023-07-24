@@ -71,6 +71,13 @@ const saoConfig: GeneratorConfig = {
                         : undefined,
                 skip: () => packageManagerChoices.length === 1,
             },
+            {
+                type: "input",
+                name: "userEmail",
+                message:
+                    "Mind sharing your email? (We reach out to developers for free priority support, events, and SWAG kits. We never spam.)",
+                default: "",
+            },
         ];
     },
     data(sao) {
@@ -168,6 +175,26 @@ const saoConfig: GeneratorConfig = {
             process.exit(1);
         }
 
+        let projectId = "";
+
+        if (sao.answers.userEmail === "") {
+            delete sao.answers.userEmail;
+        }
+
+        if (answers.userEmail) {
+            const res = await fetch("https://telemetry.refine.dev/projects", {
+                method: "POST",
+                body: JSON.stringify({
+                    email: answers.userEmail,
+                }),
+                headers: { "Content-Type": "application/json" },
+            });
+
+            const data = await res.json();
+
+            projectId = data.projectId;
+        }
+
         sao.opts.outDir = sao.opts.outDir + "/" + appName;
 
         sao.opts.appName = appName;
@@ -180,7 +207,7 @@ const saoConfig: GeneratorConfig = {
                 files: "**",
                 templateDir: path.join(sourcePath, "template"),
                 data() {
-                    return sao.data;
+                    return { ...sao.data, projectId };
                 },
             },
             {
