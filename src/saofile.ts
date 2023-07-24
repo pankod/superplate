@@ -29,7 +29,7 @@ const saoConfig: GeneratorConfig = {
 
         const {
             appName,
-            extras: { paths, presetAnswers },
+            extras: { paths, presetAnswers, projectType },
         } = sao.opts;
 
         // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -77,6 +77,9 @@ const saoConfig: GeneratorConfig = {
                 message:
                     "Mind sharing your email? (We reach out to developers for free priority support, events, and SWAG kits. We never spam.)",
                 default: "",
+                skip: () => {
+                    return !projectType.includes("refine");
+                },
             },
         ];
     },
