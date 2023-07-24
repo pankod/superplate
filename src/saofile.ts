@@ -14,6 +14,7 @@ import { ProjectPrompt } from "@Helper/lucky";
 import { formatFiles } from "@Helper/prettier";
 import chalk from "chalk";
 import { exec } from "child_process";
+import { prompt } from "enquirer";
 import fetch from "node-fetch";
 import path from "path";
 import { promisify } from "util";
@@ -70,16 +71,6 @@ const saoConfig: GeneratorConfig = {
                         ? packageManagerChoices[0].name
                         : undefined,
                 skip: () => packageManagerChoices.length === 1,
-            },
-            {
-                type: "input",
-                name: "userEmail",
-                message:
-                    "Mind sharing your email? (We reach out to developers for free priority support, events, and SWAG kits. We never spam.)",
-                default: "",
-                skip: () => {
-                    return !projectType.includes("refine");
-                },
             },
         ];
     },
@@ -178,17 +169,24 @@ const saoConfig: GeneratorConfig = {
             process.exit(1);
         }
 
+        const result: { userEmail: string } = await prompt({
+            type: "input",
+            name: "userEmail",
+            message:
+                "Mind sharing your email? (We reach out to developers for free priority support, events, and SWAG kits. We never spam.)",
+            required: false,
+            skip: () => {
+                return !sao.opts.extras.projectType.includes("refine");
+            },
+        });
+
         let projectId = "";
 
-        if (sao.answers.userEmail === "") {
-            delete sao.answers.userEmail;
-        }
-
-        if (answers.userEmail) {
+        if (result.userEmail) {
             const res = await fetch("https://telemetry.refine.dev/projects", {
                 method: "POST",
                 body: JSON.stringify({
-                    email: answers.userEmail,
+                    email: result.userEmail,
                 }),
                 headers: { "Content-Type": "application/json" },
             });
