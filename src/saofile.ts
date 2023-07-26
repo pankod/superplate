@@ -178,18 +178,27 @@ const saoConfig: GeneratorConfig = {
             skip: () => !sao.opts.extras.projectType.includes("refine"),
         });
 
-        const createProjectResponse = await fetch(
-            "https://telemetry.refine.dev/projects",
-            {
-                method: "POST",
-                body: JSON.stringify({
-                    email: emailPromptResult.userEmail,
-                }),
-                headers: { "Content-Type": "application/json" },
-            },
-        );
+        let projectId = "";
 
-        const { projectId } = await createProjectResponse.json();
+        try {
+            const createProjectResponse = await fetch(
+                "https://telemetry.refine.dev/projects",
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        email: emailPromptResult.userEmail,
+                    }),
+                    headers: { "Content-Type": "application/json" },
+                },
+            );
+
+            const createProjectResponseData =
+                await createProjectResponse.json();
+
+            projectId = createProjectResponseData.projectId;
+        } catch (_e) {
+            //
+        }
 
         sao.opts.outDir = sao.opts.outDir + "/" + appName;
 
