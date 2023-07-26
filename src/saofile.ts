@@ -169,31 +169,35 @@ const saoConfig: GeneratorConfig = {
             process.exit(1);
         }
 
-        const result: { userEmail: string } = await prompt({
+        const emailPromptResult: { userEmail: string } = await prompt({
             type: "input",
             name: "userEmail",
             message:
                 "Mind sharing your email? (We reach out to developers for free priority support, events, and SWAG kits. We never spam.)",
             required: false,
-            skip: () => {
-                return !sao.opts.extras.projectType.includes("refine");
-            },
+            skip: () => !sao.opts.extras.projectType.includes("refine"),
         });
 
         let projectId = "";
 
-        if (result.userEmail) {
-            const res = await fetch("https://telemetry.refine.dev/projects", {
-                method: "POST",
-                body: JSON.stringify({
-                    email: result.userEmail,
-                }),
-                headers: { "Content-Type": "application/json" },
-            });
+        try {
+            const createProjectResponse = await fetch(
+                "https://telemetry.refine.dev/projects",
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        email: emailPromptResult.userEmail,
+                    }),
+                    headers: { "Content-Type": "application/json" },
+                },
+            );
 
-            const data = await res.json();
+            const createProjectResponseData =
+                await createProjectResponse.json();
 
-            projectId = data.projectId;
+            projectId = createProjectResponseData.projectId;
+        } catch (_e) {
+            //
         }
 
         sao.opts.outDir = sao.opts.outDir + "/" + appName;
