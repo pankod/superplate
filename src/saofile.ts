@@ -356,7 +356,7 @@ const saoConfig: GeneratorConfig = {
 
         if (!sao.opts.extras.apiMode && !sao.opts.extras.disableTelemetry) {
             try {
-                await fetch("http://telemetry.refine.dev/superplate", {
+                await fetch("https://telemetry.refine.dev/superplate", {
                     method: "POST",
                     body: JSON.stringify({
                         event: "generate",
