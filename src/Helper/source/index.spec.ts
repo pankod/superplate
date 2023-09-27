@@ -39,12 +39,12 @@ describe("Source Helper", () => {
                     { title: "Refine Remix", value: "refine-remix" },
                 ],
                 expectedOutput: [
-                    { title: "React", value: "react" },
-                    { title: "Next.js", value: "nextjs" },
                     { title: "Refine Vite", value: "refine-vite" },
                     { title: "Refine Next.js", value: "refine-nextjs" },
                     { title: "Refine Remix", value: "refine-remix" },
                     { title: "Refine React", value: "refine-react" },
+                    { title: "React", value: "react" },
+                    { title: "Next.js", value: "nextjs" },
                 ],
             },
             {
@@ -57,12 +57,12 @@ describe("Source Helper", () => {
                     { title: "Refine Vite", value: "refine-vite" },
                 ],
                 expectedOutput: [
-                    { title: "React", value: "react" },
-                    { title: "Next.js", value: "nextjs" },
                     { title: "Refine Vite", value: "refine-vite" },
                     { title: "Refine Next.js", value: "refine-nextjs" },
                     { title: "Refine Remix", value: "refine-remix" },
                     { title: "Refine React", value: "refine-react" },
+                    { title: "React", value: "react" },
+                    { title: "Next.js", value: "nextjs" },
                 ],
             },
             {
