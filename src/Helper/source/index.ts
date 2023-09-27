@@ -108,12 +108,12 @@ export const sort_project_types = (
     projectTypes: { title: string; value: string }[],
 ): { title: string; value: string }[] => {
     const order: Record<string, number> = {
-        react: 1,
-        nextjs: 2,
-        "refine-vite": 3,
-        "refine-nextjs": 4,
-        "refine-remix": 5,
-        "refine-react": 6,
+        "refine-vite": 1,
+        "refine-nextjs": 2,
+        "refine-remix": 3,
+        "refine-react": 4,
+        react: 5,
+        nextjs: 6,
     };
 
     const newProjectTypes = [...projectTypes];
@@ -174,7 +174,7 @@ export const prompt_project_types = async (
                 ? filteredWithContains
                 : types
             )
-                .map((p) => HumanizeChoices.get(p.title))
+                .map((p) => HumanizeChoices.get(p.title, typeFromArgs))
                 .map((p) => ({
                     type: "select",
                     name: p.value,
