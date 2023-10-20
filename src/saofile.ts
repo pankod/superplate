@@ -175,7 +175,7 @@ const saoConfig: GeneratorConfig = {
             message:
                 "Mind sharing your email? (We reach out to developers for free priority support, events, and SWAG kits. We never spam.)",
             required: false,
-            skip: () => !sao.opts.extras.projectType.includes("refine"),
+            skip: () => !sao.opts.extras.projectType?.includes?.("refine"),
         });
 
         let projectId = "";
