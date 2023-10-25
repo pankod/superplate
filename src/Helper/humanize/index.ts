@@ -19,8 +19,7 @@ export const HumanizeChoices = {
             case "refine-vite":
                 return {
                     title: projectType === "refine" ? "Vite" : "refine (Vite)",
-                    description:
-                        "Creates a refine React Vite project (Recommended for CRUD applications).",
+                    description: "Creates a refine React Vite project.",
                     value: choice,
                 };
             case "refine-nextjs":
@@ -30,7 +29,7 @@ export const HumanizeChoices = {
                             ? "Next.js"
                             : "refine (Next.js)",
                     description:
-                        "Creates a refine Next.js project with SSR support (Recommended for CRUD applications).",
+                        "Creates a refine Next.js project with SSR support.",
                     value: choice,
                 };
             case "refine-remix":
@@ -38,7 +37,7 @@ export const HumanizeChoices = {
                     title:
                         projectType === "refine" ? "Remix" : "refine (Remix)",
                     description:
-                        "Creates a refine Remix project with SSR support (Recommended for CRUD applications)",
+                        "Creates a refine Remix project with SSR support",
                     value: choice,
                 };
             case "refine-react":
@@ -47,8 +46,7 @@ export const HumanizeChoices = {
                         projectType === "refine"
                             ? "CRA [Legacy]"
                             : "refine (CRA) [Legacy]",
-                    description:
-                        "Creates a basic refine project (Recommended for CRUD applications)",
+                    description: "Creates a basic refine project",
                     value: choice,
                 };
 
