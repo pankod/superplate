@@ -18,38 +18,22 @@ const postInstall: PostInstallFn = ({ name, dir, pm }) => {
     console.log(
         `${chalk.green.bold("Success!")} Created ${chalk.greenBright.bold(
             name,
-        )} at ${chalk.bold(dir)}`,
+        )} at ${chalk.bold(dir)} 🚀`,
     );
     console.log("");
-    console.log("You can run several commands:");
+
+    console.log("Start developing by:\n");
+    console.log(`${indent()}\u203a ${chalk.greenBright("cd")} ${dir}`);
+    console.log(
+        `${indent()}\u203a ${chalk.greenBright(
+            pm === "yarn" || pm === "pnpm" ? `${pm} dev` : "npm run dev",
+        )}`,
+    );
     console.log("");
 
     console.log(
-        `${indent()}${chalk.blueBright(
-            pm === "yarn" || pm === "pnpm" ? `${pm} dev` : "npm run dev",
-        )}`,
-    );
-    console.log(`${indent(2)}Starts the development server.`);
-    console.log("");
-    console.log(
-        `${indent()}${chalk.blueBright(
-            pm === "yarn" || pm === "pnpm" ? `${pm} build` : "npm run build",
-        )}`,
-    );
-    console.log(`${indent(2)}Bundles the app for production.`);
-    console.log("");
-    console.log(
-        `${indent()}${chalk.blueBright(
-            pm === "yarn" || pm === "pnpm" ? `${pm} start` : "npm run start",
-        )}`,
-    );
-    console.log(`${indent(2)}Starts the production server.`);
-    console.log("");
-    console.log("Start developing by typing:\n");
-    console.log(`${indent()}${chalk.blueBright("cd")} ${name}`);
-    console.log(
-        `${indent()}${chalk.blueBright(
-            pm === "yarn" || pm === "pnpm" ? `${pm} dev` : "npm run dev",
+        `${indent()}\u203a Join us at ${chalk.cyanBright(
+            "https://discord.gg/refine",
         )}`,
     );
     console.log("");
