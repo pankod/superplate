@@ -9,7 +9,6 @@ import {
     prompt_project_types,
 } from "@Helper";
 import chalk from "chalk";
-import clear from "clear";
 import commander from "commander";
 import path from "path";
 import { Options, SAO } from "sao";
@@ -22,7 +21,6 @@ const generator = path.resolve(__dirname, "./");
 track();
 //
 const cli = async (): Promise<void> => {
-    clear();
     const program = commander
         .name(packageData.name)
         .version(packageData.version)
