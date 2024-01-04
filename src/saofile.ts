@@ -188,7 +188,7 @@ const saoConfig: GeneratorConfig = {
                 {
                     method: "POST",
                     body: JSON.stringify({
-                        email: emailPromptResult.userEmail,
+                        email: emailPromptResult.userEmail || answers.userEmail,
                     }),
                     headers: { "Content-Type": "application/json" },
                 },
