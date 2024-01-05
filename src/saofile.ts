@@ -30,7 +30,7 @@ const saoConfig: GeneratorConfig = {
 
         const {
             appName,
-            extras: { paths, presetAnswers, projectType },
+            extras: { paths, presetAnswers },
         } = sao.opts;
 
         // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -175,7 +175,9 @@ const saoConfig: GeneratorConfig = {
             message:
                 "Mind sharing your email? (We reach out to developers for free priority support, events, and SWAG kits. We never spam.)",
             required: false,
-            skip: () => !sao.opts.extras.projectType?.includes?.("refine"),
+            skip: () =>
+                sao.opts.extras.apiMode ||
+                !sao.opts.extras.projectType?.includes?.("refine"),
         });
 
         let projectId = "";
@@ -186,7 +188,7 @@ const saoConfig: GeneratorConfig = {
                 {
                     method: "POST",
                     body: JSON.stringify({
-                        email: emailPromptResult.userEmail,
+                        email: emailPromptResult.userEmail || answers.userEmail,
                     }),
                     headers: { "Content-Type": "application/json" },
                 },
