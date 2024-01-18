@@ -15,6 +15,7 @@ import { formatFiles } from "@Helper/prettier";
 import chalk from "chalk";
 import { exec } from "child_process";
 import { prompt } from "enquirer";
+import fs from "fs";
 import fetch from "node-fetch";
 import path from "path";
 import { promisify } from "util";
@@ -382,7 +383,27 @@ const saoConfig: GeneratorConfig = {
         tips.preInstall();
     },
     async completed(saoInstance) {
-        const { debug, apiMode } = saoInstance.opts.extras;
+        const { debug, apiMode, projectType } = saoInstance.opts.extras;
+
+        /**
+         * Download Dockerfile
+         */
+        if (projectType.startsWith("refine")) {
+            const folder = projectType.split("-")[1];
+
+            fetch(
+                `https://raw.githubusercontent.com/refinedev/dockerfiles/main/dockerfiles/${folder}/Dockerfile`,
+            ).then((r) => {
+                r.blob().then((b) =>
+                    b.text().then((t) => {
+                        fs.writeFileSync(
+                            path.join(saoInstance.outDir, "Dockerfile"),
+                            t,
+                        );
+                    }),
+                );
+            });
+        }
 
         /**
          * Format generated project
