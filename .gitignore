@@ -2,3 +2,4 @@ node_modules/
 lib/
 .DS_*
 **/node_modules
+tmp
