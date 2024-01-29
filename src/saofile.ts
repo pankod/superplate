@@ -189,6 +189,14 @@ const saoConfig: GeneratorConfig = {
                     method: "POST",
                     body: JSON.stringify({
                         email: emailPromptResult.userEmail || answers.userEmail,
+                        answers: {
+                            ...answers,
+                            projectType: sao.opts.extras.projectType,
+                        },
+                        source:
+                            sao.opts.extras.apiMode === false
+                                ? "CREATE_REFINE_APP"
+                                : "REFINE_NEW",
                     }),
                     headers: { "Content-Type": "application/json" },
                 },
