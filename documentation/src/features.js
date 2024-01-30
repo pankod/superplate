@@ -76,7 +76,7 @@ export const features = [
     },
     {
         title: 'Recoil',
-        imageUrl: 'img/recoil.png',
+        imageUrl: 'img/recoil.svg',
         url: "https://recoiljs.org/"
     },
     {
