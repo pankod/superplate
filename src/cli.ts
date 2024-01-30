@@ -13,6 +13,7 @@ import commander from "commander";
 import path from "path";
 import { Options, SAO } from "sao";
 import { cleanupSync, track } from "temp";
+import validate from "validate-npm-package-name";
 import packageData from "../package.json";
 
 const generator = path.resolve(__dirname, "./");
@@ -178,9 +179,14 @@ const cli = async (): Promise<void> => {
         presetAnswers = get_random_answers(promptsAndChoices);
     }
 
+    const validProjectDir = !!projectDir && !validate(projectDir).errors;
+
     const withAnswers =
         presetAnswers && Object.keys(presetAnswers).length > 0
-            ? true
+            ? {
+                  ...presetAnswers,
+                  ...(validProjectDir ? { name: projectDir } : {}),
+              }
             : undefined;
 
     const sao = new SAO({
