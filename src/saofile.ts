@@ -3,6 +3,7 @@ import {
     extendBase,
     getPluginsArray,
     get_potential_package_managers,
+    GitHelper,
     handleIgnore,
     mergeBabel,
     mergeJSONFiles,
@@ -404,7 +405,10 @@ const saoConfig: GeneratorConfig = {
          * Git init and install packages
          */
         if (!debug) {
-            saoInstance.gitInit();
+            const canGitInit = await GitHelper.CanGitInit(saoInstance.outDir);
+            if (canGitInit) {
+                saoInstance.gitInit();
+            }
             await saoInstance.npmInstall({
                 npmClient: npmClient,
                 installArgs: ["--silent"],
