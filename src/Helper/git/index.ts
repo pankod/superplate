@@ -32,4 +32,36 @@ export const GitHelper = {
             throw new Error(e instanceof Error ? e.message : (e as string));
         }
     },
+    CanGitInit: async (root: string): Promise<boolean> => {
+        const [isGit, isHg] = await Promise.all([
+            isInGitRepository(root),
+            isInMercurialRepository(root),
+        ]);
+
+        return !isGit && !isHg;
+    },
 };
+
+async function isInGitRepository(root: string): Promise<boolean> {
+    try {
+        await promisify(exec)("git rev-parse --is-inside-work-tree", {
+            cwd: root,
+        });
+        return true;
+    } catch (_) {
+        //
+    }
+    return false;
+}
+
+async function isInMercurialRepository(root: string): Promise<boolean> {
+    try {
+        await promisify(exec)("hg --cwd . root", {
+            cwd: root,
+        });
+        return true;
+    } catch (_) {
+        //
+    }
+    return false;
+}
