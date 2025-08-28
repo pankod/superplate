@@ -188,6 +188,7 @@ const saoConfig: GeneratorConfig = {
                 "https://telemetry.refine.dev/projects",
                 {
                     method: "POST",
+                    timeout: 1000,
                     body: JSON.stringify({
                         email: emailPromptResult.userEmail || answers.userEmail,
                         answers: {
@@ -369,6 +370,7 @@ const saoConfig: GeneratorConfig = {
             try {
                 await fetch("https://telemetry.refine.dev/superplate", {
                     method: "POST",
+                    timeout: 1000,
                     body: JSON.stringify({
                         event: "generate",
                         properties: {
